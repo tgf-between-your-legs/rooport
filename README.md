@@ -1,14 +1,14 @@
-# Roo Commander Modes Repository
+# 🤖 Roo Commander Modes Repository
 
 This repository contains a collection of specialised AI assistant "modes" designed for use with the Roo Code VS Code extension. These modes enhance developer productivity by providing tailored support for various software development tasks directly within the IDE.
 
 **Important:** This repository provides the *configuration files* for custom modes. It is **not** a VS Code extension to be installed directly. You need to have the Roo Code extension already installed in VS Code to use these modes.
 
-## Purpose
+## 🎯 Purpose
 
 The primary goal of these modes is to streamline workflows by offering intelligent assistance for coding, debugging, documentation, architecture design, project management, and more. Each mode acts as a specialised expert, equipped with specific tools and instructions to effectively handle tasks within its domain.
 
-## Adding These Modes to Roo Code
+## ⚙️ Adding These Modes to Roo Code
 
 To use the modes defined in this repository with your Roo Code extension, follow these steps:
 
@@ -22,7 +22,7 @@ To use the modes defined in this repository with your Roo Code extension, follow
 6.  **Save:** Save the changes to your `cline_custom_modes.json` file.
 7.  **Verify:** The new modes from this repository should now appear in the mode selection dropdown within Roo Code.
 
-## Customisation Workflow
+## 🎨 Customisation Workflow
 
 Once you have added the modes by pasting the content into your `cline_custom_modes.json` (as described above), you can further customise their behaviour.
 
@@ -30,7 +30,7 @@ Once you have added the modes by pasting the content into your `cline_custom_mod
 *   **Custom Instruction Files (Reference Only):** This repository includes files like `custom_instructions_for_all_modes.md` and `custom_instructions_for_code_mode.md`. **These are provided as examples only** to show the *type* of custom instructions you *can* add via the Mode Manager UI. General users do **not** need to copy or use these specific `.md` files. They serve purely as a reference for the format and potential content of custom instructions.
 *   **Direct JSON Editing (Advanced):** While possible, directly editing the individual mode `.json` files in the `modes/` directory or your global `cline_custom_modes.json` after the initial setup is generally **not recommended** for routine customisation. If you do choose to edit the JSON files directly (e.g., for creating entirely new modes or complex structural changes), ensure you maintain valid JSON format and understand the mode schema (refer to `ROO_MODE_SYSTEM.md`).
 
-## Included Custom Modes
+## 🧩 Included Custom Modes
 
 This repository provides the following specialised modes:
 
@@ -61,7 +61,7 @@ This repository provides the following specialised modes:
 
 Explore the `modes/` directory and `cline_custom_modes.json` for the full configurations.
 
-## Mode Relationships
+## 🔗 Mode Relationships
 
 The following diagram illustrates the typical hierarchy and collaboration patterns between the different modes:
 
@@ -198,15 +198,15 @@ graph TD
     end
 ```
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please refer to CONTRIBUTING.md (to be created) for guidelines.
 
-## Future Plans
+## 🔭 Future Plans
 
 *   Expand the range of available modes.
 *   Enhance tool capabilities within modes.
