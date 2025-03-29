@@ -167,6 +167,37 @@ graph TD
     class MCPPy,MCPTs tools;
 ```
 
+### Simplified Hierarchy
+
+This diagram shows the primary delegation flow from management to specialist roles:
+
+```mermaid
+graph TD
+    RCE(Roo Chief Executive) --> PM(Project Manager)
+    RCE --> TA(Technical Architect)
+    RCE --> DevOps(DevOps Manager)
+
+    subgraph "Project Management"
+        PM --> GitMan(Git Manager)
+        PM --> TechWriter(Technical Writer)
+    end
+
+    subgraph "Technical Design & Implementation"
+        TA --> FD(Frontend Developer)
+        TA --> APIDev(API Developer)
+        TA --> UID(UI Designer)
+        TA --> DBSpec(Database Specialist)
+        TA --> ReactSpec(React Specialist)
+        TA --> FirebaseSpec(Firebase Specialist)
+    end
+
+    subgraph "Operations & Deployment"
+        DevOps --> CICD(CI/CD Specialist)
+        DevOps --> Infra(Infrastructure Specialist)
+        DevOps --> SecSpec(Security Specialist)
+    end
+```
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
