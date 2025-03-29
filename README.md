@@ -30,20 +30,142 @@ Once you have added the modes by pasting the content into your `cline_custom_mod
 *   **Custom Instruction Files (Reference Only):** This repository includes files like `custom_instructions_for_all_modes.md` and `custom_instructions_for_code_mode.md`. **These are provided as examples only** to show the *type* of custom instructions you *can* add via the Mode Manager UI. General users do **not** need to copy or use these specific `.md` files. They serve purely as a reference for the format and potential content of custom instructions.
 *   **Direct JSON Editing (Advanced):** While possible, directly editing the individual mode `.json` files in the `modes/` directory or your global `cline_custom_modes.json` after the initial setup is generally **not recommended** for routine customisation. If you do choose to edit the JSON files directly (e.g., for creating entirely new modes or complex structural changes), ensure you maintain valid JSON format and understand the mode schema (refer to `ROO_MODE_SYSTEM.md`).
 
-## Available Modes (Examples)
+## Included Custom Modes
 
-This repository includes modes such as:
+This repository provides the following specialised modes:
 
-*   `code`: General software engineering tasks.
-*   `architect`: System design and planning.
-*   `ask`: Answering technical questions.
-*   `debug`: Diagnosing and fixing issues.
-*   `technical-writer`: Creating documentation.
-*   `git-manager`: Handling Git operations.
-*   `frontend-developer`: UI and client-side logic.
-*   `api-developer`: Designing and building APIs.
+*   **Accessibility Specialist:** Ensures applications are usable by people of all abilities. Reviews for compliance, implements features, and tests with assistive technologies.
+*   **API Developer:** Designs and implements robust, secure, and performant APIs. Defines contracts, implements endpoints, and ensures system integration.
+*   **Bug Fixer:** Identifies, diagnoses, and resolves software bugs. Investigates issues, reproduces problems, implements fixes, and creates regression tests.
+*   **CI/CD Specialist:** Sets up and maintains continuous integration and deployment pipelines. Automates build, test, and deployment processes.
+*   **Code Reviewer:** Reviews code for quality, adherence to standards, potential bugs, and security issues. Provides constructive feedback.
+*   **Database Specialist:** Designs, implements, and optimizes database structures. Creates efficient data models and queries, ensuring data integrity.
+*   **DevOps Manager:** Responsible for overall CI/CD, infrastructure, and operational concerns. Ensures smooth delivery pipelines and reliable workflows.
+*   **Firebase Specialist:** Provides deep expertise in Firebase services (Auth, Firestore, Functions, etc.), offering implementation guidance and best practices.
+*   **Frontend Developer:** Implements user interfaces and client-side functionality. Builds responsive components and handles frontend logic.
+*   **Git Manager:** Manages source control operations (commits, branches, merges) and ensures repository health.
+*   **Infrastructure Specialist:** Designs, implements, and manages cloud or on-premises infrastructure, ensuring reliability, scalability, and security.
+*   **Integration Tester:** Tests interactions between different software components and systems to verify system behaviour.
+*   **Material UI Specialist:** Provides expertise in the Material UI component library for React, focusing on implementation, customisation, and theming.
+*   **MCP Server Creator (Python):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the Python SDK.
+*   **MCP Server Creator (TypeScript):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the TypeScript SDK.
+*   **Performance Optimizer:** Identifies and resolves performance bottlenecks in applications through profiling, analysis, and optimization.
+*   **Project Manager:** Organizes, tracks, and coordinates software development projects. Breaks down objectives into tasks and assigns them.
+*   **React Specialist:** Provides deep expertise in React.js, guiding implementation, state management, performance optimization, and best practices.
+*   **Roo Chief Executive:** Highest-level coordinator for projects, overseeing the entire process and delegating to management roles.
+*   **Security Specialist:** Ensures application and infrastructure security by identifying vulnerabilities, implementing controls, and performing reviews.
+*   **Tailwind CSS Specialist:** Provides expertise in the Tailwind CSS utility framework, guiding implementation, customisation, and responsive design.
+*   **Technical Architect:** Designs the overall system architecture, makes key technical decisions, and ensures technical coherence across the project.
+*   **Technical Writer:** Creates clear, comprehensive documentation (user guides, API docs, technical specifications).
+*   **UI Designer:** Creates user interfaces, designing mockups, wireframes, component styles, and user flows.
 
-Explore the `modes/` directory and `cline_custom_modes.json` for the full list and their configurations.
+Explore the `modes/` directory and `cline_custom_modes.json` for the full configurations.
+
+## Mode Relationships
+
+The following diagram illustrates the typical hierarchy and collaboration patterns between the different modes:
+
+```mermaid
+graph TD
+    subgraph "Management & Coordination"
+        RCE(Roo Chief Executive)
+        PM(Project Manager)
+        TA(Technical Architect)
+        DevOps(DevOps Manager)
+    end
+
+    subgraph "Development & Implementation"
+        FD(Frontend Developer)
+        APIDev(API Developer)
+        DBSpec(Database Specialist)
+        ReactSpec(React Specialist)
+        MUISpec(Material UI Specialist)
+        TailwindSpec(Tailwind CSS Specialist)
+        FirebaseSpec(Firebase Specialist)
+    end
+
+    subgraph "Quality & Operations"
+        BugFix(Bug Fixer)
+        CodeRev(Code Reviewer)
+        IntTest(Integration Tester)
+        PerfOpt(Performance Optimizer)
+        SecSpec(Security Specialist)
+        AccSpec(Accessibility Specialist)
+        CICD(CI/CD Specialist)
+        Infra(Infrastructure Specialist)
+        GitMan(Git Manager)
+    end
+
+    subgraph "Design & Documentation"
+        UID(UI Designer)
+        TechWriter(Technical Writer)
+    end
+
+    subgraph "Specialised Tools"
+        MCPPy(MCP Server Creator - Python)
+        MCPTs(MCP Server Creator - TypeScript)
+    end
+
+    %% High-Level Delegation
+    RCE --> PM
+    RCE --> TA
+    RCE --> DevOps
+
+    %% Management Delegation & Collaboration
+    PM ---> GitMan
+    PM ---> TechWriter
+    TA ---> FD
+    TA ---> APIDev
+    TA ---> DBSpec
+    TA ---> ReactSpec
+    TA ---> MUISpec
+    TA ---> TailwindSpec
+    TA ---> FirebaseSpec
+    TA ---> UID
+    DevOps ---> CICD
+    DevOps ---> Infra
+    DevOps ---> SecSpec
+
+    %% Specialist Collaboration
+    FD --- UID
+    FD --- ReactSpec
+    FD --- MUISpec
+    FD --- TailwindSpec
+    FD --- AccSpec
+    APIDev --- DBSpec
+    APIDev --- SecSpec
+    APIDev --- FirebaseSpec
+    ReactSpec --- MUISpec
+    ReactSpec --- TailwindSpec
+
+    %% General Support Roles (Collaborate broadly)
+    BugFix -.-> FD
+    BugFix -.-> APIDev
+    CodeRev -.-> FD
+    CodeRev -.-> APIDev
+    IntTest -.-> APIDev
+    IntTest -.-> FD
+    PerfOpt -.-> FD
+    PerfOpt -.-> APIDev
+    PerfOpt -.-> Infra
+
+    %% Tool Creators (Used as needed)
+    MCPPy
+    MCPTs
+
+    %% Styling
+    classDef management fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef development fill:#ccf,stroke:#333,stroke-width:2px;
+    classDef quality fill:#cfc,stroke:#333,stroke-width:2px;
+    classDef design fill:#ffc,stroke:#333,stroke-width:2px;
+    classDef tools fill:#eee,stroke:#333,stroke-width:2px;
+
+    class RCE,PM,TA,DevOps management;
+    class FD,APIDev,DBSpec,ReactSpec,MUISpec,TailwindSpec,FirebaseSpec development;
+    class BugFix,CodeRev,IntTest,PerfOpt,SecSpec,AccSpec,CICD,Infra,GitMan quality;
+    class UID,TechWriter design;
+    class MCPPy,MCPTs tools;
+```
 
 ## License
 
