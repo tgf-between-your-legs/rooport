@@ -14,7 +14,7 @@ To use the modes defined in this repository with your Roo Code extension, follow
 
 1.  **Copy Mode Configuration:** Open the `cline_custom_modes.json` file located in this repository. Select and copy its entire JSON content.
 2.  **Open Roo Code Panel:** In VS Code, open the Roo Code panel (usually found in the sidebar).
-3.  **Access Prompts View:** Click the 'Prompts' icon within the Roo Code panel (it looks like a book or page icon).
+3.  **Access Prompts View:** Click the 'Prompts' icon within the Roo Code panel (it looks like a book or page icon). This opens the Roo Code Mode Manager UI.
 4.  **Edit Global Modes:** In the 'Prompts' view that appears, locate the 'Modes' section and click the 'Edit Global Modes' icon (it looks like curly braces `{}`).
 5.  **Paste Configuration:** This action will open your personal `cline_custom_modes.json` configuration file in the VS Code editor. Paste the JSON content you copied in Step 1 into this file.
     *   If your file was empty, you can simply paste the content.
@@ -22,14 +22,13 @@ To use the modes defined in this repository with your Roo Code extension, follow
 6.  **Save:** Save the changes to your `cline_custom_modes.json` file.
 7.  **Verify:** The new modes from this repository should now appear in the mode selection dropdown within Roo Code.
 
-## Customisation
+## Customisation Workflow
 
-You can further customise the behaviour of these modes:
+Once you have added the modes by pasting the content into your `cline_custom_modes.json` (as described above), you can further customise their behaviour.
 
-*   **Custom Instructions:** Modify the behaviour of all modes or specific modes by editing the `custom_instructions_*.md` files (e.g., `custom_instructions_for_all_modes.md`, `custom_instructions_for_code_mode.md`). These files allow you to provide global or mode-specific guidelines, preferences, and constraints. *Note: Custom instructions are typically managed within the Roo Code extension settings, but the files here serve as a reference or starting point.*
-*   **Modes:** The `modes/` directory contains the individual JSON configuration files for each mode included in `cline_custom_modes.json`. You can:
-    *   Modify existing modes by editing their respective `.json` files (remember to update `cline_custom_modes.json` accordingly if you change fundamental properties like the `slug`).
-    *   Create new modes by adding new `.json` files following the established schema and including them in the `cline_custom_modes.json` array. (Refer to `ROO_MODE_SYSTEM.md` for details on mode creation).
+*   **Modifying Modes (Recommended Method):** For ongoing customisation, such as tweaking instructions, changing roles, or adjusting mode parameters, use the **Roo Code Mode Manager UI** (accessed via the 'Prompts' icon). This interface provides a user-friendly way to manage your modes without directly editing the JSON file again after the initial setup.
+*   **Custom Instruction Files (Reference Only):** This repository includes files like `custom_instructions_for_all_modes.md` and `custom_instructions_for_code_mode.md`. **These are provided as examples only** to show the *type* of custom instructions you *can* add via the Mode Manager UI. General users do **not** need to copy or use these specific `.md` files. They serve purely as a reference for the format and potential content of custom instructions.
+*   **Direct JSON Editing (Advanced):** While possible, directly editing the individual mode `.json` files in the `modes/` directory or your global `cline_custom_modes.json` after the initial setup is generally **not recommended** for routine customisation. If you do choose to edit the JSON files directly (e.g., for creating entirely new modes or complex structural changes), ensure you maintain valid JSON format and understand the mode schema (refer to `ROO_MODE_SYSTEM.md`).
 
 ## Available Modes (Examples)
 
