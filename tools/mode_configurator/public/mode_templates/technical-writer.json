@@ -11,7 +11,8 @@
         "fileRegex": "\\.(md|txt|rst|adoc)$|README|CHANGELOG|docs/",
         "description": "Documentation files"
       }
-    ]
+    ],
+    "mcp"
   ],
   "source": "custom"
 }

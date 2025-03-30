@@ -12,7 +12,8 @@
         "description": "Tailwind CSS files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

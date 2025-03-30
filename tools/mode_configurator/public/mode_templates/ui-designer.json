@@ -11,7 +11,8 @@
         "fileRegex": "\\.(css|scss|html|svg|md)$",
         "description": "Design-related files"
       }
-    ]
+    ],
+    "mcp"
   ],
   "source": "custom"
 }

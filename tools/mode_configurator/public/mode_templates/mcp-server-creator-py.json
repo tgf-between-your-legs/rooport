@@ -12,7 +12,8 @@
         "description": "Python MCP server files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

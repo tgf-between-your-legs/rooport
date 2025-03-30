@@ -11,7 +11,8 @@
         "fileRegex": "^project_journal\\/.*\\.md$",
         "description": "Project planning and documentation files"
       }
-    ]
+    ],
+    "mcp"
   ],
   "source": "custom"
 }

@@ -12,7 +12,8 @@
         "description": "Backend code files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

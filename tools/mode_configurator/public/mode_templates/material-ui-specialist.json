@@ -12,7 +12,8 @@
         "description": "Frontend code files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

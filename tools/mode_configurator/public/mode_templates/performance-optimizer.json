@@ -6,7 +6,8 @@
   "groups": [
     "read",
     "edit",
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

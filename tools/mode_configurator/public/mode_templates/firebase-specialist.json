@@ -12,7 +12,8 @@
         "description": "Firebase implementation files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

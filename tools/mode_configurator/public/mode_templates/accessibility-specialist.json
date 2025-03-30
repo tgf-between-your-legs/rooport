@@ -12,7 +12,8 @@
         "description": "Frontend files for accessibility improvements"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

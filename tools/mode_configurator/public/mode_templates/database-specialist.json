@@ -12,7 +12,8 @@
         "description": "Database related files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

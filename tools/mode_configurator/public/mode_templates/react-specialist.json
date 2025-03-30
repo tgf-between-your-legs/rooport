@@ -12,7 +12,8 @@
         "description": "React component files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

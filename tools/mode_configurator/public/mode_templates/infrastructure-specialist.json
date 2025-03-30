@@ -12,7 +12,8 @@
         "description": "Infrastructure configuration files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

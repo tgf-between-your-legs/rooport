@@ -12,7 +12,8 @@
         "description": "Integration test files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

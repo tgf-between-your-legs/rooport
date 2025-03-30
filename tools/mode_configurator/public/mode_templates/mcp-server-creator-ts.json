@@ -12,7 +12,8 @@
         "description": "TypeScript MCP server files"
       }
     ],
-    "command"
+    "command",
+    "mcp"
   ],
   "source": "custom"
 }

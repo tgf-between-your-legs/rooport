@@ -12,6 +12,7 @@
         "fileRegex": "\\.(js|ts|jsx|tsx|py|java|cs|php|rb|go|css|scss|less)$",
         "description": "Source code and style files"
       }
-    ]
+    ],
+    "mcp"
   ]
 }
