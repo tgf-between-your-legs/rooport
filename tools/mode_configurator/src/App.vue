@@ -127,6 +127,9 @@ async function copyToClipboard() {
       Welcome to the Roo Commander Mode Configurator! This tool allows you to select which predefined 'modes' (specialised AI roles) you want to include in your Roo Commander setup.
       Choose the modes relevant to your workflow, and the tool will generate the necessary JSON configuration array below. You can then copy this JSON and use it to customise your Roo Commander experience.
     </p>
+    <p>
+      For detailed explanations of each mode and how they work together, please refer to the main <a href="https://github.com/jezweb/roo-commander/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a> file in the repository.
+    </p>
 
     <div class="controls">
       <button @click="selectAll">Select All</button>
