@@ -11,6 +11,7 @@ The primary goal of these modes is to streamline workflows by offering intellige
 ## 🛠️ Mode Configurator Tool
 
 This repository includes a web-based tool to help you select and generate the JSON configuration for the modes you want to use.
+You can access the live tool here: [https://jezweb.github.io/roo-commander/](https://jezweb.github.io/roo-commander/)
 
 **How to Use:**
 
