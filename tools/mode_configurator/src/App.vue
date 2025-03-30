@@ -14,7 +14,7 @@ async function fetchModes() {
   error.value = null;
   try {
     // Fetch manifest from the public directory (served at root)
-    const manifestResponse = await fetch('/mode_templates/manifest.json'); // Path relative to server root
+    const manifestResponse = await fetch('/roo-commander/mode_templates/manifest.json'); // Path relative to server root
     if (!manifestResponse.ok) {
       throw new Error(`HTTP error fetching manifest! status: ${manifestResponse.status}`);
     }
@@ -23,7 +23,7 @@ async function fetchModes() {
     // Fetch individual mode files from the public directory
     const modePromises = modeFiles.map(async (filename) => {
       try {
-        const modeResponse = await fetch(`/mode_templates/${filename}`); // Path relative to server root
+        const modeResponse = await fetch(`/roo-commander/mode_templates/${filename}`); // Path relative to server root
         if (!modeResponse.ok) {
           console.error(`Failed to fetch ${filename}: ${modeResponse.status}`);
           return null; // Skip this mode
