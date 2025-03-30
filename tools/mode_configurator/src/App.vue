@@ -80,13 +80,41 @@ const groupedModes = computed(() => {
   return categories;
 });
 
-// Generate JSON output based on selected slugs
+// Generate JSON output based on selected slugs, ensuring customInstructions is a string
 const outputJson = computed(() => {
+  // Filter selected modes first
   const selectedModesData = allModes.value.filter(mode => selectedModeSlugs.value.includes(mode.slug));
-  // Sort final output array by slug for consistency
-  selectedModesData.sort((a, b) => a.slug.localeCompare(b.slug));
-  return JSON.stringify({ customModes: selectedModesData }, null, 2); // Pretty print
+
+  // Process customInstructions for each selected mode
+  const processedModesData = selectedModesData.map(modeData => {
+    // Create a shallow copy to avoid modifying the original allModes data
+    const processedMode = { ...modeData };
+
+    if (Array.isArray(processedMode.customInstructions)) {
+      // Transform array of instruction objects into a single Markdown string
+      processedMode.customInstructions = processedMode.customInstructions
+        .map(instruction => {
+          const titlePart = instruction.title ? `## ${instruction.title}\n\n` : '';
+          const contentPart = instruction.content || ''; // Handle potentially missing content
+          return `${titlePart}${contentPart}\n\n---\n\n`;
+        })
+        .join(''); // Concatenate all instruction strings
+    } else if (typeof processedMode.customInstructions !== 'string') {
+      // If it's neither an array nor a string (e.g., null, undefined, object), default to an empty string
+      processedMode.customInstructions = '';
+    }
+    // If it's already a string, it remains unchanged
+
+    return processedMode;
+  });
+
+  // Sort the processed array by slug for consistency before final output
+  processedModesData.sort((a, b) => a.slug.localeCompare(b.slug));
+
+  // Wrap in the final structure and stringify
+  return JSON.stringify({ customModes: processedModesData }, null, 2); // Pretty print
 });
+
 
 // --- Methods ---
 
