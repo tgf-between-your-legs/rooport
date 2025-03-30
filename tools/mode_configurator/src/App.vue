@@ -85,7 +85,7 @@ const outputJson = computed(() => {
   const selectedModesData = allModes.value.filter(mode => selectedModeSlugs.value.includes(mode.slug));
   // Sort final output array by slug for consistency
   selectedModesData.sort((a, b) => a.slug.localeCompare(b.slug));
-  return JSON.stringify(selectedModesData, null, 2); // Pretty print
+  return JSON.stringify({ customModes: selectedModesData }, null, 2); // Pretty print
 });
 
 // --- Methods ---
