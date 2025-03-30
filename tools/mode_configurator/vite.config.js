@@ -5,6 +5,6 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   // Define the base path for deployment (e.g., GitHub Pages)
-  // Assumes the repo name is 'roo-commander' and this tool is in 'tools/mode_configurator/'
-  base: '/roo-commander/tools/mode_configurator/',
+  // Assumes the site is served from the repo name root
+  base: '/roo-commander/',
 })
