@@ -81,6 +81,19 @@ This repository provides the following specialised modes (you can select which o
 
 Explore the `tools/mode_configurator/public/mode_templates/` directory for the individual mode JSON files.
 
+## 🧠 Recommended Models for Modes
+
+While Roo Code modes can work with various LLMs, certain models may perform better for specific tasks based on their training and strengths. Based on testing, here are some recommendations:
+
+*   **Second Opinion mode:** DeepSeek v3
+*   **UI Designer mode:** Claude Sonnet 3.7
+*   **Tailwind CSS Specialist mode:** Claude Sonnet 3.7
+*   **Frontend Developer mode:** Claude Sonnet 3.7
+*   **Complex Problem Solver mode:** Claude Sonnet 3.7 (with thinking enabled)
+
+These are just suggestions, and the optimal model can vary depending on the specific task complexity and your personal preferences. Feel free to experiment with different models available through Roo Code to find what works best for you.
+
+
 ## 🔗 Mode Relationships
 
 The following diagram illustrates the typical hierarchy and collaboration patterns between the different modes:
