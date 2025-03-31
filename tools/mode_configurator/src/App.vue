@@ -1,47 +1,78 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 
-// Reactive state
-const allModes = ref([]); // Holds the data for all fetched modes
+// --- Constants ---
+const CATEGORIES_DEFINITION = {
+  "Management & Coordination": [
+    "roo-commander", "project-manager", "technical-architect", "devops-manager"
+  ],
+  "Core Development & Design": [
+    "frontend-developer", "api-developer", "database-specialist", "ui-designer"
+  ],
+  "Specialized Development": [
+    "react-specialist", "material-ui-specialist", "tailwind-specialist", "php-laravel-developer", "firebase-specialist", "supabase-developer"
+  ],
+  "AI Development": [
+    "agentic-ai-developer", "rag-database-developer", "openai-api-developer", "google-gemini-api-developer", "vertex-ai-developer"
+  ],
+  "DevOps & Infrastructure": [
+    "cicd-specialist", "infrastructure-specialist", "containerization-developer"
+  ],
+  "Quality, Testing & Refinement": [
+    "bug-fixer", "code-reviewer", "integration-tester", "performance-optimizer", "refactor-specialist", "accessibility-specialist", "security-specialist"
+  ],
+  "Utility & Support": [
+    "discovery-agent", "project-initializer", "git-manager", "complex-problem-solver", "research-context-builder", "second-opinion", "technical-writer", "mcp-installer", "mcp-server-creator-py", "mcp-server-creator-ts"
+  ]
+};
+
+// --- Reactive State ---
+const allModes = ref([]); // Holds the data for all fetched modes (keyed by slug)
+const manifestOrder = ref([]); // Holds the order from manifest.json
 const selectedModeSlugs = ref([]); // Holds the slugs of selected modes
 const isLoading = ref(true);
 const error = ref(null);
 const copyButtonText = ref('Copy to Clipboard');
+const groupSelectionState = ref({}); // Tracks state for group checkboxes { categoryName: 'checked' | 'unchecked' | 'indeterminate' }
 
 // --- Data Fetching ---
 async function fetchModes() {
   isLoading.value = true;
   error.value = null;
   try {
-    // Fetch manifest from the public directory (served at root)
-    const manifestResponse = await fetch('/roo-commander/mode_templates/manifest.json'); // Path relative to server root
+    // Fetch manifest first to get the order and filenames
+    const manifestResponse = await fetch('/roo-commander/mode_templates/manifest.json');
     if (!manifestResponse.ok) {
       throw new Error(`HTTP error fetching manifest! status: ${manifestResponse.status}`);
     }
-    const modeFiles = await manifestResponse.json();
+    const modeFilenames = await manifestResponse.json();
+    manifestOrder.value = modeFilenames.map(f => f.replace('.json', '')); // Store slugs in order
 
-    // Fetch individual mode files from the public directory
-    const modePromises = modeFiles.map(async (filename) => {
+    // Fetch individual mode files
+    const modePromises = modeFilenames.map(async (filename) => {
       try {
-        const modeResponse = await fetch(`/roo-commander/mode_templates/${filename}`); // Path relative to server root
+        const modeResponse = await fetch(`/roo-commander/mode_templates/${filename}`);
         if (!modeResponse.ok) {
           console.error(`Failed to fetch ${filename}: ${modeResponse.status}`);
-          return null; // Skip this mode
+          return null;
         }
         return await modeResponse.json();
       } catch (fetchError) {
         console.error(`Error fetching or parsing ${filename}:`, fetchError);
-        return null; // Skip on error
+        return null;
       }
     });
 
-    // Wait for all fetches and filter out any nulls (failed fetches)
-    const modesData = (await Promise.all(modePromises)).filter(mode => mode !== null);
+    const modesDataArray = (await Promise.all(modePromises)).filter(mode => mode !== null);
 
-    // Sort modes alphabetically by name for consistent display
-    modesData.sort((a, b) => a.name.localeCompare(b.name));
-
-    allModes.value = modesData;
+    // Convert array to object keyed by slug for easier lookup
+    const modesMap = {};
+    modesDataArray.forEach(mode => {
+      if (mode && mode.slug) {
+        modesMap[mode.slug] = mode;
+      }
+    });
+    allModes.value = modesMap;
 
   } catch (err) {
     console.error('Error loading modes:', err);
@@ -56,49 +87,39 @@ onMounted(fetchModes);
 
 // --- Computed Properties ---
 
-// Group modes for display
+// Group modes based on CATEGORIES_DEFINITION and manifestOrder
 const groupedModes = computed(() => {
-  const categories = {
-    management: [],
-    specialist: [],
-    other: []
-  };
-  allModes.value.forEach(mode => {
-    // Basic categorization logic (can be refined)
-    if (mode.slug?.includes('manager') || mode.slug?.includes('architect') || mode.slug?.includes('executive')) {
-        categories.management.push(mode);
-    } else if (mode.slug?.includes('specialist') || mode.slug?.includes('developer') || mode.slug?.includes('tester') || mode.slug?.includes('reviewer') || mode.slug?.includes('fixer') || mode.slug?.includes('writer') || mode.slug?.includes('designer') || mode.slug?.includes('creator') || mode.slug?.includes('installer')) {
-         categories.specialist.push(mode);
-    } else {
-        categories.other.push(mode);
-    }
-  });
-   // Ensure categories are sorted internally by name
-   for (const category in categories) {
-       categories[category].sort((a, b) => a.name.localeCompare(b.name));
-   }
-  return categories;
+  const groups = {};
+  if (isLoading.value || error.value) return groups; // Return empty if still loading or error
+
+  for (const categoryName in CATEGORIES_DEFINITION) {
+    groups[categoryName] = [];
+    const slugsInCategory = CATEGORIES_DEFINITION[categoryName];
+
+    // Add modes to the group based on manifest order
+    manifestOrder.value.forEach(slug => {
+      if (slugsInCategory.includes(slug) && allModes.value[slug]) {
+        groups[categoryName].push(allModes.value[slug]);
+      }
+    });
+  }
+  return groups;
 });
 
-// Generate JSON output based on selected slugs
+// Generate JSON output based on selected slugs, maintaining manifest order
 const outputJson = computed(() => {
-  // Filter selected modes based on selected slugs
-  const selectedModesData = allModes.value.filter(mode =>
-    selectedModeSlugs.value.includes(mode.slug)
-  );
+  const selectedModesData = manifestOrder.value
+    .filter(slug => selectedModeSlugs.value.includes(slug))
+    .map(slug => allModes.value[slug])
+    .filter(mode => mode !== undefined); // Filter out any potential undefined modes
 
-  // Sort the selected modes by slug for consistency
-  selectedModesData.sort((a, b) => a.slug.localeCompare(b.slug));
-
-  // Wrap the sorted array in the final structure and stringify
   return JSON.stringify({ customModes: selectedModesData }, null, 2); // Pretty print
 });
-
 
 // --- Methods ---
 
 function selectAll() {
-  selectedModeSlugs.value = allModes.value.map(mode => mode.slug);
+  selectedModeSlugs.value = manifestOrder.value.filter(slug => allModes.value[slug]); // Select all available modes
 }
 
 function deselectAll() {
@@ -117,6 +138,47 @@ async function copyToClipboard() {
     alert('Failed to copy JSON. Please copy manually.');
   }
 }
+
+// Toggle selection for an entire group
+function toggleGroupSelection(categoryName, modesInCategory) {
+    const categorySlugs = modesInCategory.map(mode => mode.slug);
+    const allSelectedInGroup = categorySlugs.every(slug => selectedModeSlugs.value.includes(slug));
+
+    if (allSelectedInGroup) {
+        // Deselect all in group
+        selectedModeSlugs.value = selectedModeSlugs.value.filter(slug => !categorySlugs.includes(slug));
+    } else {
+        // Select all in group (add missing ones)
+        categorySlugs.forEach(slug => {
+            if (!selectedModeSlugs.value.includes(slug)) {
+                selectedModeSlugs.value.push(slug);
+            }
+        });
+    }
+}
+
+// --- Watchers ---
+
+// Watch for changes in individual selections to update group checkbox states
+watch([selectedModeSlugs, groupedModes], () => {
+    const newGroupState = {};
+    for (const categoryName in groupedModes.value) {
+        const modesInCategory = groupedModes.value[categoryName];
+        if (modesInCategory.length === 0) continue; // Skip empty categories
+
+        const categorySlugs = modesInCategory.map(mode => mode.slug);
+        const selectedCount = categorySlugs.filter(slug => selectedModeSlugs.value.includes(slug)).length;
+
+        if (selectedCount === 0) {
+            newGroupState[categoryName] = 'unchecked';
+        } else if (selectedCount === categorySlugs.length) {
+            newGroupState[categoryName] = 'checked';
+        } else {
+            newGroupState[categoryName] = 'indeterminate';
+        }
+    }
+    groupSelectionState.value = newGroupState;
+}, { deep: true, immediate: true }); // Use deep watch and run immediately
 
 </script>
 
@@ -141,11 +203,24 @@ async function copyToClipboard() {
       <div v-if="error" class="error-message">{{ error }}</div>
       <div v-if="!isLoading && !error">
         <div v-for="(modesInCategory, categoryName) in groupedModes" :key="categoryName" class="category">
-          <h2 v-if="modesInCategory.length > 0">{{ categoryName.charAt(0).toUpperCase() + categoryName.slice(1) }}</h2>
-          <label v-for="mode in modesInCategory" :key="mode.slug">
-            <input type="checkbox" :value="mode.slug" v-model="selectedModeSlugs">
-            {{ mode.name }} ({{ mode.slug }})
-          </label>
+          <div v-if="modesInCategory.length > 0" class="category-header">
+             <input
+                type="checkbox"
+                :id="'group-' + categoryName.replace(/\s+/g, '-')"
+                :checked="groupSelectionState[categoryName] === 'checked'"
+                :indeterminate="groupSelectionState[categoryName] === 'indeterminate'"
+                @change="toggleGroupSelection(categoryName, modesInCategory)"
+                class="group-checkbox"
+              />
+             <label :for="'group-' + categoryName.replace(/\s+/g, '-')" class="category-title">{{ categoryName }}</label>
+          </div>
+          <div class="mode-list">
+            <label v-for="mode in modesInCategory" :key="mode.slug" class="mode-label">
+              <input type="checkbox" :value="mode.slug" v-model="selectedModeSlugs">
+              {{ mode.name }} ({{ mode.slug }})
+              <span v-if="mode.description" class="mode-description"> - {{ mode.description }}</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -231,15 +306,15 @@ button:active {
   padding: 20px;
   margin-bottom: 25px;
   min-height: 150px; /* Increased min-height */
-  max-height: 500px; /* Increased max-height */
+  max-height: 60vh; /* Use viewport height */
   overflow-y: auto;
   background-color: #fff; /* Ensure white background */
   border-radius: 4px; /* Match button radius */
 }
 
 .category {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
+  margin-bottom: 15px; /* Reduced margin */
+  padding-bottom: 10px; /* Reduced padding */
   border-bottom: 1px solid #e9ecef; /* Lighter separator */
   text-align: left; /* Explicitly left-align content within category */
 }
@@ -247,29 +322,50 @@ button:active {
     border-bottom: none;
 }
 
-.category h2 {
-  font-size: 1.2em; /* Slightly larger category titles */
-  margin-bottom: 12px;
-  font-weight: 600; /* Semi-bold */
-  color: #007bff; /* Use a primary color */
-  border-bottom: none; /* Remove border from h2 */
-  margin-top: 0; /* Remove extra top margin */
-  padding-left: 5px; /* Align heading with labels */
+.category-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Space below header */
 }
 
-label {
+.group-checkbox {
+  margin-right: 10px; /* Space between checkbox and title */
+  cursor: pointer;
+  width: 1.1em; /* Slightly larger checkbox */
+  height: 1.1em;
+}
+
+.category-title {
+  font-size: 1.2em; /* Slightly larger category titles */
+  font-weight: 600; /* Semi-bold */
+  color: #007bff; /* Use a primary color */
+  margin: 0; /* Remove default margin */
+  cursor: pointer; /* Make title clickable */
+  flex-grow: 1; /* Allow title to take available space */
+}
+
+.mode-list {
+    padding-left: 25px; /* Indent mode list */
+}
+
+.mode-label {
   display: block; /* Ensures labels are on new lines */
   margin-bottom: 8px; /* More space between labels */
   cursor: pointer;
-  padding-left: 5px; /* Indent labels slightly */
   color: #495057;
+  font-size: 0.95em; /* Slightly smaller mode text */
 }
-label:hover {
+.mode-label:hover {
     background-color: #f8f9fa; /* Subtle hover for labels */
 }
-label input {
+.mode-label input {
     margin-right: 10px; /* More space after checkbox */
     vertical-align: middle; /* Align checkbox nicely */
+}
+.mode-description {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-left: 5px;
 }
 
 /* Output Area */
