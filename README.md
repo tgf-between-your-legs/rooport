@@ -54,30 +54,37 @@ Once you have added the modes by pasting the content into your `cline_custom_mod
 
 This repository provides the following specialised modes (you can select which ones to use via the Mode Configurator tool):
 
-*   **Accessibility Specialist:** Ensures applications are usable by people of all abilities. Reviews for compliance, implements features, and tests with assistive technologies.
-*   **API Developer:** Designs and implements robust, secure, and performant APIs. Defines contracts, implements endpoints, and ensures system integration.
-*   **Bug Fixer:** Identifies, diagnoses, and resolves software bugs. Investigates issues, reproduces problems, implements fixes, and creates regression tests.
-*   **CI/CD Specialist:** Sets up and maintains continuous integration and deployment pipelines. Automates build, test, and deployment processes.
-*   **Code Reviewer:** Reviews code for quality, adherence to standards, potential bugs, and security issues. Provides constructive feedback.
-*   **Database Specialist:** Designs, implements, and optimizes database structures. Creates efficient data models and queries, ensuring data integrity.
-*   **DevOps Manager:** Responsible for overall CI/CD, infrastructure, and operational concerns. Ensures smooth delivery pipelines and reliable workflows.
-*   **Firebase Specialist:** Provides deep expertise in Firebase services (Auth, Firestore, Functions, etc.), offering implementation guidance and best practices.
-*   **Frontend Developer:** Implements user interfaces and client-side functionality. Builds responsive components and handles frontend logic.
-*   **Git Manager:** Manages source control operations (commits, branches, merges) and ensures repository health.
-*   **Infrastructure Specialist:** Designs, implements, and manages cloud or on-premises infrastructure, ensuring reliability, scalability, and security.
-*   **Integration Tester:** Tests interactions between different software components and systems to verify system behaviour.
-*   **Material UI Specialist:** Provides expertise in the Material UI component library for React, focusing on implementation, customisation, and theming.
-*   **MCP Server Creator (Python):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the Python SDK.
-*   **MCP Server Creator (TypeScript):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the TypeScript SDK.
-*   **Performance Optimizer:** Identifies and resolves performance bottlenecks in applications through profiling, analysis, and optimization.
+*   **Accessibility Specialist:** Ensures applications are usable by people of all abilities. Reviews for compliance, implements features, and tests with assistive technologies. (Includes Browser Tools)
+*   **API Developer:** Designs and implements robust, secure, and performant APIs. Defines contracts, implements endpoints, and ensures system integration. (Includes Browser Tools)
+*   **Bug Fixer:** Identifies, diagnoses, and resolves software bugs. Investigates issues, reproduces problems, implements fixes, and creates regression tests. (Includes Browser Tools)
+*   **CI/CD Specialist:** Sets up and maintains continuous integration and deployment pipelines. Automates build, test, and deployment processes. (Includes Browser Tools)
+*   **Code Reviewer:** Reviews code for quality, adherence to standards, potential bugs, and security issues. Provides constructive feedback. (Includes Browser Tools)
+*   **Complex Problem Solver:** Analyzes intricate problems, evaluates multiple potential solutions, and provides well-reasoned recommendations. (Includes Browser Tools)
+*   **Database Specialist:** Designs, implements, and optimizes database structures. Creates efficient data models and queries, ensuring data integrity. (Includes Browser Tools)
+*   **DevOps Manager:** Responsible for overall CI/CD, infrastructure, and operational concerns. Ensures smooth delivery pipelines and reliable workflows. (Includes Browser Tools)
+*   **Discovery Agent:** Interacts with the user to understand project goals and detailed requirements. (Now saves requirements via delegation).
+*   **Firebase Specialist:** Provides deep expertise in Firebase services (Auth, Firestore, Functions, etc.), offering implementation guidance and best practices. (Includes Browser Tools)
+*   **Frontend Developer:** Implements user interfaces and client-side functionality. Builds responsive components and handles frontend logic. (Includes Browser Tools)
+*   **Git Manager:** Manages source control operations (commits, branches, merges) and ensures repository health. (Includes Browser Tools)
+*   **Infrastructure Specialist:** Designs, implements, and manages cloud or on-premises infrastructure, ensuring reliability, scalability, and security. (Includes Browser Tools)
+*   **Integration Tester:** Tests interactions between different software components and systems to verify system behaviour. (Includes Browser Tools)
+*   **Material UI Specialist:** Provides expertise in the Material UI component library for React, focusing on implementation, customisation, and theming. (Includes Browser Tools)
+*   **MCP Server Creator (Python):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the Python SDK. (Includes Browser Tools)
+*   **MCP Server Creator (TypeScript):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the TypeScript SDK. (Includes Browser Tools)
+*   **MCP Installer:** Guides users through discovering, cloning, and setting up community MCP servers.
+*   **Performance Optimizer:** Identifies and resolves performance bottlenecks in applications through profiling, analysis, and optimization. (Includes Browser Tools)
+*   **Project Initializer:** Sets up the standard directory structure and initial documentation files for a new project. (Now saves requirements via delegation).
 *   **Project Manager:** Organizes, tracks, and coordinates software development projects. Breaks down objectives into tasks and assigns them.
-*   **React Specialist:** Provides deep expertise in React.js, guiding implementation, state management, performance optimization, and best practices.
+*   **React Specialist:** Provides deep expertise in React.js, guiding implementation, state management, performance optimization, and best practices. (Includes Browser Tools)
+*   **Refactor Specialist:** Focuses on improving existing code structure, readability, maintainability, and performance without changing external behavior. (Includes Browser Tools)
+*   **Research & Context Builder:** Gathers information from external sources to provide context for development tasks. (Includes Browser Tools)
 *   **Roo Chief Executive:** Highest-level coordinator for projects, overseeing the entire process and delegating to management roles.
-*   **Security Specialist:** Ensures application and infrastructure security by identifying vulnerabilities, implementing controls, and performing reviews.
-*   **Tailwind CSS Specialist:** Provides expertise in the Tailwind CSS utility framework, guiding implementation, customisation, and responsive design.
-*   **Technical Architect:** Designs the overall system architecture, makes key technical decisions, and ensures technical coherence across the project.
-*   **Technical Writer:** Creates clear, comprehensive documentation (user guides, API docs, technical specifications).
-*   **UI Designer:** Creates user interfaces, designing mockups, wireframes, component styles, and user flows.
+*   **Second Opinion:** Provides an alternative perspective or approach when another mode is stuck or requires validation. (Includes Browser Tools)
+*   **Security Specialist:** Ensures application and infrastructure security by identifying vulnerabilities, implementing controls, and performing reviews. (Includes Browser Tools)
+*   **Tailwind CSS Specialist:** Provides expertise in the Tailwind CSS utility framework, guiding implementation, customisation, and responsive design. (Includes Browser Tools)
+*   **Technical Architect:** Designs the overall system architecture, makes key technical decisions, and ensures technical coherence across the project. (Includes Browser Tools)
+*   **Technical Writer:** Creates clear, comprehensive documentation (user guides, API docs, technical specifications). (Includes Browser Tools)
+*   **UI Designer:** Creates user interfaces, designing mockups, wireframes, component styles, and user flows. (Includes Browser Tools)
 
 Explore the `tools/mode_configurator/public/mode_templates/` directory for the individual mode JSON files.
 
@@ -89,14 +96,24 @@ While Roo Code modes can work with various LLMs, certain models may perform bett
 *   **UI Designer mode:** Claude Sonnet 3.7
 *   **Tailwind CSS Specialist mode:** Claude Sonnet 3.7
 *   **Frontend Developer mode:** Claude Sonnet 3.7
+*   **Discovery Agent:** Claude Sonnet 3.7
 *   **Complex Problem Solver mode:** Claude Sonnet 3.7 (with thinking enabled)
 
 These are just suggestions, and the optimal model can vary depending on the specific task complexity and your personal preferences. Feel free to experiment with different models available through Roo Code to find what works best for you.
 
 
-## 🔗 Mode Relationships
+## 🔗 Mode Relationships & Workflow
 
-The following diagram illustrates the typical hierarchy and collaboration patterns between the different modes:
+The modes are designed to collaborate, often following a workflow initiated by the `Roo Chief Executive`. Key handoffs rely on clear task delegation (`new_task`) and persistent documentation stored within the `project_journal` directory structure (created by the `Project Initializer`).
+
+**Recent Workflow Refinements:**
+-   Modes producing critical outputs (requirements, designs, analysis, technical notes) are now explicitly instructed to save these artifacts to the `project_journal` via delegation *before* completing their tasks.
+-   Management modes are instructed to reference these saved artifacts when delegating tasks to specialists.
+-   Completion messages (`attempt_completion`) should summarize work and reference the saved artifacts.
+
+This file-based handoff strategy enhances robustness compared to relying solely on the context window or `attempt_completion` results for critical information transfer between modes.
+
+The following diagrams illustrate the typical hierarchy and collaboration patterns:
 
 ```mermaid
 graph TD
@@ -137,9 +154,17 @@ graph TD
     subgraph "Specialised Tools"
         MCPPy(MCP Server Creator - Python)
         MCPTs(MCP Server Creator - TypeScript)
+        MCPInst(MCP Installer)
+        DiscAgent(Discovery Agent)
+        ProjInit(Project Initializer)
+        ResCtx(Research & Context Builder)
+        SecOp(Second Opinion)
+        CompProb(Complex Problem Solver)
     end
 
     %% High-Level Delegation
+    RCE --> DiscAgent
+    DiscAgent --> ProjInit
     RCE --> PM
     RCE --> TA
     RCE --> DevOps
@@ -182,9 +207,13 @@ graph TD
     PerfOpt -.-> APIDev
     PerfOpt -.-> Infra
 
-    %% Tool Creators (Used as needed)
+    %% Tool Creators & Utility (Used as needed)
     MCPPy
     MCPTs
+    MCPInst
+    ResCtx
+    SecOp
+    CompProb
 
     %% Styling
     classDef management fill:#f9f,stroke:#333,stroke-width:2px;
@@ -197,7 +226,7 @@ graph TD
     class FD,APIDev,DBSpec,ReactSpec,MUISpec,TailwindSpec,FirebaseSpec development;
     class BugFix,CodeRev,IntTest,PerfOpt,SecSpec,AccSpec,CICD,Infra,GitMan quality;
     class UID,TechWriter design;
-    class MCPPy,MCPTs tools;
+    class MCPPy,MCPTs,MCPInst,DiscAgent,ProjInit,ResCtx,SecOp,CompProb tools;
 ```
 
 ### Simplified Hierarchy

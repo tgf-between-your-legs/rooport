@@ -73,3 +73,85 @@ Embeds the workflow logic within the mode instructions themselves, making the sy
 Delegate the update of `tools/mode_configurator/public/mode_templates/roo-commander.json` to the `code` mode with the further revised instructions.
 
 ---
+
+---
+Timestamp: 2025-03-30 12:37:00 UTC
+Mode: roo-commander
+Event: DECISION
+---
+
+**Context:** Finalizing journaling strategy and adding personalization based on CEO feedback.
+
+**Details:**
+CEO approved the refined journaling strategy:
+- Core planning docs (`project_plan.md`, `requirements.md`) remain single files.
+- `commander_strategy_log.md` remains appended for narrative.
+- `decision_log` entries become individual files: `decision_log/YYYY-MM-DD_HH-MM-SS_brief-decision-topic.md`.
+- `technical_notes` entries become individual files organized by mode: `technical_notes/[mode_slug]/YYYY-MM-DD_HH-MM-SS_[topic_or_task].md`.
+
+CEO also suggested adding personalization by asking for the user's name at the start of tasks.
+
+**Decision:**
+1. Update the "Project Journaling" section in the `customInstructions` of relevant modes (Roo Commander, PM, TA, DevOps, potentially specialists) to reflect the new granular file structure for decisions and technical notes.
+2. Update the `customInstructions` for initiating modes (Roo Commander, Discovery Agent) to include a step for asking the user's preferred name and using it. Replace the "Always address the user as 'CEO'" instruction in Roo Commander's definition.
+
+**Rationale:**
+Improves log organization, searchability, and maintainability. Adds a valuable personalization touch to user interactions.
+
+**Next Steps:**
+Delegate updates to the relevant mode definition files (`*.json`) to the `code` mode.
+
+---
+
+---
+Timestamp: 2025-03-30 12:55:00 UTC
+Mode: roo-commander
+Event: DECISION
+---
+
+**Context:** Addressing logic bug identified by CEO regarding progress monitoring in single-threaded environment.
+
+**Details:**
+CEO observed Roo Commander entering a loop, reporting implementation as "in progress" after delegation, despite Roo Code being single-threaded and requiring user interaction to execute delegated tasks sequentially. Roo Commander incorrectly assumed background execution.
+
+**Decision:**
+Update the `customInstructions` for the `roo-commander` mode to:
+1. Explicitly acknowledge the single-threaded nature of task execution in Roo Code.
+2. Modify the "monitoring" behaviour: Instead of reporting delegated tasks as "in progress", identify the next pending task based on the plan/log and prompt the user (CEO) on how to proceed with its execution (e.g., using `ask_followup_question` to suggest switching modes or confirming the next action).
+3. Avoid using `attempt_completion` to imply background progress; use it only for genuine task completions *by this mode* or final project reporting.
+
+**Rationale:**
+To align Roo Commander's behaviour with the reality of single-threaded task execution, prevent misleading status reports, and correctly guide the user (CEO) on initiating the next step in the workflow.
+
+**Next Steps:**
+Delegate the update of `tools/mode_configurator/public/mode_templates/roo-commander.json` to the `code` mode with the revised instructions.
+
+---
+
+
+---
+Timestamp: 2025-03-31 01:12:00 UTC
+Mode: roo-commander
+Event: DECISION
+---
+
+**Context:** Deprecating reliance on global custom instructions file based on CEO feedback.
+
+**Details:**
+CEO suggested removing reliance on `custom_instructions_for_all_modes.md` and incorporating essential instructions directly into relevant mode definitions for better maintainability and self-sufficiency.
+
+**Decision:**
+1.  Identify modes requiring specific global instructions (primarily the shell command generation rule).
+2.  Add a condensed version of these critical instructions directly to the `customInstructions` of the identified modes (`git-manager`, `cicd-specialist`, `devops-manager`, `infrastructure-specialist` updated so far).
+3.  Proceed with removing the `custom_instructions_for_all_modes.md` file from the repository.
+4.  Ensure mode templates are self-contained going forward.
+
+**Rationale:**
+Improves mode portability, reduces complexity, avoids potential conflicts between global and mode-specific instructions, and aligns with the principle of self-contained mode definitions.
+
+**Next Steps:**
+- Commit the updated mode definition files (`git-manager.json`, `cicd-specialist.json`, `devops-manager.json`, `infrastructure-specialist.json`).
+- Delegate the deletion of `custom_instructions_for_all_modes.md`.
+- Commit the deletion.
+
+---

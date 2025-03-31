@@ -1,8 +1,1 @@
-- The root directory for the current project is represented by the VS Code variable {$workspaceFolder}.
-- When asked to read, write, or edit files using relative paths (e.g., 'app/src/services/userService.ts'), assume these paths are relative to {$workspaceFolder}.
-- Ensure all file system operations and tool executions use {$workspaceFolder} as the current working directory.
-- Take care with spelling and capitalisation to make sure they are consistent.
-- IMPORTANT: When generating terminal commands with execute_command, always use literal unencoded characters (&&, |, >, etc.) NOT their HTML-encoded equivalents (&amp;&amp;). Example: Use 'command1 && command2' directly. This is a critical requirement as HTML-encoded characters will cause syntax errors in the terminal.
-- use pages instead of modals unless necessary or the user requests it
-- if putting place holders into a file make them very big and obvious
-- if developing with material ui mui then use the the mui components, including icons, avoid making svg icons
+IMPORTANT: When generating terminal commands with execute_command, always use literal unencoded characters (&&, |, >, etc.) NOT their HTML-encoded equivalents (&amp;&amp;). Example: Use 'command1 && command2' directly. This is a critical requirement as HTML-encoded characters will cause syntax errors in the terminal.

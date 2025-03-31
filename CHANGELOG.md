@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Workflow Refinement:** Updated instructions across most modes to emphasize saving critical outputs (notes, documents, analysis) to the `project_journal` via delegation before completing tasks (`attempt_completion`). This improves the robustness of information handoffs between modes.
+- **Workflow Refinement:** Updated management modes (`project-manager`, `technical-architect`, `devops-manager`) to explicitly require referencing relevant saved documents from `project_journal` when delegating tasks to specialists.
+- **Workflow Refinement:** Clarified the purpose of `attempt_completion` messages across modes to focus on summaries and references to saved artifacts.
+- **Permissions:** Added restricted `edit` permissions (`project_journal/*.md`) to `discovery-agent`, `project-initializer`, `second-opinion`, and `mcp-installer` to allow delegation of note saving.
+- **Permissions:** Removed unnecessary `edit` permissions from `research-context-builder`, `complex-problem-solver`, `code-reviewer`, and `git-manager`.
+- **Tools:** Added the `browser` tool group to numerous specialist and management modes to enhance research capabilities. (See individual mode files or README for specifics).
+
 ## [1.0.0] - 2025-03-30
 
 First stable release of Roo Commander Modes! 🎉
