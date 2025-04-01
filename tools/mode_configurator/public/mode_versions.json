@@ -6,8 +6,15 @@
     "status": "development"
   },
   {
+    "version": "v2.1.2-beta",
+    "date": "2025-04-01",
+    "summary": "Removed Gemini workarounds (Issue #11).",
+    "path": "archived_mode_templates/v2.1.2-gemini-fix-dev",
+    "status": "beta"
+  },
+  {
     "version": "v2.1.1-standardized-beta",
-    "date": "2025-04-01", 
+    "date": "2025-04-01",
     "summary": "Completed standardization of instructions (commit a38814c).",
     "path": "archived_mode_templates/v2.1.1-standardized-beta",
     "status": "beta"
@@ -20,10 +27,10 @@
     "status": "stable"
   },
   {
-    "version": "v2.1.0-snapshot-20250331", 
+    "version": "v2.1.0-snapshot-20250331",
     "date": "2025-03-31",
     "summary": "Snapshot from late night 2025-03-31 (commit 548aebb).",
-    "path": "archived_mode_templates/v2.1.0-nightly-20250331", 
-    "status": "snapshot" 
+    "path": "archived_mode_templates/v2.1.0-nightly-20250331",
+    "status": "snapshot"
   }
 ]
