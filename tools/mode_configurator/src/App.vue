@@ -32,7 +32,7 @@ const manifestOrder = ref([]); // Holds the order from manifest.json
 const selectedModeSlugs = ref([]); // Holds the slugs of selected modes
 const modeVersions = ref([]); // Array of version objects from mode_versions.json
 const selectedVersion = ref(null); // Currently selected version object
-const templateBasePath = ref('/roo-commander/mode_templates/'); // Base path for template loading
+const templateBasePath = ref(''); // Base path for template loading - will be set dynamically
 const isLoading = ref(true);
 const error = ref(null);
 const copyButtonText = ref('Copy to Clipboard');
@@ -94,11 +94,15 @@ async function fetchVersions() {
     }
     
     const versions = await versionsResponse.json();
-    modeVersions.value = versions;
-    
-    // Set default version to "latest"
-    selectedVersion.value = versions.find(v => v.version === "latest") || versions[0];
-    updateTemplatePath();
+    // Sort versions for display if needed, but keep original for finding 'latest'
+    modeVersions.value = versions; // Keep original order or sort later for display
+     
+     // Set default version to "latest"
+     selectedVersion.value = versions.find(v => v.version === "latest") || versions[0];
+    if (!selectedVersion.value) {
+      throw new Error("Could not find a default version (latest or first).");
+    }
+    updateTemplatePath(); // Set the initial path based on the default version
     
   } catch (err) {
     console.error('Error loading version data:', err);
@@ -108,13 +112,14 @@ async function fetchVersions() {
 
 // Function to update template path based on selected version
 function updateTemplatePath() {
-  if (!selectedVersion.value) return;
-  
-  if (selectedVersion.value.version === "latest") {
-    templateBasePath.value = '/roo-commander/mode_templates/';
-  } else if (selectedVersion.value.path) {
-    templateBasePath.value = `/roo-commander/${selectedVersion.value.path}/`;
+  if (!selectedVersion.value || !selectedVersion.value.path) {
+    console.error("Cannot update template path: selected version or its path is missing.", selectedVersion.value);
+    // Set a default or handle the error appropriately - maybe point to the first available path?
+    templateBasePath.value = modeVersions.value.length > 0 ? `/roo-commander/${modeVersions.value[0].path}/` : ''; // Fallback or handle error
+    return;
   }
+  // Use the path directly from the version object
+  templateBasePath.value = `/roo-commander/${selectedVersion.value.path}/`;
 }
 
 // Handle version selection change
