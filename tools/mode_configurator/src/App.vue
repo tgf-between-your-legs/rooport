@@ -247,7 +247,9 @@ watch([selectedModeSlugs, groupedModes], () => {
     </p>
     <p>
       For detailed explanations of each mode and how they work together, please refer to the main <a href="https://github.com/jezweb/roo-commander/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a> file in the repository.
-    </p>
+    
+    <strong>It is not recommended that you use all of these modes all at once. It will possibly overload your context window, cost more tokens and maybe cause errors with diffs, as per <a href="https://github.com/RooVetGit/Roo-Code/issues/2164">https://github.com/RooVetGit/Roo-Code/issues/2164</a>
+    </strong></p>
 
     <!-- Version selector component -->
     <div class="version-selector">
