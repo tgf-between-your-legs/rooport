@@ -119,7 +119,7 @@ function updateTemplatePath() {
     return;
   }
   // Use the path directly from the version object
-  templateBasePath.value = `/${selectedVersion.value.path}/`; // Use root-relative path - Removed /roo-commander/ prefix
+  templateBasePath.value = `${selectedVersion.value.path}/`; // Use relative path
 }
 
 // Handle version selection change
