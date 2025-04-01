@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [2.2.0] - 2025-04-02
+
+### Added
+- New `project-onboarding` mode to differentiate and handle new vs. existing project workflows (Addresses Issue #2).
+- Standard Operating Procedure (SOP) for mode template versioning (`tools/mode_configurator/docs/mode_versioning_sop.md`).
+
+### Changed
+- Updated `roo-commander` workflow to delegate initial project requests to the new `project-onboarding` mode.
+- Refined `roo-commander` journaling strategy to create daily, timestamped log files instead of appending to a single log (Addresses Issue #13).
+- Updated `mode_versions.json` to include `v2.1.3` archive details.
+- Updated `manifest.json` files in `mode_templates` and `archived_mode_templates/v2.1.3`.
+
+
 
 ### Changed
 - **Workflow Refinement:** Updated instructions across most modes to emphasize saving critical outputs (notes, documents, analysis) to the `project_journal` via delegation before completing tasks (`attempt_completion`). This improves the robustness of information handoffs between modes.
