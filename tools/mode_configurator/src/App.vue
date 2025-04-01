@@ -88,7 +88,7 @@ async function fetchModes() {
 // Function to fetch version metadata
 async function fetchVersions() {
   try {
-    const versionsResponse = await fetch('/roo-commander/mode_versions.json');
+    const versionsResponse = await fetch('/mode_versions.json'); // Fetch from root relative to public dir
     if (!versionsResponse.ok) {
       throw new Error(`HTTP error fetching versions! status: ${versionsResponse.status}`);
     }
@@ -115,11 +115,11 @@ function updateTemplatePath() {
   if (!selectedVersion.value || !selectedVersion.value.path) {
     console.error("Cannot update template path: selected version or its path is missing.", selectedVersion.value);
     // Set a default or handle the error appropriately - maybe point to the first available path?
-    templateBasePath.value = modeVersions.value.length > 0 ? `/roo-commander/${modeVersions.value[0].path}/` : ''; // Fallback or handle error
+    templateBasePath.value = modeVersions.value.length > 0 ? `/${modeVersions.value[0].path}/` : ''; // Fallback or handle error - Removed /roo-commander/ prefix
     return;
   }
   // Use the path directly from the version object
-  templateBasePath.value = `/roo-commander/${selectedVersion.value.path}/`;
+  templateBasePath.value = `/${selectedVersion.value.path}/`; // Use root-relative path - Removed /roo-commander/ prefix
 }
 
 // Handle version selection change
