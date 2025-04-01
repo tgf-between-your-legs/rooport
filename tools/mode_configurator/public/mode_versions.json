@@ -1,0 +1,29 @@
+[
+  {
+    "version": "latest",
+    "date": "N/A",
+    "summary": "Currently active development version (includes bugfix).",
+    "status": "development"
+  },
+  {
+    "version": "v2.1.1-standardized-beta",
+    "date": "2025-04-01", 
+    "summary": "Completed standardization of instructions (commit a38814c).",
+    "path": "archived_mode_templates/v2.1.1-standardized-beta",
+    "status": "beta"
+  },
+  {
+    "version": "v2.1.0",
+    "date": "2025-04-01",
+    "summary": "Standardized instructions, pre-versioning bugfix.",
+    "path": "archived_mode_templates/v2.1.0",
+    "status": "stable"
+  },
+  {
+    "version": "v2.1.0-snapshot-20250331", 
+    "date": "2025-03-31",
+    "summary": "Snapshot from late night 2025-03-31 (commit 548aebb).",
+    "path": "archived_mode_templates/v2.1.0-nightly-20250331", 
+    "status": "snapshot" 
+  }
+]

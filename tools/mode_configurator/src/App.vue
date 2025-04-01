@@ -30,6 +30,9 @@ const CATEGORIES_DEFINITION = {
 const allModes = ref([]); // Holds the data for all fetched modes (keyed by slug)
 const manifestOrder = ref([]); // Holds the order from manifest.json
 const selectedModeSlugs = ref([]); // Holds the slugs of selected modes
+const modeVersions = ref([]); // Array of version objects from mode_versions.json
+const selectedVersion = ref(null); // Currently selected version object
+const templateBasePath = ref('/roo-commander/mode_templates/'); // Base path for template loading
 const isLoading = ref(true);
 const error = ref(null);
 const copyButtonText = ref('Copy to Clipboard');
@@ -40,18 +43,18 @@ async function fetchModes() {
   isLoading.value = true;
   error.value = null;
   try {
-    // Fetch manifest first to get the order and filenames
-    const manifestResponse = await fetch('/roo-commander/mode_templates/manifest.json');
+    // Fetch manifest from the correct path
+    const manifestResponse = await fetch(`${templateBasePath.value}manifest.json`);
     if (!manifestResponse.ok) {
       throw new Error(`HTTP error fetching manifest! status: ${manifestResponse.status}`);
     }
     const modeFilenames = await manifestResponse.json();
     manifestOrder.value = modeFilenames.map(f => f.replace('.json', '')); // Store slugs in order
 
-    // Fetch individual mode files
+    // Fetch individual mode files from the correct path
     const modePromises = modeFilenames.map(async (filename) => {
       try {
-        const modeResponse = await fetch(`/roo-commander/mode_templates/${filename}`);
+        const modeResponse = await fetch(`${templateBasePath.value}${filename}`);
         if (!modeResponse.ok) {
           console.error(`Failed to fetch ${filename}: ${modeResponse.status}`);
           return null;
@@ -76,14 +79,67 @@ async function fetchModes() {
 
   } catch (err) {
     console.error('Error loading modes:', err);
-    error.value = 'Failed to load mode data. Please check the console and ensure manifest.json and mode files are accessible in the public/mode_templates directory.';
+    error.value = 'Failed to load mode data. Please check the console and ensure manifest.json and mode files are accessible.';
   } finally {
     isLoading.value = false;
   }
 }
 
-// Fetch modes when the component is mounted
-onMounted(fetchModes);
+// Function to fetch version metadata
+async function fetchVersions() {
+  try {
+    const versionsResponse = await fetch('/roo-commander/mode_versions.json');
+    if (!versionsResponse.ok) {
+      throw new Error(`HTTP error fetching versions! status: ${versionsResponse.status}`);
+    }
+    
+    const versions = await versionsResponse.json();
+    modeVersions.value = versions;
+    
+    // Set default version to "latest"
+    selectedVersion.value = versions.find(v => v.version === "latest") || versions[0];
+    updateTemplatePath();
+    
+  } catch (err) {
+    console.error('Error loading version data:', err);
+    error.value = 'Failed to load version data. Please check the console.';
+  }
+}
+
+// Function to update template path based on selected version
+function updateTemplatePath() {
+  if (!selectedVersion.value) return;
+  
+  if (selectedVersion.value.version === "latest") {
+    templateBasePath.value = '/roo-commander/mode_templates/';
+  } else if (selectedVersion.value.path) {
+    templateBasePath.value = `/roo-commander/${selectedVersion.value.path}/`;
+  }
+}
+
+// Handle version selection change
+async function handleVersionChange(versionId) {
+  isLoading.value = true;
+  
+  // Find the selected version object
+  const newVersion = modeVersions.value.find(v => v.version === versionId);
+  if (newVersion) {
+    selectedVersion.value = newVersion;
+    updateTemplatePath();
+    
+    // Reset selections and reload modes
+    selectedModeSlugs.value = [];
+    await fetchModes();
+  }
+  
+  isLoading.value = false;
+}
+
+// Fetch versions and modes when the component is mounted
+onMounted(async () => {
+  await fetchVersions(); // First fetch versions
+  await fetchModes();    // Then fetch modes using the correct path
+});
 
 // --- Computed Properties ---
 
@@ -193,6 +249,37 @@ watch([selectedModeSlugs, groupedModes], () => {
       For detailed explanations of each mode and how they work together, please refer to the main <a href="https://github.com/jezweb/roo-commander/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a> file in the repository.
     </p>
 
+    <!-- Version selector component -->
+    <div class="version-selector">
+      <h2>Template Version:</h2>
+      <div class="version-dropdown" v-if="selectedVersion">
+        <label for="version-select" class="sr-only">Select template version</label>
+        <select 
+          id="version-select"
+          v-model="selectedVersion.version" 
+          @change="handleVersionChange($event.target.value)"
+          :disabled="isLoading"
+          aria-label="Select template version"
+        >
+          <option 
+            v-for="version in modeVersions" 
+            :key="version.version" 
+            :value="version.version"
+          >
+            {{ version.version }} 
+            {{ version.status !== 'development' ? `(${version.status})` : '' }}
+            {{ version.date !== 'N/A' ? `- ${version.date}` : '' }}
+          </option>
+        </select>
+      </div>
+      <div class="version-info" v-if="selectedVersion">
+        <div class="version-status" :class="selectedVersion.status">
+          {{ selectedVersion.status.charAt(0).toUpperCase() + selectedVersion.status.slice(1) }}
+        </div>
+        <div class="version-summary">{{ selectedVersion.summary }}</div>
+      </div>
+    </div>
+
     <div class="controls">
       <button @click="selectAll">Select All</button>
       <button @click="deselectAll">Deselect All</button>
@@ -273,6 +360,82 @@ p {
   line-height: 1.6;
   color: #6c757d; /* Grey text */
   text-align: center; /* Center paragraph */
+}
+
+/* Version Selector Styles */
+.version-selector {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.version-selector h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #495057;
+}
+
+.version-dropdown select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.version-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.version-status {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+}
+
+.version-status.development {
+  background-color: #6c757d; /* Grey */
+}
+
+.version-status.beta {
+  background-color: #fd7e14; /* Orange */
+}
+
+.version-status.rc {
+  background-color: #ffc107; /* Yellow */
+}
+
+.version-status.stable {
+  background-color: #28a745; /* Green */
+}
+
+.version-summary {
+  font-size: 0.9em;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Accessibility - Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Controls */
