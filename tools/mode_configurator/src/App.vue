@@ -268,9 +268,7 @@ watch([selectedModeSlugs, groupedModes], () => {
             :key="version.version" 
             :value="version.version"
           >
-            {{ version.version }} 
-            {{ version.status !== 'development' ? `(${version.status})` : '' }}
-            {{ version.date !== 'N/A' ? `- ${version.date}` : '' }}
+            {{ version.version }} - {{ version.summary }}
           </option>
         </select>
       </div>
