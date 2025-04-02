@@ -11,7 +11,7 @@
     "date": "2025-04-02",
     "summary": "Introduce Secretary mode for note-taking delegation.",
     "path": "modes/v2.2.0",
-    "status": "development"
+    "status": "beta"
   },
   {
     "version": "v2.1.3",
