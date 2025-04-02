@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roo Code Mode Combiner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 95%; /* Adjusted width */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            min-height: 200px;
+            resize: vertical;
+            background-color: #fff;
+            color: #333;
+        }
+         button, .file-upload-label {
+            background-color: #28a745; /* Green button */
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-right: 10px;
+            transition: background-color 0.2s ease;
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 10px;
+        }
+        button:hover, .file-upload-label:hover {
+            background-color: #218838; /* Darker green */
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #fileInput {
+            display: none; /* Hide the actual file input */
+        }
+        #fileList {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #555;
+            max-height: 100px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+         #fileList ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+         #fileList li {
+             margin-bottom: 3px;
+         }
+        #errorDisplay {
+            color: #dc3545;
+            margin-top: 15px;
+            font-weight: bold;
+            min-height: 1.2em;
+            white-space: pre-wrap; /* Show multiple error lines */
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        code {
+             font-family: monospace;
+             font-size: 0.9em;
+             color: #333;
+        }
+         #outputContainer {
+             margin-top: 20px;
+         }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Roo Code Mode Combiner</h1>
+
+    <p>Upload multiple `.json` or `.txt` files, where each file contains the JSON definition for a *single* Roo Code custom mode. This tool will combine them into one valid `custom_modes.json` file structure.</p>
+
+    <div>
+        <label for="fileInput" class="file-upload-label">Select Mode Files (.json, .txt)</label>
+        <input type="file" id="fileInput" accept=".json,.txt" multiple> <!-- Allow multiple files -->
+    </div>
+
+    <div id="fileList">
+        <p>No files selected.</p>
+    </div>
+
+    <button id="processButton" disabled>Combine Selected Files</button>
+
+    <div id="errorDisplay"></div>
+
+    <div id="outputContainer" style="display: none;">
+        <h2>Combined JSON Output:</h2>
+        <label for="jsonOutput">Result:</label>
+        <textarea id="jsonOutput" readonly placeholder="Combined JSON will appear here..."></textarea>
+    </div>
+
+</div>
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const fileListDiv = document.getElementById('fileList');
+    const processButton = document.getElementById('processButton');
+    const jsonOutput = document.getElementById('jsonOutput');
+    const outputContainer = document.getElementById('outputContainer');
+    const errorDisplay = document.getElementById('errorDisplay');
+
+    let selectedFiles = [];
+
+    // --- File Selection Handling ---
+    fileInput.addEventListener('change', (event) => {
+        selectedFiles = Array.from(event.target.files); // Convert FileList to Array
+        fileListDiv.innerHTML = ''; // Clear previous list
+        outputContainer.style.display = 'none'; // Hide output
+        jsonOutput.value = ''; // Clear output
+        errorDisplay.textContent = ''; // Clear errors
+
+        if (selectedFiles.length > 0) {
+            const list = document.createElement('ul');
+            selectedFiles.forEach(file => {
+                const listItem = document.createElement('li');
+                listItem.textContent = file.name;
+                list.appendChild(listItem);
+            });
+            fileListDiv.appendChild(list);
+            processButton.disabled = false;
+        } else {
+            fileListDiv.innerHTML = '<p>No files selected.</p>';
+            processButton.disabled = true;
+        }
+    });
+
+    // --- Process Button Click ---
+    processButton.addEventListener('click', async () => {
+        if (selectedFiles.length === 0) {
+            errorDisplay.textContent = 'Please select files to combine.';
+            return;
+        }
+
+        // Disable button during processing
+        processButton.disabled = true;
+        processButton.textContent = 'Processing...';
+        errorDisplay.textContent = ''; // Clear previous errors
+        jsonOutput.value = '';
+        outputContainer.style.display = 'none';
+
+        const combinedModes = [];
+        const errors = [];
+
+        // Function to read a single file
+        const readFileAsText = (file) => {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const content = e.target.result;
+                        const parsedJson = JSON.parse(content);
+
+                        // Basic validation: Check if it looks like a mode object
+                        if (parsedJson && typeof parsedJson === 'object' && parsedJson.slug && parsedJson.name) {
+                             // Ensure it's not already wrapped in customModes
+                            if (parsedJson.customModes && Array.isArray(parsedJson.customModes)) {
+                                errors.push(`Error in ${file.name}: File seems to contain the full 'customModes' array, not a single mode object. Skipping.`);
+                                resolve(null); // Resolve with null to indicate skipped
+                            } else {
+                                resolve(parsedJson); // Resolve with the valid mode object
+                            }
+                        } else {
+                            errors.push(`Error in ${file.name}: Content is valid JSON but doesn't look like a Roo mode object (missing slug or name). Skipping.`);
+                            resolve(null);
+                        }
+                    } catch (parseError) {
+                        errors.push(`Error parsing JSON in ${file.name}: ${parseError.message}. Skipping.`);
+                        resolve(null); // Resolve even on error to continue processing others
+                    }
+                };
+                reader.onerror = (e) => {
+                    errors.push(`Error reading file ${file.name}. Skipping.`);
+                    resolve(null); // Resolve on read error
+                };
+                reader.readAsText(file);
+            });
+        };
+
+        // Process all files concurrently
+        const results = await Promise.all(selectedFiles.map(readFileAsText));
+
+        // Filter out null results (errors/skipped files)
+        const validModes = results.filter(mode => mode !== null);
+
+        // Combine valid modes
+        combinedModes.push(...validModes);
+
+         // Display errors, if any
+        if (errors.length > 0) {
+            errorDisplay.textContent = errors.join('\n');
+        }
+
+        if (combinedModes.length > 0) {
+            // Create the final output structure
+            const outputJson = {
+                customModes: combinedModes
+            };
+
+            // Display the combined JSON
+            jsonOutput.value = JSON.stringify(outputJson, null, 2); // Pretty print
+            outputContainer.style.display = 'block'; // Show output area
+        } else {
+             errorDisplay.textContent += (errors.length > 0 ? '\n' : '') + 'No valid mode objects found in the selected files.';
+        }
+
+
+        // Re-enable button
+        processButton.disabled = false;
+        processButton.textContent = 'Combine Selected Files';
+    });
+
+</script>
+
+</body>
+</html>
