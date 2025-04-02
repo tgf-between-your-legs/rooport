@@ -4,7 +4,7 @@ import { ref, onMounted, computed, watch } from 'vue';
 // --- Constants ---
 const CATEGORIES_DEFINITION = {
   "Management & Coordination": [
-    "roo-commander", "project-manager", "technical-architect", "devops-manager", "project-onboarding"
+    "roo-commander", "project-manager", "technical-architect", "devops-manager", "project-onboarding", "secretary"
   ],
   "Core Development & Design": [
     "frontend-developer", "api-developer", "database-specialist", "ui-designer"
