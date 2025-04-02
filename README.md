@@ -5,6 +5,13 @@ Welcome to the Roo Commander mode set! This repository provides a sophisticated 
 
 Think of it like having a virtual, specialized software development team right inside your editor, orchestrated by the **👑 Roo Commander**.
 
+## ⏱️ Version V3
+[Roo Commander V3 README.md](https://github.com/jezweb/roo-commander/tree/main/v3.0)
+
+[Download the JSON file roo-commander-v3.json](https://github.com/jezweb/roo-commander/blob/main/v3.0/roo-commander-v3.json)
+
+If you want to remove any modes from the file use the [Mode Splitter](https://jezweb.github.io/roo-commander/)
+
 ## ✨ Core Concept: The Virtual Team
 
 Instead of relying on a single AI mode for all tasks, this system breaks down development into specialized roles:
