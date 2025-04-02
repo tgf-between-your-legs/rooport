@@ -22,7 +22,7 @@ const CATEGORIES_DEFINITION = {
     "bug-fixer", "code-reviewer", "integration-tester", "performance-optimizer", "refactor-specialist", "accessibility-specialist", "security-specialist"
   ],
   "Utility & Support": [
-    "discovery-agent", "project-initializer", "git-manager", "complex-problem-solver", "research-context-builder", "second-opinion", "technical-writer", "mcp-installer", "mcp-server-creator-py", "mcp-server-creator-ts"
+    "discovery-agent", "project-initializer", "git-manager", "complex-problem-solver", "research-context-builder", "second-opinion", "technical-writer", "mcp-installer", "mcp-server-creator-py", "mcp-server-creator-ts", "secretary"
   ]
 };
 
