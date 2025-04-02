@@ -512,7 +512,7 @@
         [
           "edit",
           {
-            "fileRegex": "^project_journal\\/.*\\.md$",
+            "fileRegex": "\\.md$",
             "description": "Project journal markdown files ONLY"
           }
         ]
