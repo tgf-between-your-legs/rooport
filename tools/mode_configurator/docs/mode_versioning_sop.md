@@ -16,13 +16,17 @@ When significant changes are planned for one or more mode templates (e.g., addin
         ```
         *(Replace `[NEW_VERSION_NUMBER]` with the actual version)*
 3.  **Make Changes in Archived Version:** Perform **all** intended modifications (editing existing modes, adding new modes) **only** within the newly created versioned directory (e.g., `tools/mode_configurator/public/archived_mode_templates/v[NEW_VERSION_NUMBER]/`).
-4.  **Update `mode_versions.json`:** Add a new entry to the top of the array (after `"latest"`) in `tools/mode_configurator/public/mode_versions.json` corresponding to the new version. Include:
+
+4.  **Update `App.vue` Categories (If Adding New Modes):** If new mode `.json` files were added, modify `tools/mode_configurator/src/App.vue`. Locate the `CATEGORIES_DEFINITION` constant and add the `slug` of the new mode(s) to the appropriate category array. This ensures the new mode appears in the UI dropdown.
+
+5.  **Update `mode_versions.json`:** Add a new entry to the top of the array (after `"latest"`) in `tools/mode_configurator/public/mode_versions.json` corresponding to the new version. Include:
     *   `version`: The new version string (e.g., "v2.1.4").
     *   `date`: The current date (YYYY-MM-DD).
     *   `summary`: A brief description of the changes included in this version.
     *   `path`: The relative path to the new archived directory (e.g., "archived_mode_templates/v2.1.4").
     *   `status`: Typically "beta" or "stable" depending on the confidence level.
-5.  **(Optional) Update 'latest' Templates:** Once the changes in the archived version are tested and finalized, consider copying the updated templates from the versioned archive back to the main `tools/mode_configurator/public/mode_templates/` directory to make them the active development version. This step depends on the desired workflow (whether 'latest' always reflects the most recent stable/beta archive or is its own development branch).
+
+6.  **(Optional) Update 'latest' Templates:** Once the changes in the archived version are tested and finalized, consider copying the updated templates from the versioned archive back to the main `tools/mode_configurator/public/mode_templates/` directory to make them the active development version. This step depends on the desired workflow (whether 'latest' always reflects the most recent stable/beta archive or is its own development branch).
 
 ## Rationale
 
