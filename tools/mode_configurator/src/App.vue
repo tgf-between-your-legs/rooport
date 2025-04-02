@@ -88,7 +88,7 @@ async function fetchModes() {
 // Function to fetch version metadata
 async function fetchVersions() {
   try {
-    const versionsResponse = await fetch('/mode_versions.json'); // Fetch from root relative to public dir
+    const versionsResponse = await fetch('mode_versions.json'); // Fetch relative to current base path
     if (!versionsResponse.ok) {
       throw new Error(`HTTP error fetching versions! status: ${versionsResponse.status}`);
     }
