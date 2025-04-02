@@ -1,276 +1,167 @@
-# 🤖 Roo Commander Modes Repository
+# 👑 Roo Commander
+## 🚀 Multi-Agent Workflow Modes for Roo Code Boomerang 🦘
 
-This repository contains a collection of specialised AI assistant "modes" designed for use with the Roo Code VS Code extension. These modes enhance developer productivity by providing tailored support for various software development tasks directly within the IDE.
+Welcome to the Roo Commander mode set! This repository provides a sophisticated collection of custom modes for [Roo Code](https://github.com/roocode/roo) designed to manage website development projects using a structured, multi-agent approach.
 
-**Important:** This repository provides the *configuration files* for custom modes. It is **not** a VS Code extension to be installed directly. You need to have the Roo Code extension already installed in VS Code to use these modes.
+Think of it like having a virtual, specialized software development team right inside your editor, orchestrated by the **👑 Roo Commander**.
 
-## 🎯 Purpose
+## ✨ Core Concept: The Virtual Team
 
-The primary goal of these modes is to streamline workflows by offering intelligent assistance for coding, debugging, documentation, architecture design, project management, and more. Each mode acts as a specialised expert, equipped with specific tools and instructions to effectively handle tasks within its domain.
+Instead of relying on a single AI mode for all tasks, this system breaks down development into specialized roles:
 
-## 🛠️ Mode Configurator Tool
+1.  **Orchestration (Commander):** Understands high-level goals and delegates tasks.
+2.  **Management (PM, Architect, DevOps):** Plans, designs, and coordinates specific domains.
+3.  **Specialists (Frontend, API, DB, React, etc.):** Execute specific implementation tasks.
+4.  **Support (Secretary, Onboarding, etc.):** Handle crucial auxiliary functions like context gathering and logging.
 
-This repository includes a web-based tool to help you select and generate the JSON configuration for the modes you want to use.
-You can access the live tool here: [https://jezweb.github.io/roo-commander/](https://jezweb.github.io/roo-commander/)
+Communication and context are primarily managed through a structured **Project Journal** and standardized task delegation/completion protocols.
 
-**How to Use:**
+## 🎯 Key Features & Benefits
 
-1.  **Ensure Node.js is installed.**
-2.  **Navigate to the tool directory:** Open your terminal in the root of this repository and run `cd tools/mode_configurator`.
-3.  **Install dependencies:** Run `npm install`.
-4.  **Start the development server:** Run `npm run dev`. This will output a local URL (e.g., `http://localhost:5173/`).
-5.  **Open the tool:** Open the provided URL in your web browser.
-6.  **Select Modes:** Check the boxes next to the modes you wish to include in your custom configuration.
-7.  **Copy JSON:** Use the "Copy to Clipboard" button to copy the generated JSON array from the text area.
-8.  **Add to Roo Code:** Follow the steps in the next section ("Adding These Modes to Roo Code") to paste this copied JSON into your `cline_custom_modes.json`.
+*   **Structured Workflow:** Brings organization and process to complex development tasks.
+*   **Specialized Expertise:** Leverages modes specifically tuned for different roles (frontend, backend, database, testing, etc.).
+*   **Scalable Logging:** Uses a structured file system (`project_journal`) for detailed, organized logging of decisions, actions, and technical notes, preventing context overload in single files.
+*   **Improved Context Management:** Creates a traceable history of the project, making it easier for the AI (and you!) to understand progress and pick up tasks mid-stream.
+*   **Modularity:** Use the full suite or select the modes most relevant to your project needs and tech stack.
 
-*(Alternatively, you can build the tool for static deployment (e.g., GitHub Pages) by running `npm run build` inside `tools/mode_configurator` and serving the contents of the resulting `dist` directory).*
+## 🧩 Core Components & Roles
 
-## ⚙️ Adding These Modes to Roo Code
+*   **👑 Roo Commander:** The "CEO". Your primary interaction point. Understands goals, delegates to managers/specialists, monitors progress, makes high-level decisions.
+*   **📋 Project Manager:** Breaks down goals into tasks, manages timelines, assigns work to specialists, tracks progress via the journal.
+*   **🏗️ Technical Architect:** Designs system architecture, selects technology, documents key technical decisions.
+*   **⚙️ DevOps Manager:** Oversees CI/CD, infrastructure setup, deployment strategies, and operational concerns. Delegates to CI/CD and Infrastructure specialists.
+*   **🖥️/☁️/🗃️ Specialists:** Focused roles for execution (e.g., `frontend-developer`, `api-developer`, `database-specialist`, `react-specialist`, `tailwind-specialist`, `php-laravel-developer`, `supabase-developer`, etc.). They receive tasks, implement them, and log their work.
+*   **🛠️ Support & Task-Specific Roles:**
+    *   `📝 Secretary`: **Crucial role.** Solely responsible for writing/appending validated content to the `project_journal` based on instructions from other modes. Enforces logging structure.
+    *   `🚦 Project Onboarding`: Handles the initial setup for new projects or context gathering for existing ones.
+    *   `🔍 Discovery Agent`: Interacts with the user to gather detailed requirements.
+    *   `✨ Project Initializer`: Sets up the basic directory structure and config files for new projects.
+    *   `🔧 Git Manager`: Handles Git operations (branching, merging).
+    *   `🐛 Bug Fixer`, `👀 Code Reviewer`, `🔄 Integration Tester`, `⚡ Performance Optimizer`, `♻️ Refactor Specialist`, `♿ Accessibility Specialist`, `🔒 Security Specialist`: Address specific quality, maintenance, and testing aspects.
+    *   `🧩 Complex Problem Solver`, `🌐 Research & Context Builder`, `🤔 Second Opinion`, `✍️ Technical Writer`: Provide analysis, research, alternative views, and documentation drafting.
 
-To use the modes defined in this repository (or generated by the configurator tool) with your Roo Code extension, follow these steps:
+## 🌊 High-Level Workflow Overview
 
-1.  **Copy Mode Configuration:**
-    *   **Using the Configurator:** Copy the JSON generated by the tool (see previous section).
-    *   **Using the Pre-combined File:** Open the `cline_custom_modes.json` file located in this repository. Select and copy its entire JSON content.
-2.  **Open Roo Code Panel:** In VS Code, open the Roo Code panel (usually found in the sidebar).
-3.  **Access Prompts View:** Click the 'Prompts' icon within the Roo Code panel (it looks like a book or page icon). This opens the Roo Code Mode Manager UI.
-4.  **Edit Global Modes:** In the 'Prompts' view that appears, locate the 'Modes' section and click the 'Edit Global Modes' icon (it looks like curly braces `{}`).
-5.  **Paste Configuration:** This action will open your personal `cline_custom_modes.json` configuration file in the VS Code editor. Paste the JSON content you copied in Step 1 into this file.
-    *   If your file was empty, you can simply paste the content.
-    *   If you already have existing custom modes defined, you will need to carefully merge the copied JSON array with your existing array, ensuring the final structure remains a valid JSON array of mode objects.
-6.  **Save:** Save the changes to your `cline_custom_modes.json` file.
-7.  **Verify:** The new modes from this repository should now appear in the mode selection dropdown within Roo Code.
+1.  **1️⃣ Initiation:** You interact with **👑 Roo Commander**, stating your goal (new project or task in existing one). Commander delegates to `🚦 Project Onboarding`.
+2.  **2️⃣ Onboarding & Planning:** `🚦 Project Onboarding` clarifies intent, gathers initial context (or initializes), and reports back. Commander then delegates planning tasks to `🔍 Discovery Agent` (for requirements), `🏗️ Technical Architect` (for design), and `📋 Project Manager` (for task breakdown/WBS).
+3.  **3️⃣ Execution:** `📋 Project Manager` (or `👑 Roo Commander` for initial planning tasks) delegates specific implementation tasks to the relevant **Specialist** modes (e.g., `🖥️ Frontend Developer`, `☁️ API Developer`).
+4.  **4️⃣ Logging & Completion:** Each **Specialist** performs its task, logs detailed technical notes by delegating the write operation to `📝 Secretary`, and reports completion back using `attempt_completion` (referencing the saved notes path).
+5.  **5️⃣ Coordination & Iteration:** Managers/Commander review completion reports and notes, coordinate dependent tasks, handle blockers (potentially using `🧩 Complex Problem Solver`), and delegate further work.
+6.  **6️⃣ Finalization:** Once all major tasks are done, `👑 Roo Commander` reviews the overall outcome and presents it to you.
 
-## 🎨 Customisation Workflow
+## 📓 The Project Journal: The System's Memory
 
-Once you have added the modes by pasting the content into your `cline_custom_modes.json` (as described above), you can further customise their behaviour.
+This is the cornerstone of context management. All significant actions, decisions, and technical details are logged here.
 
-*   **Modifying Modes (Recommended Method):** For ongoing customisation, such as tweaking instructions, changing roles, or adjusting mode parameters, use the **Roo Code Mode Manager UI** (accessed via the 'Prompts' icon). This interface provides a user-friendly way to manage your modes without directly editing the JSON file again after the initial setup.
-*   **Custom Instruction Files (Reference Only):** This repository includes files like `custom_instructions_for_all_modes.md` and `custom_instructions_for_code_mode.md`. **These are provided as examples only** to show the *type* of custom instructions you *can* add via the Mode Manager UI. General users do **not** need to copy or use these specific `.md` files. They serve purely as a reference for the format and potential content of custom instructions.
-*   **Direct JSON Editing (Advanced):** While possible, directly editing the individual mode `.json` files in the `modes/` directory or your global `cline_custom_modes.json` after the initial setup is generally **not recommended** for routine customisation. If you do choose to edit the JSON files directly (e.g., for creating entirely new modes or complex structural changes), ensure you maintain valid JSON format and understand the mode schema (refer to `ROO_MODE_SYSTEM.md`).
+**Structure:**
 
-## 🧩 Included Custom Modes
-
-This repository provides the following specialised modes (you can select which ones to use via the Mode Configurator tool):
-
-*   **Accessibility Specialist:** Ensures applications are usable by people of all abilities. Reviews for compliance, implements features, and tests with assistive technologies. (Includes Browser Tools)
-*   **API Developer:** Designs and implements robust, secure, and performant APIs. Defines contracts, implements endpoints, and ensures system integration. (Includes Browser Tools)
-*   **Bug Fixer:** Identifies, diagnoses, and resolves software bugs. Investigates issues, reproduces problems, implements fixes, and creates regression tests. (Includes Browser Tools)
-*   **CI/CD Specialist:** Sets up and maintains continuous integration and deployment pipelines. Automates build, test, and deployment processes. (Includes Browser Tools)
-*   **Code Reviewer:** Reviews code for quality, adherence to standards, potential bugs, and security issues. Provides constructive feedback. (Includes Browser Tools)
-*   **Complex Problem Solver:** Analyzes intricate problems, evaluates multiple potential solutions, and provides well-reasoned recommendations. (Includes Browser Tools)
-*   **Database Specialist:** Designs, implements, and optimizes database structures. Creates efficient data models and queries, ensuring data integrity. (Includes Browser Tools)
-*   **DevOps Manager:** Responsible for overall CI/CD, infrastructure, and operational concerns. Ensures smooth delivery pipelines and reliable workflows. (Includes Browser Tools)
-*   **Discovery Agent:** Interacts with the user to understand project goals and detailed requirements. (Now saves requirements via delegation).
-*   **Firebase Specialist:** Provides deep expertise in Firebase services (Auth, Firestore, Functions, etc.), offering implementation guidance and best practices. (Includes Browser Tools)
-*   **Frontend Developer:** Implements user interfaces and client-side functionality. Builds responsive components and handles frontend logic. (Includes Browser Tools)
-*   **Git Manager:** Manages source control operations (commits, branches, merges) and ensures repository health. (Includes Browser Tools)
-*   **Infrastructure Specialist:** Designs, implements, and manages cloud or on-premises infrastructure, ensuring reliability, scalability, and security. (Includes Browser Tools)
-*   **Integration Tester:** Tests interactions between different software components and systems to verify system behaviour. (Includes Browser Tools)
-*   **Material UI Specialist:** Provides expertise in the Material UI component library for React, focusing on implementation, customisation, and theming. (Includes Browser Tools)
-*   **MCP Server Creator (Python):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the Python SDK. (Includes Browser Tools)
-*   **MCP Server Creator (TypeScript):** Generates boilerplate code for new Model Context Protocol (MCP) servers using the TypeScript SDK. (Includes Browser Tools)
-*   **MCP Installer:** Guides users through discovering, cloning, and setting up community MCP servers.
-*   **Performance Optimizer:** Identifies and resolves performance bottlenecks in applications through profiling, analysis, and optimization. (Includes Browser Tools)
-*   **Project Initializer:** Sets up the standard directory structure and initial documentation files for a new project. (Now saves requirements via delegation).
-*   **Project Manager:** Organizes, tracks, and coordinates software development projects. Breaks down objectives into tasks and assigns them.
-*   **React Specialist:** Provides deep expertise in React.js, guiding implementation, state management, performance optimization, and best practices. (Includes Browser Tools)
-*   **Refactor Specialist:** Focuses on improving existing code structure, readability, maintainability, and performance without changing external behavior. (Includes Browser Tools)
-*   **Research & Context Builder:** Gathers information from external sources to provide context for development tasks. (Includes Browser Tools)
-*   **Roo Chief Executive:** Highest-level coordinator for projects, overseeing the entire process and delegating to management roles.
-*   **Second Opinion:** Provides an alternative perspective or approach when another mode is stuck or requires validation. (Includes Browser Tools)
-*   **Security Specialist:** Ensures application and infrastructure security by identifying vulnerabilities, implementing controls, and performing reviews. (Includes Browser Tools)
-*   **Tailwind CSS Specialist:** Provides expertise in the Tailwind CSS utility framework, guiding implementation, customisation, and responsive design. (Includes Browser Tools)
-*   **Technical Architect:** Designs the overall system architecture, makes key technical decisions, and ensures technical coherence across the project. (Includes Browser Tools)
-*   **Technical Writer:** Creates clear, comprehensive documentation (user guides, API docs, technical specifications). (Includes Browser Tools)
-*   **UI Designer:** Creates user interfaces, designing mockups, wireframes, component styles, and user flows. (Includes Browser Tools)
-
-Explore the `tools/mode_configurator/public/mode_templates/` directory for the individual mode JSON files.
-
-## 🧠 Recommended Models for Modes
-
-While Roo Code modes can work with various LLMs, certain models may perform better for specific tasks based on their training and strengths. Based on testing, here are some recommendations:
-
-*   **Second Opinion mode:** DeepSeek v3
-*   **UI Designer mode:** Claude Sonnet 3.7
-*   **Tailwind CSS Specialist mode:** Claude Sonnet 3.7
-*   **Frontend Developer mode:** Claude Sonnet 3.7
-*   **Discovery Agent:** Claude Sonnet 3.7
-*   **Complex Problem Solver mode:** Claude Sonnet 3.7 (with thinking enabled)
-
-These are just suggestions, and the optimal model can vary depending on the specific task complexity and your personal preferences. Feel free to experiment with different models available through Roo Code to find what works best for you.
-
-
-## 🔗 Mode Relationships & Workflow
-
-The modes are designed to collaborate, often following a workflow initiated by the `Roo Chief Executive`. Key handoffs rely on clear task delegation (`new_task`) and persistent documentation stored within the `project_journal` directory structure (created by the `Project Initializer`).
-
-**Recent Workflow Refinements:**
--   Modes producing critical outputs (requirements, designs, analysis, technical notes) are now explicitly instructed to save these artifacts to the `project_journal` via delegation *before* completing their tasks.
--   Management modes are instructed to reference these saved artifacts when delegating tasks to specialists.
--   Completion messages (`attempt_completion`) should summarize work and reference the saved artifacts.
-
-This file-based handoff strategy enhances robustness compared to relying solely on the context window or `attempt_completion` results for critical information transfer between modes.
-
-The following diagrams illustrate the typical hierarchy and collaboration patterns:
-
-```mermaid
-graph TD
-    subgraph "Management & Coordination"
-        RCE(Roo Chief Executive)
-        PM(Project Manager)
-        TA(Technical Architect)
-        DevOps(DevOps Manager)
-    end
-
-    subgraph "Development & Implementation"
-        FD(Frontend Developer)
-        APIDev(API Developer)
-        DBSpec(Database Specialist)
-        ReactSpec(React Specialist)
-        MUISpec(Material UI Specialist)
-        TailwindSpec(Tailwind CSS Specialist)
-        FirebaseSpec(Firebase Specialist)
-    end
-
-    subgraph "Quality & Operations"
-        BugFix(Bug Fixer)
-        CodeRev(Code Reviewer)
-        IntTest(Integration Tester)
-        PerfOpt(Performance Optimizer)
-        SecSpec(Security Specialist)
-        AccSpec(Accessibility Specialist)
-        CICD(CI/CD Specialist)
-        Infra(Infrastructure Specialist)
-        GitMan(Git Manager)
-    end
-
-    subgraph "Design & Documentation"
-        UID(UI Designer)
-        TechWriter(Technical Writer)
-    end
-
-    subgraph "Specialised Tools"
-        MCPPy(MCP Server Creator - Python)
-        MCPTs(MCP Server Creator - TypeScript)
-        MCPInst(MCP Installer)
-        DiscAgent(Discovery Agent)
-        ProjInit(Project Initializer)
-        ResCtx(Research & Context Builder)
-        SecOp(Second Opinion)
-        CompProb(Complex Problem Solver)
-    end
-
-    %% High-Level Delegation
-    RCE --> DiscAgent
-    DiscAgent --> ProjInit
-    RCE --> PM
-    RCE --> TA
-    RCE --> DevOps
-
-    %% Management Delegation & Collaboration
-    PM ---> GitMan
-    PM ---> TechWriter
-    TA ---> FD
-    TA ---> APIDev
-    TA ---> DBSpec
-    TA ---> ReactSpec
-    TA ---> MUISpec
-    TA ---> TailwindSpec
-    TA ---> FirebaseSpec
-    TA ---> UID
-    DevOps ---> CICD
-    DevOps ---> Infra
-    DevOps ---> SecSpec
-
-    %% Specialist Collaboration
-    FD --- UID
-    FD --- ReactSpec
-    FD --- MUISpec
-    FD --- TailwindSpec
-    FD --- AccSpec
-    APIDev --- DBSpec
-    APIDev --- SecSpec
-    APIDev --- FirebaseSpec
-    ReactSpec --- MUISpec
-    ReactSpec --- TailwindSpec
-
-    %% General Support Roles (Collaborate broadly)
-    BugFix -.-> FD
-    BugFix -.-> APIDev
-    CodeRev -.-> FD
-    CodeRev -.-> APIDev
-    IntTest -.-> APIDev
-    IntTest -.-> FD
-    PerfOpt -.-> FD
-    PerfOpt -.-> APIDev
-    PerfOpt -.-> Infra
-
-    %% Tool Creators & Utility (Used as needed)
-    MCPPy
-    MCPTs
-    MCPInst
-    ResCtx
-    SecOp
-    CompProb
-
-    %% Styling
-    classDef management fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef development fill:#ccf,stroke:#333,stroke-width:2px;
-    classDef quality fill:#cfc,stroke:#333,stroke-width:2px;
-    classDef design fill:#ffc,stroke:#333,stroke-width:2px;
-    classDef tools fill:#eee,stroke:#333,stroke-width:2px;
-
-    class RCE,PM,TA,DevOps management;
-    class FD,APIDev,DBSpec,ReactSpec,MUISpec,TailwindSpec,FirebaseSpec development;
-    class BugFix,CodeRev,IntTest,PerfOpt,SecSpec,AccSpec,CICD,Infra,GitMan quality;
-    class UID,TechWriter design;
-    class MCPPy,MCPTs,MCPInst,DiscAgent,ProjInit,ResCtx,SecOp,CompProb tools;
+```
+project_journal/
+├── planning/              # Active high-level plans (requirements.md, architecture.md, project_plan.md)
+├── formal_docs/           # Finalized docs (API specs, Design specs, Audit reports)
+│   └── adr/               # Architectural Decision Records (Optional)
+├── wbs/                   # Work Breakdown Structures (Optional)
+├── decision_log/          # Critical cross-cutting decisions (Timestamped files)
+│   └── YYYY-MM-DD_HH-MM-SS_topic.md
+└── technical_notes/       # Detailed working notes per mode & date
+    ├── roo-commander/
+    │   └── YYYY-MM-DD/
+    │       └── YYYY-MM-DD_HH-MM-SS_roo-commander_topic.md
+    ├── project-manager/
+    │   └── YYYY-MM-DD/
+    │       └── YYYY-MM-DD_HH-MM-SS_project-manager_topic.md
+    ├── frontend-developer/
+    │   └── YYYY-MM-DD/
+    │       └── YYYY-MM-DD_HH-MM-SS_frontend-developer_topic.md
+    └── ... (folder for each mode)
 ```
 
-### Simplified Hierarchy
+**Key Points:**
 
-This diagram shows the primary delegation flow from management to specialist roles:
+*   **Timestamped Notes:** Each mode logs its work in new, timestamped files within its dated folder under `technical_notes`.
+*   **Secretary Role:** The `📝 Secretary` mode is the *only* mode directly writing these notes, ensuring consistency and enforcing structure (based on instructions from other modes).
+*   **Context References:** Modes are instructed to reference relevant files (requirements, architecture, prior notes) when delegating tasks and logging their own notes.
+*   **Completion Reports:** Modes reference the path(s) to their saved notes/docs when reporting completion (`attempt_completion`).
 
-```mermaid
-graph TD
-    RCE(Roo Chief Executive) --> PM(Project Manager)
-    RCE --> TA(Technical Architect)
-    RCE --> DevOps(DevOps Manager)
+## 🚀 Getting Started & Usage
 
-    subgraph "Project Management"
-        PM --> GitMan(Git Manager)
-        PM --> TechWriter(Technical Writer)
-    end
+1.  **Installation:**
+    *   Download the `custom_modes.json` file from this repository.
+    *   Place it in your Roo Code configuration directory (Global modes) OR rename it to `.roomodes` and place it in the root of your specific project directory (Project-specific modes). Refer to the Roo Code documentation for exact locations.
+2.  **Starting a Project:**
+    *   Activate the **👑 Roo Commander** mode in Roo Code.
+    *   Give it your high-level goal. Examples:
+        *   `"Start a new project to build a blog platform using React and Supabase."`
+        *   `"I need help with an existing project located at ./my-website. I want to add user authentication."`
+    *   The Commander will initiate the workflow, likely starting with the `🚦 Project Onboarding` mode.
+3.  **Your Role During Workflow:**
+    *   **Primary Interaction:** You mainly interact with the `👑 Roo Commander` for high-level direction and status updates.
+    *   **Approvals:** You will need to approve delegated tasks (`new_task`) initiated by the modes (unless auto-approval is configured).
+    *   **Review Completions:** Pay attention to `attempt_completion` messages, especially the referenced paths in the `project_journal` to understand what was done.
+    *   **Clarifications:** Modes (especially `🔍 Discovery Agent`) may ask you clarifying questions using `ask_followup_question`.
+    *   **Monitoring:** You can observe the `project_journal` directory being populated with notes and documents.
 
-    subgraph "Technical Design & Implementation"
-        TA --> FD(Frontend Developer)
-        TA --> APIDev(API Developer)
-        TA --> UID(UI Designer)
-        TA --> DBSpec(Database Specialist)
-        TA --> ReactSpec(React Specialist)
-        TA --> FirebaseSpec(Firebase Specialist)
-    end
+## 🛠️ Included Modes (Summary)
 
-    subgraph "Operations & Deployment"
-        DevOps --> CICD(CI/CD Specialist)
-        DevOps --> Infra(Infrastructure Specialist)
-        DevOps --> SecSpec(Security Specialist)
-    end
-```
+*(A selection of key roles)*
 
-## 📜 License
+| Mode                         | Role                     | Key Function                                         |
+| :--------------------------- | :----------------------- | :--------------------------------------------------- |
+| **Orchestration**            |                          |                                                      |
+| 👑 Roo Commander             | CEO / Orchestrator       | Overall strategy, high-level delegation, coordination |
+| **Management**               |                          |                                                      |
+| 📋 Project Manager           | Project Management       | Task breakdown, tracking, specialist assignment    |
+| 🏗️ Technical Architect       | Architecture Design      | System design, technology selection, ADRs          |
+| ⚙️ DevOps Manager            | Operations Management    | CI/CD, Infrastructure, Deployment Strategy         |
+| **Core Web Specialists**     |                          |                                                      |
+| 🖥️ Frontend Developer       | Frontend Implementation  | UI coding, client-side logic, framework usage      |
+| ☁️ API Developer             | Backend API Implementation | API design, endpoint coding, security              |
+| 🗃️ Database Specialist     | Database Management      | Schema design, query optimization, migrations      |
+| 🎨 UI Designer               | User Interface Design    | Wireframes, mockups, prototypes, style guides      |
+| **Framework Specialists**    |                          |                                                      |
+| ⚛️ React Specialist          | React Implementation     | Component architecture, state, hooks, performance    |
+| 🎨 Material UI Specialist  | Material UI Integration  | MUI components, theming, customization             |
+| 💨 Tailwind CSS Specialist  | Tailwind Implementation  | Utility classes, config, optimization              |
+| 🐘 PHP/Laravel Developer    | PHP/Laravel Backend      | Eloquent, Blade, routing, Artisan                  |
+| 🐘 Supabase Developer      | Supabase Backend         | Auth, Postgres, Edge Functions, Storage            |
+| **DevOps Specialists**       |                          |                                                      |
+| 🚀 CI/CD Specialist        | CI/CD Pipelines          | Automation, build/test/deploy configuration        |
+| 🏗️ Infrastructure Specialist | Infrastructure Mgmt      | IaC (Terraform, etc.), cloud/on-prem setup, networking |
+| 🐳 Containerization Dev    | Containerization         | Dockerfiles, K8s/Compose manifests, security       |
+| **QA & Maintenance**       |                          |                                                      |
+| 🐛 Bug Fixer                 | Bug Resolution           | Diagnosis, fixing, regression testing              |
+| 👀 Code Reviewer             | Code Quality Assurance   | Reviewing standards, bugs, security                |
+| 🔄 Integration Tester        | Component Interaction    | Testing integration points between system parts    |
+| ⚡ Performance Optimizer    | Performance Tuning       | Profiling, bottleneck analysis, optimization       |
+| ♻️ Refactor Specialist       | Code Improvement         | Improving structure, readability, maintainability  |
+| ♿ Accessibility Specialist  | Accessibility Assurance  | WCAG compliance, testing, accessible design        |
+| 🔒 Security Specialist       | Security Assurance       | Vulnerability assessment, controls, incident response |
+| **Support & Utility**        |                          |                                                      |
+| 🚦 Project Onboarding       | Project Setup/Context    | New project init or existing project discovery     |
+| 🔍 Discovery Agent           | Requirements Gathering   | User interaction to define project scope           |
+| ✨ Project Initializer       | Project Scaffolding      | Creating initial directories and config files      |
+| 🔧 Git Manager               | Version Control          | Branching, merging, tagging                        |
+| 🧩 Complex Problem Solver    | Advanced Analysis        | Deep reasoning, solution evaluation                |
+| 🌐 Research Context Builder  | Information Gathering    | Web/repo searching, context synthesis              |
+| 🤔 Second Opinion            | Alternative Perspective  | Reviewing proposed solutions/designs               |
+| ✍️ Technical Writer          | Documentation Creation   | Writing user guides, API docs, etc.                |
+| 📝 Secretary                 | **Journal Logging**      | **Writes notes/docs to `project_journal` via delegation** |
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+## ⚙️ Customization
 
-## 🤝 Contributing
+*   **Mode Selection:** Feel free to remove modes you don't need for your specific stack or workflow by deleting their corresponding objects from the `customModes` array in the JSON file.
+*   **Instructions:** You can tweak the `customInstructions` for any mode to better suit your team's specific processes or standards.
+*   **File Permissions:** Adjust the `fileRegex` patterns if modes need access to different file types.
+*   **AI Model:** Add the `apiConfiguration` field to any mode if you want to specify a particular LLM or parameters (e.g., use a faster model for the `secretary`).
 
-Contributions are welcome! Please refer to CONTRIBUTING.md (to be created) for guidelines.
+## ⚠️ Important Considerations
 
-## 🔭 Future Plans
+*   **Complexity:** This is an advanced workflow. It requires the underlying LLM to follow complex instructions and protocols reliably.
+*   **LLM Dependence:** The effectiveness heavily depends on the chosen LLM's capabilities (reasoning, planning, instruction following, tool use).
+*   **Error Handling:** While designed for structure, modes can still make mistakes or fail tasks. User oversight and intervention may be necessary.
+*   **Token Usage:** The detailed instructions and logging can consume more tokens than simpler prompts. Consider this based on your usage patterns and budget. `apiConfiguration` can help manage this.
+*   **Dynamic Path Generation:** Modes delegating writes to the `secretary` need to be able to determine the current date/time and construct the correct file path dynamically. Ensure your chosen LLM can handle this reliably within the Roo Code environment.
 
-*   Expand the range of available modes.
-*   Enhance tool capabilities within modes.
-*   Refine mode instructions for better performance.
-*   Add AI-driven mode generation capabilities to the Mode Configurator tool (requires backend infrastructure).
+---
+
+Good luck commanding your virtual Roo Code team! Let us know how it works for you.
