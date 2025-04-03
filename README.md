@@ -12,6 +12,8 @@ Think of it like having a virtual, specialized software development team right i
 
 If you want to remove any modes from the file use the [Mode Splitter](https://jezweb.github.io/roo-commander/)
 
+Learn about giving the file access rules more freedoom [File Access Permissions](https://github.com/jezweb/roo-commander/blob/main/v3.0/customizing-file-access.md)
+
 ## ✨ Core Concept: The Virtual Team
 
 Instead of relying on a single AI mode for all tasks, this system breaks down development into specialized roles:
