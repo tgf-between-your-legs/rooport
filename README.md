@@ -5,7 +5,24 @@ Welcome to the Roo Commander v4.5 mode set! This repository provides a sophistic
 
 Think of it like having a virtual, specialized software development team right inside your editor, orchestrated by the **👑 Roo Commander**.
 
-**Current Version:** v4.5 (Based on modes in `roo-modes-dev/`)
+## ✨ Version v4.5 (Latest)
+
+This is the current recommended version, featuring a refined project journaling system based on task logs and explicit decision records.
+
+*   **➡️ Get the Modes:** Download the primary mode definition file:
+    *   **[`v4.5/roo_commander_more_v45.json`](./v4.5/roo_commander_more_v45.json)** (Copy the content of this file into your Roo Code custom modes settings).
+*   **📚 Learn More & Get Started:**
+    *   [FAQ](./v4.5/FAQ.md)
+    *   [Workflow Examples](./v4.5/workflow_examples.md)
+    *   [Quick Project Ideas](./v4.5/quick_project_ideas.md)
+    *   [System Guidelines (`ROO_COMMANDER_SYSTEM.md`)](./v4.5/ROO_MODE_SYSTEM.md)
+    *   [Refined Journal Plan](./v4.5/refined_journal_plan.md)
+*   **🛠️ Development & Planning Docs (Internal):**
+    *   [Proposed System Content](./v4.5/proposed_roo_commander_system_content.md)
+    *   [Project Journal Summary](./v4.5/project_journal_summary.md)
+    *   [Journaling Doc Summary](./v4.5/summary_roo_commander_journaling_documentation.md)
+
+*(Previous versions are available in the `modes_archive/` directory but are not recommended for new projects.)*
 
 ## ✨ Core Concept: The Virtual Team & Structured Journaling
 
@@ -28,7 +45,7 @@ Communication and context are primarily managed through a structured **Project J
 *   **Visualizations:** Encourages the use of Mermaid diagrams in `project_journal/visualizations/` for architecture, database schemas, and task status.
 *   **Improved Context Management:** Creates a traceable history optimized for AI context rebuilding and human understanding.
 *   **Modularity:** Use the full suite or select the modes most relevant to your project needs.
-*   **System Guidelines:** A `ROO_COMMANDER_SYSTEM.md` file defines core principles and conventions for consistency.
+*   **System Guidelines:** A [`ROO_COMMANDER_SYSTEM.md`](./v4.5/ROO_MODE_SYSTEM.md) file defines core principles and conventions for consistency.
 
 ## 🧩 Core Components & Roles (v4.5 Selection)
 
@@ -37,7 +54,7 @@ Communication and context are primarily managed through a structured **Project J
 *   **🏗️ Technical Architect:** Designs system architecture (`project_journal/planning/architecture.md`), selects technology, documents key decisions (`project_journal/decisions/`).
 *   **🖥️/☁️/🗃️ Specialists:** Focused roles for execution (e.g., `frontend-developer`, `api-developer`, `database-specialist`, `react-specialist`, `tailwind-specialist`, `php-laravel-developer`, etc.). They receive tasks, implement them, and log their work within their assigned task log (`project_journal/tasks/TASK-ID.md`).
 *   **🛠️ Support & Task-Specific Roles:**
-    *   `📝 Secretary`: **Crucial role.** Handles all validated writes/appends to the `project_journal` (task logs, decisions, formal docs, visualizations) and root README/LICENSE, based on instructions from other modes. Enforces path safety.
+    *   `📝 Secretary`: **Crucial role.** Handles all validated writes/appends to the `project_journal` (task logs, decisions, formal docs, visualizations, planning, technical_notes) and root README/LICENSE/ROO_COMMANDER_SYSTEM.md, based on instructions from other modes. Enforces path safety.
     *   `🚦 Project Onboarding`: Handles the initial setup for new projects (including `ROO_COMMANDER_SYSTEM.md`) or context gathering for existing ones.
     *   `🔍 Discovery Agent`: Interacts with the user to gather detailed requirements (`project_journal/planning/requirements.md`).
     *   `✨ Project Initializer`: Sets up the basic directory structure, Git repo, journal structure, and config files (including `ROO_COMMANDER_SYSTEM.md`) for new projects.
@@ -58,7 +75,7 @@ Communication and context are primarily managed through a structured **Project J
 
 ## 📓 The Project Journal (v4.5): The System's Memory
 
-This structured directory is the cornerstone of context management.
+This structured directory is the cornerstone of context management. See the [Refined Journal Plan](./v4.5/refined_journal_plan.md) for details.
 
 **Structure:**
 
@@ -84,7 +101,7 @@ project_journal/
 *   **Task Logs:** Each delegated task has its own log file in `tasks/`, tracking its goal, steps, findings, and final outcome.
 *   **Decisions:** Significant, cross-cutting decisions are recorded in `decisions/`.
 *   **Formal Docs:** Finalized artifacts live in `formal_docs/`.
-*   **Secretary Role:** The `📝 Secretary` handles all writes/appends to the journal directories and root README/LICENSE, ensuring path validation.
+*   **Secretary Role:** The `📝 Secretary` handles all writes/appends to the journal directories and root README/LICENSE/ROO_COMMANDER_SYSTEM.md, ensuring path validation.
 *   **Context References:** Modes reference relevant planning docs, decision files, or other task logs when delegating or reporting.
 *   **Completion Reports:** Modes reference their specific task log file (`project_journal/tasks/TASK-ID.md`) when reporting completion.
 
@@ -92,7 +109,7 @@ project_journal/
 
 1.  **Installation:**
     *   Ensure you have the latest Roo Code extension.
-    *   Download the `roo-commander-v4.5.json` file (or the specific JSON file containing the v4.5 modes).
+    *   Download the **[`v4.5/roo_commander_more_v45.json`](./v4.5/roo_commander_more_v45.json)** file.
     *   Place it in your Roo Code configuration directory (Global modes) OR rename it to `.roomodes` and place it in the root of your specific project directory (Project-specific modes). Refer to the Roo Code documentation for exact locations.
 2.  **Starting a Project:**
     *   Open your project folder in VS Code.
@@ -113,7 +130,7 @@ project_journal/
     *   **Guidance:** If a mode seems stuck or going in the wrong direction, provide corrective feedback to the `👑 Roo Commander`.
 
 4.  **Getting the Best Experience:**
-    *   **Start Simple:** For initial tests, try a small, well-defined task.
+    *   **Start Simple:** Use the [Quick Project Ideas](./v4.5/quick_project_ideas.md) for initial tests.
     *   **Clear Goals:** The clearer your initial goal for the Commander, the better the delegation.
     *   **Review Delegations:** Briefly check the tasks being delegated to ensure they align with your intent.
     *   **Check the Journal:** Periodically review the task logs and planning documents to stay informed.
@@ -121,11 +138,18 @@ project_journal/
 
 ## ⚙️ System Guidelines (`ROO_COMMANDER_SYSTEM.md`)
 
-For detailed information on journaling principles, the standard journal structure, the emoji legend, and delegation guidelines used by these modes, please refer to the `ROO_COMMANDER_SYSTEM.md` file located in the project root (created by `project-initializer` for new projects).
+For detailed information on journaling principles, the standard journal structure, the emoji legend, and delegation guidelines used by these modes, please refer to the [`ROO_COMMANDER_SYSTEM.md`](./v4.5/ROO_MODE_SYSTEM.md) file (created by `project-initializer` for new projects, or copy it from the `v4.5` directory).
+
+## 📚 Additional v4.5 Documentation
+
+*   [FAQ](./v4.5/FAQ.md)
+*   [Workflow Examples](./v4.5/workflow_examples.md)
+*   [Quick Project Ideas](./v4.5/quick_project_ideas.md)
+*   [Refined Journal Plan](./v4.5/refined_journal_plan.md)
 
 ## 🛠️ Included Modes (v4.5 Summary)
 
-*(See `project_journal_summary.md` for a more detailed breakdown generated previously)*
+*(See [`v4.5/project_journal_summary.md`](./v4.5/project_journal_summary.md) for a more detailed breakdown generated during development)*
 
 | Mode                         | Role                     | Key Function                                         |
 | :--------------------------- | :----------------------- | :--------------------------------------------------- |
