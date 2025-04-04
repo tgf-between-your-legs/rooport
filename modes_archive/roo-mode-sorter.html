@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roo Code Mode Sorter</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 95%; /* Adjusted width */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            min-height: 200px;
+            resize: vertical;
+            background-color: #fff;
+            color: #333;
+        }
+         button, .file-upload-label {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-right: 10px;
+            transition: background-color 0.2s ease;
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 10px;
+        }
+        button:hover, .file-upload-label:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #fileInput {
+            display: none; /* Hide the actual file input */
+        }
+        .input-area {
+             border: 1px solid #eee;
+             padding: 15px;
+             margin-bottom: 20px;
+             border-radius: 5px;
+        }
+        #fileInfo {
+             color: #28a745; /* Green for success */
+             margin-top: 10px;
+             font-size: 0.9em;
+             min-height: 1.2em;
+        }
+        #errorDisplay {
+            color: #dc3545;
+            margin-top: 15px;
+            font-weight: bold;
+            min-height: 1.2em;
+            white-space: pre-wrap; /* Show multiple error lines */
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        code {
+             font-family: monospace;
+             font-size: 0.9em;
+             color: #333;
+        }
+         #outputContainer {
+             margin-top: 20px;
+         }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Roo Code Mode Sorter</h1>
+
+    <p>Paste the full JSON content of a Roo Code `custom_modes.json` file or upload the file. This tool will reorder the modes based on a predefined functional sequence. Modes not in the sequence will be added to the end alphabetically.</p>
+
+     <div class="input-area">
+        <h2>Input JSON</h2>
+        <div>
+            <label for="jsonInput">Option 1: Paste JSON</label>
+            <textarea id="jsonInput" placeholder="Paste your Roo Code custom_modes.json content here..."></textarea>
+        </div>
+        <div>
+            <label for="fileInput" class="file-upload-label">Option 2: Upload JSON/TXT File</label>
+            <input type="file" id="fileInput" accept=".json,.txt">
+            <div id="fileInfo"></div>
+        </div>
+        <button id="sortButton">Process & Sort JSON</button>
+    </div>
+
+    <div id="errorDisplay"></div>
+
+    <div id="outputContainer" style="display: none;">
+        <h2>Sorted JSON Output:</h2>
+        <label for="jsonOutput">Result:</label>
+        <textarea id="jsonOutput" readonly placeholder="Sorted JSON will appear here..."></textarea>
+    </div>
+
+</div>
+
+<script>
+    const jsonInput = document.getElementById('jsonInput');
+    const fileInput = document.getElementById('fileInput');
+    const fileInfo = document.getElementById('fileInfo');
+    const sortButton = document.getElementById('sortButton');
+    const jsonOutput = document.getElementById('jsonOutput');
+    const outputContainer = document.getElementById('outputContainer');
+    const errorDisplay = document.getElementById('errorDisplay');
+
+    // --- File Upload Handling ---
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        errorDisplay.textContent = ''; // Clear errors on new file selection
+        fileInfo.textContent = ''; // Clear previous file info
+        jsonOutput.value = ''; // Clear previous output
+        outputContainer.style.display = 'none';
+
+        if (!file) {
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                jsonInput.value = e.target.result;
+                fileInfo.textContent = `File "${file.name}" loaded into textarea. Click 'Process & Sort JSON'.`;
+            } catch (err) {
+                 console.error("Error setting textarea value:", err);
+                 errorDisplay.textContent = "Error displaying file content.";
+            }
+        };
+        reader.onerror = (e) => {
+            console.error("FileReader Error:", e);
+            errorDisplay.textContent = `Error reading file: ${file.name}`;
+        };
+        reader.readAsText(file);
+    });
+
+    // --- Sort Button Click ---
+    sortButton.addEventListener('click', () => {
+        errorDisplay.textContent = ''; // Clear previous errors
+        jsonOutput.value = '';
+        outputContainer.style.display = 'none';
+        sortButton.disabled = true;
+        sortButton.textContent = 'Processing...';
+
+        const jsonString = jsonInput.value.trim();
+        if (!jsonString) {
+            errorDisplay.textContent = 'Input JSON (from paste or file) cannot be empty.';
+            sortButton.disabled = false;
+            sortButton.textContent = 'Process & Sort JSON';
+            return;
+        }
+
+        fileInfo.textContent = ''; // Clear file loaded message if processing starts
+
+        try {
+            const parsedJson = JSON.parse(jsonString);
+
+            if (!parsedJson.customModes || !Array.isArray(parsedJson.customModes)) {
+                throw new Error('Invalid JSON format: Missing or invalid "customModes" array.');
+            }
+
+            // --- Define the Desired Order (using slugs) ---
+            const predefinedOrder = [
+                // Orchestration
+                "roo-commander",
+                // Management
+                "project-manager",
+                "technical-architect",
+                "devops-manager",
+                // Core Web Specialists
+                "frontend-developer",
+                "api-developer",
+                "database-specialist",
+                "ui-designer",
+                // Framework Specialists
+                "react-specialist",
+                "material-ui-specialist",
+                "tailwind-specialist",
+                "php-laravel-developer",
+                "supabase-developer", // Added from context
+                "firebase-specialist", // Added from context
+                // DevOps Specialists
+                "cicd-specialist",
+                "infrastructure-specialist",
+                "containerization-developer", // Corrected slug from image inference
+                // QA & Maintenance
+                "bug-fixer",
+                "code-reviewer",
+                "integration-tester",
+                "performance-optimizer",
+                "refactor-specialist",
+                "accessibility-specialist",
+                "security-specialist",
+                // Support & Utility
+                "project-onboarding",
+                "discovery-agent",
+                "project-initializer",
+                "git-manager",
+                "complex-problem-solver",
+                "research-context-builder",
+                "second-opinion",
+                "technical-writer",
+                "secretary",
+                // AI / Other Specialists (Order these alphabetically among themselves)
+                "agentic-ai-developer",
+                "google-gemini-api-developer",
+                "mcp-installer",
+                "mcp-server-creator-py",
+                "mcp-server-creator-ts",
+                "openai-api-developer",
+                "rag-database-developer",
+                "vertex-ai-developer"
+                // Add any other known slugs here if needed
+            ];
+
+            // --- Custom Sort Function ---
+            const compareModes = (a, b) => {
+                const slugA = a.slug;
+                const slugB = b.slug;
+                const nameA = a.name || slugA || ''; // Fallback for sorting unknowns
+                const nameB = b.name || slugB || ''; // Fallback for sorting unknowns
+
+                const indexA = predefinedOrder.indexOf(slugA);
+                const indexB = predefinedOrder.indexOf(slugB);
+
+                const isAPredefined = indexA !== -1;
+                const isBPredefined = indexB !== -1;
+
+                if (isAPredefined && isBPredefined) {
+                    return indexA - indexB; // Both are predefined, sort by their order
+                } else if (isAPredefined && !isBPredefined) {
+                    return -1; // A is predefined, B is not -> A comes first
+                } else if (!isAPredefined && isBPredefined) {
+                    return 1; // B is predefined, A is not -> B comes first
+                } else {
+                    // Neither is predefined, sort alphabetically by name (or slug as fallback)
+                    return nameA.localeCompare(nameB);
+                }
+            };
+
+            // --- Sort the Array ---
+            // Important: Sort the array within the original parsed object
+            parsedJson.customModes.sort(compareModes);
+
+            // --- Display Output ---
+            jsonOutput.value = JSON.stringify(parsedJson, null, 2); // Pretty print
+            outputContainer.style.display = 'block'; // Show output area
+
+        } catch (error) {
+            console.error("Processing Error:", error);
+            errorDisplay.textContent = `Error: ${error.message}`;
+        } finally {
+            // Re-enable button
+            sortButton.disabled = false;
+            sortButton.textContent = 'Process & Sort JSON';
+        }
+    });
+
+</script>
+
+</body>
+</html>

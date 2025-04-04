@@ -1,1 +1,31 @@
+# Roo Code specific
+.roomodes
+
+# Project Journal (Contains logs/transient data, typically not committed)
+project_journal/
+
+# Local Tools & Build Artifacts (Keep tools/ itself)
+roo-mode-filter/
+# tools/mode_configurator/ was deleted
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+*.code-workspace
+
+# Dependencies (Example for Node)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Old context dir (already present)
 context/
