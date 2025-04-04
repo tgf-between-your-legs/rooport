@@ -1,0 +1,30 @@
+name: Deploy Tools to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or your default branch name if different
+    paths:
+      - 'tools/**' # Trigger only if files in tools/ change
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allow the action to write to the repository (push to gh-pages)
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main # Ensure we checkout the main branch
+
+      - name: Deploy tools directory to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./tools
+          publish_branch: gh-pages # Deploy to gh-pages branch
+          force_orphan: true # Overwrite history on gh-pages for clean deploys
+          # Optional: Configure committer info if needed
+          # user_name: 'github-actions[bot]'
+          # user_email: 'github-actions[bot]@users.noreply.github.com'
