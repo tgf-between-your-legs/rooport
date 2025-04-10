@@ -1,0 +1,123 @@
+{
+  "collections": {
+    "core": [
+      "roo-commander", "git-manager", "code", "ask", "debug", "project-manager",
+      "technical-architect", "technical-writer", "context-resolver",
+      "discovery-agent", "mode-maker"
+    ],
+    "utility": [
+      "complex-problem-solver", "second-opinion", "mode-maintainer",
+      "file-repair-specialist", "diagramer"
+    ],
+    "frontend-general": {
+      "include": ["core"],
+      "add": [
+        "frontend-developer", "ui-designer", "e2e-tester", "accessibility-specialist",
+        "typescript-specialist", "vite-specialist", "tailwind-specialist", "bootstrap-specialist"
+      ]
+    },
+    "frontend-react-ecosystem": {
+      "include": ["core"],
+      "add": [
+        "react-specialist", "nextjs-developer", "remix-developer", "typescript-specialist",
+        "tailwind-specialist", "shadcn-ui-specialist", "material-ui-specialist",
+        "vite-specialist", "frontend-developer", "ui-designer", "e2e-tester",
+        "accessibility-specialist"
+      ]
+    },
+    "stack-react-vite-tailwind": {
+      "include": ["core"],
+      "add": [
+        "react-specialist", "typescript-specialist", "vite-specialist",
+        "tailwind-specialist", "frontend-developer", "ui-designer",
+        "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-react-vite-mui": {
+      "include": ["core"],
+      "add": [
+        "react-specialist", "typescript-specialist", "vite-specialist",
+        "material-ui-specialist", "frontend-developer", "ui-designer",
+        "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-nextjs-tailwind": {
+      "include": ["core"],
+      "add": [
+        "nextjs-developer", "react-specialist", "typescript-specialist",
+        "tailwind-specialist", "shadcn-ui-specialist", "frontend-developer",
+        "ui-designer", "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-remix-tailwind": {
+      "include": ["core"],
+      "add": [
+        "remix-developer", "react-specialist", "typescript-specialist",
+        "tailwind-specialist", "frontend-developer", "ui-designer",
+        "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-vue-vite": {
+      "include": ["core"],
+      "add": [
+        "vuejs-developer", "typescript-specialist", "vite-specialist",
+        "frontend-developer", "ui-designer", "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-angular": {
+      "include": ["core"],
+      "add": [
+        "angular-developer", "typescript-specialist", "frontend-developer",
+        "ui-designer", "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-sveltekit-tailwind": {
+      "include": ["core"],
+      "add": [
+        "sveltekit-developer", "typescript-specialist", "vite-specialist",
+        "tailwind-specialist", "frontend-developer", "ui-designer",
+        "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "stack-astro-tailwind": {
+      "include": ["core"],
+      "add": [
+        "astro-developer", "typescript-specialist", "tailwind-specialist",
+        "frontend-developer", "ui-designer", "e2e-tester", "accessibility-specialist"
+      ]
+    },
+    "backend-python": {
+      "include": ["core"],
+      "add": [
+        "django-developer", "flask-developer", "fastapi-developer", "api-developer",
+        "database-specialist", "mongodb-specialist", "neon-db-specialist",
+        "elasticsearch-specialist", "containerization-developer", "security-specialist"
+      ]
+    },
+    "backend-php": {
+      "include": ["core"],
+      "add": [
+        "php-laravel-developer", "api-developer", "database-specialist",
+        "mongodb-specialist", "containerization-developer", "security-specialist"
+      ]
+    },
+    "devops-infra": {
+      "include": ["core"],
+      "add": [
+        "cicd-specialist", "containerization-developer", "infrastructure-specialist",
+        "security-specialist", "performance-optimizer"
+      ]
+    },
+    "data-vis": {
+      "include": ["core"],
+      "add": ["d3js-specialist", "threejs-specialist", "animejs-specialist"]
+    },
+    "baas": {
+      "include": ["core"],
+      "add": ["supabase-developer", "clerk-auth-specialist", "database-specialist"]
+    },
+    "full": {
+      "include": ["all"]
+    }
+  }
+}
