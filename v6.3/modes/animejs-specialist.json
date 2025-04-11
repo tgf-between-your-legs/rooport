@@ -17,5 +17,8 @@
     "frontend",
     "ui-effects"
   ],
-  "description": "Expert in creating complex, performant web animations using anime.js, including timelines, SVG morphing, interactive, and scroll-triggered effects."
+  "description": "Expert in creating complex, performant web animations using anime.js, including timelines, SVG morphing, interactive, and scroll-triggered effects.",
+  "apiConfiguration": {
+    "model": "claude-3.7-sonnet"
+  }
 }

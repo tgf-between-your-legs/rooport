@@ -26,5 +26,8 @@
     "nodejs",
     "python"
   ],
-  "description": "Specializes in building applications using Firebase's suite of backend services including Firestore, Storage, Authentication, Functions, and Hosting."
+  "description": "Specializes in building applications using Firebase's suite of backend services including Firestore, Storage, Authentication, Functions, and Hosting.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

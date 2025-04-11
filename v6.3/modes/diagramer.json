@@ -22,5 +22,8 @@
     "state-diagram",
     "gantt-chart"
   ],
-  "description": "Translates conceptual descriptions into Mermaid syntax to create/update diagrams (graph, sequence, ER, C4, state, Gantt, etc.). Focuses on visualization, not analysis."
+  "description": "Translates conceptual descriptions into Mermaid syntax to create/update diagrams (graph, sequence, ER, C4, state, Gantt, etc.). Focuses on visualization, not analysis.",
+  "apiConfiguration": {
+    "model": "gemini-2.5-pro"
+  }
 }

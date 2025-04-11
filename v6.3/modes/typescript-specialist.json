@@ -18,5 +18,8 @@
     "compiler",
     "tsconfig"
   ],
-  "description": "Specializes in writing, configuring, and improving strongly-typed JavaScript applications using TypeScript."
+  "description": "Specializes in writing, configuring, and improving strongly-typed JavaScript applications using TypeScript.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

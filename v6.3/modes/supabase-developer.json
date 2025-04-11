@@ -27,5 +27,8 @@
     "deno",
     "typescript"
   ],
-  "description": "Specializes in building applications using Supabase (Postgres DB, Auth, Storage, Edge Functions, Realtime, Vector DB)."
+  "description": "Specializes in building applications using Supabase (Postgres DB, Auth, Storage, Edge Functions, Realtime, Vector DB).",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

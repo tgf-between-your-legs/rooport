@@ -19,6 +19,6 @@
   ],
   "description": "Applies specific, instructed modifications to existing mode definition files (.json), ensuring JSON integrity.",
   "apiConfiguration": {
-    "profile": "claude-3.5-sonnet-20240620"
+    "model": "gemini-2.5-pro"
   }
 }

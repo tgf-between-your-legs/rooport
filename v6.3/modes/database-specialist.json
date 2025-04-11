@@ -27,5 +27,8 @@
     "neon",
     "backend"
   ],
-  "description": "Designs, implements, optimizes, and maintains SQL/NoSQL databases, focusing on schema design, ORMs, migrations, query optimization, data integrity, and performance."
+  "description": "Designs, implements, optimizes, and maintains SQL/NoSQL databases, focusing on schema design, ORMs, migrations, query optimization, data integrity, and performance.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

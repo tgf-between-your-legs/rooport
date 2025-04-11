@@ -24,5 +24,8 @@
     "frontend-performance",
     "backend-performance"
   ],
-  "description": "Identifies, analyzes, and resolves performance bottlenecks across the full stack using profiling, analysis, and optimization techniques. Measures impact against goals."
+  "description": "Identifies, analyzes, and resolves performance bottlenecks across the full stack using profiling, analysis, and optimization techniques. Measures impact against goals.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

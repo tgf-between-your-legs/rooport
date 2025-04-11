@@ -17,5 +17,8 @@
     "spa",
     "rxjs"
   ],
-  "description": "Specializes in building complex client applications using the Angular framework and TypeScript."
+  "description": "Specializes in building complex client applications using the Angular framework and TypeScript.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

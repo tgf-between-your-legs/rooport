@@ -22,5 +22,8 @@
     "deployment",
     "api"
   ],
-  "description": "Specializes in building web applications using the Django Python framework, including MVT, ORM, DRF, testing, and deployment aspects."
+  "description": "Specializes in building web applications using the Django Python framework, including MVT, ORM, DRF, testing, and deployment aspects.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

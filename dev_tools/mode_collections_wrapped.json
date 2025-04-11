@@ -11,35 +11,39 @@
         "complex-problem-solver",
         "diagramer",
         "technical-writer",
-        "git-manager"
+        "git-manager",
+        "technical-architect",
+        "context-condenser",
+        "research-context-builder",
+        "discovery-agent",
+        "second-opinion",
+        "bug-fixer",
+        "code-reviewer",
+        "refactor-specialist",
+        "database-specialist",
+        "frontend-developer",
+        "ui-designer",
+        "one-shot-web-designer"
       ]
     },
     "utility": {
       "name": "Utility & Specialists",
       "description": "General purpose specialists for common development tasks.",
       "modes": [
-        "bug-fixer",
-        "code-reviewer",
-        "refactor-specialist",
+
         "performance-optimizer",
         "security-specialist",
         "accessibility-specialist",
         "typescript-specialist",
         "api-developer",
-        "context-condenser",
-        "research-context-builder",
-        "discovery-agent",
-        "second-opinion",
         "file-repair-specialist",
-        "technical-architect"
+
       ]
     },
     "frontend_general": {
       "name": "Frontend General & UI",
       "description": "General frontend development, UI design, and common CSS frameworks.",
       "modes": [
-        "frontend-developer",
-        "ui-designer",
         "bootstrap-specialist",
         "tailwind-specialist",
         "one-shot-web-designer"
@@ -107,7 +111,6 @@
       "name": "Data & BaaS",
       "description": "Modes for databases and Backend-as-a-Service platforms.",
       "modes": [
-        "database-specialist",
         "mongodb-specialist",
         "neon-db-specialist",
         "elasticsearch-specialist",
@@ -148,14 +151,6 @@
         "clerk-auth-specialist"
       ]
     },
-    "mode_dev": {
-      "name": "Mode Development",
-      "description": "Modes for creating and maintaining Roo modes.",
-      "modes": [
-        "mode-maker",
-        "mode-maintainer"
-      ]
-    },
     "stack_react_firebase": {
       "name": "React + Firebase Stack",
       "description": "Complete stack for building React applications with Firebase backend services.",
@@ -163,7 +158,6 @@
         "react-specialist",
         "firebase-developer",
         "typescript-specialist",
-        "frontend-developer",
         "security-specialist"
       ]
     },
@@ -174,7 +168,6 @@
         "nextjs-developer",
         "firebase-developer",
         "typescript-specialist",
-        "frontend-developer",
         "security-specialist"
       ]
     },
@@ -218,7 +211,6 @@
         "react-specialist",
         "supabase-developer",
         "typescript-specialist",
-        "frontend-developer",
         "security-specialist"
       ]
     },
@@ -229,7 +221,6 @@
         "nextjs-developer",
         "supabase-developer",
         "typescript-specialist",
-        "frontend-developer",
         "security-specialist"
       ]
     },
@@ -300,10 +291,7 @@
       "description": "Complete stack for building Astro websites with Tailwind CSS.",
       "modes": [
         "astro-developer",
-        "tailwind-specialist",
-        "frontend-developer",
-        "one-shot-web-designer"
-      ]
+        "tailwind-specialist"      ]
     },
     "stack_nextjs_shadcn": {
       "name": "Next.js + shadcn/ui Stack",
@@ -323,7 +311,6 @@
         "nextjs-developer",
         "typescript-specialist",
         "database-specialist",
-        "frontend-developer",
         "api-developer"
       ]
     },
@@ -333,7 +320,6 @@
       "modes": [
         "astro-developer",
         "tailwind-specialist",
-        "frontend-developer",
         "one-shot-web-designer",
         "api-developer"
       ]
@@ -345,7 +331,6 @@
         "nextjs-developer",
         "tailwind-specialist",
         "typescript-specialist",
-        "frontend-developer",
         "api-developer",
         "security-specialist"
       ]
@@ -357,7 +342,6 @@
         "react-specialist",
         "firebase-developer",
         "typescript-specialist",
-        "frontend-developer",
         "security-specialist"
       ]
     },
@@ -379,7 +363,6 @@
         "nextjs-developer",
         "mongodb-specialist",
         "typescript-specialist",
-        "frontend-developer",
         "api-developer"
       ]
     },
@@ -390,7 +373,6 @@
         "django-developer",
         "react-specialist",
         "database-specialist",
-        "frontend-developer",
         "api-developer"
       ]
     }

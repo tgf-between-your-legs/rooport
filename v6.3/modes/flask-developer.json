@@ -19,5 +19,8 @@
     "jinja2",
     "wsgi"
   ],
-  "description": "Specializes in building web applications and APIs using the Flask Python microframework."
+  "description": "Specializes in building web applications and APIs using the Flask Python microframework.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

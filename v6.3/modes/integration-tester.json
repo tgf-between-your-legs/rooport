@@ -17,5 +17,8 @@
     "api-testing",
     "component-testing"
   ],
-  "description": "Verifies interactions between components/services/systems, focusing on interfaces, data flow, and contracts using API testing, mocks, and stubs."
+  "description": "Verifies interactions between components/services/systems, focusing on interfaces, data flow, and contracts using API testing, mocks, and stubs.",
+  "apiConfiguration": {
+    "model": "claude-3.7-sonnet"
+  }
 }

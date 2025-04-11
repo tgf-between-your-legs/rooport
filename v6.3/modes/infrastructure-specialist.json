@@ -30,5 +30,8 @@
     "disaster-recovery",
     "server-configuration"
   ],
-  "description": "Designs, implements, manages, and secures cloud/on-prem infrastructure using IaC (Terraform, CloudFormation, etc.), focusing on reliability, scalability, security, and cost."
+  "description": "Designs, implements, manages, and secures cloud/on-prem infrastructure using IaC (Terraform, CloudFormation, etc.), focusing on reliability, scalability, security, and cost.",
+  "apiConfiguration": {
+    "model": "gemini-2.5-pro"
+  }
 }

@@ -21,5 +21,8 @@
     "nomad",
     "infrastructure"
   ],
-  "description": "Designs, builds, secures, and manages containerized applications using Docker, Kubernetes, Swarm, Nomad, focusing on best practices for images and orchestration."
+  "description": "Designs, builds, secures, and manages containerized applications using Docker, Kubernetes, Swarm, Nomad, focusing on best practices for images and orchestration.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

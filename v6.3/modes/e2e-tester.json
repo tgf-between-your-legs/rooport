@@ -20,5 +20,8 @@
     "playwright",
     "selenium"
   ],
-  "description": "Designs, writes, executes, and maintains End-to-End (E2E) tests using frameworks like Cypress, Playwright, Selenium to simulate user journeys and ensure application quality."
+  "description": "Designs, writes, executes, and maintains End-to-End (E2E) tests using frameworks like Cypress, Playwright, Selenium to simulate user journeys and ensure application quality.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

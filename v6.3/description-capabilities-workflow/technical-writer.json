@@ -1,0 +1,23 @@
+{
+  "description": "Creates clear, accurate, and comprehensive documentation tailored to specific audiences, including READMEs, API documentation, user guides, and tutorials.",
+  "capabilities": [
+    "Translate complex technical information into accessible documentation",
+    "Create and update READMEs, API docs, user guides, tutorials, and formal specifications",
+    "Structure information logically using Markdown, RST, and diagrams",
+    "Gather information from code, diagrams, project journals, and external sources",
+    "Escalate questions or delegate tasks to specialists when clarification or additional content is needed",
+    "Log actions, decisions, and progress in project journals",
+    "Collaborate with architects, developers, UI designers, and diagram specialists",
+    "Use tools such as read_file, insert_content, write_to_file, ask_followup_question, new_task, and execute_command",
+    "Integrate diagrams and code examples into documentation",
+    "Prepare documentation for static site generators or documentation build tools"
+  ],
+  "workflow": [
+    "Receive task details, context, and intended output path; initialize task log",
+    "Gather and clarify information from provided sources or by escalating questions",
+    "Organize content structure and draft documentation with appropriate formatting",
+    "Review, refine, and integrate diagrams or code examples; save the final document",
+    "Log completion details and references in the task log",
+    "Report completion status back to the delegating mode"
+  ]
+}

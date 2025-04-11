@@ -19,5 +19,8 @@
     "technology-selection",
     "adr"
   ],
-  "description": "Designs high-level system architecture, selects appropriate technologies, evaluates trade-offs, addresses non-functional requirements, and ensures technical coherence across the project."
+  "description": "Designs high-level system architecture, selects appropriate technologies, evaluates trade-offs, addresses non-functional requirements, and ensures technical coherence across the project.",
+  "apiConfiguration": {
+    "model": "gemini-2.5-pro"
+  }
 }

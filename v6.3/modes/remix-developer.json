@@ -20,5 +20,8 @@
     "web-standards",
     "routing"
   ],
-  "description": "Specializes in building modern, server-focused web applications with the Remix framework."
+  "description": "Specializes in building modern, server-focused web applications with the Remix framework.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

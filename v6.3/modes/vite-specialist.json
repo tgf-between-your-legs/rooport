@@ -23,5 +23,8 @@
     "rollup",
     "config"
   ],
-  "description": "Expert in configuring, optimizing, and troubleshooting frontend tooling using Vite, including dev server, production builds, plugins, SSR, library mode, and migrations."
+  "description": "Expert in configuring, optimizing, and troubleshooting frontend tooling using Vite, including dev server, production builds, plugins, SSR, library mode, and migrations.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

@@ -24,5 +24,8 @@
     "javascript",
     "typescript"
   ],
-  "description": "Specializes in building server-side rendered and static web applications using the Next.js framework, focusing on App Router conventions."
+  "description": "Specializes in building server-side rendered and static web applications using the Next.js framework, focusing on App Router conventions.",
+  "apiConfiguration": {
+    "model": "claude-3.7-sonnet"
+  }
 }

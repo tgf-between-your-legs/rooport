@@ -22,5 +22,8 @@
     "javascript",
     "typescript"
   ],
-  "description": "Specializes in building high-performance web applications using the SvelteKit framework, covering routing, data loading, form handling, SSR/SSG, and deployment."
+  "description": "Specializes in building high-performance web applications using the SvelteKit framework, covering routing, data loading, form handling, SSR/SSG, and deployment.",
+  "apiConfiguration": {
+    "model": "claude-3.7-sonnet"
+  }
 }

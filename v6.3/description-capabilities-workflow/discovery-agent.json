@@ -1,0 +1,29 @@
+{
+  "description": "Analyzes project context, interacts with users to gather requirements, detects the technical stack, and produces a discovery report.",
+  "capabilities": [
+    "Initialize and maintain detailed task logs",
+    "Analyze project directory structure recursively",
+    "Read key configuration and manifest files",
+    "Search project files for framework and library indicators",
+    "Engage users with clarifying questions to gather requirements",
+    "Log findings and user responses iteratively",
+    "Summarize requirements and detected technical stack",
+    "Save structured discovery reports",
+    "Log completion status and references",
+    "Report results back to delegating modes",
+    "Handle errors gracefully and log issues",
+    "Escalate to architect or complex problem solver modes if needed"
+  ],
+  "workflow": [
+    "Receive task assignment and initialize the task log with initial goal",
+    "Perform automated context analysis using file listing, reading, and searching",
+    "Log preliminary findings about project structure and technologies",
+    "Engage the user iteratively to clarify goals, requirements, and constraints",
+    "Continue questioning until requirements are sufficiently detailed",
+    "Summarize gathered requirements and detected stack into a structured report",
+    "Save the discovery report to the project journal",
+    "Log completion status, outcome, and references in the task log",
+    "Report back to the delegating mode with the discovery report and task log references",
+    "Escalate to other specialist modes if deeper analysis or architectural input is required"
+  ]
+}

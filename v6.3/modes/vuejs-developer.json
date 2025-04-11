@@ -25,5 +25,8 @@
     "vuex",
     "sfc"
   ],
-  "description": "Expertly builds modern, performant UIs and SPAs using Vue.js (v2/v3), Composition API, Options API, Vue Router, and Pinia/Vuex."
+  "description": "Expertly builds modern, performant UIs and SPAs using Vue.js (v2/v3), Composition API, Options API, Vue Router, and Pinia/Vuex.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

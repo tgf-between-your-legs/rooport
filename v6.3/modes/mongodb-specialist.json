@@ -20,5 +20,8 @@
     "indexing",
     "schema-design"
   ],
-  "description": "Specializes in designing, implementing, and managing MongoDB databases."
+  "description": "Specializes in designing, implementing, and managing MongoDB databases.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

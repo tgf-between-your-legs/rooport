@@ -19,5 +19,8 @@
     "code-analysis",
     "problem-solving"
   ],
-  "description": "Systematically identifies, diagnoses, and resolves software bugs, implementing fixes and regression tests."
+  "description": "Systematically identifies, diagnoses, and resolves software bugs, implementing fixes and regression tests.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

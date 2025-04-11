@@ -22,5 +22,8 @@
     "typescript",
     "mdx"
   ],
-  "description": "Specializes in building fast, content-focused websites and applications with the Astro framework, focusing on island architecture, content collections, integrations, performance, SSR, and Astro DB/Actions."
+  "description": "Specializes in building fast, content-focused websites and applications with the Astro framework, focusing on island architecture, content collections, integrations, performance, SSR, and Astro DB/Actions.",
+  "apiConfiguration": {
+    "model": "claude-3.7-sonnet"
+  }
 }

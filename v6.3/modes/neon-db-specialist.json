@@ -21,5 +21,8 @@
     "vector-database",
     "pgvector"
   ],
-  "description": "Expert in designing, implementing, and managing Neon serverless PostgreSQL databases, including branching, connection pooling, and optimization."
+  "description": "Expert in designing, implementing, and managing Neon serverless PostgreSQL databases, including branching, connection pooling, and optimization.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

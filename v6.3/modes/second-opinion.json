@@ -17,5 +17,9 @@
     "alternative-analysis",
     "decision-support",
     "quality-assurance"
-  ]
+  ],
+  "description": "An independent, critical evaluator designed to rigorously assess proposed solutions, designs, code snippets, or approaches. It uses a structured evaluation framework considering correctness, efficiency, robustness, scalability, simplicity, standards compliance, and security.",
+  "apiConfiguration": {
+    "model": "quasar-alpha"
+  }
 }

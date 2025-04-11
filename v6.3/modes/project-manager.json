@@ -18,5 +18,8 @@
     "planning",
     "tracking"
   ],
-  "description": "Manages project features/phases using the Markdown-Driven Task Management (MDTM) system, breaking down work, delegating tasks, tracking status, and reporting progress."
+  "description": "Manages project features/phases using the Markdown-Driven Task Management (MDTM) system, breaking down work, delegating tasks, tracking status, and reporting progress.",
+  "apiConfiguration": {
+    "model": "gemini-2.5-pro"
+  }
 }

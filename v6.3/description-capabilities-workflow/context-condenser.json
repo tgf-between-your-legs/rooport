@@ -1,0 +1,26 @@
+{
+  "description": "Generates dense, structured summaries (Condensed Context Indices) from technical documentation sources for embedding into other modes' instructions.",
+  "capabilities": [
+    "Generate Condensed Context Indices from large technical documentation sources (files, directories, URLs)",
+    "Download documentation content via URL using curl",
+    "Read and analyze files and directories recursively",
+    "Extract high-level summaries, core concepts, key APIs, configurations, usage patterns, best practices, and pitfalls",
+    "Structure output as optimized Markdown for AI comprehension and embedding",
+    "Log progress and escalate issues such as download failures or ambiguous sources",
+    "Save generated indices to specified output paths",
+    "Report completion status and provide generated content back to the calling mode"
+  ],
+  "workflow": [
+    "Initialize task log with goal and input details",
+    "Acquire input sources: download URLs, list files, read files",
+    "Write a high-level summary of the technology",
+    "Identify and summarize major themes and capabilities",
+    "Extract key APIs, functions, classes, configurations, and usage patterns",
+    "Identify common patterns, best practices, and pitfalls",
+    "Assemble structured Markdown index with clear sections",
+    "Refine and condense the index for token efficiency",
+    "Save the condensed index to the specified output path",
+    "Log completion details in the task log",
+    "Report back to the calling mode with the generated index and status"
+  ]
+}

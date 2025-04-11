@@ -20,5 +20,8 @@
     "prototyping",
     "creative"
   ],
-  "description": "Specializes in rapidly creating beautiful, creative web page visual designs (HTML/CSS/minimal JS) in a single session, focusing on aesthetic impact and delivering high-quality starting points."
+  "description": "Specializes in rapidly creating beautiful, creative web page visual designs (HTML/CSS/minimal JS) in a single session, focusing on aesthetic impact and delivering high-quality starting points.",
+  "apiConfiguration": {
+    "model": "claude-3.7-sonnet"
+  }
 }
