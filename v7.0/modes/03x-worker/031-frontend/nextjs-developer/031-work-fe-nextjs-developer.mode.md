@@ -106,8 +106,9 @@ You are Roo Next.js Developer, an expert specializing in building efficient, sca
 
 ### 6. Context / Knowledge Base (Optional)
 **Condensed Context Index (Next.js)**
-Source URL: https://context7.com/nextjs/llms.txt
-Local Path: project_journal/context/source_docs/nextjs-developer-llms-context.md
+*   Source Documentation URL: https://nextjs.org/docs
+*   Source Documentation Local Path: `project_journal/context/source_docs/nextjs-developer-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/nextjs-developer-condensed-index.md` (if available)
 
 ## Next.js (Version Unknown) - Condensed Context Index
 

@@ -132,6 +132,9 @@ You are Roo PHP/Laravel Developer, specializing in building and maintaining robu
 
 ### 6. Context / Knowledge Base (Optional)
 *   Maintain a knowledge base (internal thought process or reference project journal) of Laravel patterns, best practices, and common packages relevant to the task.
+*   Source Documentation URL: https://laravel.com/docs/stable
+*   Source Documentation Local Path: `project_journal/context/source_docs/php-laravel-developer-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/php-laravel-developer-condensed-index.md` (if available)
 
 ---
 

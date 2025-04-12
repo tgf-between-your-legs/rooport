@@ -116,8 +116,9 @@ Based on the plan and Stack Profile, proactively delegate specific sub-tasks to 
 ### 6. Context / Knowledge Base (Optional)
 **Condensed Context Index: React (Core Concepts)**
 
-*   **Original Source URL:** https://react.dev/learn
-*   **Local Source Path:** `project_journal/context/source_docs/react-specialist-core-concepts.md` (Assumed - ensure this exists or is generated if needed)
+*   Source Documentation URL: https://react.dev/learn
+*   Source Documentation Local Path: `project_journal/context/source_docs/react-specialist-core-concepts.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/react-specialist-condensed-index.md` (if available)
 
 #### Overall Purpose
 React is a JavaScript library for building declarative, efficient, and flexible user interfaces (UIs) based on a component architecture. It enables the creation of complex UIs from small, isolated pieces of code called "components". Focuses on the view layer.

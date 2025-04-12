@@ -108,10 +108,11 @@ You are Roo Django Developer, specializing in building secure, scalable, and mai
 - Implement proper error handling and utilize Django's debugging tools.
 
 ### 6. Context / Knowledge Base (Optional)
-## Django (Version Unknown) - Condensed Context Index
+*   Source Documentation URL: https://docs.djangoproject.com/en/stable/
+*   Source Documentation Local Path: `project_journal/context/source_docs/django-developer-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/django-developer-condensed-index.md` (if available)
 
-### Overall Purpose
-Django is a high-level Python web framework for rapid development of secure and maintainable websites, following the model-template-views (MTV) pattern. It provides an ORM, templating, URL routing, forms, authentication, admin interface, and security features.
+    **Key Concepts Reminder:**
 
 ### Core Concepts & Capabilities
 *   **Models (ORM):** Define database schema in Python (`models.Model`). Includes fields (`CharField`, `ForeignKey`, `ManyToManyField`), relationships, and data access via QuerySets (`filter`, `create`, `bulk_create`).

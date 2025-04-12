@@ -6,23 +6,23 @@ This document outlines the standardized hierarchical structure for Roo Code mode
 
 The hierarchy consists of 5 main levels, identified by numeric prefixes:
 
-1.  **`000-executive`**: Top-level strategy, coordination, and primary user interaction.
-2.  **`010-director`**: Oversees major project phases, architecture, or lifecycle stages. Manages Leads and Workers.
-3.  **`020-lead`**: Manages and coordinates work within a specific technical department. Delegates tasks to Workers within their department.
-4.  **`03x-worker`**: Executes specific tasks within a defined department/domain. Possesses specialized or general implementation skills. Reports to Leads or Directors.
-5.  **`040-assistant`**: Provides focused support, information gathering, or automated utility functions to any level.
+1.  **`00x-executive`**: Top-level strategy, coordination, and primary user interaction.
+2.  **`01x-director`**: Oversees major project phases, architecture, or lifecycle stages. Manages Leads and Workers.
+3.  **`02x-lead`**: Manages and coordinates work within a specific technical department. Delegates tasks to Workers within their department.
+4.  **`03x-worker`**: Executes specific tasks within a defined department/domain. Possesses specialized or general implementation skills. Reports to Leads or Directors. (Remains `03x` as it's a group prefix).
+5.  **`04x-assistant`**: Provides focused support, information gathering, or automated utility functions to any level.
 
 ## Detailed Levels and Departments
 
-### Level 0: `000-executive`
+### Level 0: `00x-executive`
 *   **Role:** Overall project command, strategic decision-making, primary interface with the user. Initiates top-level tasks.
 *   **Example Modes:** `roo-commander`
 
-### Level 1: `010-director`
+### Level 1: `01x-director`
 *   **Role:** Manages broad project aspects like planning, architecture, or onboarding. Translates executive goals into actionable plans for Leads/Workers.
 *   **Example Modes:** `project-manager`, `technical-architect`, `project-onboarding`
 
-### Level 2: `020-lead`
+### Level 2: `02x-lead`
 *   **Role:** Coordinates a team of workers within a specific technical domain. Breaks down director-level tasks into specific implementation tasks for workers. Ensures quality and consistency within the department.
 *   **Example Departments (Lead Mode Examples):**
     *   `020-lead-design` (*Potential New Mode*)
@@ -43,7 +43,7 @@ The hierarchy consists of 5 main levels, identified by numeric prefixes:
     *   **`035-worker-devops`**: `cicd-specialist`, `containerization-developer`, `infrastructure-specialist`
     *   **`039-worker-cross-functional`**: `git-manager`, `technical-writer`, `refactor-specialist`, `bug-fixer`, `code-reviewer`
 
-### Level 4: `040-assistant`
+### Level 4: `04x-assistant`
 *   **Role:** Provides specific, often automated, support functions or information retrieval. Can be called upon by any other level.
 *   **Example Modes:** `discovery-agent`, `context-resolver`, `file-repair-specialist`
 

@@ -103,12 +103,11 @@ You are Roo Elasticsearch Specialist, an expert in designing, implementing, quer
 
 ### 6. Context / Knowledge Base (Optional)
 ==== Condensed Context Index (Elasticsearch) ====
-Original Source URL: https://context7.com/elasticsearch/llms.txt
-Local Source Path (referenced within index): project_journal/context/source_docs/elasticsearch-specialist-llms-context.md
+*   Source Documentation URL: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+*   Source Documentation Local Path: `project_journal/context/source_docs/elasticsearch-specialist-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/elasticsearch-specialist-condensed-index.md` (if available)
 
-## Elasticsearch (Version Unknown) - Condensed Context Index
-
-### Overall Purpose
+    **Key Concepts Reminder:**
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It provides scalable full-text search, structured search, analytics, and data visualization capabilities for various use cases including log analysis, application monitoring, security analytics, and general search applications. This index summarizes key concepts and API patterns based on provided examples.
 

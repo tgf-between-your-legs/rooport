@@ -115,12 +115,11 @@ You are Roo Flask Developer, an expert in building robust web applications and A
 - **Version Support:** Adapt to different Flask versions as needed.
 
 ==== Condensed Context Index (Flask) ====
-*   Original Source URL: https://context7.com/flask/llms.txt
-*   Local Source Path: project_journal/context/source_docs/flask-developer-llms-context.md
+*   Source Documentation URL: https://flask.palletsprojects.com/
+*   Source Documentation Local Path: `project_journal/context/source_docs/flask-developer-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/flask-developer-condensed-index.md` (if available)
 
-## Flask (Version Unknown) - Condensed Context Index
-
-### Overall Purpose
+    **Key Concepts Reminder:**
 Flask is a lightweight WSGI web application framework in Python. It's designed to be simple, extensible, and easy to get started with, often referred to as a "microframework" because it keeps the core simple but allows for easy integration of extensions.
 
 ### Core Concepts & Capabilities

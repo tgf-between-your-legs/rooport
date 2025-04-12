@@ -9,7 +9,7 @@ The core idea is to use nested folders that reflect the mode hierarchy and depar
 ```
 v7.0/
 └── modes/
-    ├── [LEVEL_PREFIX]-[level_name]/  # e.g., 000-executive, 010-director
+    ├── [LEVEL_PREFIX]-[level_name]/  # e.g., 00x-executive, 01x-director
     │   └── [department_name]/        # Optional: Only for lead/worker levels
     │       └── [mode_slug]/          # Folder for the specific mode
     │           ├── [level_prefix]-[department_shortcode]-[mode_slug].mode.md  # The main Markdown definition file (all lowercase, hyphenated)
@@ -20,20 +20,20 @@ v7.0/
 
 ## Detailed Structure Breakdown
 
-Based on the v7 Hierarchy (`000-executive`, `010-director`, `020-lead`, `03x-worker`, `040-assistant`):
+Based on the v7 Hierarchy (`00x-executive`, `01x-director`, `02x-lead`, `03x-worker`, `04x-assistant`):
 
-*   **Level 0: Executive (`000-executive`)**
-    *   Path: `v7.0/modes/000-executive/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
-    *   Example: `v7.0/modes/000-executive/roo-commander/000-exec-roo-commander.mode.md`
+*   **Level 0: Executive (`00x-executive`)**
+    *   Path: `v7.0/modes/00x-executive/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
+    *   Example: `v7.0/modes/00x-executive/roo-commander/000-exec-roo-commander.mode.md`
 
-*   **Level 1: Director (`010-director`)**
-    *   Path: `v7.0/modes/010-director/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
-    *   Example: `v7.0/modes/010-director/project-manager/010-dir-project-manager.mode.md`
+*   **Level 1: Director (`01x-director`)**
+    *   Path: `v7.0/modes/01x-director/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
+    *   Example: `v7.0/modes/01x-director/project-manager/010-dir-project-manager.mode.md`
 
-*   **Level 2: Lead (`020-lead`)**
+*   **Level 2: Lead (`02x-lead`)**
     *   Grouped by department.
-    *   Path: `v7.0/modes/020-lead/[department_name]/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
-    *   Example: `v7.0/modes/020-lead/frontend/020-lead-frontend/020-lead-fe-frontend-lead.mode.md`
+    *   Path: `v7.0/modes/02x-lead/[department_name]/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
+    *   Example: `v7.0/modes/02x-lead/frontend/frontend-lead/020-lead-fe-frontend-lead.mode.md`
 
 *   **Level 3: Worker (`03x-worker`)**
     *   Grouped by department using numeric prefixes.
@@ -41,9 +41,9 @@ Based on the v7 Hierarchy (`000-executive`, `010-director`, `020-lead`, `03x-wor
     *   Example (Frontend): `v7.0/modes/03x-worker/031-frontend/react-specialist/031-work-fe-react-specialist.mode.md`
     *   Example (Cross-Functional): `v7.0/modes/03x-worker/039-cross-functional/git-manager/039-work-xf-git-manager.mode.md`
 
-*   **Level 4: Assistant (`040-assistant`)**
-    *   Path: `v7.0/modes/040-assistant/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
-    *   Example: `v7.0/modes/040-assistant/context-resolver/040-asst-context-resolver.mode.md`
+*   **Level 4: Assistant (`04x-assistant`)**
+    *   Path: `v7.0/modes/04x-assistant/[mode_slug]/[level_prefix]-[department_shortcode]-[mode_slug].mode.md`
+    *   Example: `v7.0/modes/04x-assistant/context-resolver/040-asst-context-resolver.mode.md`
 
 ## Key Principles
 
