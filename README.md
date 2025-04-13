@@ -5,7 +5,12 @@ Welcome to Roo Commander! This repository provides a sophisticated collection of
 ## Discord
 🐾 I've setup a Discord for Roo Commander / Jezweb AI if you want to have a chat: [Roo Commander Discord](https://discord.gg/f77YYF3S)
 
-## ✨ Latest Version: v5.2
+## ✨ Latest Version: v6.3/6.5
+Bundle of all the modes [Mega Mode Bundle](https://github.com/jezweb/roo-commander/blob/main/v6.3/combined-modes.json)
+
+or get [Separate tech stack specific modes](https://github.com/jezweb/roo-commander/tree/main/v6.5/modes)
+
+## Previous stable version v5.2
 
 This version introduces a more proactive **👑 Roo Commander** for smoother initial interactions and removes the dedicated `📝 Secretary` mode, empowering other modes to handle their own documentation tasks directly.
 
