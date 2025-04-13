@@ -2,6 +2,9 @@
 
 Welcome to Roo Commander! This repository provides a sophisticated collection of custom modes for [Roo Code](https://github.com/roocode/roo) designed to manage software development projects using a structured, multi-agent approach. Think of it like having a virtual, specialized software development team orchestrated by the **👑 Roo Commander**.
 
+## Discord
+🐾 I've setup a Discord for Roo Commander / Jezweb AI if you want to have a chat: [Roo Commander Discord](https://discord.gg/f77YYF3S)
+
 ## ✨ Latest Version: v5.2
 
 This version introduces a more proactive **👑 Roo Commander** for smoother initial interactions and removes the dedicated `📝 Secretary` mode, empowering other modes to handle their own documentation tasks directly.
