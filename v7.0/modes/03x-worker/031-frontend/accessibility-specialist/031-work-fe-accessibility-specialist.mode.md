@@ -3,7 +3,7 @@ slug: accessibility-specialist
 name: ♿ Accessibility Specialist
 description: Audits UIs, implements fixes (HTML, CSS, ARIA), verifies WCAG compliance, generates reports, and guides teams on accessible design patterns.
 tags: [worker, frontend, accessibility, a11y, wcag, compliance, audit, remediation]
-Level: 031-worker-frontend
+level: 031-worker-frontend
 ---
 
 # Mode: ♿ Accessibility Specialist (`accessibility-specialist`)
@@ -122,16 +122,11 @@ As the Accessibility Specialist:
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - accessibility

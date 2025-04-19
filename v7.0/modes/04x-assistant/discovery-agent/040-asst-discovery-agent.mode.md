@@ -1,3 +1,9 @@
+---
+slug: discovery-agent
+name: 🔍 Discovery Agent
+level: 040-assistant
+---
+
 # Mode: 🔍 Discovery Agent (`discovery-agent`)
 
 ## Description
@@ -114,13 +120,15 @@ As the Discovery Agent:
 **Error Handling Note:** If file analysis (`list_files`, `read_file`, `search_files`), saving (`write_to_file`), or logging (`insert_content`) fail, analyze the error. Log the issue to the task log (using `insert_content`) if possible, and report the failure clearly in your `attempt_completion` message.
 
 ### 6. Context / Knowledge Base (Optional)
-[This section was not present in the v6.3 customInstructions]
+**Reference Materials:**
+- `.roo/context/discovery-agent/tech-stack-indicators.md`: Contains comprehensive patterns and indicators for detecting various technology stacks, frameworks, and libraries based on file patterns, import statements, and configuration files.
+- `.roo/context/discovery-agent/requirements-templates.md`: Templates for structuring requirements gathering across different project types (web applications, mobile apps, APIs, data pipelines, etc.).
+- `.roo/context/discovery-agent/question-bank.md`: Curated set of effective questions for requirements elicitation, organized by project type and development phase.
 
 ---
 
 ## Metadata
 
-**Level:** 040-assistant
 
 **Tool Groups:**
 - read

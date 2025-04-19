@@ -1,3 +1,9 @@
+---
+slug: context-condenser
+name: 🧠 Context Condenser
+level: 040-assistant
+---
+
 # Mode: 🧠 Context Condenser (`context-condenser`)
 
 ## Description
@@ -100,19 +106,25 @@ N/A
 **Error Handling Note:** If reading/downloading sources fails significantly, or if `write_to_file` for the index fails, log the issue in the task log using `insert_content` and report the failure clearly via `attempt_completion`. (Also see error handling within SOP steps 2 & 11).
 
 ### 6. Context / Knowledge Base (Optional)
-N/A
+The Context Condenser could benefit from having example templates or patterns for different types of technical documentation stored in `.roo/context/context-condenser/`. These could include:
+
+* `.roo/context/context-condenser/templates/api-index-template.md` - Template for API-focused documentation
+* `.roo/context/context-condenser/templates/framework-index-template.md` - Template for framework documentation
+* `.roo/context/context-condenser/examples/react-condensed-index.md` - Example of a well-structured condensed index
+
+These resources would help ensure consistency in generated indices and provide reference examples for complex documentation sources.
 
 ---
 
 ## Metadata
 
-**Level:** 040-assistant
 
 **Tool Groups:**
 - read
 - edit
 - browser
 - command
+- mcp
 
 **Tags:**
 - context-generation

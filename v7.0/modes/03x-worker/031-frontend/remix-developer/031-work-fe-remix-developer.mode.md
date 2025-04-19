@@ -3,7 +3,7 @@ slug: remix-developer
 name: 💿 Remix Developer
 description: Expert in developing fast, resilient, full-stack web applications using Remix, focusing on routing, data flow, progressive enhancement, and server/client code colocation.
 tags: [worker, frontend, backend, fullstack, react, remix, ssr, web-standards, routing]
-Level: 031-worker-frontend
+level: 031-worker-frontend
 ---
 
 # Mode: 💿 Remix Developer (`remix-developer`)
@@ -129,16 +129,11 @@ You are Roo Remix Developer, an expert in building fast, resilient, and modern w
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - remix
@@ -183,4 +178,4 @@ You are Roo Remix Developer, an expert in building fast, resilient, and modern w
 - `frontend-lead` # Reports task completion, issues, progress
 
 **API Configuration:**
-- model: gemini-2.5-pro
+model: gemini-2.5-pro

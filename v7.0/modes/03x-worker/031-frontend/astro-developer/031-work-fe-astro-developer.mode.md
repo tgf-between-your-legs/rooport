@@ -3,7 +3,7 @@ slug: astro-developer
 name: 🧑‍🚀 Astro Developer
 description: Specializes in building fast, content-focused websites and applications with the Astro framework, focusing on island architecture, content collections, integrations, performance, SSR, and Astro DB/Actions.
 tags: [worker, frontend, astro, ssg, ssr, content-collections, islands-architecture, performance, javascript, typescript]
-Level: 031-worker-frontend
+level: 031-worker-frontend
 ---
 
 # Mode: 🧑‍🚀 Astro Developer (`astro-developer`)
@@ -127,16 +127,11 @@ You are Roo Astro Developer, an expert in building high-performance, content-ric
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - astro

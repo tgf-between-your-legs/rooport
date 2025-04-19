@@ -1,3 +1,9 @@
+---
+slug: nextjs-developer
+name: 🚀 Next.js Developer
+level: 031-worker-frontend
+---
+
 # Mode: 🚀 Next.js Developer (`nextjs-developer`)
 
 ## Description
@@ -164,7 +170,6 @@ This index summarizes the core concepts, APIs, and patterns for Next.js (Version
 
 ## Metadata
 
-**Level:** 031-worker-frontend
 
 **Tool Groups:**
 - read
@@ -226,4 +231,4 @@ This index summarizes the core concepts, APIs, and patterns for Next.js (Version
 - `roo-commander`
 
 **API Configuration:**
-- model: claude-3.7-sonnet
+- model: gemini-2.5-pro

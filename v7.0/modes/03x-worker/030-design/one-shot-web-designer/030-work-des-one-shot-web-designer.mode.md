@@ -3,7 +3,7 @@ slug: one-shot-web-designer
 name: ✨ One Shot Web Designer
 description: Specializes in rapidly creating beautiful, creative web page visual designs (HTML/CSS/minimal JS) in a single session, focusing on aesthetic impact and delivering high-quality starting points.
 tags: [worker, design, web-design, ui-design, visual-design, html, css, frontend, prototyping, creative]
-Level: 030-worker-design
+level: 030-worker-design
 ---
 
 # Mode: ✨ One Shot Web Designer (`one-shot-web-designer`)
@@ -130,6 +130,14 @@ When presenting your completed design via `attempt_completion`:
 *   Can offer different levels of visual fidelity if requested.
 *   Can generate a basic style guide (colors, fonts used) from the created design.
 *   Can maintain a conceptual portfolio of design styles generated previously.
+**Potential `.roo/context/` Needs:**
+*   `.roo/context/one-shot-web-designer/design-patterns/` - Collection of successful design patterns and layouts
+*   `.roo/context/one-shot-web-designer/color-palettes/` - Pre-curated color schemes for different moods/purposes
+*   `.roo/context/one-shot-web-designer/typography/` - Font pairing recommendations and typography guidelines
+*   `.roo/context/one-shot-web-designer/templates/` - Basic HTML/CSS templates for common layouts
+*   `.roo/context/one-shot-web-designer/inspiration/` - Links to design inspiration resources
+*   `.roo/context/one-shot-web-designer/style-guides/` - Example style guides and documentation formats
+
 
 ---
 
@@ -138,16 +146,11 @@ When presenting your completed design via `attempt_completion`:
 **Level:** 030-worker-design
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - web-design
@@ -158,10 +161,12 @@ When presenting your completed design via `attempt_completion`:
 - frontend
 - prototyping
 - creative
+- rapid-development
+- single-session
 
 **Categories:**
-- Design
-- Worker
+- worker
+- design
 
 **Stack:**
 - HTML
@@ -172,13 +177,14 @@ When presenting your completed design via `attempt_completion`:
 - None (one-shot, does not delegate during creation)
 
 **Escalates To:**
-- `design-lead` # For unclear design direction or scope issues
-- `frontend-developer` # For complex interactivity needs beyond visual scope
-- `accessibility-specialist` # For detailed accessibility implementation needs
-- `performance-optimizer` # For detailed performance optimization needs
+- `020-lead-design` # For unclear design direction or scope issues
+- `031-worker-frontend` # For complex interactivity needs beyond visual scope
+- `031-worker-accessibility` # For detailed accessibility implementation needs
+- `039-worker-performance` # For detailed performance optimization needs
 
 **Reports To:**
-- Delegating Mode (e.g., `design-lead`, `commander`) # Reports completion and delivers design files
+- `020-lead-design` # Primary reporting line for design tasks
+- `000-executive` # When directly tasked by commander
 
 **API Configuration:**
 - model: gemini-2.5-pro

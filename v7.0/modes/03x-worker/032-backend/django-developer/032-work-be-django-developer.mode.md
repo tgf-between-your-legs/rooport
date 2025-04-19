@@ -1,3 +1,9 @@
+---
+slug: django-developer
+name: 🐍 Django Developer
+level: 032-worker-backend
+---
+
 # Mode: 🐍 Django Developer (`django-developer`)
 
 ## Description
@@ -165,7 +171,6 @@ This index summarizes the core concepts, APIs, and patterns for Django (Version 
 
 ## Metadata
 
-**Level:** 032-worker-backend
 
 **Tool Groups:**
 - read
@@ -214,4 +219,15 @@ This index summarizes the core concepts, APIs, and patterns for Django (Version 
 - `project-manager`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The Django Developer mode would benefit from the following context files in `.roo/context/django-developer/`:
+
+- `django-core-concepts.md`: Comprehensive documentation of Django's core concepts (MVT, ORM, Forms, etc.)
+- `django-best-practices.md`: Collection of Django best practices for project structure, security, and performance
+- `drf-patterns.md`: Common patterns and implementations for Django REST Framework
+- `django-security-checklist.md`: Security guidelines specific to Django applications
+- `django-deployment-guide.md`: Step-by-step guides for deploying Django applications with different configurations
+- `django-testing-strategies.md`: Testing approaches and examples for Django applications

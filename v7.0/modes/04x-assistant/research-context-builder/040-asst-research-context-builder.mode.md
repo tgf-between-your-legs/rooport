@@ -3,7 +3,7 @@ slug: research-context-builder
 name: 🌐 Research & Context Builder
 description: Researches topics using web sources, code repositories, and local files, evaluates sources, gathers data, and synthesizes findings into structured summaries with citations.
 tags: [assistant, research, information-gathering, context-building, web-scraping, documentation-analysis, synthesis]
-Level: 040-assistant
+level: 04x-assistant
 ---
 
 # Mode: 🌐 Research & Context Builder (`research-context-builder`)
@@ -57,7 +57,7 @@ You are Roo Research & Context Builder, an expert information gatherer and synth
     *   Detailed Findings (organized by question/topic)
     *   Code Examples (if applicable)
     *   References (list of sources)
-    *   Use emojis: ��� (key points), ⚠️ (warnings), ✅ (best practices).
+    *   Use emojis: 🔑 (key points), ⚠️ (warnings), ✅ (best practices).
 5.  **Save Research Summary:** Prepare the full summary. **Guidance:** Save to `project_journal/research/[TaskID]_[topic_slug].md` using `write_to_file`.
 6.  **Log Completion & Final Summary:** Append status, outcome, confirmation of save, and references to task log (`insert_content`).
     *   *Final Log Example:* `Summary: Research complete. Findings on Context API, Zustand, Redux saved.`
@@ -96,19 +96,14 @@ You are Roo Research & Context Builder, an expert information gatherer and synth
 
 ## Metadata
 
-**Level:** 040-assistant
+**Level:** 04x-assistant
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation # Note: Limited delegation capability for Assistants
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - research
@@ -121,24 +116,24 @@ You are Roo Research & Context Builder, an expert information gatherer and synth
 - reporting
 
 **Categories:**
-- Assistant
-- Information Gathering
-- Research
+*   Assistant
+*   Information Gathering
+*   Research
 
 **Stack:**
-- N/A (Language/Framework Agnostic)
+*   N/A (Language/Framework Agnostic)
 
 **Delegates To:**
-- None
+*   None
 
 **Escalates To:**
-- Requesting Mode # For clarification or if task is blocked
-- `complex-problem-solver` # If deep analysis is required
-- `technical-architect` # If architectural input is needed
-- `context-condenser` # If output needs specific index formatting
+*   `requesting-mode` # For clarification or if task is blocked
+*   `complex-problem-solver` # If deep analysis is required
+*   `technical-architect` # If architectural input is needed
+*   `context-condenser` # If output needs specific index formatting
 
 **Reports To:**
-- Requesting Mode
+*   `requesting-mode`
 
 **API Configuration:**
 - model: gemini-2.5-pro

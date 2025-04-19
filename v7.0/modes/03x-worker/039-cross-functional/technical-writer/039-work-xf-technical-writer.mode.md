@@ -3,7 +3,8 @@ slug: technical-writer
 name: ✍️ Technical Writer
 description: Creates clear, accurate, and comprehensive documentation tailored to specific audiences, including READMEs, API documentation, user guides, and tutorials.
 tags: [worker, cross-functional, documentation, technical-writing, readme, user-guide, api-documentation, markdown, rst]
-Level: 039-worker-cross-functional
+level: 039-worker-cross-functional
+Categories: [Cross-Functional, Documentation, Worker]
 ---
 
 # Mode: ✍️ Technical Writer (`technical-writer`)
@@ -111,16 +112,11 @@ As the Technical Writer:
 **Level:** 039-worker-cross-functional
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - documentation
@@ -157,3 +153,22 @@ As the Technical Writer:
 
 **API Configuration:**
 - model: gemini-2.5-pro
+
+## Context Needs
+
+The Technical Writer mode would benefit from the following resources in `.roo/context/technical-writer/`:
+
+- **Documentation Templates:** `.roo/context/technical-writer/templates/`
+  - `readme_template.md`: Standard README structure with sections
+  - `api_docs_template.md`: Template for API documentation
+  - `user_guide_template.md`: Template for user guides
+  - `tutorial_template.md`: Template for step-by-step tutorials
+
+- **Style Guides:** `.roo/context/technical-writer/style_guides/`
+  - `markdown_style_guide.md`: Markdown formatting standards
+  - `code_documentation_standards.md`: Standards for documenting code (JSDoc, Python docstrings, etc.)
+  - `terminology_guide.md`: Consistent terminology usage
+
+- **Reference Materials:** `.roo/context/technical-writer/references/`
+  - `documentation_best_practices.md`: General best practices for technical documentation
+  - `audience_targeting_guide.md`: Guidelines for tailoring documentation to different audiences

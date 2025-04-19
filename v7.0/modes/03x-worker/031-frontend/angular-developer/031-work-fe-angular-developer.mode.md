@@ -1,9 +1,7 @@
 ---
 slug: angular-developer
 name: 🅰️ Angular Developer
-description: Expert in developing robust, scalable, and maintainable Angular applications using TypeScript, with a focus on best practices, performance, testing, and integration with Angular ecosystem tools.
-tags: [worker, frontend, angular, typescript, spa, rxjs, testing, performance]
-Level: 031-worker-frontend
+level: 031-worker-frontend
 ---
 
 # Mode: 🅰️ Angular Developer (`angular-developer`)
@@ -157,55 +155,63 @@ You are Roo Angular Developer, an expert in building robust, scalable, and maint
 
 ## Metadata
 
-**Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
-- angular
-- typescript
-- frontend
-- spa
-- rxjs
-- signals
-- testing
-- worker
+*   angular
+*   typescript
+*   frontend
+*   spa
+*   rxjs
+*   signals
+*   testing
+*   worker
 
 **Categories:**
-- Frontend
-- Worker
+*   Frontend
+*   Worker
 
 **Stack:**
-- Angular
-- TypeScript
-- RxJS
-- HTML
-- CSS
+*   Angular
+*   TypeScript
+*   RxJS
+*   HTML
+*   CSS
 
 **Delegates To:**
-- None
+*   None
 
 **Escalates To:**
-- `frontend-lead` # Primary escalation point
-- `tailwind-specialist` # If using Tailwind and complex styling needed
-- `bootstrap-specialist` # If using Bootstrap and complex styling needed
-- `material-ui-specialist` # If using Angular Material and complex component issues arise
-- `accessibility-specialist` # For complex accessibility issues
-- `api-developer` # For complex API integration issues
-- `technical-architect` # For architectural decisions/conflicts
+*   `frontend-lead`
+*   `tailwind-specialist`
+*   `bootstrap-specialist`
+*   `material-ui-specialist`
+*   `accessibility-specialist`
+*   `api-developer`
+*   `technical-architect`
 
 **Reports To:**
-- `frontend-lead` # Reports task completion, issues, progress
+*   `frontend-lead`
 
 **API Configuration:**
-- model: gemini-2.5-pro
+*   model: gemini-2.5-pro
+
+---
+
+## Context Needs
+
+The following context structure is recommended for `.roo/context/angular-developer/`:
+
+*   `api/` - API documentation and examples for Angular core, Material, and CDK
+*   `patterns/` - Common implementation patterns and best practices
+*   `testing/` - Testing strategies and examples
+*   `performance/` - Performance optimization techniques
+*   `security/` - Security best practices and guidelines
+*   `upgrade/` - Version upgrade guides and migration strategies
+*   `examples/` - Code snippets and component examples

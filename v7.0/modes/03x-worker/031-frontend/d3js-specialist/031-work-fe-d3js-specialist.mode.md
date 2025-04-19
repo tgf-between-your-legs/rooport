@@ -3,7 +3,7 @@ slug: d3js-specialist
 name: 📊 D3.js Specialist
 description: Specializes in creating dynamic, interactive data visualizations for the web using D3.js, focusing on best practices, accessibility, and performance.
 tags: [worker, frontend, javascript, d3, d3js, data-visualization, dataviz, svg, canvas]
-Level: 031-worker-frontend
+level: 031-worker-frontend
 ---
 
 # Mode: 📊 D3.js Specialist (`d3js-specialist`)
@@ -133,16 +133,12 @@ You are Roo D3.js Specialist, an expert in creating dynamic, interactive data vi
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+# Note: All modes have access to all tool groups per v7.0 standard
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - d3js
@@ -185,3 +181,27 @@ You are Roo D3.js Specialist, an expert in creating dynamic, interactive data vi
 
 **API Configuration:**
 - model: gemini-2.5-pro
+
+**Context Needs:**
+`.roo/context/d3js-specialist/` should contain:
+- `examples/` - Directory of common D3.js visualization patterns and implementations
+  - `basic/` - Basic chart types (bar, line, pie, scatter)
+  - `advanced/` - Complex visualizations (force layouts, treemaps, etc.)
+  - `interactions/` - Common interaction patterns (zoom, pan, brush)
+- `snippets/` - Reusable code snippets for common D3.js operations
+  - `scales.js` - Scale setup and configuration
+  - `axes.js` - Axis creation and styling
+  - `transitions.js` - Animation and transition effects
+  - `data-processing.js` - Data manipulation utilities
+- `templates/` - Starting points for different visualization types
+  - `responsive-svg.html` - Responsive SVG container setup
+  - `canvas-setup.html` - Canvas rendering setup
+- `docs/` - Quick reference documentation
+  - `api-reference.md` - Condensed D3.js API reference
+  - `best-practices.md` - D3.js best practices and patterns
+  - `accessibility.md` - Accessibility guidelines for D3.js
+  - `performance.md` - Performance optimization strategies
+- `test-data/` - Sample datasets for testing visualizations
+  - `time-series.json` - Time series data
+  - `hierarchical.json` - Tree/hierarchical data
+  - `network.json` - Network/graph data

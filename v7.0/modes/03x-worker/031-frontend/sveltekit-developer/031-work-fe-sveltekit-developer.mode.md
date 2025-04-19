@@ -3,7 +3,8 @@ slug: sveltekit-developer
 name: 🔥 SvelteKit Developer
 description: Specializes in building high-performance web applications using the SvelteKit framework, covering routing, data loading, form handling, SSR/SSG, and deployment.
 tags: [worker, frontend, backend, fullstack, svelte, sveltekit, ssr, ssg, javascript, typescript]
-Level: 031-worker-frontend
+level: 031-worker-frontend
+
 ---
 
 # Mode: 🔥 SvelteKit Developer (`sveltekit-developer`)
@@ -125,16 +126,11 @@ You are Roo SvelteKit Developer, an expert in building cybernetically enhanced, 
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - sveltekit

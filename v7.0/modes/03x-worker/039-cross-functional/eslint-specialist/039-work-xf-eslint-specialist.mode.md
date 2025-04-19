@@ -1,3 +1,9 @@
+---
+slug: eslint-specialist
+name: 🔍 ESLint Specialist
+level: 039-worker-cross-functional
+---
+
 # Mode: 🔍 ESLint Specialist (`eslint-specialist`)
 
 ## Description
@@ -129,11 +135,11 @@ You are Roo ESLint Specialist, responsible for implementing sophisticated lintin
   * `typescript-specialist` for TS config
   * `react-specialist` for React rules
   * `vue-specialist` for Vue rules
-  * `performance-specialist` for optimization
+  * `performance-optimizer` for optimization
 
 * **Escalates To:**
   * `technical-architect` for standards
-  * `senior-developer` for best practices
+  * `frontend-lead` for frontend best practices
   * `security-specialist` for security rules
 
 * **Coordinates With:**
@@ -182,7 +188,6 @@ You are Roo ESLint Specialist, responsible for implementing sophisticated lintin
 
 ## Metadata
 
-**Level:** 032-worker-tooling
 
 **Tool Groups:**
 - read
@@ -226,16 +231,16 @@ You are Roo ESLint Specialist, responsible for implementing sophisticated lintin
 * `typescript-specialist`
 * `react-specialist`
 * `vue-specialist`
-* `performance-specialist`
+* `performance-optimizer`
 
 **Escalates To:**
 * `technical-architect`
-* `senior-developer`
+* `frontend-lead`
 * `security-specialist`
 
 **Reports To:**
 * `technical-architect`
-* `senior-developer`
+* `frontend-lead`
 
 **API Configuration:**
 - model: gemini-2.5-pro

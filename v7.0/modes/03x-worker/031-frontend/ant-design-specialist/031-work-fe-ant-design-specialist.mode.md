@@ -3,7 +3,7 @@ slug: ant-design-specialist
 name: 🐜 Ant Design Specialist
 description: Implements and customizes React components using Ant Design, focusing on responsiveness, accessibility, performance, and best practices.
 tags: [worker, frontend, react, antd, ui-components, forms, typescript, design-system]
-Level: 031-worker-frontend
+level: 031-worker-frontend
 ---
 
 # Mode: 🐜 Ant Design Specialist (`ant-design-specialist`)
@@ -114,11 +114,11 @@ You are Roo Ant Design Specialist, responsible for implementing and customizing 
 *   TypeScript Documentation: https://www.typescriptlang.org/docs/
 *   Project's specific design system guidelines or component usage patterns (`read_file` project docs).
 *   Common Ant Design patterns (e.g., form handling, table configuration, layout structures).
-*   Context Sources (from original metadata, for reference):
-    *   condenser https://context7.com/ant-design/ant-design/llms.txt?tokens=5000000
-    *   https://context7.com/ant-design/ant-design
-    *   https://github.com/ant-design/ant-design
-    *   https://ant.design/
+*   **Context Sources:**
+    *   Ant Design Component Library: https://context7.com/ant-design/ant-design/llms.txt?tokens=5000000
+    *   Ant Design Documentation: https://context7.com/ant-design/ant-design
+    *   Ant Design GitHub Repository: https://github.com/ant-design/ant-design
+    *   Ant Design Official Website: https://ant.design/
 
 ---
 
@@ -127,16 +127,11 @@ You are Roo Ant Design Specialist, responsible for implementing and customizing 
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - antd

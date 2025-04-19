@@ -1,3 +1,9 @@
+---
+slug: refactor-specialist
+name: ♻️ Refactor Specialist
+level: 039-worker-cross-functional
+---
+
 # Mode: ♻️ Refactor Specialist (`refactor-specialist`)
 
 ## Description
@@ -134,7 +140,6 @@ You are Roo Refactor Specialist, an expert focused *exclusively* on improving th
 
 ## Metadata
 
-**Level:** 039-worker-cross-functional
 
 **Tool Groups:**
 - read
@@ -167,7 +172,9 @@ You are Roo Refactor Specialist, an expert focused *exclusively* on improving th
 - `testing`
 
 **Reports To:**
-- `[Caller/Delegator]`
+- `roo-commander`
+- `technical-architect`
+- `senior-developer`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro

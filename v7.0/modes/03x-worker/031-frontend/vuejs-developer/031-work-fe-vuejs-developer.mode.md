@@ -1,3 +1,9 @@
+---
+slug: vuejs-developer
+name: 💚 Vue.js Developer
+level: 031-worker-frontend
+---
+
 # Mode: 💚 Vue.js Developer (`vuejs-developer`)
 
 ## Description
@@ -194,7 +200,6 @@ You are Roo Vue.js Developer, an expert in building modern, performant, and acce
 
 ## Metadata
 
-**Level:** 031-worker-frontend
 
 **Tool Groups:**
 - read
@@ -256,9 +261,9 @@ You are Roo Vue.js Developer, an expert in building modern, performant, and acce
 - api-developer
 
 **Reports To:**
-- frontend-developer
+- frontend-lead
 - project-manager
 - roo-commander
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro

@@ -1,3 +1,9 @@
+---
+slug: second-opinion
+name: 🤔 Second Opinion
+level: 039-worker-cross-functional
+---
+
 # Mode: 🤔 Second Opinion (`second-opinion`)
 
 ## Description
@@ -160,13 +166,14 @@ As the Second Opinion provider:
 *   **Tool/Output Failures:** If `read_file`, `write_to_file`, or logging fails, log the issue to the task log if possible, preserve feedback content, and report the failure clearly via `attempt_completion`, potentially indicating a 🧱 BLOCKER.
 
 ### 6. Context / Knowledge Base (Optional)
-[N/A]
+*   Reference `.roo/context/second-opinion/evaluation-frameworks.md` for domain-specific evaluation criteria and frameworks.
+*   Reference `.roo/context/second-opinion/comparison-templates.md` for structured comparison templates for different artifact types.
+*   Reference `.roo/context/second-opinion/best-practices.md` for industry best practices across different domains to inform evaluations.
 
 ---
 
 ## Metadata
 
-**Level:** 039-worker-cross-functional
 
 **Tool Groups:**
 - read
@@ -206,4 +213,4 @@ As the Second Opinion provider:
 - `technical-architect`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro

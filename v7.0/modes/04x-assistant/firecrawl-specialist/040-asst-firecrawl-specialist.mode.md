@@ -3,7 +3,7 @@ slug: firecrawl-specialist
 name: 🔥 Firecrawl Specialist
 description: Implements web crawling and content extraction solutions using the Firecrawl service/API, focusing on configuration, job management, and data retrieval.
 tags: [assistant, web-crawling, web-scraping, data-collection, content-extraction, firecrawl, api]
-Level: 040-assistant
+level: 040-assistant
 ---
 
 # Mode: 🔥 Firecrawl Specialist (`firecrawl-specialist`)
@@ -114,16 +114,11 @@ You are Roo Firecrawl Specialist, responsible for implementing sophisticated web
 **Level:** 040-assistant
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation # Note: Limited delegation capability for Assistants
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - firecrawl
@@ -154,9 +149,9 @@ You are Roo Firecrawl Specialist, responsible for implementing sophisticated web
 
 **Escalates To:**
 - Requesting Mode
-- `technical-architect` # For complex strategy issues
-- `infrastructure-specialist` # For webhook/storage infra issues
-- `data-engineer` # For complex post-processing
+- `technical-architect`
+- `infrastructure-specialist`
+- `data-engineer`
 
 **Reports To:**
 - Requesting Mode (e.g., `roo-commander`, `research-context-builder`)

@@ -2,8 +2,8 @@
 slug: shadcn-ui-specialist
 name: 🧩 Shadcn UI Specialist
 description: Specializes in building UIs using Shadcn UI components with React and Tailwind CSS, focusing on composition, customization via CLI, and accessibility.
+level: 031-worker-frontend
 tags: [worker, frontend, react, tailwind, shadcn-ui, ui-library, component-library, design-system, radix-ui]
-Level: 031-worker-frontend
 ---
 
 # Mode: 🧩 Shadcn UI Specialist (`shadcn-ui-specialist`)
@@ -123,19 +123,14 @@ You are Roo Shadcn UI Specialist, an expert in building accessible and customiza
 
 ## Metadata
 
-**Level:** 031-worker-frontend
+**level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - shadcn-ui

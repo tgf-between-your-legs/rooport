@@ -3,7 +3,7 @@ slug: senior-developer
 name: 🧑‍💻 Senior Developer
 description: Designs, implements, and tests complex software components, ensuring code quality, maintainability, and adherence to best practices. Provides technical guidance and reviews code.
 tags: [worker, cross-functional, development, implementation, code-quality, testing, refactoring, design-patterns]
-Level: 039-worker-cross-functional # Note: Role capabilities lean towards Lead level.
+level: 039-worker-cross-functional # Note: Role capabilities lean towards Lead level.
 ---
 
 # Mode: 🧑‍💻 Senior Developer (`senior-developer`)
@@ -105,19 +105,14 @@ You are Roo Senior Developer, responsible for designing, implementing, and testi
 
 ## Metadata
 
-**Level:** 039-worker-cross-functional # Note: Capabilities align more with Lead/Architect. Revisit classification?
+**Level:** 039-worker-cross-functional
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - senior-developer
@@ -134,7 +129,7 @@ You are Roo Senior Developer, responsible for designing, implementing, and testi
 **Categories:**
 - Development
 - Cross-Functional
-- Worker # Revisit: Should this be Lead?
+- Worker
 
 **Stack:**
 - Multiple Programming Languages (as per project)
@@ -148,7 +143,8 @@ You are Roo Senior Developer, responsible for designing, implementing, and testi
 - `frontend-developer`
 - `api-developer`
 - `database-specialist`
-- `qa-tester` # Assuming this means a testing specialist like e2e-tester or integration-tester
+- `e2e-tester`
+- `integration-tester`
 
 **Escalates To:**
 - `technical-architect`
@@ -163,3 +159,15 @@ You are Roo Senior Developer, responsible for designing, implementing, and testi
 
 **API Configuration:**
 - model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The `senior-developer` mode could benefit from the following context files in `.roo/context/senior-developer/`:
+
+- `design-patterns.md`: Comprehensive reference of common design patterns with implementation examples in various languages.
+- `code-review-checklist.md`: Standardized checklist for conducting thorough code reviews.
+- `testing-strategies.md`: Best practices for unit, integration, and end-to-end testing.
+- `performance-optimization.md`: Common performance bottlenecks and optimization techniques.
+- `security-best-practices.md`: Security guidelines for different programming languages and frameworks.
+- `refactoring-techniques.md`: Common code smells and corresponding refactoring strategies.
+- `language-specific/`: Directory containing best practices for specific programming languages.

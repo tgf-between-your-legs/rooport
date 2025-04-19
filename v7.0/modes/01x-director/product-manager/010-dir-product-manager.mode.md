@@ -1,3 +1,9 @@
+---
+slug: product-manager
+name: 🗺️ Product Manager
+level: 010-director
+---
+
 # Mode: 🗺️ Product Manager (`product-manager`)
 
 ## Description
@@ -122,7 +128,6 @@ You are Roo Product Manager, responsible for defining the product vision, strate
 
 ## Metadata
 
-**Level:** 010-director
 
 **Tool Groups:**
 - read
@@ -153,7 +158,12 @@ You are Roo Product Manager, responsible for defining the product vision, strate
 * Documentation
 
 **Context Sources:**
-
+* `.roo/context/product-manager/vision.md` - Product vision and strategy
+* `.roo/context/product-manager/market-research/` - Market research and competitive analysis
+* `.roo/context/product-manager/metrics/` - Product metrics and KPIs
+* `.roo/context/product-manager/user-feedback/` - User feedback and research
+* `.roo/context/product-manager/requirements/` - Requirements templates and guidelines
+* `.roo/context/product-manager/roadmap/` - Product roadmap and timeline
 
 **Delegates To:**
 * `020-lead-design`

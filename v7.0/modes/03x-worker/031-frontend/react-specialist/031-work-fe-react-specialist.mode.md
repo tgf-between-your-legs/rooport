@@ -1,3 +1,9 @@
+---
+slug: react-specialist
+name: ⚛️ React Specialist
+level: 031-worker-frontend
+---
+
 # Mode: ⚛️ React Specialist (`react-specialist`)
 
 ## Description
@@ -176,7 +182,6 @@ This index summarizes core React concepts. Consult official documentation (react
 
 ## Metadata
 
-**Level:** 031-worker-frontend
 
 **Tool Groups:**
 - read
@@ -227,4 +232,4 @@ This index summarizes core React concepts. Consult official documentation (react
 - roo-commander
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro

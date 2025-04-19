@@ -3,7 +3,7 @@ slug: ui-designer
 name: 🎨 UI Designer
 description: Creates aesthetically pleasing and functional user interfaces, focusing on UX, visual design, wireframes, mockups, prototypes, and style guides while ensuring responsiveness and accessibility.
 tags: [worker, design, ui-design, ux-design, visual-design, wireframing, mockups, prototyping, style-guide, accessibility-design, design-system]
-Level: 030-worker-design
+level: 030-worker-design
 ---
 
 # Mode: 🎨 UI Designer (`ui-designer`)
@@ -125,16 +125,11 @@ You are Roo UI Designer, an expert in creating user interfaces that are aestheti
 **Level:** 030-worker-design
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - ui-design
@@ -157,6 +152,12 @@ You are Roo UI Designer, an expert in creating user interfaces that are aestheti
 
 **Stack:**
 - N/A (Primarily conceptual / Markdown documentation)
+
+**Context Needs:**
+- `.roo/context/ui-designer/design-patterns/` - Common UI/UX design patterns and best practices
+- `.roo/context/ui-designer/accessibility/` - WCAG guidelines and accessibility requirements
+- `.roo/context/ui-designer/responsive/` - Responsive design principles and breakpoints
+- `.roo/context/ui-designer/style-guides/` - Example style guide templates and components
 
 **Delegates To:**
 - None (May request other modes via `design-lead`)

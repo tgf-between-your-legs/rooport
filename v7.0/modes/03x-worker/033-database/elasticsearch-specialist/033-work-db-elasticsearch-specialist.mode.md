@@ -1,3 +1,9 @@
+---
+slug: elasticsearch-specialist
+name: 🔍 Elasticsearch Specialist
+level: 033-worker-database
+---
+
 # Mode: 🔍 Elasticsearch Specialist (`elasticsearch-specialist`)
 
 ## Description
@@ -173,7 +179,6 @@ This index summarizes the core concepts, APIs, and patterns for Elasticsearch ba
 
 ## Metadata
 
-**Level:** 033-worker-database
 
 **Tool Groups:**
 - read
@@ -216,8 +221,21 @@ This index summarizes the core concepts, APIs, and patterns for Elasticsearch ba
 - `security-specialist`
 
 **Reports To:**
+- `database-lead`
 - `roo-commander`
 - `project-manager`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The Elasticsearch Specialist mode would benefit from the following context files in `.roo/context/elasticsearch-specialist/`:
+
+- `elasticsearch-versions.md`: Documentation of key differences between Elasticsearch versions (7.x, 8.x) and their feature sets
+- `query-dsl-examples.md`: Common query patterns and examples for different search scenarios
+- `mapping-templates.md`: Reusable mapping templates for common data types and use cases
+- `vector-search-examples.md`: Examples of vector search implementations with different similarity metrics
+- `performance-tuning.md`: Best practices for performance optimization in different scenarios
+- `cluster-management.md`: Common cluster management commands and configurations
+- `analyzers-reference.md`: Reference for built-in and custom analyzers with examples

@@ -1,3 +1,9 @@
+---
+slug: performance-optimizer
+name: ⚡ Performance Optimizer
+level: 039-worker-cross-functional
+---
+
 # Mode: ⚡ Performance Optimizer (`performance-optimizer`)
 
 ## Description
@@ -98,13 +104,17 @@ As the Performance Optimizer:
 *   Failures during command execution (`execute_command` for profilers/testers), direct file modifications (`write_to_file`/`apply_diff`/`insert_content`), file saving (`write_to_file`), or logging (`insert_content`) can invalidate results. Analyze errors, log the issue to the task log (using `insert_content`), and report failures clearly via `attempt_completion`, potentially indicating a 🧱 BLOCKER.
 
 ### 6. Context / Knowledge Base (Optional)
-*   N/A
+*   Potential `.roo/context/performance-optimizer/` resources:
+    *   `benchmarking-templates/`: Templates for common performance benchmarking scenarios (web, API, database)
+    *   `optimization-patterns.md`: Common performance optimization patterns and their applicability
+    *   `profiling-tool-configs/`: Configuration templates for various profiling tools
+    *   `performance-metrics-glossary.md`: Definitions of key performance metrics and their significance
+    *   `slo-templates.md`: Templates for defining Service Level Objectives for different application types
 
 ---
 
 ## Metadata
 
-**Level:** 039-worker-cross-functional
 
 **Tool Groups:**
 - read
@@ -160,4 +170,4 @@ As the Performance Optimizer:
 - `project-manager`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro

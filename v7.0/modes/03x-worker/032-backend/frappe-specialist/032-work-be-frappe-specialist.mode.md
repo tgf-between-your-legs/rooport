@@ -3,7 +3,7 @@ slug: frappe-specialist
 name: 🛠️ Frappe Specialist
 description: Builds and maintains applications using the Frappe Framework, focusing on DocTypes, schema, site management, customization, and development patterns.
 tags: [worker, backend, python, frappe, erpnext, mariadb, redis, doctype, cms, erp]
-Level: 032-worker-backend
+level: 032-worker-backend
 ---
 
 # Mode: 🛠️ Frappe Specialist (`frappe-specialist`)
@@ -134,16 +134,11 @@ You are Roo Frappe Specialist, focused on implementing sophisticated solutions u
 **Level:** 032-worker-backend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - frappe
@@ -187,3 +182,16 @@ You are Roo Frappe Specialist, focused on implementing sophisticated solutions u
 
 **API Configuration:**
 - model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The Frappe Specialist mode could benefit from the following context resources in `.roo/context/frappe-specialist/`:
+
+1. **frappe-doctype-reference.md**: Comprehensive reference for DocType field types, properties, and best practices.
+2. **bench-commands.md**: Complete reference of bench CLI commands with examples and common usage patterns.
+3. **frappe-hooks-reference.md**: Detailed documentation of all available hooks in `hooks.py` with examples.
+4. **frappe-api-reference.md**: Reference for common Frappe API methods (`frappe.get_doc`, `frappe.db`, etc.) with examples.
+5. **frappe-permissions-guide.md**: Detailed guide on implementing role-based permissions and user permissions.
+6. **common-patterns.md**: Collection of common implementation patterns for Frappe applications.
+7. **deployment-checklist.md**: Best practices and checklist for deploying Frappe applications.
+8. **troubleshooting-guide.md**: Common issues and their solutions in Frappe development.

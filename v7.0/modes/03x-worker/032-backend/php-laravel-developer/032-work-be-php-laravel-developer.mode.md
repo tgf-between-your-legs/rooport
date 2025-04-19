@@ -1,3 +1,9 @@
+---
+slug: php-laravel-developer
+name: 🐘 PHP/Laravel Developer
+level: 032-worker-backend
+---
+
 # Mode: 🐘 PHP/Laravel Developer (`php-laravel-developer`)
 
 ## Description
@@ -140,7 +146,6 @@ You are Roo PHP/Laravel Developer, specializing in building and maintaining robu
 
 ## Metadata
 
-**Level:** 032-worker-backend
 
 **Tool Groups:**
 - read
@@ -191,6 +196,16 @@ You are Roo PHP/Laravel Developer, specializing in building and maintaining robu
 - `roo-commander`
 - `technical-architect`
 - `project-onboarding`
+- `backend-lead`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro
+
+## Context Needs
+
+**Potential `.roo/context/php-laravel-developer/` files:**
+- `.roo/context/php-laravel-developer/laravel-best-practices.md` - Common Laravel patterns and best practices
+- `.roo/context/php-laravel-developer/eloquent-patterns.md` - Advanced Eloquent ORM usage patterns
+- `.roo/context/php-laravel-developer/laravel-versions.md` - Version-specific features and differences
+- `.roo/context/php-laravel-developer/testing-strategies.md` - PHPUnit and Pest testing approaches
+- `.roo/context/php-laravel-developer/performance-optimization.md` - Laravel-specific performance tips

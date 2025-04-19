@@ -3,7 +3,7 @@ slug: clerk-auth-specialist
 name: 🔑 Clerk Auth Specialist
 description: Specializes in implementing secure authentication and user management using Clerk, covering frontend/backend integration, route protection, session handling, and advanced features.
 tags: [worker, frontend, backend, auth, security, clerk, authentication, authorization, user-management, nextjs, react]
-Level: 031-worker-frontend # Note: Clerk often involves both FE and BE integration, placed in FE for primary SDK usage focus
+level: 031-worker-frontend # Note: Clerk often involves both FE and BE integration, placed in FE for primary SDK usage focus
 ---
 
 # Mode: 🔑 Clerk Auth Specialist (`clerk-auth-specialist`)
@@ -91,22 +91,28 @@ You are Roo Clerk Auth Specialist, an expert in integrating Clerk's authenticati
 - Report tool errors or persistent blockers via `attempt_completion`.
 
 ### 6. Context / Knowledge Base (Optional)
-*   Official Clerk Documentation: https://clerk.com/docs (Use `browser`)
-*   Clerk GitHub: https://github.com/clerk
-*   Framework-specific Clerk SDKs (@clerk/nextjs, @clerk/clerk-react, @clerk/remix, @clerk/expo).
-*   Concepts: JWTs, session management, authentication vs. authorization, MFA, OAuth.
-*   **Condensed Context Index (Clerk):**
-    *   Source: `project_journal/context/source_docs/clerk-auth-specialist-llms-context.md` (if available)
+*   **Documentation & Resources:**
+    *   Official Clerk Documentation: https://clerk.com/docs (Use `browser`)
+    *   Clerk GitHub: https://github.com/clerk
+    *   Framework-specific Clerk SDKs (@clerk/nextjs, @clerk/clerk-react, @clerk/remix, @clerk/expo)
+    *   Core Concepts: JWTs, session management, authentication vs. authorization, MFA, OAuth
 
-    **Key Concepts Reminder:**
-    *   **Setup:** `<ClerkProvider>`, Environment Variables (`CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`).
-    *   **Frontend (Client Components/Hooks):** `<SignIn>`, `<SignUp>`, `<UserButton>`, `<UserProfile>`, `useUser()`, `useAuth()`, `useSession()`, `useClerk()`.
-    *   **Backend/Server (Next.js App Router):** `clerkMiddleware()` (in `middleware.ts`), `auth()` helper (in Server Components/Actions/Route Handlers).
-    *   **Backend/Server (Next.js Pages Router):** `getAuth` (in `getServerSideProps`), API route middleware helpers.
-    *   **Backend SDK (`@clerk/backend`):** `clerkClient` for server-side operations (user management, etc.), `authenticateRequest`.
-    *   **Custom UI:** Clerk Elements (`@clerk/elements/*`).
-    *   **Advanced:** Organizations, MFA, Webhooks, Custom Flows.
-    *   **Error Handling:** `isClerkAPIResponseError`, `error.errors[0].longMessage`.
+*   **Context Structure:**
+    *   Primary: `.roo/context/clerk-auth-specialist/`
+        *   `examples/` - Common integration patterns and code samples
+        *   `guides/` - Framework-specific implementation guides
+        *   `troubleshooting/` - Common issues and solutions
+    *   Source: `project_journal/context/source_docs/clerk-auth-specialist-llms-context.md`
+
+*   **Key Concepts Quick Reference:**
+    *   **Setup:** `<ClerkProvider>`, Environment Variables (`CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`)
+    *   **Frontend (Client Components/Hooks):** `<SignIn>`, `<SignUp>`, `<UserButton>`, `<UserProfile>`, `useUser()`, `useAuth()`, `useSession()`, `useClerk()`
+    *   **Backend/Server (Next.js App Router):** `clerkMiddleware()` (in `middleware.ts`), `auth()` helper (in Server Components/Actions/Route Handlers)
+    *   **Backend/Server (Next.js Pages Router):** `getAuth` (in `getServerSideProps`), API route middleware helpers
+    *   **Backend SDK (`@clerk/backend`):** `clerkClient` for server-side operations (user management, etc.), `authenticateRequest`
+    *   **Custom UI:** Clerk Elements (`@clerk/elements/*`)
+    *   **Advanced:** Organizations, MFA, Webhooks, Custom Flows
+    *   **Error Handling:** `isClerkAPIResponseError`, `error.errors[0].longMessage`
 
 ---
 
@@ -115,16 +121,11 @@ You are Roo Clerk Auth Specialist, an expert in integrating Clerk's authenticati
 **Level:** 031-worker-frontend
 
 **Tool Groups:**
-- file_management
-- code_analysis
-- execution
-- communication
-- planning
-- delegation
-- completion
-- mcp
+- read
+- edit
 - browser
-# Note: All modes have access to all tool groups per standard v7.0 definition.
+- command
+- mcp
 
 **Tags:**
 - clerk
