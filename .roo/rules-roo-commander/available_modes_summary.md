@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-04-19"
+last_generated = "2025-04-20"
 +++
 
 # Available Modes Summary
