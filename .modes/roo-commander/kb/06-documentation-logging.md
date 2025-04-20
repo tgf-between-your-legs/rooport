@@ -1,40 +1,48 @@
-# 06: Documentation & Logging
+# 06 - Documentation Management & Decision Records
 
-This section outlines the procedures for maintaining project documentation and logging key decisions.
+This section outlines procedures for managing project documentation and creating Architecture Decision Records (ADRs). For detailed logging procedures, refer to `12-logging-procedures.md`.
 
 **Formal Document Maintenance:**
 
-*   **Responsibility:** Oversee high-level project documents stored in `.planning/` and potentially `.docs/` (though `.docs/` is primarily managed by specialists like `util-writer`).
-*   **Guidance (Create):** Create *new* high-level planning documents (e.g., `.planning/project_plan.md`, `.planning/strategy_notes.md`) using `write_to_file`.
-*   **Guidance (Update):** For *updates* to existing formal documents (especially in `.docs/`), prefer delegating the update task to a relevant specialist (e.g., `util-writer`, `core-architect`). If direct, minor modifications to *planning* documents are necessary, consider using `apply_diff` or `insert_content` for targeted changes. **Avoid using `write_to_file` to overwrite large existing documents.**
+*   **Responsibility:** Oversee high-level project documents. While Commander may directly edit files in `.planning/` due to their iterative nature, modifications to stable documents in `.docs/` typically require more rigor and should preferably be delegated to relevant specialists (e.g., `util-writer`, `core-architect`) to ensure stability and adherence to standards.
+*   **Tool Guidance:**
+    *   **Creating New Files:** Use `write_to_file` primarily for creating *new, relatively small* documents like initial planning drafts or ADRs based on templates (e.g., `.templates/toml-md/07_adr.md`).
+    *   **Modifying Existing Files:** Strongly prefer `apply_diff` or `search_and_replace` for *modifying existing* documents, especially larger ones. This minimizes the risk of accidental data loss, improves efficiency, and provides clearer change tracking compared to overwriting the entire file with `write_to_file`.
 
 **Decision Record Creation (ADRs):**
 
-*   **Purpose:** Log all significant architectural, technological, or strategic decisions to maintain transparency and traceability.
-*   **Guidance:** Create decision records using `write_to_file` targeting `.decisions/YYYYMMDD-brief-topic-summary.md`. Use an ADR-like format.
-*   **Example Content:**
+*   **Purpose:** Log all significant architectural, technological, or strategic decisions in `.decisions/` to maintain transparency and traceability.
+*   **Guidance:** Create ADRs using `write_to_file`, targeting `.decisions/YYYYMMDD-brief-topic-summary.md`. Utilize the `07_adr.md` template from `.templates/toml-md/` or a similar structure.
+*   **Example ADR Structure (Content remains illustrative):**
     ```markdown
-    # ADR: Technology Choice for Backend API
+    +++
+    id = "YYYYMMDD-brief-topic-summary"
+    title = "ADR: [Decision Title]"
+    status = "Proposed | Accepted | Deprecated | Superseded" # Choose one
+    date = "YYYY-MM-DD"
+    # Optional: superseded_by = "YYYYMMDD-new-decision-id"
+    # Optional: related_context = ["task-id", ".planning/doc.md"]
+    tags = ["architecture", "backend", "database", ...]
+    +++
 
-    **Date:** 2025-04-15
-    **Status:** Accepted
+    # ADR: [Decision Title]
+
+    **Status:** [Status]
+    **Date:** [Date]
 
     ## Context
-    The project requires a backend API. The Stack Profile indicates team familiarity with Python and JavaScript/Node.js. Performance and rapid development are key requirements.
+    [Describe the issue, background, constraints, and forces driving the decision.]
 
     ## Decision
-    We will use FastAPI (Python) for the backend API.
+    [State the decision clearly and concisely.]
 
     ## Rationale
-    - High performance benchmarks suitable for expected load.
-    - Excellent developer experience and built-in data validation align with rapid development goals.
-    - Strong Python expertise noted in the Stack Profile.
-    - `framework-fastapi` specialist mode is available for implementation.
-    - Considered Node.js (e.g., Express/NestJS), but FastAPI's automatic docs and type hinting provide advantages for this project.
+    [Explain the reasoning behind the decision. Justify why this option was chosen over alternatives.]
+
+    ## Alternatives Considered
+    [Briefly list other options evaluated and why they were not chosen.]
 
     ## Consequences
-    - Requires Python environment setup.
-    - Team members less familiar with Python/FastAPI may need ramp-up time (mitigated by specialist availability).
-    - Integration patterns with the frontend (e.g., React) need to be defined.
+    [Outline the expected outcomes, impacts (positive and negative), and potential risks of this decision.]
     ```
-*   **Logging:** Log the creation of the ADR in the relevant Commander task log (`.tasks/TASK-CMD-...`) using `insert_content`.
+*   **Logging:** Log the creation and context of the ADR according to the procedures in `12-logging-procedures.md`.

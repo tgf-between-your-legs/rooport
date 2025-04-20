@@ -1,8 +1,8 @@
-# 04: Delegation & MDTM Workflow
+# 04 - Delegation & MDTM Workflow
 
-This document details procedures for effective task delegation, emphasizing the use of the Markdown-Driven Task Management (MDTM) workflow for complex or critical tasks.
+This document details procedures for effective task delegation, emphasizing the use of the Markdown-Driven Task Management (MDTM) workflow for complex or critical tasks. It implements principles from `01-operational-principles.md`.
 
-**Core Delegation Principles (Ref: `01-operational-principles.md`)**
+**Core Delegation Principles**
 
 *   Delegate strategically to the *most appropriate* specialist.
 *   Provide clear goals, acceptance criteria, and necessary context.
@@ -16,21 +16,27 @@ This document details procedures for effective task delegation, emphasizing the 
 4.  **Match Tags:** Prioritize specialists whose `tags` in their `.mode.md` file closely match the task requirements and Stack Profile entries.
 5.  **Specificity:** Prefer more specific specialists (e.g., `framework-react` over `lead-frontend` for React component work) if available and appropriate.
 6.  **Generalists:** If no specific specialist matches, select the most relevant generalist Lead or Worker (e.g., `lead-backend`, `dev-general`).
-7.  **Log Rationale:** Briefly justify the chosen specialist in the Commander's task log (`.tasks/TASK-CMD-... .md`) using `insert_content`.
+7.  **Log Rationale:** Justify the chosen specialist according to the procedures in `12-logging-procedures.md`.
 
 **Delegation Methods**
 
 *   **Simple Tasks (`new_task` directly):**
-    *   Suitable for straightforward, single-step, read-only, or low-risk tasks.
+    *   **Criteria:** Suitable for straightforward, single-step, read-only, or low-risk tasks that do not require detailed tracking or multiple handoffs.
     *   **Message Content:** Must include:
         *   Clear Goal / Objective.
         *   Acceptance Criteria (how to know it's done).
         *   Relevant context references (Task IDs, file paths, Stack Profile path `.context/stack_profile.json`, relevant ADRs from `.decisions/`, planning docs from `.planning/`).
         *   Mention relevant specialist tags if applicable.
-    *   **Example:** `<new_task><mode>agent-agent-context-resolver</mode><message>Summarize decisions related to database choice from .decisions/.</message></new_task>`
+    *   **Example:** `<new_task><mode>agent-context-resolver</mode><message>Summarize decisions related to database choice from .decisions/.</message></new_task>`
 
 *   **Complex/Critical Tasks (MDTM Workflow):**
-    *   Use for multi-step, stateful, or high-risk tasks requiring detailed tracking and clear handoffs.
+    *   **Criteria:** Use for tasks that are:
+        *   Multi-step or involve sequential dependencies.
+        *   Stateful (require tracking progress across interruptions).
+        *   High-risk (e.g., modifying core logic, infrastructure changes, security configurations).
+        *   Require detailed tracking, clear handoffs, or auditable progress.
+        *   Involve significant file modifications needing careful review.
+        *   **Examples:** Implementing a new feature involving multiple components, refactoring a critical module, setting up CI/CD pipelines, performing database migrations.
     *   **Step 1: Create Task File:**
         *   Use `write_to_file` to create `.tasks/TASK-[MODE]-[YYYYMMDD-HHMMSS].md`.
         *   Use the `01_mdtm_feature.md` or a similar MDTM template from `.templates/toml-md/`.
@@ -48,7 +54,7 @@ This document details procedures for effective task delegation, emphasizing the 
         *   **Message Content:** Primarily point to the task file. Include the Commander's Task ID.
         *   **Example:** `<new_task><mode>framework-react</mode><message>Process MDTM task file: .tasks/TASK-REACT-20250420-183000.md. Coordinator Task: TASK-CMD-20250420-182500.</message></new_task>`
     *   **Step 3: Log Delegation:**
-        *   Use `insert_content` to add an entry to the Commander's task log (`.tasks/TASK-CMD-... .md`), noting the delegation, the specialist Task ID/file path, and the rationale for choosing the specialist.
+        *   Log the delegation details (specialist Task ID/file path, rationale) according to the procedures in `12-logging-procedures.md`.
 
 **Monitoring MDTM Tasks:**
 
