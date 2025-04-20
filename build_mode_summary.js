@@ -2,8 +2,10 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const MODES_DIR = '.modes';
-// Changed OUTPUT_FILE path
-const OUTPUT_FILE = '.modes/roo-commander/kb/kb-available-modes-summary.md';
+// Define output paths and filename
+const OUTPUT_FILENAME = 'available-modes-summary.md';
+const OUTPUT_PATH_KB = path.join('.modes', 'roo-commander', 'kb', OUTPUT_FILENAME);
+const OUTPUT_PATH_RULES = path.join('.roo', 'rules-roo-commander', OUTPUT_FILENAME);
 const DEFAULT_GROUPS = ["read", "edit", "browser", "command", "mcp"]; // Kept for potential future use, though not used in summary
 
 let tomlParser = null;
@@ -70,13 +72,13 @@ function parseTomlWithRegex(tomlContent, filePath) {
          }
     }
 
-    // Regex for description (optional)
-    const descriptionMatch = tomlContent.match(/^\s*description\s*=\s*"(.*?)"/m);
-    if (descriptionMatch) {
-        data.description = descriptionMatch[1];
+    // Regex for summary (optional) - Changed from description
+    const summaryMatch = tomlContent.match(/^\s*summary\s*=\s*"(.*?)"/m);
+    if (summaryMatch) {
+        data.summary = summaryMatch[1];
     } else {
-        data.description = "[No description provided]"; // Default if not found
-        console.log(`  Info: Regex did not find 'description' in ${filePath}. Using default.`);
+        data.summary = "[No summary provided]"; // Default if not found
+        console.log(`  Info: Regex did not find 'summary' in ${filePath}. Using default.`);
     }
 
 
@@ -140,12 +142,12 @@ async function buildModeSummary() {
                     }
 
 
-                    // Extract required fields + description
+                    // Extract required fields + summary - Changed from description
                     const mode_slug_from_toml = data.id;
                     const mode_name = data.name;
                     const system_prompt = data.system_prompt;
-                    // Extract description, provide default if missing
-                    const mode_description = data.description || "[No description provided]";
+                    // Extract summary, provide default if missing - Changed from description
+                    const mode_summary = data.summary || "[No summary provided]";
 
                     // Validate required fields (excluding optional description)
                     const missing_fields = [];
@@ -167,7 +169,7 @@ async function buildModeSummary() {
                         slug: mode_slug_from_toml,
                         name: mode_name,
                         roleDefinition: system_prompt.trim(), // Keep for potential future use
-                        description: mode_description.trim(), // Add description
+                        summary: mode_summary.trim(), // Add summary - Changed from description
                         groups: DEFAULT_GROUPS // Keep for potential future use
                     };
 
@@ -295,9 +297,9 @@ This document provides a summary of available specialist modes for delegation.
     if (modesByLevel['roo']) {
         markdownOutput += `\n## ${levelTitles['roo']}\n`;
         modesByLevel['roo'].forEach(mode => {
-            // Ensure description is handled if somehow null/undefined despite default
-            const desc = mode.description || "[No description provided]";
-            markdownOutput += `- **${mode.slug}** (${mode.name}): ${desc}\n`;
+            // Ensure summary is handled if somehow null/undefined despite default - Changed from description
+            const summary = mode.summary || "[No summary provided]";
+            markdownOutput += `- **${mode.slug}** (${mode.name}): ${summary}\n`;
         });
         delete modesByLevel['roo']; // Remove from further processing
     }
@@ -309,8 +311,8 @@ This document provides a summary of available specialist modes for delegation.
              const title = levelTitles[levelKey] || `${capitalize(levelKey)} Modes`; // Fallback title just in case
              markdownOutput += `\n## ${title}\n`;
              modesByLevel[levelKey].forEach(mode => {
-                 const desc = mode.description || "[No description provided]";
-                 markdownOutput += `- **${mode.slug}** (${mode.name}): ${desc}\n`;
+                 const summary = mode.summary || "[No summary provided]"; // Changed from description
+                 markdownOutput += `- **${mode.slug}** (${mode.name}): ${summary}\n`;
              });
              delete modesByLevel[levelKey]; // Remove from further processing
         }
@@ -320,21 +322,25 @@ This document provides a summary of available specialist modes for delegation.
      if (modesByLevel['unknown']) {
          markdownOutput += `\n## ${levelTitles['unknown']}\n`;
          modesByLevel['unknown'].forEach(mode => {
-             const desc = mode.description || "[No description provided]";
-             markdownOutput += `- **${mode.slug}** (${mode.name}): ${desc}\n`;
+             const summary = mode.summary || "[No summary provided]"; // Changed from description
+             markdownOutput += `- **${mode.slug}** (${mode.name}): ${summary}\n`;
          });
      }
 
 
-    // Write the Markdown file
+    // Write the Markdown file to both locations
     try {
-        // Updated console log message
-        console.log(`\nWriting mode summary to ${OUTPUT_FILE}...`);
-        await fs.writeFile(OUTPUT_FILE, markdownOutput.trim() + '\n', 'utf-8'); // Ensure trailing newline
-        // Updated console log message
-        console.log(`Successfully generated mode summary ${OUTPUT_FILE} with ${modes_data.length} modes.`);
+        console.log(`\nWriting mode summary to ${OUTPUT_PATH_KB}...`);
+        await fs.writeFile(OUTPUT_PATH_KB, markdownOutput.trim() + '\n', 'utf-8'); // Ensure trailing newline
+        console.log(`Successfully generated mode summary ${OUTPUT_PATH_KB}.`);
+
+        console.log(`Writing mode summary copy to ${OUTPUT_PATH_RULES}...`);
+        await fs.writeFile(OUTPUT_PATH_RULES, markdownOutput.trim() + '\n', 'utf-8'); // Ensure trailing newline
+        console.log(`Successfully generated mode summary copy ${OUTPUT_PATH_RULES}.`);
+
+        console.log(`\nGenerated ${modes_data.length} modes in total.`);
     } catch (err) {
-        console.error(`Error writing output file ${OUTPUT_FILE}:`, err);
+        console.error(`Error writing output file(s):`, err);
     }
 }
 
