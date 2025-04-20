@@ -124,8 +124,8 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
         *   Command to run the build script (e.g., `bash create_build.sh ${ARCHIVE_NAME_STEM} .tmp/README.md .tmp/CHANGELOG.md`) OR a series of `mkdir`, `cp`, `zip` commands.
         *   The script/commands must handle:
             *   Creating a temporary staging directory.
-            *   Copying required files/folders (e.g., `.modes`, `.processes`, `.roo`, `.templates`, `.workflows`, `build_*.js`, `LICENSE`, `.roomodes`).
-            *   Creating required empty directories (e.g., `.archive`, `.context`, etc.).
+            *   Copying required files/folders (e.g., `.modes`, `.processes`, `.roo`, `.templates`, `.workflows`, `.docs`, `.roomodes`).
+            *   Creating required empty directories (e.g., `.archive`, `.context`, `.decisions`, `.ideas`, `.logs`, `.planning`, `.reports`, `.snippets`, `.tasks`).
             *   Copying the prepared `.tmp/README.md` and `.tmp/CHANGELOG.md` into the staging directory.
             *   Creating the zip archive from the staging directory with the name `${ARCHIVE_NAME_STEM}.zip` and placing it in the `.builds/` directory.
             *   Cleaning up the temporary staging directory and `.tmp` files.

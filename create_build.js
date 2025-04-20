@@ -11,18 +11,14 @@ const includedFilesAndDirs = [
   '.roo',
   '.templates',
   '.workflows',
-  'build_mode_summary.js',
-  'build_roomodes.js',
-  'LICENSE',
-  '.roomodes',
-  'create_build.js' // Include the build script itself
+  '.docs', // Include the docs directory
+  '.roomodes'
 ];
 
 const emptyDirsToCreate = [
   '.archive',
   '.context',
   '.decisions',
-  '.docs',
   '.ideas',
   '.logs',
   '.planning',
