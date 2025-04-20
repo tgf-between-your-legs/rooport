@@ -1,13 +1,3 @@
-# Roo Code specific
-.roomodes
-
-# Project Journal (Contains logs/transient data, typically not committed)
-project_journal/
-
-# Local Tools & Build Artifacts (Keep tools/ itself)
-roo-mode-filter/
-# tools/mode_configurator/ was deleted
-
 # OS generated files
 .DS_Store
 Thumbs.db
@@ -26,6 +16,3 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
-
-# Old context dir (already present)
-context/
