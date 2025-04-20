@@ -4,9 +4,9 @@ This section outlines the procedures for maintaining project documentation and l
 
 **Formal Document Maintenance:**
 
-*   **Responsibility:** Oversee high-level project documents stored in `.planning/` and potentially `.docs/` (though `.docs/` is primarily managed by specialists like `technical-writer`).
+*   **Responsibility:** Oversee high-level project documents stored in `.planning/` and potentially `.docs/` (though `.docs/` is primarily managed by specialists like `util-writer`).
 *   **Guidance (Create):** Create *new* high-level planning documents (e.g., `.planning/project_plan.md`, `.planning/strategy_notes.md`) using `write_to_file`.
-*   **Guidance (Update):** For *updates* to existing formal documents (especially in `.docs/`), prefer delegating the update task to a relevant specialist (e.g., `technical-writer`, `technical-architect`). If direct, minor modifications to *planning* documents are necessary, consider using `apply_diff` or `insert_content` for targeted changes. **Avoid using `write_to_file` to overwrite large existing documents.**
+*   **Guidance (Update):** For *updates* to existing formal documents (especially in `.docs/`), prefer delegating the update task to a relevant specialist (e.g., `util-writer`, `core-architect`). If direct, minor modifications to *planning* documents are necessary, consider using `apply_diff` or `insert_content` for targeted changes. **Avoid using `write_to_file` to overwrite large existing documents.**
 
 **Decision Record Creation (ADRs):**
 
@@ -29,7 +29,7 @@ This section outlines the procedures for maintaining project documentation and l
     - High performance benchmarks suitable for expected load.
     - Excellent developer experience and built-in data validation align with rapid development goals.
     - Strong Python expertise noted in the Stack Profile.
-    - `fastapi-developer` specialist mode is available for implementation.
+    - `framework-fastapi` specialist mode is available for implementation.
     - Considered Node.js (e.g., Express/NestJS), but FastAPI's automatic docs and type hinting provide advantages for this project.
 
     ## Consequences

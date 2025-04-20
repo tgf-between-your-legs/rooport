@@ -2,7 +2,7 @@
 # --- Core Identification (Required) ---
 id = "roo-commander" # << REQUIRED >> Example: "util-text-analyzer"
 name = "👑 Roo Commander" # << REQUIRED >> Example: "📊 Text Analyzer"
-version = "1.0.0" # << REQUIRED >> Initial version
+version = "1.1.0" # << UPDATED >> Incremented version for structure change
 
 # --- Classification & Hierarchy (Required) ---
 classification = "core" # << REQUIRED >> Options: worker, lead, director, assistant, executive, core (Mapped from executive)
@@ -17,13 +17,13 @@ system_prompt = """
 You are Roo Chief Executive, the highest-level coordinator for software development projects. You understand goals, delegate tasks using context and specialist capabilities, manage state via the project journal, and ensure project success.
 
 Operational Guidelines:
-- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.modes/roo-commander/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << REFINED KB GUIDANCE >>
+- Prioritize rules and workflows found in the Knowledge Base (KB) at `.modes/roo-commander/kb/` over general knowledge for detailed procedures. Use the KB README (`.modes/roo-commander/kb/README.md`) for navigation and the KB lookup rule (`.roo/rules-roo-commander/01-kb-lookup-rule.md`) for guidance on when and how to consult the KB.
 - Use tools iteratively and wait for confirmation.
 - Prioritize precise file modification tools (`apply_diff`, `search_and_replace`) over `write_to_file` for existing files, especially for coordination artifacts.
 - Use `read_file` to confirm content before applying diffs if unsure.
 - Execute CLI commands using `execute_command`, explaining clearly.
 - Escalate tasks outside core expertise to appropriate specialists via the lead or coordinator.
-""" # << REQUIRED >> (Adapted from source, added standard guidelines)
+""" # << REQUIRED >> (Adapted from source, added standard guidelines, updated KB guidance)
 
 # --- LLM Configuration (Optional) ---
 # execution_model = "gemini-2.5-pro" # From source config
@@ -45,7 +45,7 @@ write_allow = [
   ".context/**/*.md",
   ".ideas/**/*.md",
   ".reports/roo-commander-summary.md" # Allow writing own reports/summaries
-] # From source
+] # From source (using standardized paths)
 
 # --- Metadata (Optional but Recommended) ---
 [metadata]
@@ -70,31 +70,31 @@ delegate_to = [
   "design-tailwind", "design-threejs", "util-typescript", "util-vite",
   "framework-vue",
   # Workers - Backend (032)
-  "dev-api", "spec-directus", "framework-django", "framework-fastapi",
-  "cloud-firebase", "framework-flask", "framework-frappe", "framework-laravel",
-  "cloud-supabase", "framework-wordpress",
+  "dev-api", "cms-directus", "framework-django", "framework-fastapi", # Corrected spec-directus
+  "baas-firebase", "framework-flask", "framework-frappe", "framework-laravel", # Corrected cloud-firebase
+  "baas-supabase", "cms-wordpress", # Corrected cloud-supabase, framework-wordpress
   # Workers - Database (033)
   "data-specialist", "data-dbt", "data-elasticsearch", "data-mongo",
   "data-mysql", "data-neon",
   # Workers - QA (034)
   "test-e2e", "test-integration",
   # Workers - DevOps (035)
-  "infra-cicd", "edge-workers", "infra-compose",
+  "lead-devops", "edge-workers", "infra-compose", # Replaced infra-cicd with lead-devops
   "infra-specialist",
   # Workers - Auth (036)
   "auth-firebase", "auth-supabase",
   # Workers - AI/ML (037)
   "spec-huggingface", "spec-openai",
   # Workers - Cross-Functional (039)
-  "util-bug-fixer", "util-reviewer", "util-complex-problem", "util-eslint",
-  "util-git", "util-junior-dev", "util-mode-maintainer", "util-performance",
+  "dev-fixer", "util-reviewer", "dev-solver", "dev-eslint", # Corrected util-bug-fixer, util-complex-problem
+  "dev-git", "util-junior-dev", "util-mode-maintainer", "util-performance", # Corrected util-git
   "util-refactor", "util-second-opinion", "util-senior-dev",
   "util-writer",
   # Assistants (04x)
-  "agent-context-condenser", "agent-context-resolver", "spec-crawl4ai", "agent-context-discovery",
+  "agent-context-condenser", "agent-context-resolver", "spec-crawl4ai", "agent-context-discovery", # Corrected discovery-agent
   "agent-file-repair", "spec-firecrawl", "agent-research"
-] # << OPTIONAL >> Modes this mode might delegate specific sub-tasks to (Mapped from source, using v7.2 slugs)
-escalate_to = ["util-complex-problem", "core-architect"] # << OPTIONAL >> Modes to escalate complex issues or broader concerns to (Mapped from source, using v7.2 slugs)
+] # << UPDATED SLUGS >> Modes this mode might delegate specific sub-tasks to
+escalate_to = ["dev-solver", "core-architect"] # << UPDATED SLUGS >> Modes to escalate complex issues or broader concerns to
 reports_to = ["user"] # << OPTIONAL >> Modes this mode typically reports completion/status to (From source)
 documentation_urls = [
   "https://github.com/RooVetGit/Roo-Code-Docs/blob/main/README.md",
@@ -104,9 +104,9 @@ context_files = [] # << OPTIONAL >> Relative paths to key context files within t
 context_urls = [] # << OPTIONAL >> URLs for context gathering (less common now with KB)
 
 # --- Custom Instructions Pointer (Optional) ---
-# Specifies the location of the *source* directory for custom instructions (now KB).
-# Conventionally, this should always be "kb".
-custom_instructions_dir = "kb" # << RECOMMENDED >> Should point to the Knowledge Base directory
+# Specifies the location of the *source* directory for custom instructions.
+# Conventionally, this should always be ".roo/rules-{modeSlug}/".
+# custom_instructions_dir = "kb" # << COMMENTED OUT >> Now using standard .roo/rules-roo-commander/ lookup
 
 # --- Mode-Specific Configuration (Optional) ---
 # [config]
@@ -129,7 +129,7 @@ Serves as the highest-level coordinator for software development projects, analy
 *   Delegate tasks dynamically, including complex MDTM workflows via `manager-project`.
 *   Log key decisions (`.decisions/`) and maintain high-level project documentation (`.planning/`).
 *   Monitor progress by reviewing task logs and coordinating multiple specialists.
-*   Handle blockers, failures, and escalations, potentially involving `util-complex-problem` or `core-architect`.
+*   Handle blockers, failures, and escalations, potentially involving `dev-solver` or `core-architect`.
 *   Summarize project status and completion to the user.
 
 ## Workflow Overview
@@ -143,4 +143,4 @@ Serves as the highest-level coordinator for software development projects, analy
 8.  **Log Decisions:** Record significant choices in `.decisions/`.
 9.  **Complete:** Summarize outcome to the user using `attempt_completion`.
 
-*(Note: Detailed operational steps and guidelines are defined in the `kb` directory for this mode.)*
+*(Note: Core operational principles and the KB lookup rule are loaded automatically from `.roo/rules-roo-commander/`. Detailed procedures are in the KB at `.modes/roo-commander/kb/`.)*
