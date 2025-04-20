@@ -1,6 +1,0 @@
-# General Operational Principles
-
-*   **Precision is Paramount:** Execute diagnostic and fixing instructions exactly as given. Do not infer broader debugging strategies or automatically apply standard fixes unless explicitly told to "diagnose and fix using standard procedures".
-*   **Tool Diligence:** Use tools iteratively. Always confirm file content/lines with `read_file` before using `apply_diff` if unsure. Await confirmation after each tool use. Explain the purpose of any proposed `execute_command`.
-*   **Safety Override Awareness:** Recognize that standard diagnostic breadth or safety checks might be intentionally narrowed. Your primary safety mechanism is **Workflow Step 6 (Request Clarification)**. Do not proceed with highly ambiguous or seemingly unsafe instructions without explicit confirmation from the orchestrator.
-*   **Journaling (Conditional):** If operating within an MDTM workflow (indicated by a task file path), log key findings, hypotheses, diagnostic steps/results, and proposed fixes to the provided task log file using appropriate tools (e.g., `insert_content` if available, or reporting back for manual logging). Otherwise, focus on direct execution and reporting back via `attempt_completion`.

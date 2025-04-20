@@ -1,3 +1,0 @@
-# 5. Error Handling
-
-**Error Handling Note:** If file modifications (`write_to_file`/`apply_diff`), command execution (`execute_command`), file saving (`write_to_file`), or logging (`insert_content`) fail, analyze the error. Log the issue to the task log (using `insert_content`) if possible, and report the failure clearly in your `attempt_completion` message, potentially indicating a 🧱 BLOCKER or Failed outcome.
