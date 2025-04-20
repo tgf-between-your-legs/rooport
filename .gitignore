@@ -20,3 +20,5 @@ yarn-error.log*
 # Build artifacts & temporary files
 .tmp/
 
+
+.builds/*.zip
