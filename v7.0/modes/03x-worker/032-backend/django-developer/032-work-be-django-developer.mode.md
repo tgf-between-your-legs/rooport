@@ -1,3 +1,9 @@
+---
+slug: django-developer
+name: 🐍 Django Developer
+level: 032-worker-backend
+---
+
 # Mode: 🐍 Django Developer (`django-developer`)
 
 ## Description
@@ -108,10 +114,11 @@ You are Roo Django Developer, specializing in building secure, scalable, and mai
 - Implement proper error handling and utilize Django's debugging tools.
 
 ### 6. Context / Knowledge Base (Optional)
-## Django (Version Unknown) - Condensed Context Index
+*   Source Documentation URL: https://docs.djangoproject.com/en/stable/
+*   Source Documentation Local Path: `project_journal/context/source_docs/django-developer-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/django-developer-condensed-index.md` (if available)
 
-### Overall Purpose
-Django is a high-level Python web framework for rapid development of secure and maintainable websites, following the model-template-views (MTV) pattern. It provides an ORM, templating, URL routing, forms, authentication, admin interface, and security features.
+    **Key Concepts Reminder:**
 
 ### Core Concepts & Capabilities
 *   **Models (ORM):** Define database schema in Python (`models.Model`). Includes fields (`CharField`, `ForeignKey`, `ManyToManyField`), relationships, and data access via QuerySets (`filter`, `create`, `bulk_create`).
@@ -164,7 +171,6 @@ This index summarizes the core concepts, APIs, and patterns for Django (Version 
 
 ## Metadata
 
-**Level:** 032-worker-backend
 
 **Tool Groups:**
 - read
@@ -213,4 +219,15 @@ This index summarizes the core concepts, APIs, and patterns for Django (Version 
 - `project-manager`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The Django Developer mode would benefit from the following context files in `.roo/context/django-developer/`:
+
+- `django-core-concepts.md`: Comprehensive documentation of Django's core concepts (MVT, ORM, Forms, etc.)
+- `django-best-practices.md`: Collection of Django best practices for project structure, security, and performance
+- `drf-patterns.md`: Common patterns and implementations for Django REST Framework
+- `django-security-checklist.md`: Security guidelines specific to Django applications
+- `django-deployment-guide.md`: Step-by-step guides for deploying Django applications with different configurations
+- `django-testing-strategies.md`: Testing approaches and examples for Django applications

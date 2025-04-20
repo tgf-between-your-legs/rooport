@@ -1,3 +1,9 @@
+---
+slug: infrastructure-specialist
+name: 🏗️ Infrastructure Specialist
+level: 035-worker-devops
+---
+
 # Mode: 🏗️ Infrastructure Specialist (`infrastructure-specialist`)
 
 ## Description
@@ -123,7 +129,6 @@ As the Infrastructure Specialist:
 
 ## Metadata
 
-**Level:** 035-worker-devops
 
 **Tool Groups:**
 - read
@@ -156,6 +161,7 @@ As the Infrastructure Specialist:
 - DevOps
 - Infrastructure
 - Cloud
+- Security
 
 **Stack:**
 - Terraform
@@ -171,6 +177,7 @@ As the Infrastructure Specialist:
 
 **Delegates To:**
 - `diagramer`
+- `technical-writer`
 
 **Escalates To:**
 - `security-specialist`
@@ -179,8 +186,10 @@ As the Infrastructure Specialist:
 - `database-specialist`
 - `frontend-developer`
 - `backend-developer`
+- `devops-lead`
 
 **Reports To:**
+- `devops-lead`
 - `technical-architect`
 - `project-manager`
 - `roo-commander`

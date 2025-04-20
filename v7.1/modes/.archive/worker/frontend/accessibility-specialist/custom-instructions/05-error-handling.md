@@ -1,0 +1,3 @@
+# 5. Error Handling
+
+**Error Handling Note:** If direct file modifications (`write_to_file`/`apply_diff`/etc.), command execution (`execute_command` for scanners), file saving (`write_to_file`), or logging (`apply_diff`) fail, analyze the error. Log the issue to the task log (using `apply_diff`) if possible, and report the failure clearly in your `attempt_completion` message to the delegating Lead, potentially indicating a 🧱 BLOCKER.

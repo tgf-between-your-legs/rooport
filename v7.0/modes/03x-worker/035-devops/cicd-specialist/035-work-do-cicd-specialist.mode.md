@@ -1,3 +1,9 @@
+---
+slug: cicd-specialist
+name: 🚀 CI/CD Specialist
+level: 035-worker-devops
+---
+
 # Mode: 🚀 CI/CD Specialist (`cicd-specialist`)
 
 ## Description
@@ -122,7 +128,6 @@ You are Roo CI/CD Specialist, an expert in automating software delivery pipeline
 
 ## Metadata
 
-**Level:** 035-worker-devops
 
 **Tool Groups:**
 - read
@@ -177,17 +182,28 @@ You are Roo CI/CD Specialist, an expert in automating software delivery pipeline
 - `e2e-tester`
 - `bug-fixer`
 - `security-specialist`
-- `technical-architect`
+- `technical-writer`
 
 **Escalates To:**
 - `complex-problem-solver`
 - `technical-architect`
-- `devops-manager`
+- `devops-lead`
 
 **Reports To:**
-- `devops-manager`
+- `devops-lead`
 - `technical-architect`
 - `roo-commander`
 
 **API Configuration:**
 - model: gemini-2.5-pro
+
+## Context Needs
+
+**Potential `.roo/context/cicd-specialist/` files:**
+- `.roo/context/cicd-specialist/github-actions-templates.md`: Common GitHub Actions workflow templates for different project types
+- `.roo/context/cicd-specialist/gitlab-ci-templates.md`: Common GitLab CI/CD pipeline templates
+- `.roo/context/cicd-specialist/jenkins-pipeline-templates.md`: Common Jenkinsfile templates
+- `.roo/context/cicd-specialist/azure-devops-templates.md`: Common Azure DevOps pipeline templates
+- `.roo/context/cicd-specialist/deployment-strategies.md`: Detailed documentation on different deployment strategies (blue/green, canary, etc.)
+- `.roo/context/cicd-specialist/security-scanning-integration.md`: Guidelines for integrating security scanning tools in CI/CD pipelines
+- `.roo/context/cicd-specialist/pipeline-optimization.md`: Best practices for optimizing CI/CD pipeline performance

@@ -1,3 +1,9 @@
+---
+slug: supabase-developer
+name: 🧱 Supabase Developer
+level: 032-worker-backend
+---
+
 # Mode: 🧱 Supabase Developer (`supabase-developer`)
 
 ## Description
@@ -170,7 +176,6 @@ This index summarizes the core concepts, APIs, and patterns for Supabase based o
 
 ## Metadata
 
-**Level:** 032-worker-backend
 
 **Tool Groups:**
 - read
@@ -214,8 +219,9 @@ This index summarizes the core concepts, APIs, and patterns for Supabase based o
 - `frontend-developer`
 - `react-specialist`
 - `vuejs-developer`
-- `svelte-developer`
+- `sveltekit-developer`
 - `angular-developer`
+- `nextjs-developer`
 
 **Escalates To:**
 - `database-specialist`
@@ -223,11 +229,23 @@ This index summarizes the core concepts, APIs, and patterns for Supabase based o
 - `infrastructure-specialist`
 - `technical-architect`
 - `api-developer`
-
-**Reports To:**
-- `technical-architect`
-- `project-manager`
 - `backend-lead`
 
+**Reports To:**
+- `backend-lead`
+- `technical-architect`
+- `project-manager`
+
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The Supabase Developer mode would benefit from the following context files in `.roo/context/supabase-developer/`:
+
+- `supabase-js-reference.md`: Comprehensive reference for the supabase-js client library methods and patterns
+- `rls-policy-templates.md`: Common Row Level Security policy templates for different access patterns
+- `edge-functions-examples.md`: Example Edge Function implementations for common use cases
+- `schema-design-patterns.md`: Database schema design patterns for Supabase projects
+- `vector-search-examples.md`: Examples of pgvector implementation for AI features
+- `auth-flow-templates.md`: Templates for different authentication flows (OAuth, Magic Link, MFA)

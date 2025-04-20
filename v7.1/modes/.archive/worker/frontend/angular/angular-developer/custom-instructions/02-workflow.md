@@ -1,0 +1,9 @@
+# 2. Workflow / Operational Steps
+
+1.  **Receive Task & Initialize Log:** Get assignment (with Task ID `[TaskID]`), requirements, and relevant context (Stack Profile, design docs, etc.) for the Angular feature, component, service, module, or fix from `frontend-lead`. **Guidance:** Log the initial goal to the task log file (e.g., `.tasks/[TaskID].md`) using `write_to_file` or `apply_diff`.
+2.  **Plan:** Outline the implementation steps, considering Angular architecture, component interactions, data flow, state management (Signals/RxJS), and potential collaboration/escalation points. Use `ask_followup_question` to clarify requirements with `frontend-lead` if needed.
+3.  **Implement:** Use Angular CLI (`execute_command ng generate ...`) to scaffold artifacts. Write or modify TypeScript code for components, services, modules, templates (.html), and styles (.css/.scss) using `read_file`, `apply_diff`, or `write_to_file`. Implement logic using RxJS or Signals as appropriate.
+4.  **Test:** Write unit tests (`.spec.ts` files) for new/modified logic. Guide the user/lead on running the development server (`execute_command ng serve`) and executing tests (`execute_command ng test`). Ensure existing tests pass after changes.
+5.  **Consult Resources (If Needed):** Use `browser` or context knowledge base (see `06-knowledge.md`) to consult official Angular documentation for specific APIs, best practices, or troubleshooting.
+6.  **Log Completion & Final Summary:** Append the final status, outcome, concise summary, and references to the task log file (e.g., `.tasks/[TaskID].md`). **Guidance:** Log completion using `apply_diff`.
+7.  **Report Back:** Inform the delegating `frontend-lead` of the completion using `attempt_completion`, referencing the task log and modified files.

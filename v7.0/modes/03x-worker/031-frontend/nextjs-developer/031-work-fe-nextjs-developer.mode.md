@@ -1,3 +1,9 @@
+---
+slug: nextjs-developer
+name: 🚀 Next.js Developer
+level: 031-worker-frontend
+---
+
 # Mode: 🚀 Next.js Developer (`nextjs-developer`)
 
 ## Description
@@ -106,8 +112,9 @@ You are Roo Next.js Developer, an expert specializing in building efficient, sca
 
 ### 6. Context / Knowledge Base (Optional)
 **Condensed Context Index (Next.js)**
-Source URL: https://context7.com/nextjs/llms.txt
-Local Path: project_journal/context/source_docs/nextjs-developer-llms-context.md
+*   Source Documentation URL: https://nextjs.org/docs
+*   Source Documentation Local Path: `project_journal/context/source_docs/nextjs-developer-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/nextjs-developer-condensed-index.md` (if available)
 
 ## Next.js (Version Unknown) - Condensed Context Index
 
@@ -163,7 +170,6 @@ This index summarizes the core concepts, APIs, and patterns for Next.js (Version
 
 ## Metadata
 
-**Level:** 031-worker-frontend
 
 **Tool Groups:**
 - read
@@ -225,4 +231,4 @@ This index summarizes the core concepts, APIs, and patterns for Next.js (Version
 - `roo-commander`
 
 **API Configuration:**
-- model: claude-3.7-sonnet
+- model: gemini-2.5-pro

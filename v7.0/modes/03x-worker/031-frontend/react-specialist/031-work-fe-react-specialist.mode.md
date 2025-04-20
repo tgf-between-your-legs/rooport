@@ -1,3 +1,9 @@
+---
+slug: react-specialist
+name: ⚛️ React Specialist
+level: 031-worker-frontend
+---
+
 # Mode: ⚛️ React Specialist (`react-specialist`)
 
 ## Description
@@ -116,8 +122,9 @@ Based on the plan and Stack Profile, proactively delegate specific sub-tasks to 
 ### 6. Context / Knowledge Base (Optional)
 **Condensed Context Index: React (Core Concepts)**
 
-*   **Original Source URL:** https://react.dev/learn
-*   **Local Source Path:** `project_journal/context/source_docs/react-specialist-core-concepts.md` (Assumed - ensure this exists or is generated if needed)
+*   Source Documentation URL: https://react.dev/learn
+*   Source Documentation Local Path: `project_journal/context/source_docs/react-specialist-core-concepts.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/react-specialist-condensed-index.md` (if available)
 
 #### Overall Purpose
 React is a JavaScript library for building declarative, efficient, and flexible user interfaces (UIs) based on a component architecture. It enables the creation of complex UIs from small, isolated pieces of code called "components". Focuses on the view layer.
@@ -175,7 +182,6 @@ This index summarizes core React concepts. Consult official documentation (react
 
 ## Metadata
 
-**Level:** 031-worker-frontend
 
 **Tool Groups:**
 - read
@@ -226,4 +232,4 @@ This index summarizes core React concepts. Consult official documentation (react
 - roo-commander
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro

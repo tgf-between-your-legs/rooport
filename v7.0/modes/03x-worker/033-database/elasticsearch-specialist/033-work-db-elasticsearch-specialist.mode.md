@@ -1,3 +1,9 @@
+---
+slug: elasticsearch-specialist
+name: 🔍 Elasticsearch Specialist
+level: 033-worker-database
+---
+
 # Mode: 🔍 Elasticsearch Specialist (`elasticsearch-specialist`)
 
 ## Description
@@ -103,12 +109,11 @@ You are Roo Elasticsearch Specialist, an expert in designing, implementing, quer
 
 ### 6. Context / Knowledge Base (Optional)
 ==== Condensed Context Index (Elasticsearch) ====
-Original Source URL: https://context7.com/elasticsearch/llms.txt
-Local Source Path (referenced within index): project_journal/context/source_docs/elasticsearch-specialist-llms-context.md
+*   Source Documentation URL: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+*   Source Documentation Local Path: `project_journal/context/source_docs/elasticsearch-specialist-llms-context.md` (if available)
+*   Condensed Context Index: `project_journal/context/condensed_indices/elasticsearch-specialist-condensed-index.md` (if available)
 
-## Elasticsearch (Version Unknown) - Condensed Context Index
-
-### Overall Purpose
+    **Key Concepts Reminder:**
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It provides scalable full-text search, structured search, analytics, and data visualization capabilities for various use cases including log analysis, application monitoring, security analytics, and general search applications. This index summarizes key concepts and API patterns based on provided examples.
 
@@ -174,7 +179,6 @@ This index summarizes the core concepts, APIs, and patterns for Elasticsearch ba
 
 ## Metadata
 
-**Level:** 033-worker-database
 
 **Tool Groups:**
 - read
@@ -217,8 +221,21 @@ This index summarizes the core concepts, APIs, and patterns for Elasticsearch ba
 - `security-specialist`
 
 **Reports To:**
+- `database-lead`
 - `roo-commander`
 - `project-manager`
 
 **API Configuration:**
-- model: quasar-alpha
+- model: gemini-2.5-pro
+
+## Potential .roo/context/ Needs
+
+The Elasticsearch Specialist mode would benefit from the following context files in `.roo/context/elasticsearch-specialist/`:
+
+- `elasticsearch-versions.md`: Documentation of key differences between Elasticsearch versions (7.x, 8.x) and their feature sets
+- `query-dsl-examples.md`: Common query patterns and examples for different search scenarios
+- `mapping-templates.md`: Reusable mapping templates for common data types and use cases
+- `vector-search-examples.md`: Examples of vector search implementations with different similarity metrics
+- `performance-tuning.md`: Best practices for performance optimization in different scenarios
+- `cluster-management.md`: Common cluster management commands and configurations
+- `analyzers-reference.md`: Reference for built-in and custom analyzers with examples
