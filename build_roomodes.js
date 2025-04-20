@@ -3,7 +3,7 @@ const path = require('path');
 
 const MODES_DIR = '.modes';
 const OUTPUT_FILE = '.roomodes';
-const SUMMARY_OUTPUT_FILE = '.roo/rules-roo-commander/available_modes_summary.md'; // Added
+const SUMMARY_OUTPUT_FILE = '.modes/roo-commander/kb/kb-available-modes-summary.md'; // Added
 const DEFAULT_GROUPS = ["read", "edit", "browser", "command", "mcp"];
 
 let tomlParser = null;
@@ -278,7 +278,7 @@ async function buildRoomodes() {
         console.log(`\nWriting mode summary to ${SUMMARY_OUTPUT_FILE}...`);
         const today = new Date().toISOString().split('T')[0];
         let markdownContent = `+++
-id = "available-modes-summary"
+id = "kb-available-modes-summary"
 title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]

@@ -80,7 +80,7 @@ validation_notes = ""
         *   Engage User via `ask_followup_question` to brainstorm keywords, desired feelings, visual styles (e.g., minimalist, retro, playful).
         *   Ask User for any optional inspirational images, links, or color palettes.
     *   **Procedure (Optional Delegation):**
-        *   If needed, Coordinator uses `new_task` to delegate to `ask` or `worker/design/ui-designer`: "Generate mood board ideas or visual concepts based on these keywords/themes: [keywords/themes]".
+        *   If needed, Coordinator uses `new_task` to delegate to `ask` or `design-ui`: "Generate mood board ideas or visual concepts based on these keywords/themes: [keywords/themes]".
     *   **Outputs:** A clearer direction: core themes, keywords, potential visual elements, optional mood board/concepts.
     *   **Error Handling:** If the concept remains too vague, Coordinator asks more targeted questions or suggests archetypes.
 

@@ -3,7 +3,7 @@ const path = require('path');
 
 const MODES_DIR = '.modes';
 // Changed OUTPUT_FILE path
-const OUTPUT_FILE = '.roo/rules-roo-commander/available_modes_summary.md';
+const OUTPUT_FILE = '.modes/roo-commander/kb/kb-available-modes-summary.md';
 const DEFAULT_GROUPS = ["read", "edit", "browser", "command", "mcp"]; // Kept for potential future use, though not used in summary
 
 let tomlParser = null;
@@ -243,7 +243,7 @@ async function buildModeSummary() {
     const formattedDate = `${year}-${month}-${day}`;
 
     let markdownOutput = `+++
-id = "available-modes-summary"
+id = "kb-available-modes-summary"
 title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
