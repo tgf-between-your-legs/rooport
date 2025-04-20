@@ -23,7 +23,8 @@ scope = "Applies when preparing a new distributable release of the Roo Commander
 roles = [
   "Coordinator (Roo Commander)",
   "Executor (Terminal via `execute_command`)",
-  "Technical Writer (Optional, for CHANGELOG)"
+  "Technical Writer (Optional, for CHANGELOG)",
+  "Executor (GitHub CLI via `execute_command`)"
 ]
 trigger = "Manual initiation by the Coordinator when a new build is required."
 success_criteria = [
@@ -32,7 +33,9 @@ success_criteria = [
   "The archive contains a `README.md` with setup instructions.",
   "The archive contains an up-to-date `CHANGELOG.md`.",
   "The `.builds/README.md` log file is updated with the details of the new build.",
-  "The build script (if used) executes successfully (exit code 0)."
+  "The build script executes successfully (exit code 0).",
+  "A GitHub release is created with the correct tag, title, notes, and attached build artifact.",
+  "The `gh release create` command executes successfully (exit code 0)."
 ]
 failure_criteria = [
   "The build script (if used) fails or produces errors.",
@@ -40,7 +43,9 @@ failure_criteria = [
   "The zip archive has an incorrect name.",
   "The contents of the zip archive are incorrect (missing files, includes excluded files).",
   "The `README.md` or `CHANGELOG.md` within the archive is missing or incorrect.",
-  "The `.builds/README.md` log file is not updated or contains errors."
+  "The `.builds/README.md` log file is not updated or contains errors.",
+  "The GitHub release creation fails.",
+  "The build artifact upload fails."
 ]
 
 # --- Integration ---
@@ -78,12 +83,13 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
 ## 5. Reference Documents & Tools 📚🛠️
 *   `.builds/README.md`: Log file for build history.
 *   `.docs/standards/roo-commander-version-naming-convention.md`: Defines version numbers and codenames.
-*   `create_build.[sh|js]` (Hypothetical): The script automating the build process.
-*   `CHANGELOG.md` (Template/Previous Version): Used as a basis for the new changelog.
-*   `README.dist.md` (Hypothetical Template): Template for the `README.md` to be included *inside* the zip.
-*   `execute_command`: Tool to run the build script/commands.
+*   `create_build.js`: The script automating the build process.
+*   `.tmp/CHANGELOG.md`: Temporary file holding the changelog for the current build.
+*   `.tmp/README.md`: Temporary file holding the distribution README for the current build.
+*   `gh` (GitHub CLI): Tool for interacting with GitHub, specifically for creating releases.
+*   `execute_command`: Tool to run the build script and `gh` commands.
 *   `read_file`: Tool to read version info, changelogs, build logs.
-*   `write_to_file`: Tool to create/update build log, potentially the distribution README/CHANGELOG if not scripted.
+*   `write_to_file`: Tool to create temporary README/CHANGELOG files.
 *   `append_to_file`: Tool to add entries to the build log.
 *   `list_files`: Tool to verify script existence or build output.
 *   `technical-writer` (Mode): Optional delegate for `CHANGELOG.md` creation/update.
@@ -145,15 +151,35 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
     *   **Outputs:** Updated `.builds/README.md`.
     *   **Error Handling:** If writing/appending fails, report the error.
 
+    *   **Error Handling:** If writing/appending fails, report the error.
+
+*   **Step 6: Create GitHub Release (Coordinator delegates to Executor via `execute_command`)**
+    *   **Description:** Create a new release on GitHub and upload the build artifact.
+    *   **Tool:** `execute_command` (using `gh` CLI)
+    *   **Inputs Provided by Coordinator:**
+        *   `BUILD_VERSION` (e.g., "v7.0.3")
+        *   Target Repository (e.g., `jezweb/roo-commander`)
+        *   Release Title (e.g., `v7.0.3 (Wallaby)`)
+        *   Path to temporary CHANGELOG file (e.g., `.tmp/CHANGELOG.md`)
+        *   Path to the build artifact zip file (e.g., `.builds/${ARCHIVE_NAME_STEM}.zip`)
+    *   **Command Example:** `gh release create ${BUILD_VERSION} --repo jezweb/roo-commander --title "${BUILD_VERSION} (${BUILD_CODENAME})" --notes-file .tmp/CHANGELOG.md .builds/${ARCHIVE_NAME_STEM}.zip`
+    *   **Instructions for Executor:** Execute the provided `gh release create` command.
+    *   **Expected Output from Executor:** URL of the created release, exit code 0.
+    *   **Coordinator Action (Post-Execution):** Review output and exit code.
+    *   **Validation/QA:** Check for success messages (URL output), non-zero exit code. Verify the release exists on GitHub with the correct tag, title, notes, and attached asset.
+    *   **Error Handling:** If the `gh` command fails, analyze output. Check authentication (`gh auth status`), repository name, tag existence, file paths, and permissions. Report failure or attempt troubleshooting.
+
 ## 7. Postconditions ✅
 *   A correctly named and structured zip archive exists in `.builds/`.
 *   The `.builds/README.md` file contains an entry for the new build.
+*   A corresponding release exists on GitHub with the build artifact attached.
 
 ## 8. Error Handling & Escalation (Overall) ⚠️
 *   If the build script fails, debug the script.
 *   If file operations fail, check permissions and paths.
 *   If versioning information is inconsistent, review `.builds/README.md` and the versioning standard document.
-*   Escalate to the user if the build cannot be completed successfully.
+*   If the GitHub release creation fails, check `gh` CLI authentication, command syntax, and network connectivity.
+*   Escalate to the user if the build or release cannot be completed successfully.
 
 ## 9. PAL Validation Record 🧪
 *   Date Validated: (Pending Implementation)
@@ -162,4 +188,5 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
 *   Findings/Refinements:
 
 ## 10. Revision History 📜
+*   v1.1 (2025-04-20): Added Step 6 for GitHub Release creation using `gh` CLI. Updated roles, criteria, and tools list.
 *   v1.0 (2025-04-20): Initial draft incorporating versioning, build log, CHANGELOG, distribution README, and suggestion for an automated build script.
