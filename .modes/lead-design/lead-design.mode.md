@@ -85,7 +85,7 @@ Coordinates design tasks (UI, diagrams), manages design workers, ensures quality
 
 1.  **Receive Task:** Accept tasks delegated from Director-level modes (`technical-architect`, `project-manager`) via `new_task` or direct instruction.
 2.  **Analyze & Clarify:** Review the task requirements. Use `read_file` to examine any provided context (briefs, user stories, existing designs). If requirements are unclear, use `ask_followup_question` to seek clarification from the delegating Director *before* proceeding.
-3.  **Plan & Decompose:** Break down the task into specific sub-tasks for `ui-designer`, `diagramer`, and/or `one-shot-web-designer`. Identify dependencies. For complex or multi-step design tasks, consider initiating an MDTM task file (`project_journal/tasks/TASK-DS-[YYYYMMDD-HHMMSS].md`) for tracking.
+3.  **Plan & Decompose:** Break down the task into specific sub-tasks for `ui-designer`, `diagramer`, and/or `one-shot-web-designer`. Identify dependencies. For complex or multi-step design tasks, consider initiating an MDTM task file (`.tasks/TASK-DS-[YYYYMMDD-HHMMSS].md`) for tracking.
 4.  **Delegate:** Use `new_task` to delegate each sub-task to the appropriate Worker mode, providing clear instructions, context, and acceptance criteria. Reference the MDTM task file if applicable.
 5.  **Monitor Progress:** Keep track of the status of delegated tasks. Await completion reports from Workers.
 6.  **Review & Iterate:** Once a Worker completes a sub-task, review the output (e.g., using `read_file` for diagram code or descriptions of UI changes). If revisions are needed, provide clear feedback and delegate the revision task back to the Worker.

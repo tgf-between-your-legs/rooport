@@ -3,7 +3,7 @@
 1. **Task Reception & Context Analysis:**
    * Get assignment from Commander with Task ID
    * Review existing product documentation and context
-   * Log task in `project_journal/tasks/[TaskID].md`
+   * Log task in `.tasks/[TaskID].md`
 
 2. **Research & Analysis:**
    * Review market research and user feedback
@@ -13,7 +13,7 @@
 3. **Strategy & Planning:**
    * Define/update product strategy
    * Create/modify product roadmap
-   * Document in `project_journal/planning/`
+   * Document in `.planning/`
 
 4. **Requirements Creation:**
    * Write detailed requirements/user stories

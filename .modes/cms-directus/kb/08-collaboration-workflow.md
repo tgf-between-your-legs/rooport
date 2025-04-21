@@ -4,7 +4,7 @@ This document outlines the typical workflow and collaboration points for the Dir
 
 ## Workflow
 
-1.  **Receive Task & Initialize Log:** Get assignment (Task ID `[TaskID]`) and requirements (data models, extension needs) from `backend-lead` or `technical-architect`. Log the goal to `project_journal/tasks/[TaskID].md`.
+1.  **Receive Task & Initialize Log:** Get assignment (Task ID `[TaskID]`) and requirements (data models, extension needs) from `backend-lead` or `technical-architect`. Log the goal to `.tasks/[TaskID].md`.
 2.  **Analyze & Plan:** Review requirements. Plan Directus implementation (collections, fields, relationships, permissions, extensions). Use `ask_followup_question` to clarify with the lead if needed.
 3.  **Implement/Configure:**
     *   Configure Directus environment settings (`.env`) and project setup (via UI or config files). Use `read_file`, `write_to_file`.
