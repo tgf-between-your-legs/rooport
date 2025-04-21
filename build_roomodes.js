@@ -207,6 +207,7 @@ async function buildRoomodes() {
         'edge',
         'test',
         'util',
+        'prime',
         // Add other levels as needed, 'unknown' will go last
     ];
     const levelNames = {
@@ -223,6 +224,7 @@ async function buildRoomodes() {
         'edge': '⚡ Edge Compute Specialists',
         'test': '🧪 Testing Specialists',
         'util': '🔧 Utility Modes',
+        'prime': '🚚 Prime Power Modes',
         'unknown': '❓ Other Modes' // For levels not in levelOrder
     };
 
