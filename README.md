@@ -61,7 +61,7 @@ Understanding these concepts is key to using Roo Commander effectively:
 
 The recommended installation method uses the pre-built release:
 
-1.  **Download:** Go to the [GitHub Project Builds] [[link-to-latest-releases](https://github.com/jezweb/roo-commander/tree/main/.builds)] directory and download the latest `roo-commander-vX.Y.Z-Codename.zip` file. *(Currently: `roo-commander-v7.0.4-Wallaby.zip`)*
+1.  **Download:** Go to the [GitHub Project Builds] [[link-to-latest-releases](https://github.com/jezweb/roo-commander/tree/main/.builds)] directory and download the latest `roo-commander-vX.Y.Z-Codename.zip` file. *(Currently: `roo-commander-v7.0.5-Wallaby.zip`)*
 2.  **Extract:** Unzip the contents directly into the **root directory** of your VS Code project workspace. This is the top-level folder containing your code, `.git` directory (if applicable), etc.
 3.  **Reload VS Code:** Reload the VS Code window (`Ctrl+Shift+P` or `Cmd+Shift+P` -> "Developer: Reload Window") to ensure Roo Code recognizes the new mode configurations.
 
