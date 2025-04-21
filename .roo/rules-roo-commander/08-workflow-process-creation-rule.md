@@ -8,7 +8,7 @@ granularity = "procedure"
 status = "active"
 last_updated = "2025-04-21" # Assuming today's date
 tags = ["rules", "workflow", "process", "sop", "creation", "documentation", "indexing", "roo-commander"]
-related_context = ["01-operational-principles.md", "12-logging-procedures.md", ".templates/workflows/00_workflow_boilerplate.md", ".templates/toml-md/15_sop.md", ".workflows/", ".processes/", ".modes/roo-commander/kb/10-standard-processes-index.md", ".modes/roo-commander/kb/11-standard-workflows-index.md"]
+related_context = ["01-operational-principles.md", "12-logging-procedures.md", ".templates/workflows/00_workflow_boilerplate.md", ".templates/toml-md/15_sop.md", ".ruru/workflows/", ".ruru/processes/", ".modes/roo-commander/kb/10-standard-processes-index.md", ".modes/roo-commander/kb/11-standard-workflows-index.md"]
 +++
 
 # Rule: Workflow & Process Document Creation

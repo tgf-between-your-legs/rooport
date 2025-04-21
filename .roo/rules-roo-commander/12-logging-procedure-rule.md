@@ -8,7 +8,7 @@ granularity = "procedure"
 status = "active"
 last_updated = "2025-04-21" # Assuming today's date
 tags = ["rules", "logging", "auditing", "traceability", "mdtm", "adr", "roo-commander"]
-related_context = ["01-operational-principles.md", ".modes/roo-commander/kb/12-logging-procedures.md", ".tasks/", ".decisions/", ".logs/", ".planning/"]
+related_context = ["01-operational-principles.md", ".modes/roo-commander/kb/12-logging-procedures.md", ".ruru/tasks/", ".ruru/decisions/", ".ruru/logs/", ".ruru/planning/"]
 +++
 
 # Rule: Logging Requirements & Locations

@@ -8,7 +8,7 @@ granularity = "procedure"
 status = "active"
 last_updated = "2025-04-21" # Assuming today's date
 tags = ["rules", "documentation", "adr", "logging", "decision-record", "architecture", "roo-commander"]
-related_context = ["01-operational-principles.md", "12-logging-procedures.md", ".modes/roo-commander/kb/06-documentation-logging.md", ".templates/toml-md/07_adr.md", ".decisions/"]
+related_context = ["01-operational-principles.md", "12-logging-procedures.md", ".modes/roo-commander/kb/06-documentation-logging.md", ".templates/toml-md/07_adr.md", ".ruru/decisions/"]
 +++
 
 # Rule: Documentation Oversight & ADR Creation
