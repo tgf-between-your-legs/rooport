@@ -194,7 +194,7 @@ async function buildRoomodes() {
 
     // Define level order and names
     const levelOrder = [
-        'roo', // Special case for roo-commander
+        'roo',
         'core',
         'manager',
         'lead',
@@ -206,12 +206,17 @@ async function buildRoomodes() {
         'infra',
         'edge',
         'test',
+        'auth',
+        'baas',
+        'cloud',
+        'cms',
+        'dev',
         'util',
-        'prime',
+        'prime'
         // Add other levels as needed, 'unknown' will go last
     ];
     const levelNames = {
-        'roo': '👑 Roo Commander',
+'roo': '👑 Roo Commander',
         'core': '🏗️ Core Modes',
         'manager': '🚦 Manager Modes',
         'lead': '🧑‍✈️ Lead Roles',
@@ -223,9 +228,14 @@ async function buildRoomodes() {
         'infra': '🚀 Infrastructure Specialists',
         'edge': '⚡ Edge Compute Specialists',
         'test': '🧪 Testing Specialists',
+        'auth': '🔑 Auth Specialists',
+        'baas': '☁️ BaaS Developers',
+        'cloud': '🌐 Cloud Architects',
+        'cms': '📰 CMS Specialists',
+        'dev': '💻 Development Modes',
         'util': '🔧 Utility Modes',
-        'prime': '🚚 Prime Power Modes',
-        'unknown': '❓ Other Modes' // For levels not in levelOrder
+        'prime': '🚜 Prime Power Modes',
+        'unknown': '❓ Other Modes'
     };
 
 
