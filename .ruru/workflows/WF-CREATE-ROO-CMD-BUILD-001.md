@@ -12,7 +12,7 @@ tags = ["workflow", "build", "release", "archive", "zip", "versioning", "git", "
 owner = "Roo Commander"
 related_docs = [
   ".builds/README.md",
-  ".docs/standards/roo-commander-version-naming-convention.md",
+  ".ruru/docs/standards/roo-commander-version-naming-convention.md",
   "create_build.js" # Corrected reference to the JS script
 ]
 related_templates = []
@@ -81,14 +81,14 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
 ## 4. Preconditions🚦
 *   The `.builds/` directory exists.
 *   The `.builds/README.md` file exists (or will be created on the first run).
-*   The `.docs/standards/roo-commander-version-naming-convention.md` document exists and is up-to-date.
+*   The `.ruru/docs/standards/roo-commander-version-naming-convention.md` document exists and is up-to-date.
 *   The `create_build.js` script exists and performs the archiving correctly.
 *   Necessary tools (`git`, `node`, `gh` CLI) are available and configured (including Git/GitHub authentication).
 *   The local Git repository is clean or has only the intended changes for the release staged.
 
 ## 5. Reference Documents & Tools 📚🛠️
 *   `.builds/README.md`: Log file for build history.
-*   `.docs/standards/roo-commander-version-naming-convention.md`: Defines version numbers and codenames.
+*   `.ruru/docs/standards/roo-commander-version-naming-convention.md`: Defines version numbers and codenames.
 *   `create_build.js`: The script automating the build process.
 *   `.tmp/CHANGELOG.md`: Temporary file holding the changelog for the current build.
 *   `.tmp/README.md`: Temporary file holding the distribution README for the current build.
@@ -105,9 +105,9 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
 
 *   **Step 1: Determine Build Version & Codename (Coordinator Task)**
     *   **Description:** Identify the correct version number (e.g., `v7.0.4`) and codename (e.g., `Wallaby`) for the new build.
-    *   **Inputs:** `.docs/standards/roo-commander-version-naming-convention.md`, potentially `.builds/README.md` to find the last version.
+    *   **Inputs:** `.ruru/docs/standards/roo-commander-version-naming-convention.md`, potentially `.builds/README.md` to find the last version.
     *   **Procedure:**
-        1.  Read `.docs/standards/roo-commander-version-naming-convention.md` to confirm the current major version's codename.
+        1.  Read `.ruru/docs/standards/roo-commander-version-naming-convention.md` to confirm the current major version's codename.
         2.  Read `.builds/README.md` (if it exists) to determine the last build number for the current major version.
         3.  Increment the minor version number (e.g., v7.0.3 -> v7.0.4).
         4.  Construct the full version string (e.g., `v7.0.4`) and the archive filename stem (e.g., `roo-commander-v7.0.4-Wallaby`).
