@@ -6,7 +6,7 @@ This template is used for defining and tracking tasks related to creating, updat
 
 ## Usage
 
-1.  Copy `.templates/toml-md/05_mdtm_test.md` to the appropriate task directory (e.g., `.tasks/TESTING/` or `.tasks/FEATURE_XXX/`).
+1.  Copy `.ruru/templates/toml-md/05_mdtm_test.md` to the appropriate task directory (e.g., `.ruru/tasks/TESTING/` or `.ruru/tasks/FEATURE_XXX/`).
 2.  Rename the file following MDTM conventions (e.g., `007_🧪_add_unit_tests_for_auth.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below.
 4.  Replace the placeholder content in the Markdown body with specific details about the testing required, the scope, and acceptance criteria.
@@ -68,7 +68,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/05_mdtm_test.README.md"`
+    *   Value: `".ruru/templates/toml-md/05_mdtm_test.README.md"`
 
 *   `test_type` (String, Optional):
     *   Specifies the type of testing more granularly if needed.

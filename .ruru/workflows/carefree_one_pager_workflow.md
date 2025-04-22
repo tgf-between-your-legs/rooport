@@ -118,7 +118,7 @@ validation_notes = ""
 *   Minor errors during iteration (Step 3) are handled by re-delegating with corrected instructions or engaging `bug-fixer`.
 *   Persistent failure of `one-shot-web-designer` (Step 2) may require switching strategy to use `frontend-developer` for initial structure followed by styling.
 *   If User feedback leads to significant scope creep beyond a simple one-pager, Coordinator should clarify if a different workflow is needed.
-*   Refer to Adaptive Failure Resolution (`.processes/afr-process.md`) if standard retries fail.
+*   Refer to Adaptive Failure Resolution (`.ruru/processes/afr-process.md`) if standard retries fail.
 
 ## 9. PAL Validation Record 🧪
 *   Date Validated: N/A

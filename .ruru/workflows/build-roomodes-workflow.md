@@ -17,7 +17,7 @@ related_docs = [
 related_templates = [] # No specific data templates used/produced by the workflow itself
 
 # --- Workflow Specific Fields ---
-objective = "To regenerate the `.roomodes` file accurately based on the current mode definitions found in the `.modes/` directory using the `build_roomodes.js` script."
+objective = "To regenerate the `.roomodes` file accurately based on the current mode definitions found in the `.ruru/modes/` directory using the `build_roomodes.js` script."
 scope = "Applies whenever modes are added, removed, or have their core definition (slug, name, system_prompt) changed in their respective `.mode.md` files."
 roles = ["Coordinator (Roo Commander)", "Executor (Terminal via `execute_command`)"]
 trigger = "Manual initiation by the Coordinator after mode changes or when `.roomodes` is suspected to be out of sync."
@@ -44,10 +44,10 @@ validation_notes = "Workflow involves running a single script and checking outpu
 # Workflow: Update .roomodes using build_roomodes.js
 
 ## 1. Objective 🎯
-*   To regenerate the `.roomodes` file accurately based on the current mode definitions found in the `.modes/` directory using the `build_roomodes.js` script. This ensures the system has an up-to-date list of available custom modes.
+*   To regenerate the `.roomodes` file accurately based on the current mode definitions found in the `.ruru/modes/` directory using the `build_roomodes.js` script. This ensures the system has an up-to-date list of available custom modes.
 
 ## 2. Scope ↔️
-*   Applies whenever modes are added, removed, or have their core definition (`id`, `name`, `system_prompt`) changed in their respective `.mode.md` files within the `.modes/` directory structure.
+*   Applies whenever modes are added, removed, or have their core definition (`id`, `name`, `system_prompt`) changed in their respective `.mode.md` files within the `.ruru/modes/` directory structure.
 
 ## 3. Roles & Responsibilities 👤
 *   **Coordinator (Roo Commander):** Initiates the workflow, executes the script via `execute_command`, and verifies the outcome.
@@ -60,7 +60,7 @@ validation_notes = "Workflow involves running a single script and checking outpu
 
 ## 5. Reference Documents & Tools 📚🛠️
 *   `build_roomodes.js`: The script to be executed.
-*   `.modes/`: The directory containing the mode definitions.
+*   `.ruru/modes/`: The directory containing the mode definitions.
 *   `.roomodes`: The target output file.
 *   `execute_command`: The tool used to run the script.
 *   `read_file`: (Optional) Tool used by Coordinator to verify `.roomodes` content after execution.
@@ -91,7 +91,7 @@ validation_notes = "Workflow involves running a single script and checking outpu
     *   **Error Handling:** If the file content is incorrect, report the discrepancy. Consider re-running the script or debugging `build_roomodes.js`.
 
 ## 7. Postconditions ✅
-*   The `.roomodes` file accurately reflects the `slug`, `name`, and `roleDefinition` of all valid modes found in the `.modes` directory.
+*   The `.roomodes` file accurately reflects the `slug`, `name`, and `roleDefinition` of all valid modes found in the `.ruru/modes` directory.
 *   The script execution completed successfully (exit code 0).
 
 ## 8. Error Handling & Escalation (Overall) ⚠️

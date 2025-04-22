@@ -83,7 +83,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Description:** Brief explanation of the step's purpose.
     *   **Inputs:** Specific data/files needed.
     *   **Context:** Critical context required (esp. for delegation).
-    *   **Procedure:** Detailed actions, including tool usage. **Note:** For complex procedures within a step, consider defining them in a separate document in the `.processes/` directory and referencing that document here (e.g., "Execute ACQA Process as defined in `.processes/acqa-process.md`").
+    *   **Procedure:** Detailed actions, including tool usage. **Note:** For complex procedures within a step, consider defining them in a separate document in the `.ruru/processes/` directory and referencing that document here (e.g., "Execute ACQA Process as defined in `.ruru/processes/acqa-process.md`").
     *   **Outputs:** Expected artifacts/state changes.
     *   **Validation/QA:** How is this step's output checked? Does ACQA apply? Refer to specific QA steps if applicable.
     *   **Error Handling:** Specific actions if this step fails (e.g., retry, log error, escalate to Coordinator, invoke Adaptive Failure Resolution).
@@ -96,7 +96,7 @@ validation_notes = "" # Link to PAL validation records/notes
 ## 8. Error Handling & Escalation (Overall) ⚠️
 *   General error handling principles for the workflow.
 *   Overall escalation path if steps fail repeatedly or unexpected situations arise.
-*   Reference the Adaptive Failure Resolution process (`.processes/afr-process.md`).
+*   Reference the Adaptive Failure Resolution process (`.ruru/processes/afr-process.md`).
 
 ## 9. PAL Validation Record 🧪
 *   Date Validated:

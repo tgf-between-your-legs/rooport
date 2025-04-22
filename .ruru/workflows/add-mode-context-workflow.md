@@ -15,17 +15,17 @@ related_docs = [
   ".docs/standards/project_structure_inventory.md", # Explains .modes/<slug>/kb structure
   ".templates/toml-md/08_ai_context_source.md" # Recommended template for context files
 ]
-related_templates = [".templates/toml-md/08_ai_context_source.md"]
+related_templates = [".ruru/templates/toml-md/08_ai_context_source.md"]
 
 # --- Workflow Specific Fields ---
 objective = "To add a new context file (e.g., rule, guideline, best practice) to a specified mode's Knowledge Base (KB) directory and update the corresponding KB README file."
-scope = "Applies when adding new, distinct pieces of context information as separate files within an existing mode's `.modes/<slug>/kb/` directory."
+scope = "Applies when adding new, distinct pieces of context information as separate files within an existing mode's `.ruru/modes/<slug>/kb/` directory."
 roles = ["Coordinator (Roo Commander)", "Worker Agent (e.g., `util-writer`, `util-mode-maintainer`)"]
 trigger = "User request to add specific context information to a mode's KB."
 success_criteria = [
-  "New context file is created in the correct mode's KB directory (`.modes/<slug>/kb/<filename>.md`).",
+  "New context file is created in the correct mode's KB directory (`.ruru/modes/<slug>/kb/<filename>.md`).",
   "The context file contains the specified content, ideally using the AI Context Source template.",
-  "The mode's KB README (`.modes/<slug>/kb/README.md`) is updated to list the new file with a brief description.",
+  "The mode's KB README (`.ruru/modes/<slug>/kb/README.md`) is updated to list the new file with a brief description.",
   "Worker Agent confirms successful completion."
 ]
 failure_criteria = [
@@ -47,25 +47,25 @@ validation_notes = "Simple workflow involving file creation and update."
 # Workflow: Add Context File to Mode KB
 
 ## 1. Objective 🎯
-*   To add a new context file (e.g., rule, guideline, best practice) to a specified mode's Knowledge Base (KB) directory (`.modes/<slug>/kb/`) and update the corresponding KB README file.
+*   To add a new context file (e.g., rule, guideline, best practice) to a specified mode's Knowledge Base (KB) directory (`.ruru/modes/<slug>/kb/`) and update the corresponding KB README file.
 
 ## 2. Scope ↔️
-*   Applies when adding new, distinct pieces of context information as separate files within an existing mode's `.modes/<slug>/kb/` directory. Does not cover major refactoring of existing KB files.
+*   Applies when adding new, distinct pieces of context information as separate files within an existing mode's `.ruru/modes/<slug>/kb/` directory. Does not cover major refactoring of existing KB files.
 
 ## 3. Roles & Responsibilities 👤
 *   **Coordinator (Roo Commander):** Gathers requirements (target mode, content, filename), delegates file creation and README update, verifies completion.
 *   **Worker Agent (e.g., `util-writer`, `util-mode-maintainer`):** Creates the new context file and updates the KB README based on Coordinator's instructions.
 
 ## 4. Preconditions🚦
-*   The target mode's directory structure (`.modes/<slug>/kb/`) exists.
-*   The target mode's KB README (`.modes/<slug>/kb/README.md`) exists.
+*   The target mode's directory structure (`.ruru/modes/<slug>/kb/`) exists.
+*   The target mode's KB README (`.ruru/modes/<slug>/kb/README.md`) exists.
 *   The Coordinator has the content for the new context file (either provided by the user or generated).
 *   The Coordinator has determined a suitable filename for the new context file (e.g., `NN-topic-summary.md`).
 
 ## 5. Reference Documents & Tools 📚🛠️
-*   `.modes/<slug>/kb/`: Target directory.
-*   `.modes/<slug>/kb/README.md`: Target README file.
-*   `.templates/toml-md/08_ai_context_source.md`: Recommended template for the new context file.
+*   `.ruru/modes/<slug>/kb/`: Target directory.
+*   `.ruru/modes/<slug>/kb/README.md`: Target README file.
+*   `.ruru/templates/toml-md/08_ai_context_source.md`: Recommended template for the new context file.
 *   `write_to_file`: Tool to create the new context file.
 *   `apply_diff` / `search_and_replace`: Tools to update the KB README.
 *   `read_file`: Tool for Coordinator to verify changes (optional).
@@ -77,16 +77,16 @@ validation_notes = "Simple workflow involving file creation and update."
     *   **Inputs:** User request specifying the mode and the context to add.
     *   **Procedure:**
         *   Confirm the target mode slug (e.g., `roo-commander`).
-        *   Determine the full path to the KB directory (e.g., `.modes/roo-commander/kb/`).
+        *   Determine the full path to the KB directory (e.g., `.ruru/modes/roo-commander/kb/`).
         *   Determine an appropriate filename (e.g., `10-adding-context-files-rule.md`). Ensure numbering follows existing KB convention if applicable.
-        *   Obtain or formulate the content for the new file. Recommend using the `.templates/toml-md/08_ai_context_source.md` structure for the content.
+        *   Obtain or formulate the content for the new file. Recommend using the `.ruru/templates/toml-md/08_ai_context_source.md` structure for the content.
     *   **Outputs:** Target mode slug, KB directory path, new filename, file content.
 
 *   **Step 2: Delegate Context File Creation (Coordinator delegates to Worker Agent)**
     *   **Description:** Create the new context file in the target mode's KB directory.
     *   **Tool:** `new_task` (delegating to e.g., `util-writer`)
     *   **Inputs Provided by Coordinator:**
-        *   Full path for the new file (e.g., `.modes/roo-commander/kb/10-adding-context-files-rule.md`).
+        *   Full path for the new file (e.g., `.ruru/modes/roo-commander/kb/10-adding-context-files-rule.md`).
         *   Complete content for the new file.
     *   **Instructions for Delegate:** "Using `write_to_file`, create a new file at the specified path with the provided content."
     *   **Expected Output from Delegate:** Confirmation of successful file creation.
@@ -97,7 +97,7 @@ validation_notes = "Simple workflow involving file creation and update."
     *   **Description:** Add an entry for the new context file to the target mode's KB README.
     *   **Tool:** `new_task` (delegating to e.g., `util-writer`)
     *   **Inputs Provided by Coordinator:**
-        *   Path to the KB README (e.g., `.modes/roo-commander/kb/README.md`).
+        *   Path to the KB README (e.g., `.ruru/modes/roo-commander/kb/README.md`).
         *   Filename of the newly created context file (e.g., `10-adding-context-files-rule.md`).
         *   A brief description of the new file's content.
     *   **Instructions for Delegate:** "Using `apply_diff` or `search_and_replace`, update the specified KB README file. Add a new bullet point to the list of KB files, including the new filename and the provided description. Ensure the list remains properly formatted." (Consider instructing to insert before a specific line, like a 'Miscellaneous' section or just before the end marker, if applicable).

@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for documenting incident reports and post-mortem analyses. It provides a structured format for capturing the timeline, impact, root cause, resolution, and follow-up actions related to a significant operational incident. These documents are typically stored in `.docs/incidents/` or `.reports/incidents/`.
+This template is used for documenting incident reports and post-mortem analyses. It provides a structured format for capturing the timeline, impact, root cause, resolution, and follow-up actions related to a significant operational incident. These documents are typically stored in `.ruru/docs/incidents/` or `.ruru/reports/incidents/`.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/12_postmortem.md` to the appropriate directory.
+1.  Copy `.ruru/templates/toml-md/12_postmortem.md` to the appropriate directory.
 2.  Rename the file using the incident ID or date (e.g., `inc_20250417_api_latency.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, providing details about the incident timing, severity, impact, and detection.
 4.  Replace the placeholder content in the Markdown body with a detailed timeline, impact summary, root cause analysis (RCA), resolution steps, action items, and lessons learned.
@@ -47,7 +47,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/12_postmortem.README.md"`
+    *   Value: `".ruru/templates/toml-md/12_postmortem.README.md"`
 
 *   `root_cause_summary` (String, Optional):
     *   A very brief summary of the root cause(s), typically filled in after the RCA is complete. Details belong in the Markdown body.

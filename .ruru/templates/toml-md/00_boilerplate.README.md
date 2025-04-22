@@ -6,7 +6,7 @@ This template serves as a generic starting point for creating new TOML+Markdown 
 
 ## Usage
 
-1.  Copy `.templates/toml-md/00_boilerplate.md` to a new file in the appropriate directory (e.g., `.docs/`, `.processes/`, or `.templates/toml-md/` if creating a new reusable template type).
+1.  Copy `.ruru/templates/toml-md/00_boilerplate.md` to a new file in the appropriate directory (e.g., `.ruru/docs/`, `.ruru/processes/`, or `.ruru/templates/toml-md/` if creating a new reusable template type).
 2.  Rename the file according to the conventions for the document type or the new template type.
 3.  Fill in the TOML frontmatter fields according to the schema below.
 4.  Customize the "Document Type Specific Fields" section in the TOML block with fields relevant to the new document type.
@@ -45,7 +45,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to the `.README.md` file that documents the schema for this template (or the template it was derived from).
-    *   Example: `".templates/toml-md/00_boilerplate.README.md"`
+    *   Example: `".ruru/templates/toml-md/00_boilerplate.README.md"`
 
 ### Ownership & Context (Optional)
 
@@ -59,7 +59,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `related_docs` (Array of Strings, Optional):
     *   List of file paths or URLs to related documents, specifications, or resources.
-    *   Example: `[".docs/requirements.md", "https://example.com/api-spec"]`
+    *   Example: `[".ruru/docs/requirements.md", "https://example.com/api-spec"]`
 
 *   `related_tasks` (Array of Strings, Optional):
     *   List of related MDTM task IDs (e.g., from `.tasks/`).
@@ -67,7 +67,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `parent_doc` (String, Optional):
     *   Path or ID of a parent document, useful for creating hierarchical structures.
-    *   Example: `".docs/architecture/overview.md"`
+    *   Example: `".ruru/templates/toml-mddocs/architecture/overview.md"`
 
 ### Document Type Specific Fields (Placeholder)
 

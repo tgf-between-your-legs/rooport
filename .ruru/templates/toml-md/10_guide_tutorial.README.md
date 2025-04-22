@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for creating step-by-step guides or tutorials. These documents aim to teach a user how to perform a specific task or use a particular feature. They are typically stored in `.docs/guides/` or similar locations.
+This template is used for creating step-by-step guides or tutorials. These documents aim to teach a user how to perform a specific task or use a particular feature. They are typically stored in `.ruru/docs/guides/` or similar locations.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/10_guide_tutorial.md` to the appropriate documentation directory (e.g., `.docs/guides/`).
+1.  Copy `.ruru/templates/toml-md/10_guide_tutorial.md` to the appropriate documentation directory (e.g., `.ruru/docs/guides/`).
 2.  Rename the file descriptively (e.g., `guide_git_branching.md`, `tutorial_setup_dev_env.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, paying attention to `difficulty`, `estimated_time`, `target_audience`, `prerequisites`, and `learning_objectives`.
 4.  Replace the placeholder content in the Markdown body with clear, sequential steps, verification instructions, and optional troubleshooting tips.
@@ -55,7 +55,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/10_guide_tutorial.README.md"`
+    *   Value: `".ruru/templates/toml-md/10_guide_tutorial.README.md"`
 
 *   `owner` (String, Optional):
     *   The team or individual responsible for maintaining the accuracy of this guide.

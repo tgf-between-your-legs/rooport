@@ -6,7 +6,7 @@ This template is used for defining and tracking tasks specifically focused on wr
 
 ## Usage
 
-1.  Copy `.templates/toml-md/04_mdtm_documentation.md` to the appropriate task directory (e.g., `.tasks/DOCS/` or `.tasks/FEATURE_XXX/`).
+1.  Copy `.ruru/templates/toml-md/04_mdtm_documentation.md` to the appropriate task directory (e.g., `.ruru/tasks/DOCS/` or `.ruru/tasks/FEATURE_XXX/`).
 2.  Rename the file following MDTM conventions (e.g., `003_📖_update_readme_installation.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below.
 4.  Replace the placeholder content in the Markdown body with specific details about the documentation required, its audience, scope, and acceptance criteria.
@@ -60,7 +60,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `related_docs` (Array of Strings, Required):
     *   **Crucial for context.** List relative paths or URLs to the features, code, APIs, or existing documents being documented or updated.
-    *   Example: `["TASK-FEAT-001", "src/api/auth.js", ".docs/user-guide.md"]`
+    *   Example: `["TASK-FEAT-001", "src/api/auth.js", ".ruru/docs/user-guide.md"]`
 
 *   `tags` (Array of Strings, Required):
     *   Keywords for searching and filtering. Include relevant topics, document types, or areas.
@@ -68,7 +68,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/04_mdtm_documentation.README.md"`
+    *   Value: `".ruru/templates/toml-md/04_mdtm_documentation.README.md"`
 
 *   `target_audience` (Array of Strings, Optional):
     *   Specifies the intended audience for the documentation.

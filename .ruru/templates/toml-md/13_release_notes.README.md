@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for documenting the changes included in a specific software release. It provides a structured format for communicating new features, improvements, bug fixes, and breaking changes to users and stakeholders. Release notes are typically stored in `.docs/releases/` or a similar location.
+This template is used for documenting the changes included in a specific software release. It provides a structured format for communicating new features, improvements, bug fixes, and breaking changes to users and stakeholders. Release notes are typically stored in `.ruru/docs/releases/` or a similar location.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/13_release_notes.md` to the appropriate directory.
+1.  Copy `.ruru/templates/toml-md/13_release_notes.md` to the appropriate directory.
 2.  Rename the file according to the release version (e.g., `v1.2.0.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, ensuring `version`, `release_date`, and `summary` are set. List the relevant MDTM task IDs in `related_tasks`.
 4.  Replace the placeholder content in the Markdown body, summarizing the key changes in each category (Features, Improvements, Bug Fixes, Chores) and linking to the corresponding MDTM tasks. Detail any breaking changes clearly.
@@ -38,7 +38,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/13_release_notes.README.md"`
+    *   Value: `".ruru/templates/toml-md/13_release_notes.README.md"`
 
 *   `breaking_changes` (Boolean or Array of Strings, Optional):
     *   Set to `true` if there are breaking changes detailed in the Markdown body. Alternatively, list brief descriptions of breaking changes here (though detail is better in the body). Defaults to `false` if omitted.

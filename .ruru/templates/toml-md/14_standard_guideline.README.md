@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for defining coding standards, style guides, operational guidelines, or other sets of rules and recommendations for the project. These documents help ensure consistency, maintainability, and quality. They are typically stored in `.docs/standards/`.
+This template is used for defining coding standards, style guides, operational guidelines, or other sets of rules and recommendations for the project. These documents help ensure consistency, maintainability, and quality. They are typically stored in `.ruru/docs/standards/`.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/14_standard_guideline.md` to the `.docs/standards/` directory or a relevant subdirectory.
+1.  Copy `.ruru/templates/toml-md/14_standard_guideline.md` to the `.ruru/docs/standards/` directory or a relevant subdirectory.
 2.  Rename the file descriptively (e.g., `python_style_guide.md`, `api_design_guidelines.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, specifying the `scope` and `owner`.
 4.  Replace the placeholder content in the Markdown body with the specific rules, rationale, and examples for the standard or guideline.
@@ -43,7 +43,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/14_standard_guideline.README.md"`
+    *   Value: `".ruru/templates/toml-md/14_standard_guideline.README.md"`
 
 *   `supersedes` (String, Optional):
     *   The `id` or path of a previous standard document that this one replaces.

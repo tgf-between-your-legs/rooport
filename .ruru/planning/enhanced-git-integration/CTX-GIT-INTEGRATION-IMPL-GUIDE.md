@@ -23,7 +23,7 @@ This document outlines the specific changes required to implement enhanced Git i
 **2. Update `dev-git` Mode:**
 *   **`dev-git.mode.md`:**
     *   Update `system_prompt`: Explicitly state responsibility for formatting commit messages according to Rule `08`, executing branching commands according to Rule `09`, and tagging according to Rule `10`. Mention its role in executing read-only commands like `log`, `show`, `blame` for other modes.
-*   **KB (`.modes/dev-git/kb/`):**
+*   **KB (`.ruru/modes/dev-git/kb/`):**
     *   Add examples for constructing detailed commit messages.
     *   Add examples for branch creation/switching based on the standard.
     *   Add examples for creating/pushing annotated tags.
@@ -34,7 +34,7 @@ This document outlines the specific changes required to implement enhanced Git i
     *   Reference the new Git standards (`08`, `09`, `10`, `11`).
     *   In `03-delegation-procedure-rule.md`: Add step to consider creating a task branch (following Rule `11` policy) before complex MDTM delegation.
     *   In appropriate workflows (e.g., build/release): Add steps to initiate release tagging following Rule `10` & `11`.
-*   **KB (`.modes/roo-commander/kb/`):**
+*   **KB (`.ruru/modes/roo-commander/kb/`):**
     *   Update relevant workflows (e.g., `WF-CREATE-ROO-CMD-BUILD-001.md`) to include tagging steps.
 
 **4. Update Context/Analysis Modes (e.g., `agent-context-resolver`, `dev-solver`, `dev-fixer`):**
@@ -45,7 +45,7 @@ This document outlines the specific changes required to implement enhanced Git i
 *   **`*.mode.md` (System Prompt/Guidelines):** Instruct modes to provide necessary information (type, scope, subject, task IDs, body details) when requesting a commit via Commander/`dev-git`. Instruct modes to work on the correct feature branch if one is provided during task delegation.
 
 **6. Update Documentation:**
-*   Create/Update `.docs/standards/git-workflows.md` detailing the commit, branch, and tag standards.
+*   Create/Update `.ruru/docs/standards/git-workflows.md` detailing the commit, branch, and tag standards.
 *   Update relevant mode documentation to reflect new Git interaction capabilities/responsibilities.
 
 **7. Testing:**

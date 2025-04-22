@@ -6,7 +6,7 @@ This template defines the structure for creating AI rule files, typically stored
 
 ## Usage
 
-1.  Copy `.templates/toml-md/16_ai_rule.md` to the target location (e.g., `.roo/rules/NN-rule-name.md`).
+1.  Copy `.ruru/templates/toml-md/16_ai_rule.md` to the target location (e.g., `.roo/rules/NN-rule-name.md`).
 2.  Fill in the TOML frontmatter fields according to the schema below.
 3.  Replace the `# << RULE_CONTENT_GOES_HERE >>` placeholder in the Markdown body with the actual rule text, using standard Markdown formatting. Keep the rule text concise and focused.
 

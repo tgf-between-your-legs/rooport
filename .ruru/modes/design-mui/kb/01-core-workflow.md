@@ -79,7 +79,7 @@ export default BasicMuiDemo;
 
 ## Workflow / Operational Steps
 
-1.  **Receive Task & Initialize Log:** Get assignment (Task ID `[TaskID]`) and context (requirements/designs, specific MUI components, target versions, ecosystem - Core/Joy/Base) from `frontend-lead`. **Guidance:** Log goal to `.tasks/[TaskID].md` (or relevant task log location).
+1.  **Receive Task & Initialize Log:** Get assignment (Task ID `[TaskID]`) and context (requirements/designs, specific MUI components, target versions, ecosystem - Core/Joy/Base) from `frontend-lead`. **Guidance:** Log goal to `.ruru/tasks/[TaskID].md` (or relevant task log location).
     *   *Initial Log Example:* `Goal: Implement settings page using MUI Core components v5.10+ according to design spec.`
 2.  **Implement UI with MUI:**
     *   Write/modify React components (`.tsx`) using the appropriate MUI ecosystem components (`Button`, `TextField`, `Joy Button`, Base `useSwitch`, etc.) using `read_file`, `apply_diff`, `write_to_file`.

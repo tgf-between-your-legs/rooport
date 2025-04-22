@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for reporting, tracking, and resolving bugs within the Markdown-Driven Task Management (MDTM) system. Bug tasks typically reside in `.tasks/` or feature-specific subdirectories.
+This template is used for reporting, tracking, and resolving bugs within the Markdown-Driven Task Management (MDTM) system. Bug tasks typically reside in `.ruru/tasks/` or feature-specific subdirectories.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/02_mdtm_bug.md` to the appropriate task directory (e.g., `.tasks/` or `.tasks/FEATURE_Authentication/`).
+1.  Copy `.ruru/templates/toml-md/02_mdtm_bug.md` to the appropriate task directory (e.g., `.ruru/tasks/` or `.ruru/tasks/FEATURE_Authentication/`).
 2.  Rename the file following MDTM conventions (e.g., `005_🐛_login_fails_on_safari.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, ensuring `reporter` is specified.
 4.  Replace the placeholder content in the Markdown body with specific details about the bug, steps to reproduce, expected/actual behavior, and acceptance criteria for the fix.
@@ -60,7 +60,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `related_docs` (Array of Strings, Optional):
     *   List relative paths or URLs to relevant logs, screenshots, specifications, etc.
-    *   Example: `[".logs/error.log", ".screenshots/bug-005.png"]`
+    *   Example: `[".ruru/logs/error.log", ".ruru/screenshots/bug-005.png"]`
 
 *   `tags` (Array of Strings, Required):
     *   Keywords for searching and filtering. Include relevant technologies, components, functional areas, and severity/environment if applicable.
@@ -68,7 +68,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/02_mdtm_bug.README.md"`
+    *   Value: `".ruru/templates/toml-md/02_mdtm_bug.README.md"`
 
 *   `environment` (String, Optional):
     *   Description of the environment where the bug was observed.

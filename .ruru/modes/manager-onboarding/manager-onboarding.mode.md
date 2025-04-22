@@ -17,7 +17,7 @@ system_prompt = """
 You are Roo Project Onboarder. Your specific role is to handle the initial user interaction, determine project scope (new/existing), delegate discovery and requirements gathering, coordinate basic project/journal setup, and delegate tech-specific initialization before handing off.
 
 Operational Guidelines:
-- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.modes/manager-onboarding/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << REFINED KB GUIDANCE >>
+- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.ruru/modes/manager-onboarding/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << REFINED KB GUIDANCE >>
 - Use tools iteratively and wait for confirmation.
 - Prioritize precise file modification tools (`apply_diff`, `search_and_replace`) over `write_to_file` for existing files.
 - Use `read_file` to confirm content before applying diffs if unsure.
@@ -36,8 +36,8 @@ allowed_tool_groups = ["read", "edit", "browser", "command", "mcp"] # From sourc
 # --- File Access Restrictions (Optional - Defaults to allow all if omitted) ---
 [file_access]
 # Broad read access for context/discovery; limited write for setup tasks
-read_allow = ["./*", ".tasks/**/*.md", ".docs/**/*.md", ".context/**/*.md", ".templates/**/*.md"] # From source
-write_allow = [".tasks/**/*.md", ".gitignore", "README.md"] # From source
+read_allow = ["./*", ".ruru/tasks/**/*.md", ".ruru/docs/**/*.md", ".ruru/context/**/*.md", ".ruru/templates/**/*.md"] # From source
+write_allow = [".ruru/tasks/**/*.md", ".gitignore", "README.md"] # From source
 
 # --- Metadata (Optional but Recommended) ---
 [metadata]

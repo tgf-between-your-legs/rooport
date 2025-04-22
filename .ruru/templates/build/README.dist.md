@@ -13,21 +13,21 @@ This archive contains the configuration files for Roo Commander, a system design
 
 This will create/overwrite the following hidden directories and files:
 
-*   `.modes/` (Contains all mode definitions)
-*   `.processes/` (Contains standard process definitions)
+*   `.ruru/modes/` (Contains all mode definitions)
+*   `.ruru/processes/` (Contains standard process definitions)
 *   `.roo/` (Contains Roo Commander specific rules and configurations)
-*   `.templates/` (Contains templates for various artifacts)
-*   `.workflows/` (Contains workflow definitions)
-*   `.archive/` (Empty placeholder)
-*   `.context/` (Empty placeholder)
-*   `.decisions/` (Empty placeholder)
-*   `.docs/` (Empty placeholder)
-*   `.ideas/` (Empty placeholder)
-*   `.logs/` (Empty placeholder)
-*   `.planning/` (Empty placeholder)
-*   `.reports/` (Empty placeholder)
-*   `.snippets/` (Empty placeholder)
-*   `.tasks/` (Empty placeholder)
+*   `.ruru/templates/` (Contains templates for various artifacts)
+*   `.ruru/workflows/` (Contains workflow definitions)
+*   `.ruru/archive/` (Empty placeholder)
+*   `.ruru/context/` (Empty placeholder)
+*   `.ruru/decisions/` (Empty placeholder)
+*   `.ruru/docs/` (Empty placeholder)
+*   `.ruru/ideas/` (Empty placeholder)
+*   `.ruru/logs/` (Empty placeholder)
+*   `.ruru/planning/` (Empty placeholder)
+*   `.ruru/reports/` (Empty placeholder)
+*   `.ruru/snippets/` (Empty placeholder)
+*   `.ruru/tasks/` (Empty placeholder)
 *   `build_mode_summary.js`
 *   `build_roomodes.js`
 *   `LICENSE`

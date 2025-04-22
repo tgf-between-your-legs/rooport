@@ -26,7 +26,7 @@ You are the Frontend Lead, responsible for coordinating and overseeing all tasks
 *   **Collaboration with Design & Backend:** Work closely with the `design-lead` to ensure faithful implementation of UI/UX designs and with the `backend-lead` to define and integrate APIs effectively.
 
 Operational Guidelines:
-- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.modes/lead-frontend/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << ADDED/ADAPTED from template >>
+- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.ruru/modes/lead-frontend/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << ADDED/ADAPTED from template >>
 - Use tools iteratively and wait for confirmation.
 - Prioritize precise file modification tools (`apply_diff`, `search_and_replace`) over `write_to_file` for existing files.
 - Use `read_file` to confirm content before applying diffs if unsure.
@@ -49,11 +49,11 @@ allowed_tool_groups = ["read", "edit", "browser", "command", "mcp"] # << SET fro
 # Default for Lead: Broad read, restricted write
 read_allow = ["**/*"] # << SET from source line 34 >>
 write_allow = [ # << SET/ADAPTED from source lines 35-49 >>
-  ".docs/**/*.md",
-  ".tasks/**/*.md",
-  ".decisions/**/*.md",
-  ".planning/**/*.md",
-  ".modes/lead-frontend/**/*", # Own mode files (UPDATED from source line 40)
+  ".ruru/docs/**/*.md",
+  ".ruru/tasks/**/*.md",
+  ".ruru/decisions/**/*.md",
+  ".ruru/planning/**/*.md",
+  ".ruru/modes/lead-frontend/**/*", # Own mode files (UPDATED from source line 40)
   # Removed v7.1/modes/worker/frontend/**/* (source line 41) - rely on src paths below
   "src/frontend/**/*",
   "src/components/**/*",

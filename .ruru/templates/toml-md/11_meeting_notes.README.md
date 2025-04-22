@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for recording minutes, decisions, and action items from meetings. It provides a structured format for capturing key information discussed during a meeting. These notes are typically stored in `.docs/meetings/` or a project-specific `notes/` directory.
+This template is used for recording minutes, decisions, and action items from meetings. It provides a structured format for capturing key information discussed during a meeting. These notes are typically stored in `.ruru/docs/meetings/` or a project-specific `notes/` directory.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/11_meeting_notes.md` to the appropriate directory.
+1.  Copy `.ruru/templates/toml-md/11_meeting_notes.md` to the appropriate directory.
 2.  Rename the file descriptively, often including the date (e.g., `2025-04-17_planning_meeting.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, including `title`, `meeting_date`, `facilitator`, `note_taker`, and `participants`.
 4.  Replace the placeholder content in the Markdown body with the actual meeting agenda, discussion points, decisions, and action items. Use GFM checklists (`- [ ]`) for action items.
@@ -45,7 +45,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/11_meeting_notes.README.md"`
+    *   Value: `".ruru/templates/toml-md/11_meeting_notes.README.md"`
 
 *   `location` (String, Optional):
     *   Where the meeting took place.

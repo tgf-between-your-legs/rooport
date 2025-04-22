@@ -32,7 +32,7 @@ outputs = [
 # --- Context & Relationships ---
 related_documents = [
     "[Link to relevant spec, rule, or other process]",
-    ".processes/pal-process.md", # Process Assurance Lifecycle
+    ".ruru/processes/pal-process.md", # Process Assurance Lifecycle
 ]
 # script_path = ".path/to/relevant/script.sh" # Optional: If the SOP primarily documents a script
 tags = ["sop", "[domain]", "[task-type]"] # Add relevant tags for categorization

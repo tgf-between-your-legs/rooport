@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for documenting significant Architecture Decision Records (ADRs). ADRs capture important architectural decisions, their context, rationale, and consequences, providing a historical record for the project team. ADR files are typically stored in the `.decisions/` directory.
+This template is used for documenting significant Architecture Decision Records (ADRs). ADRs capture important architectural decisions, their context, rationale, and consequences, providing a historical record for the project team. ADR files are typically stored in the `.ruru/decisions/` directory.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/07_adr.md` to the `.decisions/` directory.
+1.  Copy `.ruru/templates/toml-md/07_adr.md` to the `.ruru/decisions/` directory.
 2.  Rename the file following a convention like `ADR-NNN_short_description.md` (e.g., `ADR-001_message_queue_choice.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, ensuring `id` and `title` are set.
 4.  Replace the placeholder content in the Markdown body with the specific details of the architectural decision, context, rationale, and consequences.
@@ -35,7 +35,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/07_adr.README.md"`
+    *   Value: `".ruru/templates/toml-md/07_adr.README.md"`
 
 *   `affected_components` (Array of Strings, Optional):
     *   List of system components, modules, or features significantly impacted by this decision.

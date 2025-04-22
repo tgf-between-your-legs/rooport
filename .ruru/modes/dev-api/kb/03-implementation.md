@@ -4,7 +4,7 @@ This document covers the implementation phase of API development, including work
 
 ## Implementation Workflow (General Steps)
 
-1.  **Receive Task &amp; Initialize Log:** Understand requirements, API style (REST/GraphQL), data models, security needs. Clarify with lead. Log goal in task log (e.g., `.tasks/[TaskID].md`).
+1.  **Receive Task &amp; Initialize Log:** Understand requirements, API style (REST/GraphQL), data models, security needs. Clarify with lead. Log goal in task log (e.g., `.ruru/tasks/[TaskID].md`).
 2.  **Design/Refine API:** Define resources/schema, endpoints/operations, data models, request/response formats, basic security, versioning. Log design decisions. *Optional:* Start/update OpenAPI spec or GraphQL schema. Report specialist needs (DB, Security, Frontend) to lead.
 3.  **Implement API Logic:**
     *   Write code for controllers/handlers, routes, services, data access logic using the project's backend stack.
@@ -15,7 +15,7 @@ This document covers the implementation phase of API development, including work
     *   **Guidance:** Use `write_to_file`, `apply_diff`. Log significant steps.
 4.  **Test API:** Write/run unit and integration tests (see `04-testing.md`). Manually test CRUD operations (`execute_command` with `curl`/`httpie`). Validate schemas, status codes, error handling, basic security. Log test results. Report need for comprehensive testing to lead.
 5.  **Optimize API (Basic):** Implement basic performance considerations (see below). Report need for advanced optimization (caching, deep query tuning) to lead (suggesting `performance-optimizer`). Log optimization details.
-6.  **Document API:** Generate/update API specification (OpenAPI/Swagger or GraphQL schema docs). Ensure clarity. Save final spec using `write_to_file` (e.g., `.docs/api/openapi.yaml`). Report need for formal documentation to lead (suggesting `technical-writer`).
+6.  **Document API:** Generate/update API specification (OpenAPI/Swagger or GraphQL schema docs). Ensure clarity. Save final spec using `write_to_file` (e.g., `.ruru/docs/api/openapi.yaml`). Report need for formal documentation to lead (suggesting `technical-writer`).
 7.  **Log Completion &amp; Final Summary:** Append final status, outcome, summary, and references to the task log.
 8.  **Report Back:** Use `attempt_completion` to notify the delegating lead, referencing the task log file.
 

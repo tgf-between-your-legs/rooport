@@ -6,7 +6,7 @@ This template is used for defining and tracking time-boxed research, investigati
 
 ## Usage
 
-1.  Copy `.templates/toml-md/06_mdtm_spike.md` to the appropriate task directory (e.g., `.tasks/RESEARCH/` or `.tasks/FEATURE_XXX/`).
+1.  Copy `.ruru/templates/toml-md/06_mdtm_spike.md` to the appropriate task directory (e.g., `.ruru/tasks/RESEARCH/` or `.ruru/tasks/FEATURE_XXX/`).
 2.  Rename the file following MDTM conventions (e.g., `009_💡_evaluate_charting_libs.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, clearly stating the research question in the `title`. Consider setting a `timebox`.
 4.  Replace the placeholder content in the Markdown body with specific details about the research goal, scope, acceptance criteria (what defines a completed investigation), and document findings/conclusions.
@@ -68,7 +68,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/06_mdtm_spike.README.md"`
+    *   Value: `".ruru/templates/toml-md/06_mdtm_spike.README.md"`
 
 *   `outcome` (String, Optional):
     *   A summary field to be filled upon completion, indicating the result.

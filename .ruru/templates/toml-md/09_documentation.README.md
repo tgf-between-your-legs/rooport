@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for creating general project documentation, such as user guides, technical explanations, overviews, or specific feature documentation. These documents typically reside in the `.docs/` directory or its subdirectories.
+This template is used for creating general project documentation, such as user guides, technical explanations, overviews, or specific feature documentation. These documents typically reside in the `.ruru/docs/` directory or its subdirectories.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/09_documentation.md` to the appropriate documentation directory (e.g., `.docs/` or `.docs/guides/`).
+1.  Copy `.ruru/templates/toml-md/09_documentation.md` to the appropriate documentation directory (e.g., `.ruru/docs/` or `.ruru/docs/guides/`).
 2.  Rename the file descriptively (e.g., `api_overview.md`, `user_guide_authentication.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below.
 4.  Replace the placeholder content in the Markdown body with the actual documentation content, using clear headings and structure.
@@ -42,7 +42,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/09_documentation.README.md"`
+    *   Value: `".ruru/templates/toml-md/09_documentation.README.md"`
 
 *   `owner` (String, Optional):
     *   The team or individual responsible for maintaining the accuracy of this document.
@@ -54,7 +54,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `parent_doc` (String, Optional):
     *   Path or ID of a parent document, useful for creating hierarchical documentation (e.g., linking a specific API guide back to an API overview).
-    *   Example: `".docs/api/index.md"`
+    *   Example: `".ruru/docs/api/index.md"`
 
 *   `related_tasks` (Array of Strings, Optional):
     *   List of MDTM task IDs related to the creation or update of this documentation.

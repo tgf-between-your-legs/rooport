@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for defining *simple* Standard Operating Procedures (SOPs). SOPs document routine processes or workflows to ensure consistency and repeatability. This template is suitable for straightforward procedures; for more complex, multi-agent workflows with detailed validation, consider using the template in `.templates/workflows/`. SOPs are typically stored in `.processes/` or `.docs/standards/`.
+This template is used for defining *simple* Standard Operating Procedures (SOPs). SOPs document routine processes or workflows to ensure consistency and repeatability. This template is suitable for straightforward procedures; for more complex, multi-agent workflows with detailed validation, consider using the template in `.ruru/templates/workflows/`. SOPs are typically stored in `.ruru/processes/` or `.ruru/docs/standards/`.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/15_sop.md` to the appropriate directory (e.g., `.processes/`).
+1.  Copy `.ruru/templates/toml-md/15_sop.md` to the appropriate directory (e.g., `.ruru/processes/`).
 2.  Rename the file descriptively (e.g., `sop_code_review_process.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, clearly defining the `objective`, `scope`, and `roles`.
 4.  Replace the placeholder content in the Markdown body with the specific steps of the procedure, including roles, actions, inputs/outputs, tools, and decision points.
@@ -42,7 +42,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/15_sop.README.md"`
+    *   Value: `".ruru/templates/toml-md/15_sop.README.md"`
 
 *   `author` (String, Optional):
     *   Who originally drafted the SOP.

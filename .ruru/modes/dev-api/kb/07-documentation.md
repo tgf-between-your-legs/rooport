@@ -27,7 +27,7 @@ API documentation serves as the definitive contract between the API provider and
     *   `security`: Apply security schemes globally or per operation.
 *   **Clarity &amp; Detail:** Provide clear descriptions for paths, operations, parameters, schemas, and responses. Use `example` values to illustrate usage.
 *   **Maintenance:** Keep the OpenAPI specification up-to-date as the API evolves. Consider code-first (generating spec from code annotations) or design-first approaches.
-*   **Tooling:** Leverage tools like Swagger UI or Redoc to generate interactive documentation from the OAS file. Save the spec file in a standard location (e.g., `.docs/api/openapi.yaml`).
+*   **Tooling:** Leverage tools like Swagger UI or Redoc to generate interactive documentation from the OAS file. Save the spec file in a standard location (e.g., `.ruru/docs/api/openapi.yaml`).
 
 ## GraphQL API Documentation
 

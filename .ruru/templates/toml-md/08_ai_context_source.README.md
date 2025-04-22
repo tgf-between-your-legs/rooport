@@ -6,7 +6,7 @@ This template is used for creating structured context files intended primarily f
 
 ## Usage
 
-1.  Copy `.templates/toml-md/08_ai_context_source.md` to the appropriate context directory.
+1.  Copy `.ruru/templates/toml-md/08_ai_context_source.md` to the appropriate context directory.
 2.  Rename the file descriptively (e.g., `ctx_react_hooks_reference.md`, `ctx_python_style_guide.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below, paying close attention to `context_type`, `scope`, `target_audience`, and `granularity` to help the AI understand how to use the file.
 4.  Replace the placeholder content in the Markdown body with the actual context information, structured clearly. Include usage instructions for the AI in the "Purpose / How to Use" section.
@@ -48,11 +48,11 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/08_ai_context_source.README.md"`
+    *   Value: `".ruru/templates/toml-md/08_ai_context_source.README.md"`
 
 *   `related_context` (Array of Strings, Optional):
     *   List of IDs or file paths to other relevant context documents.
-    *   Example: `["CTX-REACT-002", ".docs/state-management-patterns.md"]`
+    *   Example: `["CTX-REACT-002", ".ruru/docs/state-management-patterns.md"]`
 
 *   `tags` (Array of Strings, Required):
     *   Keywords for searching and categorization.

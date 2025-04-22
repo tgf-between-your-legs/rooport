@@ -2,7 +2,7 @@
 
 **Date:** 2025-04-16
 **Status:** Active
-**Related Documents:** `.processes/acqa-process.md` (ACQA)
+**Related Documents:** `.ruru/processes/acqa-process.md` (ACQA)
 
 ---
 

@@ -6,7 +6,7 @@ This template is used for defining and tracking chores within the Markdown-Drive
 
 ## Usage
 
-1.  Copy `.templates/toml-md/03_mdtm_chore.md` to the appropriate task directory (e.g., `.tasks/` or `.tasks/REFACTORING/`).
+1.  Copy `.ruru/templates/toml-md/03_mdtm_chore.md` to the appropriate task directory (e.g., `.ruru/tasks/` or `.ruru/tasks/REFACTORING/`).
 2.  Rename the file following MDTM conventions (e.g., `012_🧹_update_npm_dependencies.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below.
 4.  Replace the placeholder content in the Markdown body with specific details about the chore, its motivation, and acceptance criteria.
@@ -60,7 +60,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `related_docs` (Array of Strings, Optional):
     *   List relative paths or URLs to relevant documentation, tech debt logs, performance reports, etc.
-    *   Example: `[".docs/tech-debt.md", ".reports/performance/run-01.log"]`
+    *   Example: `[".ruru/docs/tech-debt.md", ".ruru/reports/performance/run-01.log"]`
 
 *   `tags` (Array of Strings, Required):
     *   Keywords for searching and filtering. Include relevant technologies, areas, or reasons.
@@ -68,7 +68,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/03_mdtm_chore.README.md"`
+    *   Value: `".ruru/templates/toml-md/03_mdtm_chore.README.md"`
 
 *   `ai_prompt_log` (String, Optional, Multiline):
     *   A multiline string (`"""..."""`) to log key prompts given to AI assistants.

@@ -7,7 +7,7 @@ created_date = ""
 updated_date = ""
 version = "1.0"
 tags = []
-template_schema_doc = ".templates/toml-md/00_boilerplate.README.md" # Link to schema documentation
+template_schema_doc = ".ruru/templates/toml-md/00_boilerplate.README.md" # Link to schema documentation
 
 # --- Ownership & Context ---
 # author = ""

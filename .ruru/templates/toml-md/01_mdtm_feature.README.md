@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This template is used for defining and tracking new user-facing features within the Markdown-Driven Task Management (MDTM) system. Feature tasks typically reside in `.tasks/FEATURE_XXX/` directories.
+This template is used for defining and tracking new user-facing features within the Markdown-Driven Task Management (MDTM) system. Feature tasks typically reside in `.ruru/tasks/FEATURE_XXX/` directories.
 
 ## Usage
 
-1.  Copy `.templates/toml-md/01_mdtm_feature.md` to the appropriate feature directory (e.g., `.tasks/FEATURE_Authentication/`).
+1.  Copy `.ruru/templates/toml-md/01_mdtm_feature.md` to the appropriate feature directory (e.g., `.ruru/tasks/FEATURE_Authentication/`).
 2.  Rename the file following MDTM conventions (e.g., `001_➕_login_ui.md`).
 3.  Fill in the TOML frontmatter fields according to the schema below.
 4.  Replace the placeholder content in the Markdown body with specific details about the feature, acceptance criteria, and implementation notes.
@@ -61,7 +61,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `related_docs` (Array of Strings, Required):
     *   **Crucial for context.** List relative paths or URLs to relevant requirements documents, design mockups, API specifications, etc.
-    *   Example: `[".docs/prd/feature-x.md", ".designs/feature-x/mockup.png"]`
+    *   Example: `[".ruru/docs/prd/feature-x.md", ".ruru/designs/feature-x/mockup.png"]`
 
 *   `tags` (Array of Strings, Required):
     *   Keywords for searching and filtering. Include relevant technologies, components, or functional areas.
@@ -69,7 +69,7 @@ The following fields are defined within the `+++` delimiters:
 
 *   `template_schema_doc` (String, Required):
     *   A relative path pointing to this documentation file.
-    *   Value: `".templates/toml-md/01_mdtm_feature.README.md"`
+    *   Value: `".ruru/templates/toml-md/01_mdtm_feature.README.md"`
 
 *   `ai_prompt_log` (String, Optional, Multiline):
     *   A multiline string (`"""..."""`) to log key prompts given to AI assistants during task execution.

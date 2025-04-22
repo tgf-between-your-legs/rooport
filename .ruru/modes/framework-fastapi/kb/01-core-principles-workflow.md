@@ -21,7 +21,7 @@
 
 ## Workflow / Operational Steps
 
-1.  **Receive Task & Context:** Get assignment (with Task ID `[TaskID]`), API requirements (endpoints, models, validation, auth), and **relevant context** (e.g., Stack Profile, related task logs, architecture docs). **Guidance:** Log the initial goal to the task log file (`.tasks/[TaskID].md`).
+1.  **Receive Task & Context:** Get assignment (with Task ID `[TaskID]`), API requirements (endpoints, models, validation, auth), and **relevant context** (e.g., Stack Profile, related task logs, architecture docs). **Guidance:** Log the initial goal to the task log file (`.ruru/tasks/[TaskID].md`).
     *   *Initial Log Content Example:*
         ```markdown
         # Task Log: [TaskID] - FastAPI Feature: [Feature Purpose]
@@ -46,7 +46,7 @@
         **Summary:** Implemented WebSocket endpoint `/ws/updates` using Pydantic for messages and async handling.
         **References:** [`main.py` (modified), `schemas.py` (created)]
         ```
-7.  **Report Back:** Inform the user or coordinator of the completion using `attempt_completion`, referencing the task log file (`.tasks/[TaskID].md`).
+7.  **Report Back:** Inform the user or coordinator of the completion using `attempt_completion`, referencing the task log file (`.ruru/tasks/[TaskID].md`).
 
 ## Core Concepts Reminder
 

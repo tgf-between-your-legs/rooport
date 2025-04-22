@@ -29,13 +29,13 @@ The TOML MD format is used across the workspace (including but not limited to MD
 
 ## Available Templates
 
-Templates are organized into subdirectories within `.templates/`:
+Templates are organized into subdirectories within `.ruru/templates/`:
 
-*   **`.templates/toml-md/`**: Contains general-purpose TOML+MD templates for tasks, ADRs, documentation, simple SOPs, etc.
-*   **`.templates/modes/`**: Contains templates and specifications specifically for defining Roo Commander modes (v7.1+).
-*   **`.templates/workflows/`**: Contains templates for defining complex, multi-step workflows or detailed SOPs.
+*   **`.ruru/templates/toml-md/`**: Contains general-purpose TOML+MD templates for tasks, ADRs, documentation, simple SOPs, etc.
+*   **`.ruru/templates/modes/`**: Contains templates and specifications specifically for defining Roo Commander modes (v7.1+).
+*   **`.ruru/templates/workflows/`**: Contains templates for defining complex, multi-step workflows or detailed SOPs.
 
-### General Templates (`.templates/toml-md/`)
+### General Templates (`.ruru/templates/toml-md/`)
 
 *   **`00_boilerplate.md`**: A generic starting point with common metadata fields. See `00_boilerplate.README.md` for schema and usage details.
 *   **`01_mdtm_feature.md`**: For defining and tracking new user-facing features (MDTM Task). See `01_mdtm_feature.README.md` for schema and usage details.
@@ -44,20 +44,22 @@ Templates are organized into subdirectories within `.templates/`:
 *   **`04_mdtm_documentation.md`**: For tasks specifically focused on writing or updating documentation (MDTM Task). See `04_mdtm_documentation.README.md` for schema and usage details.
 *   **`05_mdtm_test.md`**: For tasks related to creating or improving tests (Unit, Integration, E2E, etc.) (MDTM Task). See `05_mdtm_test.README.md` for schema and usage details.
 *   **`06_mdtm_spike.md`**: For time-boxed research, investigation, or feasibility studies (MDTM Task). See `06_mdtm_spike.README.md` for schema and usage details.
-*   **`07_adr.md`**: For documenting significant Architecture Decision Records. Typically stored in `.decisions/`. See `07_adr.README.md` for schema and usage details.
-*   **`08_ai_context_source.md`**: For creating structured context files intended primarily for AI consumption (e.g., rules, best practices, API specs). Typically stored in `.context/` or `.roo/context/`. See `08_ai_context_source.README.md` for schema and usage details.
-*   **`09_documentation.md`**: For general project documentation, user guides, technical explanations, etc. Typically stored in `.docs/`. See `09_documentation.README.md` for schema and usage details.
-*   **`10_guide_tutorial.md`**: For step-by-step how-to guides or tutorials. Typically stored in `.docs/guides/`. See `10_guide_tutorial.README.md` for schema and usage details.
-*   **`11_meeting_notes.md`**: For recording minutes, decisions, and action items from meetings. Typically stored in `.docs/meetings/` or `notes/`. See `11_meeting_notes.README.md` for schema and usage details.
-*   **`12_postmortem.md`**: For documenting incident reports and post-mortem analysis. Typically stored in `.docs/incidents/` or `.reports/incidents/`. See `12_postmortem.README.md` for schema and usage details.
-*   **`13_release_notes.md`**: For documenting changes included in a software release. Typically stored in `.docs/releases/`. See `13_release_notes.README.md` for schema and usage details.
-*   **`14_standard_guideline.md`**: For defining coding standards, style guides, or operational guidelines. Typically stored in `.docs/standards/`. See `14_standard_guideline.README.md` for schema and usage details.
-*   **`15_sop.md`**: For defining *simple* Standard Operating Procedures. Typically stored in `.processes/` or `.docs/standards/`. See `15_sop.README.md` for schema and usage details. (For complex workflows, use the template in `.templates/workflows/`).
+*   **`07_adr.md`**: For documenting significant Architecture Decision Records. Typically stored in `.ruru/decisions/`. See `07_adr.README.md` for schema and usage details.
+*   **`08_ai_context_source.md`**: For creating structured context files intended primarily for AI consumption (e.g., rules, best practices, API specs). Typically stored in `.ruru/context/` or `.roo/context/`. See `08_ai_context_source.README.md` for schema and usage details.
+*   **`09_documentation.md`**: For general project documentation, user guides, technical explanations, etc. Typically stored in `.ruru/docs/`. See `09_documentation.README.md` for schema and usage details.
+*   **`10_guide_tutorial.md`**: For step-by-step how-to guides or tutorials. Typically stored in `.ruru/docs/guides/`. See `10_guide_tutorial.README.md` for schema and usage details.
+*   **`11_meeting_notes.md`**: For recording minutes, decisions, and action items from meetings. Typically stored in `.ruru/docs/meetings/` or `notes/`. See `11_meeting_notes.README.md` for schema and usage details.
+*   **`12_postmortem.md`**: For documenting incident reports and post-mortem analysis. Typically stored in `.ruru/docs/incidents/` or `.ruru/reports/incidents/`. See `12_postmortem.README.md` for schema and usage details.
+*   **`13_release_notes.md`**: For documenting changes included in a software release. Typically stored in `.ruru/docs/releases/`. See `13_release_notes.README.md` for schema and usage details.
+*   **`14_standard_guideline.md`**: For defining coding standards, style guides, or operational guidelines. Typically stored in `.ruru/docs/standards/`. See `14_standard_guideline.README.md` for schema and usage details.
+*   **`15_sop.md`**: For defining *simple* Standard Operating Procedures. Typically stored in `.ruru/processes/` or `.ruru/docs/standards/`. See `15_sop.README.md` for schema and usage details. (For complex workflows, use the template in `.ruru/templates/workflows/`).
 *   **`16_ai_rule.md`**: A minimalist template for defining rules intended for AI context injection (e.g., in `.roo/rules/`). See `16_ai_rule.README.md` for schema and usage details.
 
-### Workflow Templates (`.templates/workflows/`)
+    *   **`17_feature_proposal.md`**: For defining and tracking feature planning proposals. Typically stored in `.ruru/planning/`. See `17_feature_proposal.README.md` for schema and usage details.
 
-*   **`00_workflow_boilerplate.md`**: A comprehensive boilerplate for defining complex, multi-agent workflows or detailed SOPs, including preconditions, postconditions, step-specific error handling, and validation tracking. Use this for documents intended for the `.workflows/` directory or complex processes in `.processes/`.
+### Workflow Templates (`.ruru/templates/workflows/`)
+
+*   **`00_workflow_boilerplate.md`**: A comprehensive boilerplate for defining complex, multi-agent workflows or detailed SOPs, including preconditions, postconditions, step-specific error handling, and validation tracking. Use this for documents intended for the `.ruru/workflows/` directory or complex processes in `.ruru/processes/`.
 
 ## Creating New Templates
 
@@ -74,8 +76,9 @@ If none of the existing templates fit your needs, you can create a new one:
     *   Define standard Markdown headings (`## Section Title`) for the key information required in this document type.
     *   Add placeholder text or instructions under each heading to guide the user.
     *   Include examples (e.g., code blocks, checklists) where appropriate.
-5.  **Document:** Update this README file to include your new template in the "Available Templates" list with a brief description.
-6.  **Schema (Optional but Recommended):** Consider formally documenting the schema for your new template's TOML frontmatter (e.g., in `.docs/schemas/`).
+5.  **Create Schema README:** Create a corresponding `[TemplateName].README.md` file (e.g., `15_new_template_type.README.md`) in the same directory. Document the purpose, TOML schema (fields, types, required/optional, descriptions), and Markdown structure of your new template. Link to it from the `template_schema_doc` field in the template's TOML.
+6.  **Update Index README:** **Crucially**, update *this* README file (`.ruru/templates/toml-md/README.md`) to include your new template in the "Available Templates" list with a brief description and a link to its schema README.
+7.  **Formal Schema (Optional but Recommended):** Consider formally documenting the schema using a dedicated schema language (e.g., JSON Schema, Cue) and storing it elsewhere (e.g., in `.ruru/docs/schemas/`).
 
 **Example Boilerplate Structure (from `00_boilerplate.md`):**
 
