@@ -85,7 +85,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Instructions for Delegate (`prime-dev`):**
         *   Read the structure definition from the Architecture document.
         *   Create the `ruru.config.toml` file at the workspace root.
-        *   Populate it with the defined keys and default path values (e.g., `workspace_base = "."`, `modes_root = ".modes"`, `rules_root = ".roo/rules"`, etc.).
+        *   Populate it with the defined keys and default path values (e.g., `workspace_base = "."`, `modes_root = ".modes"`, `rules_root = ".ruru/rules"`, etc.).
         *   Use `write_to_file` to save the file.
         *   Report completion.
     *   **Expected Output from Delegate:** Confirmation of file creation.

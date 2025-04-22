@@ -44,11 +44,11 @@ escalate_to = ["requesting-mode", "complex-problem-solver", "technical-architect
 reports_to = ["requesting-mode"] # << OPTIONAL >> Modes this mode typically reports completion/status to (From source)
 documentation_urls = [] # << OPTIONAL >> Links to relevant external documentation
 context_files = [ # << OPTIONAL >> Relative paths to key context files within the workspace
-  # ".roo/context/research-context-builder/citation-formats.md", # Original path - KB content should be moved
-  # ".roo/context/research-context-builder/report-template.md", # Original path - KB content should be moved
-  # ".roo/context/research-context-builder/research-methodologies.md", # Original path - KB content should be moved
-  # ".roo/context/research-context-builder/source-evaluation-criteria.md", # Original path - KB content should be moved
-  # ".roo/context/research-context-builder/synthesis-techniques.md" # Original path - KB content should be moved
+  # ".ruru/context/research-context-builder/citation-formats.md", # Original path - KB content should be moved
+  # ".ruru/context/research-context-builder/report-template.md", # Original path - KB content should be moved
+  # ".ruru/context/research-context-builder/research-methodologies.md", # Original path - KB content should be moved
+  # ".ruru/context/research-context-builder/source-evaluation-criteria.md", # Original path - KB content should be moved
+  # ".ruru/context/research-context-builder/synthesis-techniques.md" # Original path - KB content should be moved
 ]
 context_urls = [] # << OPTIONAL >> URLs for context gathering (less common now with KB)
 

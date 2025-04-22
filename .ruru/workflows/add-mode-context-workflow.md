@@ -11,7 +11,7 @@ tags = ["workflow", "sop", "modes", "kb", "context", "documentation", "rules"]
 # --- Ownership & Context ---
 owner = "Roo Commander"
 related_docs = [
-  ".roo/rules/01-standard-toml-md-format.md", # Context files should ideally follow this
+  ".ruru/rules/01-standard-toml-md-format.md", # Context files should ideally follow this
   ".docs/standards/project_structure_inventory.md", # Explains .modes/<slug>/kb structure
   ".templates/toml-md/08_ai_context_source.md" # Recommended template for context files
 ]

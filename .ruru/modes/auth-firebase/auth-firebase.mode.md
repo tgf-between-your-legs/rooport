@@ -53,7 +53,7 @@ context_urls = [] # << From source file >>
 custom_instructions_dir = "kb/" # << Standard template field, set to requested value >>
 # User requested fields (potentially overriding or supplementing standard):
 kb_path = "kb/" # << Added as requested >>
-custom_instructions_path = ".roo/rules-auth-firebase/" # << Added as requested >>
+custom_instructions_path = ".ruru/rules-auth-firebase/" # << Added as requested >>
 
 # --- Mode-Specific Configuration (Optional) ---
 # [config] # Omitted, not present in source file

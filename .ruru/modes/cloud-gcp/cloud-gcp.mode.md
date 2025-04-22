@@ -63,7 +63,7 @@ context_urls = [] # From source file
 
 # --- Knowledge Base & Custom Instructions ---
 kb_path = "kb/" # Added per instruction 4
-custom_instructions_path = ".roo/rules-cloud-gcp/" # Added per instruction 5
+custom_instructions_path = ".ruru/rules-cloud-gcp/" # Added per instruction 5
 
 # --- Mode-Specific Configuration (Optional) ---
 # No specific config in source, omitted.

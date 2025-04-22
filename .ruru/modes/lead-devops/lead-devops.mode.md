@@ -76,7 +76,7 @@ context_urls = [] # From source line 59
 # Specifies the location of the *source* directory for custom instructions (KB).
 kb_path = "kb/" # From instruction 4
 # Specifies the location for mode-specific rule files (e.g., KB lookup rules).
-custom_instructions_path = ".roo/rules-lead-devops/" # From instruction 5
+custom_instructions_path = ".ruru/rules-lead-devops/" # From instruction 5
 +++
 
 # 🚀 DevOps Lead - Mode Documentation

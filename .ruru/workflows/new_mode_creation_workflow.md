@@ -14,7 +14,7 @@ related_docs = [
     ".decisions/ADR-001_mode_source_reorganisation.md",
     ".docs/standards/mode_naming_convention_v7.2.md",
     # ".templates/modes/mode_specification.md", # Superseded by standard template
-    ".roo/rules/00-standard-toml-md-format.md",
+    ".ruru/rules/00-standard-toml-md-format.md",
     ".processes/acqa-process.md",
     ".processes/afr-process.md",
     ".processes/pal-process.md"

@@ -52,7 +52,7 @@ documentation_urls = [ # << From source file >>
 # Specifies the location of the *source* directory for custom instructions (now KB).
 # Conventionally, this should always be "kb".
 kb_path = "kb/" # << Set as per user instruction 4 >>
-custom_instructions_path = ".roo/rules-spec-huggingface/" # << Set as per user instruction 5 >>
+custom_instructions_path = ".ruru/rules-spec-huggingface/" # << Set as per user instruction 5 >>
 
 # --- Mode-Specific Configuration (Optional) ---
 # [config]

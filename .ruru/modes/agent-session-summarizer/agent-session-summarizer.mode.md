@@ -45,7 +45,7 @@ reports_to = ["roo-commander"] # << OPTIONAL >> Modes this mode typically report
 documentation_urls = [] # << OPTIONAL >> Links to relevant external documentation
 context_files = [ # << OPTIONAL >> Relative paths to key context files within the workspace
   ".ruru/templates/handover_summary_template.md",
-  # ".roo/context/session-summarizer/information_extraction_tips.md" # Original path - KB content should be moved
+  # ".ruru/context/session-summarizer/information_extraction_tips.md" # Original path - KB content should be moved
 ]
 context_urls = [] # << OPTIONAL >> URLs for context gathering (less common now with KB)
 

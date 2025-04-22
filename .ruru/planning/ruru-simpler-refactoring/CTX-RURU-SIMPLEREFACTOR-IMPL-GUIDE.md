@@ -54,7 +54,7 @@ This document details the steps required to refactor the Roo Commander system to
     *   Replace `".ruru/archive/"` with `".ruru/.archive/"`
     *   Replace `".ruru/snippets/"` with `".ruru/.snippets/"`
     *   Replace `".ruru/modes/"` with `".ruru/.modes/"`
-    *   Replace `".roo/"` with `".ruru/.roo/"`
+    *   Replace `".ruru/"` with `".ruru/.roo/"`
     *   Replace `".builds/"` with `".ruru/.builds/"` (If `.builds` is also moved)
     *   Replace `".roomodes"` with `".ruru/.roomodes"` (If `.roomodes` is moved inside `.ruru/`)
     *   **Crucially:** Verify that replacements only affect actual paths and not code examples or explanatory text discussing the *old* paths. Use IDE search/replace tools with preview and confirmation.

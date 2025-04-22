@@ -75,7 +75,7 @@ custom_instructions_dir = "kb" # << RECOMMENDED >> From user instruction / templ
 
 # --- User Requested Paths (Non-standard in template TOML) ---
 kb_path = "kb/" # << User Requested >>
-custom_instructions_path = ".roo/rules-spec-openai/" # << User Requested >>
+custom_instructions_path = ".ruru/rules-spec-openai/" # << User Requested >>
 
 # --- Mode-Specific Configuration (Optional) ---
 # [config] # Omitted as optional and not in source

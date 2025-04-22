@@ -112,7 +112,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Description:** Update all hardcoded path references in `.js` and `.md` files to reflect the new `.ruru/` structure.
     *   **Tool:** `new_task` (potentially two separate tasks, one for `.js` to `prime-dev`, one for `.md` to `prime-txt`).
     *   **Inputs Provided by Coordinator:**
-        *   List of search/replace pairs from `CTX-RURU-SIMPLEREFACTOR-IMPL-GUIDE.md` (e.g., `".ruru/tasks/"` -> `".ruru/tasks/"`, `".ruru/docs/"` -> `".ruru/docs/"`, `".ruru/modes/"` -> `".ruru/modes/"`, `".ruru/context/"` -> `".ruru/context/"`, `".ruru/logs/"` -> `".ruru/logs/"`, etc.). Note: Do *not* replace `".roo/"`.
+        *   List of search/replace pairs from `CTX-RURU-SIMPLEREFACTOR-IMPL-GUIDE.md` (e.g., `".ruru/tasks/"` -> `".ruru/tasks/"`, `".ruru/docs/"` -> `".ruru/docs/"`, `".ruru/modes/"` -> `".ruru/modes/"`, `".ruru/context/"` -> `".ruru/context/"`, `".ruru/logs/"` -> `".ruru/logs/"`, etc.). Note: Do *not* replace `".ruru/"`.
         *   Scope: All relevant files (primarily within the *new* `.ruru/` subdirectories, plus root files like `README.md`, `.gitignore`, build scripts).
     *   **Instructions for Delegate:**
         *   Perform careful, case-sensitive, whole-word (where appropriate) search-and-replace operations using `search_and_replace` or similar tools.

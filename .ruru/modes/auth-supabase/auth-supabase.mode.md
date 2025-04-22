@@ -40,7 +40,7 @@ Operational Guidelines:
 # --- File Access Restrictions (Optional - Defaults to allow all if omitted) ---
 [file_access] # From source
 # Allow reading common frontend files, SQL, docs, and specific context
-read_allow = ["src/**/*.{js,jsx,ts,tsx,vue,svelte}", "**.sql", ".ruru/docs/**/*.md", ".roo/context/supabase-auth-specialist/*.md"] # From source (Note: context path might need update later)
+read_allow = ["src/**/*.{js,jsx,ts,tsx,vue,svelte}", "**.sql", ".ruru/docs/**/*.md", ".ruru/context/supabase-auth-specialist/*.md"] # From source (Note: context path might need update later)
 # Allow writing common frontend files and SQL for RLS policies
 write_allow = ["src/**/*.{js,jsx,ts,tsx,vue,svelte}", "**.sql"] # From source
 
@@ -55,10 +55,10 @@ documentation_urls = [ # From source
   "https://supabase.com/docs/guides/auth"
 ]
 context_files = [ # From source (Note: these paths might need updating based on new KB structure)
-  ".roo/context/supabase-auth-specialist/supabase-auth-docs.md",
-  ".roo/context/supabase-auth-specialist/auth-patterns.md",
-  ".roo/context/supabase-auth-specialist/rls-policy-examples.md",
-  ".roo/context/supabase-auth-specialist/frontend-integration-examples.md"
+  ".ruru/context/supabase-auth-specialist/supabase-auth-docs.md",
+  ".ruru/context/supabase-auth-specialist/auth-patterns.md",
+  ".ruru/context/supabase-auth-specialist/rls-policy-examples.md",
+  ".ruru/context/supabase-auth-specialist/frontend-integration-examples.md"
 ]
 context_urls = [] # From source
 
@@ -66,7 +66,7 @@ context_urls = [] # From source
 # Specifies the location of the Knowledge Base directory relative to the mode file.
 kb_path = "kb/" # << REQUIRED >> As per request
 # Specifies the location of the mode-specific rule files relative to the workspace root.
-custom_instructions_path = ".roo/rules-auth-supabase/" # << REQUIRED >> As per request
+custom_instructions_path = ".ruru/rules-auth-supabase/" # << REQUIRED >> As per request
 
 # --- Mode-Specific Configuration (Optional) ---
 # [config]

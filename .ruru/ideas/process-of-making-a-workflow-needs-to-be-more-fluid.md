@@ -11694,7 +11694,7 @@ Let's restart the **Simulated Execution** for the `firecrawl-specialist` mode, u
 1.  **Action:** Coordinator prepares `mode_entry_data` and formulates `new_task`.
 2.  **Inputs Provided:**
     *   `manifest_file_path`: `v7.2/manifest.toml`
-    *   `mode_entry_data`: `{ "slug": "spec-firecrawl", "name": "🔥 Firecrawl Specialist", "prefix": "spec", "role_definition": "You are Roo Firecrawl Specialist...", "source_path_v7_1": "v7.1/modes/assistant/web-scraping/firecrawl-specialist/firecrawl-specialist.mode.md", "path_v7_2": "v7.2/spec-firecrawl/spec-firecrawl.mode.md", "rules_path": ".roo/rules/spec-firecrawl", "tags": ["spec", "web-scraping", "api", "firecrawl"] }` (Example data, paths calculated relative to workspace root)
+    *   `mode_entry_data`: `{ "slug": "spec-firecrawl", "name": "🔥 Firecrawl Specialist", "prefix": "spec", "role_definition": "You are Roo Firecrawl Specialist...", "source_path_v7_1": "v7.1/modes/assistant/web-scraping/firecrawl-specialist/firecrawl-specialist.mode.md", "path_v7_2": "v7.2/spec-firecrawl/spec-firecrawl.mode.md", "rules_path": ".ruru/rules/spec-firecrawl", "tags": ["spec", "web-scraping", "api", "firecrawl"] }` (Example data, paths calculated relative to workspace root)
 3.  **Simulated Worker Action:**
     *   Worker uses `read_file` on `v7.2/manifest.toml`. (Assume success, gets existing content or starts fresh).
     *   Worker parses TOML. (Assume success).

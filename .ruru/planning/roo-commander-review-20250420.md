@@ -9,7 +9,7 @@ tags = ["planning", "review", "roo-commander", "rules", "instructions", "consist
 related_docs = [
   ".modes/roo-commander/roo-commander.mode.md",
   ".modes/roo-commander/kb/README.md",
-  ".roo/rules-roo-commander/",
+  ".ruru/rules-roo-commander/",
   ".ideas/help-with-command-line.md",
   ".ideas/improvements-to-roo-commander-defaults.md"
 ]

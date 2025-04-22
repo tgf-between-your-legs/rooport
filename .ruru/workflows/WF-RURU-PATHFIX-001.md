@@ -11,9 +11,9 @@ tags = ["workflow", "refactor", "paths", "prime", "ruru"] # << Keywords >>
 # --- Ownership & Context ---
 owner = "Prime Coordinator" # Or relevant Lead Agent
 related_docs = [
-    ".roo/rules-prime-coordinator/03-meta-dev-workflow-rule.md",
-    ".roo/rules/07-save-point-commit-policy.md",
-    ".roo/rules/08-git-commit-standard.md"
+    ".ruru/rules-prime-coordinator/03-meta-dev-workflow-rule.md",
+    ".ruru/rules/07-save-point-commit-policy.md",
+    ".ruru/rules/08-git-commit-standard.md"
     ]     # << Paths/URLs to essential specs, guides, PAL doc >>
 related_templates = [] # << Paths to data templates used/produced >>
 

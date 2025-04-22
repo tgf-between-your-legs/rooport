@@ -23,7 +23,7 @@ allowed_tool_groups = ["read", "edit"] # Using tool access from the source conte
 # --- File Access Restrictions (Optional - Defaults to allow all if omitted) ---
 [file_access]
 # Primarily focused on mode definition files
-read_allow = ["**/*.mode.md", ".ruru/templates/modes/*.md", ".roo/rules/**/*.md", ".ruru/context/**/*.md"]
+read_allow = ["**/*.mode.md", ".ruru/templates/modes/*.md", ".ruru/rules/**/*.md", ".ruru/context/**/*.md"]
 write_allow = ["**/*.mode.md", ".ruru/context/**/*.md"] # Allow writing to context for reporting if needed
 
 # --- Metadata (Optional but Recommended) ---

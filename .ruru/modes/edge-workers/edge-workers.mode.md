@@ -22,7 +22,7 @@ allowed_tool_groups = ["read", "edit", "browser", "command", "mcp"] # << FROM so
 
 # --- File Access Restrictions (Optional - Defaults to allow all if omitted) ---
 [file_access] # << FROM source >>
-read_allow = ["*.js", "*.ts", "wrangler.toml", ".roo/context/cloudflare-workers-specialist/**/*.md", ".docs/**/*.md", "src/**/*.js", "src/**/*.ts", "tests/**/*.js", "tests/**/*.ts"] # << FROM source >>
+read_allow = ["*.js", "*.ts", "wrangler.toml", ".ruru/context/cloudflare-workers-specialist/**/*.md", ".docs/**/*.md", "src/**/*.js", "src/**/*.ts", "tests/**/*.js", "tests/**/*.ts"] # << FROM source >>
 write_allow = ["*.js", "*.ts", "wrangler.toml", "src/**/*.js", "src/**/*.ts", "tests/**/*.js", "tests/**/*.ts"] # << FROM source >>
 
 # --- Metadata (Optional but Recommended) ---

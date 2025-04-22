@@ -57,7 +57,7 @@ write_allow = [
 
 # --- Knowledge Base & Custom Instructions (Required) ---
 kb_path = "kb/" # << ADDED >> Path relative to this mode file, for context retrieval
-custom_instructions_path = ".roo/rules-lead-qa/" # << ADDED >> Path relative to workspace root, for instruction loading
+custom_instructions_path = ".ruru/rules-lead-qa/" # << ADDED >> Path relative to workspace root, for instruction loading
 
 # --- Metadata (Optional but Recommended) ---
 [metadata]

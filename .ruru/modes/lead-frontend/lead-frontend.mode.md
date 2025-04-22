@@ -38,7 +38,7 @@ Operational Guidelines:
 # kb_path: Defines the root directory for the mode's knowledge base. Conventionally "kb/".
 # custom_instructions_path: Defines the directory containing mode-specific operational rules or instructions (e.g., .roo/rules-your-mode/).
 kb_path = "kb/" # << ADDED per user instruction 4 >>
-custom_instructions_path = ".roo/rules-lead-frontend/" # << ADDED per user instruction 5 >>
+custom_instructions_path = ".ruru/rules-lead-frontend/" # << ADDED per user instruction 5 >>
 
 # --- Tool Access (Optional - Defaults to standard set if omitted) ---
 # If omitted, assumes access to: ["read", "edit", "browser", "command", "mcp"]

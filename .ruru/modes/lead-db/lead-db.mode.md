@@ -61,7 +61,7 @@ context_urls = [] # << OPTIONAL >> URLs for context gathering (less common now w
 # Conventionally, this should always be "kb".
 custom_instructions_dir = "kb" # << RECOMMENDED >> Should point to the Knowledge Base directory
 kb_path = "kb/" # << Added as requested >>
-custom_instructions_path = ".roo/rules-lead-db/" # << Added as requested >>
+custom_instructions_path = ".ruru/rules-lead-db/" # << Added as requested >>
 
 # --- Mode-Specific Configuration (Optional) ---
 # [config]
