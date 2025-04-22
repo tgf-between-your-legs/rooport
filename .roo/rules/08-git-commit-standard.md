@@ -8,7 +8,7 @@ granularity = "standard"
 status = "active"
 last_updated = "2025-04-21"
 tags = ["rules", "git", "commit", "standard", "conventional-commits", "traceability", "mdtm"]
-related_context = [".docs/standards/mdtm_standard.md"] # Reference MDTM standard
+related_context = [".ruru/docs/standards/mdtm_standard.md"] # Reference MDTM standard
 +++
 
 # Standard: Git Commit Message Format

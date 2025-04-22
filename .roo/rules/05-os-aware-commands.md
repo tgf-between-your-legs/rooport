@@ -9,7 +9,7 @@ granularity = "ruleset"
 status = "active"
 last_updated = "2025-04-21" # Use current date
 tags = ["rules", "shell", "commands", "os-awareness", "powershell", "bash", "execute_command", "windows", "linux", "macos"]
-template_schema_doc = ".templates/toml-md/16_ai_rule.README.md"
+template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"
 # related_context = [] # Could link to specific shell guides if needed
 +++
 

@@ -34,7 +34,7 @@ related_context = ["00-user-preferences.md", "01-standard-toml-md-format.md", "0
 
 2.  **Execution & Monitoring:** While executing the task (writing code, applying diffs, following checklist items):
     *   Periodically self-monitor context window usage (`{{CONTEXT_PERCENTAGE}}`).
-    *   **Trigger Checkpoint:** If context usage approaches a threshold (e.g., **around 50-60%**), prepare to pause *after completing the current logical unit of work*.
+    *   **Trigger Checkpoint:** If context usage approaches a threshold (e.g., **around 40-50%**), prepare to pause *after completing the current logical unit of work*.
         *   A "logical unit" could be:
             *   Completing the current MDTM checklist item (`- [✅]`).
             *   Finishing a complete function, class, or coherent block of code.

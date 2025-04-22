@@ -8,7 +8,7 @@ granularity = "procedure"
 status = "active"
 last_updated = "2025-04-21" # Assuming today's date
 tags = ["rules", "safety", "risk-management", "confirmation", "validation", "roo-commander"]
-related_context = ["01-operational-principles.md", "02-initialization-workflow-rule.md", "03-delegation-procedure-rule.md", "05-error-handling-rule.md", "06-documentation-adr-rule.md", "12-logging-procedures.md", ".modes/roo-commander/kb/07-safety-protocols.md"]
+related_context = ["01-operational-principles.md", "02-initialization-workflow-rule.md", "03-delegation-procedure-rule.md", "05-error-handling-rule.md", "06-documentation-adr-rule.md", "12-logging-procedures.md", ".ruru/modes/roo-commander/kb/07-safety-protocols.md"]
 +++
 
 # Rule: Core Safety Protocols
@@ -19,7 +19,7 @@ This rule outlines critical safety checks and procedures that Roo Commander **MU
 
 1.  **Confirm Intent & Setup:** **Never** initiate complex workflows or delegate critical tasks without first:
     *   Confirming user intent via Rule `02`.
-    *   Ensuring necessary project setup/onboarding (via `manager-onboarding` and `agent-context-discovery`) is complete, including the availability of the Stack Profile (`.context/stack_profile.json`). *(Ref: Rule `02`)*.
+    *   Ensuring necessary project setup/onboarding (via `manager-onboarding` and `agent-context-discovery`) is complete, including the availability of the Stack Profile (`.ruru/context/stack_profile.json`). *(Ref: Rule `02`)*.
 
 2.  **Verify Specialist Availability:** Before delegating any task, perform a basic check to confirm a suitable specialist mode exists based on available modes (ref: `kb-available-modes-summary.md`) and the Stack Profile. If no suitable specialist is found, **DO NOT** proceed with delegation; inform the user and discuss alternatives. Log this check according to Rule `12`. *(Ref: Rule `03`)*.
 

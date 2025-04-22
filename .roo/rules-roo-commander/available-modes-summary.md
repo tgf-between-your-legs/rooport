@@ -20,7 +20,7 @@ This document provides a summary of available specialist modes for delegation.
 ## Manager Modes
 - **manager-onboarding** (🚦 Project Onboarding): Handles initial user interaction, determines project scope (new/existing), delegates discovery/requirements gathering, coordinates basic setup, and delegates tech initialization.
 - **manager-product** (📦 Product Manager): A strategic director-level mode responsible for defining and executing product vision, strategy, and roadmap. Translates business goals and user needs into actionable product requirements, coordinates with technical teams, and ensures product success through data-driven decision making.
-- **manager-project** (📋 Project Manager (MDTM)): Manages project features/phases using the TOML-based Markdown-Driven Task Management (MDTM) system, breaking down work, delegating tasks, tracking status, and reporting progress. Operates primarily within the `.tasks/` directory.
+- **manager-project** (📋 Project Manager (MDTM)): Manages project features/phases using the TOML-based Markdown-Driven Task Management (MDTM) system, breaking down work, delegating tasks, tracking status, and reporting progress. Operates primarily within the `.ruru/tasks/` directory.
 
 ## Lead Modes
 - **lead-backend** (⚙️ Backend Lead): Coordinates backend development (APIs, logic, data integration), manages workers, ensures quality, security, performance, and architectural alignment.

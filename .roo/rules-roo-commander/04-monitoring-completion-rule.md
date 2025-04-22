@@ -25,8 +25,8 @@ This rule defines the procedure for monitoring delegated tasks (both simple and 
     *   **Assess Outcome:** Determine if the specialist reported success, failure, or a blocked state based on the result message and structure (e.g., presence of success markers ✅ or error indicators ❌/🧱).
 
 3.  **Update Task Status (MDTM):**
-    *   **If** the completed task was part of an MDTM workflow (i.e., the specialist was processing a `.tasks/TASK-[MODE]-....md` file):
-        1.  Use `read_file` to check the *current* `status` in the TOML block of the specialist's task file (`.tasks/TASK-[MODE]-....md`).
+    *   **If** the completed task was part of an MDTM workflow (i.e., the specialist was processing a `.ruru/tasks/TASK-[MODE]-....md` file):
+        1.  Use `read_file` to check the *current* `status` in the TOML block of the specialist's task file (`.ruru/tasks/TASK-[MODE]-....md`).
         2.  Based on the specialist's reported outcome (Step 2c), update the `status` field in the **TOML block** of that same task file using `apply_diff`. Set it to:
             *   `"🟣 Review"` (if successful and requires Commander/User review).
             *   `"🟢 Done"` (if successful and no further review needed).
@@ -43,7 +43,7 @@ This rule defines the procedure for monitoring delegated tasks (both simple and 
 5.  **Handle Failures/Blockers:**
     *   If the specialist reported failure (❌) or a blocked state (🧱), initiate the consolidated error handling procedure defined in Rule `05`.
 
-6.  **Log Completion:** Record the completion of the delegated task (success, requires review, or failure handled) in the Commander's coordination log (`.tasks/TASK-CMD-....md`) according to Rule `12`.
+6.  **Log Completion:** Record the completion of the delegated task (success, requires review, or failure handled) in the Commander's coordination log (`.ruru/tasks/TASK-CMD-....md`) according to Rule `12`.
 
 7.  **Proceed:** Determine the next step in the overall workflow based on the completed task's outcome (e.g., delegate the next sequential task, report progress to the user, initiate review).
 
