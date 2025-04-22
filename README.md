@@ -4,7 +4,7 @@ Roo Commander transforms your [Roo Code](https://github.com/roocode/roo) experie
 
 ---
 
-**🐾 Join the Community:** [Roo Commander Discord](https://discord.gg/f77YYF3S)
+**🐾 Join the Community:** [Roo Commander Discord](https://discord.gg/ESaJBnw7As)
 
 ---
 
