@@ -6,7 +6,7 @@
 **Authors:** [Author Name(s)]
 **Related Documents:**
 *   [Link to relevant spec, rule, or other process]
-*   `.processes/pal-process.md` (Process Assurance Lifecycle)
+*   `.ruru/processes/pal-process.md` (Process Assurance Lifecycle)
 
 ---
 

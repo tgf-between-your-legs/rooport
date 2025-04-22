@@ -22,7 +22,7 @@ Key Responsibilities:
 - [...]
 
 Operational Guidelines:
-- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.modes/<your-mode-slug>/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << REFINED KB GUIDANCE >>
+- Consult and prioritize guidance, best practices, and project-specific information found in the Knowledge Base (KB) located in `.ruru/modes/<your-mode-slug>/kb/`. Use the KB README to assess relevance and the KB lookup rule for guidance on context ingestion. # << REFINED KB GUIDANCE >>
 - Use tools iteratively and wait for confirmation.
 - Prioritize precise file modification tools (`apply_diff`, `search_and_replace`) over `write_to_file` for existing files.
 - Use `read_file` to confirm content before applying diffs if unsure.
@@ -50,7 +50,7 @@ documentation_urls = [ # << OPTIONAL >> Links to relevant external documentation
   "https://example.com/docs"
 ]
 context_files = [ # << OPTIONAL >> Relative paths to key context files within the workspace
-  # ".docs/standards/coding_style.md"
+  # ".ruru/docs/standards/coding_style.md"
 ]
 context_urls = [] # << OPTIONAL >> URLs for context gathering (less common now with KB)
 
