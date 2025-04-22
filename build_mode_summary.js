@@ -1,11 +1,11 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const MODES_DIR = '.modes';
+const MODES_DIR = '.ruru/modes';
 // Define output paths and filename
 const OUTPUT_FILENAME = 'available-modes-summary.md';
-const OUTPUT_PATH_KB = path.join('.modes', 'roo-commander', 'kb', OUTPUT_FILENAME);
-const OUTPUT_PATH_RULES = path.join('.roo', 'rules-roo-commander', OUTPUT_FILENAME);
+const OUTPUT_PATH_KB = path.join('.ruru', 'modes', 'roo-commander', 'kb', OUTPUT_FILENAME);
+const OUTPUT_PATH_RULES = path.join('.roo', 'rules', 'roo-commander', OUTPUT_FILENAME);
 const DEFAULT_GROUPS = ["read", "edit", "browser", "command", "mcp"]; // Kept for potential future use, though not used in summary
 
 let tomlParser = null;

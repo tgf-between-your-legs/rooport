@@ -1,9 +1,9 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const MODES_DIR = '.modes';
+const MODES_DIR = '.ruru/modes';
 const OUTPUT_FILE = '.roomodes';
-const SUMMARY_OUTPUT_FILE = '.modes/roo-commander/kb/kb-available-modes-summary.md'; // Added
+const SUMMARY_OUTPUT_FILE = '.ruru/modes/roo-commander/kb/kb-available-modes-summary.md'; // Added
 const DEFAULT_GROUPS = ["read", "edit", "browser", "command", "mcp"];
 
 let tomlParser = null;
@@ -234,7 +234,7 @@ async function buildRoomodes() {
         'cms': '📰 CMS Specialists',
         'dev': '💻 Development Modes',
         'util': '🔧 Utility Modes',
-        'prime': '🚜 Prime Power Modes',
+        'prime': '🚜 Prime Coordinator Modes',
         'unknown': '❓ Other Modes'
     };
 

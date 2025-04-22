@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-04-20"
+last_generated = "2025-04-22"
 +++
 
 # Available Modes Summary
@@ -122,3 +122,6 @@ This document provides a summary of available specialist modes for delegation.
 - **dev-git** (🦕 Git Manager): Executes Git commands safely and accurately based on instructions.
 - **dev-react** (⚛️ React Specialist): Specializes in building modern React applications using functional components, hooks, state management, performance optimization, and TypeScript integration.
 - **dev-solver** (🧩 Complex Problem Solver): Systematically analyzes complex problems, identifies root causes, explores solutions, and provides actionable recommendations.
+- **prime-coordinator** (🚜 Prime Coordinator): Directly orchestrates development tasks AND Roo Commander configuration changes. Assumes user provides clear instructions. Uses staging for protected core files.
+- **prime-dev** (🐹 Prime Dev): Edits structured configuration files (e.g., *.mode.md TOML, *.js, *.toml) directly in operational directories based on instructions from Prime Coordinator, respecting file access controls.
+- **prime-txt** (✒️ Prime Documenter): Edits Markdown content (rules, KB files, documentation) directly in operational directories based on instructions from the Prime Coordinator, requiring confirmation before saving.

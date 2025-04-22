@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-04-21"
+last_generated = "2025-04-22"
 +++
 
 # Available Modes Summary
@@ -102,6 +102,38 @@ This document provides a summary of available specialist modes for delegation.
 - **test-e2e** (🎭 E2E Testing Specialist): \[No description provided\]
 - **test-integration** (🔗 Integration Tester): \[No description provided\]
 
+## 🔑 Auth Specialists
+
+- **auth-clerk** (🔑 Clerk Auth Specialist): \[No description provided\]
+- **auth-firebase** (🧯 Firebase Auth Specialist): \[No description provided\]
+- **auth-supabase** (🔐 Supabase Auth Specialist): \[No description provided\]
+
+## ☁️ BaaS Developers
+
+- **baas-firebase** (🔥 Firebase Developer): \[No description provided\]
+- **baas-supabase** (🦸 Supabase Developer): \[No description provided\]
+
+## 🌐 Cloud Architects
+
+- **cloud-aws** (☁️ AWS Architect): \[No description provided\]
+- **cloud-azure** (🌐 Azure Architect): \[No description provided\]
+- **cloud-gcp** (🌎 GCP Architect): \[No description provided\]
+
+## 📰 CMS Specialists
+
+- **cms-directus** (🎯 Directus Specialist): \[No description provided\]
+- **cms-wordpress** (🇼 WordPress Specialist): \[No description provided\]
+
+## 💻 Development Modes
+
+- **dev-api** (🔌 API Developer): \[No description provided\]
+- **dev-eslint** (📏 ESLint Specialist): \[No description provided\]
+- **dev-fixer** (🩺 Bug Fixer): \[No description provided\]
+- **dev-general** (🖥️ Frontend Developer): \[No description provided\]
+- **dev-git** (🦕 Git Manager): \[No description provided\]
+- **dev-react** (⚛️ React Specialist): \[No description provided\]
+- **dev-solver** (🧩 Complex Problem Solver): \[No description provided\]
+
 ## 🔧 Utility Modes
 
 - **util-accessibility** (♿ Accessibility Specialist): \[No description provided\]
@@ -117,28 +149,8 @@ This document provides a summary of available specialist modes for delegation.
 - **util-vite** (⚡ Vite Specialist): \[No description provided\]
 - **util-writer** (✍️ Technical Writer): \[No description provided\]
 
-## 🚚 Prime Power Modes
+## 🚜 Prime Coordinator Modes
 
-- **prime** (🚜 Prime Power User): \[No description provided\]
+- **prime-coordinator** (🚜 Prime Coordinator): \[No description provided\]
 - **prime-dev** (🐹 Prime Dev): \[No description provided\]
 - **prime-txt** (✒️ Prime Documenter): \[No description provided\]
-
-## ❓ Other Modes
-
-- **auth-clerk** (🔑 Clerk Auth Specialist): \[No description provided\]
-- **auth-firebase** (🧯 Firebase Auth Specialist): \[No description provided\]
-- **auth-supabase** (🔐 Supabase Auth Specialist): \[No description provided\]
-- **baas-firebase** (🔥 Firebase Developer): \[No description provided\]
-- **baas-supabase** (🦸 Supabase Developer): \[No description provided\]
-- **cloud-aws** (☁️ AWS Architect): \[No description provided\]
-- **cloud-azure** (🌐 Azure Architect): \[No description provided\]
-- **cloud-gcp** (🌎 GCP Architect): \[No description provided\]
-- **cms-directus** (🎯 Directus Specialist): \[No description provided\]
-- **cms-wordpress** (🇼 WordPress Specialist): \[No description provided\]
-- **dev-api** (🔌 API Developer): \[No description provided\]
-- **dev-eslint** (📏 ESLint Specialist): \[No description provided\]
-- **dev-fixer** (🩺 Bug Fixer): \[No description provided\]
-- **dev-general** (🖥️ Frontend Developer): \[No description provided\]
-- **dev-git** (🦕 Git Manager): \[No description provided\]
-- **dev-react** (⚛️ React Specialist): \[No description provided\]
-- **dev-solver** (🧩 Complex Problem Solver): \[No description provided\]

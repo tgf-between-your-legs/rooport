@@ -6,25 +6,25 @@ const os = require('os');
 
 // --- Configuration ---
 const includedFilesAndDirs = [
-  '.modes',
-  '.processes',
+  '.ruru/modes',
+  '.ruru/processes',
   '.roo',
-  '.templates',
-  '.workflows',
-  '.docs', // Include the docs directory
+  '.ruru/templates',
+  '.ruru/workflows',
+  '.ruru/docs', // Include the docs directory
   '.roomodes'
 ];
 
 const emptyDirsToCreate = [
-  '.archive',
-  '.context',
-  '.decisions',
-  '.ideas',
-  '.logs',
-  '.planning',
-  '.reports',
-  '.snippets',
-  '.tasks'
+  '.ruru/archive',
+  '.ruru/context',
+  '.ruru/decisions',
+  '.ruru/ideas',
+  '.ruru/logs',
+  '.ruru/planning',
+  '.ruru/reports',
+  '.ruru/snippets',
+  '.ruru/tasks'
 ];
 
 const outputDir = '.builds';
@@ -35,7 +35,7 @@ async function createBuild() {
   const args = process.argv.slice(2);
   if (args.length < 4) {
     console.error('Usage: node create_build.js <version> <codename> <distReadmePath> <changelogPath>');
-    console.error('Example: node create_build.js v7.01 Wallaby .templates/build/README.dist.md .tmp/CHANGELOG.v7.01.md');
+    console.error('Example: node create_build.js v7.01 Wallaby .ruru/templates/build/README.dist.md .tmp/CHANGELOG.v7.01.md');
     process.exit(1);
   }
   const version = args[0]; // e.g., v7.01
