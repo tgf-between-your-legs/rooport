@@ -50,3 +50,26 @@ Untracked files:
 	.ruru/tasks/
 
 no changes added to commit (use "git add" and/or "git commit -a")
+**Step 2: Stage Changes**
+```bash
+$ git add .
+# (No output indicates success)
+**Step 3: Commit Changes**
+```bash
+$ git commit -m "fix: adjusting paths .ruru\n\nRefs: TASK-FIX-Various-ruru-folders"
+[v7-simpler-refactoring 8c4df2d] fix: adjusting paths .ruru\n\nRefs: TASK-FIX-Various-ruru-folders
+ 26 files changed, 126 insertions(+), 75 deletions(-)
+ rename .roo/{rules-prime => rules-prime-coordinator}/01-operational-principles.md (100%)
+ rename .roo/{rules-prime => rules-prime-coordinator}/02-request-analysis-dispatch.md (100%)
+ rename .roo/{rules-prime => rules-prime-coordinator}/03-meta-dev-workflow-rule.md (100%)
+ rename .roo/{rules-prime => rules-prime-coordinator}/04-operational-delegation-rule.md (100%)
+ rename .roo/{rules-prime => rules-prime-coordinator}/05-research-procedure-rule.md (100%)
+ rename .roo/{rules-prime => rules-prime-coordinator}/06-commander-delegation-constraint.md (100%)
+ rename .roo/{rules-prime => rules-prime-coordinator}/07-logging-confirmation-rule.md (100%)
+ rename .roo/rules/{01-standard-tool-use-xml-syntax.md => 03-standard-tool-use-xml-syntax.md} (100%)
+ create mode 100644 .ruru/tasks/TASK-FIX-Various-ruru-folders.md
+---
+**Status:** ✅ Complete
+**Outcome:** Success
+**Summary:** Successfully staged and committed all changes with the message "fix: adjusting paths .ruru\n\nRefs: TASK-FIX-Various-ruru-folders".
+**References:** [Commit: 8c4df2d]

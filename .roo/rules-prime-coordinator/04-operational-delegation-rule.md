@@ -8,7 +8,7 @@ granularity = "procedure"
 status = "active"
 last_updated = "2025-04-21"
 tags = ["rules", "delegation", "operational", "mdtm", "prime"]
-related_context = ["01-operational-principles.md", "03-delegation-procedure-rule.md", "04-monitoring-completion-rule.md", "12-logging-procedures.md", "kb-available-modes-summary.md", ".context/stack_profile.json"]
+related_context = ["01-operational-principles.md", "03-delegation-procedure-rule.md", "04-monitoring-completion-rule.md", "12-logging-procedures.md", "kb-available-modes-summary.md", ".ruru/context/stack_profile.json"]
 +++
 
 # Rule: Operational Task Delegation
