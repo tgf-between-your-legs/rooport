@@ -65,7 +65,7 @@ delegate_to = [
   # Workers - Frontend (031)
   "util-accessibility", "framework-angular", "design-animejs", "design-antd",
   "framework-astro", "design-bootstrap", "auth-clerk", "design-d3",
-  "dev-general", "util-jquery", "design-mui", "framework-nextjs",
+  "dev-core-web", "util-jquery", "design-mui", "framework-nextjs",
   "dev-react", "framework-remix", "design-shadcn", "framework-sveltekit",
   "design-tailwind", "design-threejs", "util-typescript", "util-vite",
   "framework-vue",

@@ -51,7 +51,7 @@ delegate_to = [
   "angular-developer",
   "tailwind-specialist",
   "bootstrap-specialist",
-  "frontend-developer"
+  "dev-core-web"
 ] # << OPTIONAL >> Modes this mode might delegate specific sub-tasks to (From source)
 escalate_to = ["roo-commander"] # << OPTIONAL >> Modes to escalate complex issues or broader concerns to (From source)
 reports_to = ["roo-commander"] # << OPTIONAL >> Modes this mode typically reports completion/status to (From source)
