@@ -11,3 +11,4 @@ This file tracks the distributable builds created for Roo Commander.
 - **v7.0.5 (Wallaby)** - 2025-04-21 - File: `roo-commander-v7.0.5-Wallaby.zip`
 - **v7.0.6 (Wallaby)** - 2025-04-23 - File: `roo-commander-v7.0.6-Wallaby.zip`
 - **v7.1.0 (Wallaby)** - 2025-04-23 - File: \`roo-commander-v7.1.0-Wallaby.zip\`
+- **v7.1.1 (Wallaby)** - 2025-04-24 - File: \`roo-commander-v7.1.1-Wallaby.zip\`
