@@ -12,6 +12,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# MCP Server Contents (Ignore all files within server subdirs)
+mcp-servers/*/*
+.ruru/mcp-servers/*/*
 # Environment variables
 .env
 .env.*
@@ -20,3 +23,12 @@ yarn-error.log*
 # Build artifacts & temporary files
 .tmp/
 .builds/*.zip
+# Roo specific generated files
+.ruru/tasks/
+.staging/
+.staging/
+.ruru/logs/
+.ruru/temp/
+repomix-output-*.md
+
+*llms.txt

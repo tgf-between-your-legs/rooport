@@ -1,55 +1,102 @@
 +++
 # --- Metadata ---
-id = "PLAN-KB-ENRICH-PHASE2-V1"
-title = "KB Enrichment Plan: Phase 2 - AI Synthesis"
+id = "PLAN-KB-ENRICH-PHASE2-V3" # Incremented version
+title = "KB Enrichment Plan: Phase 2 - AI Synthesis using Customizable Task Sets (Refined)"
 status = "draft"
 created_date = "2025-04-24"
 updated_date = "2025-04-24"
-version = "1.0"
-tags = ["plan", "kb", "enrichment", "phase2", "synthesis", "ai", "context-generation"]
-related_docs = [".ruru/planning/kb-enrichment/00-kb-enrichment-plan.md", ".ruru/modes/agent-context-condenser/agent-context-condenser.mode.md"]
-objective = "Define the tasks for an AI agent (`agent-context-condenser`) to read prepared markdown files and generate new, synthesized context documents for a target mode's knowledge base."
-scope = "Orchestrating the AI synthesis process, defining inputs and desired outputs."
-# --- Plan Specific Fields ---
-synthesizer_mode = "agent-context-condenser"
-source_directory_template = "kb/{library_name}/"
-target_directory_template = ".ruru/modes/{mode_slug}/kb/{library_name}/synthesized/"
-synthesis_tasks = [ # List of synthesis types to perform
-    { task_id: "core_concepts", description: "Generate overview of core library concepts.", input_categories: ["guide", "concepts", "about"], output_file: "core-concepts.md" },
-    { task_id: "api_overview", description: "Generate high-level API surface summary.", input_categories: ["api", "reference"], output_file: "api-overview.md" },
-    { task_id: "common_patterns", description: "Extract common usage patterns/best practices.", input_categories: ["guide", "cookbook", "examples"], output_file: "common-patterns.md" },
-    { task_id: "setup_guide", description: "Summarize installation and basic setup.", input_categories: ["guide", "config", "start"], output_file: "setup-summary.md" }
-    # Add more tasks as needed (e.g., troubleshooting, specific feature deep-dives)
+version = "3.0"
+tags = ["plan", "kb", "enrichment", "phase2", "synthesis", "ai", "context-generation", "agent-context-synthesizer", "customizable", "toml"]
+related_docs = [
+    ".ruru/planning/kb-enrichment/00-kb-enrichment-plan.md",
+    ".ruru/planning/kb-enrichment/01-source-preparation.md",
+    ".ruru/planning/kb-enrichment/02a-mode-context-synthesizer.md",
+    ".ruru/planning/kb-enrichment/02b-customizable-synthesis-plan.md", # Describes this system
+    ".ruru/planning/kb-enrichment/02c-library-type-mapping-plan.md", # Describes mapping file
+    ".ruru/modes/agent-context-synthesizer/agent-context-synthesizer.mode.md",
+    ".ruru/config/library-types.json", # Input mapping file
+    ".ruru/templates/synthesis-task-sets/" # Location of task definitions
 ]
+objective = "Define and orchestrate the tasks for `agent-context-synthesizer` to generate synthesized context documents based on prepared source markdown files, using **customizable task sets** defined in TOML files according to library type."
+scope = "Defines input file selection logic, delegation message construction based on dynamically loaded task definitions, and output locations for the AI synthesis phase."
+# --- Plan Specific Fields ---
+synthesizer_mode_slug = "agent-context-synthesizer"
+source_directory_template = "kb/{library_name}/" # Where initial structured MD files are
+target_directory_template = ".ruru/modes/{mode_slug}/kb/{library_name}/synthesized/" # Where synthesized MD files will be saved
+library_type_mapping_file = ".ruru/config/library-types.json"
+task_set_template_dir = ".ruru/templates/synthesis-task-sets/"
+fallback_task_set_file = "generic-tasks.toml"
 +++
 
-# KB Enrichment Plan: Phase 2 - AI Synthesis
+# KB Enrichment Plan: Phase 2 - AI Synthesis using Customizable Task Sets (Refined)
 
-**Objective:** Use the `[synthesizer_mode]` to process the structured markdown files from `[source_directory_template]` and generate high-level, synthesized context documents, saving them to `[target_directory_template]`.
+**Objective:** Use the `[synthesizer_mode_slug]` (`agent-context-synthesizer`) to process structured markdown files from `[source_directory_template]`. Generate synthesized context documents based on a **dynamically selected set of tasks** defined in TOML files, tailored to the library's type. Save outputs to the target mode's KB directory at `[target_directory_template]`.
 
 **Procedure (for a given `[library_name]` and `[mode_slug]`):**
 
-1.  **Prepare Target Directory (Coordinator Task):**
-    *   Tool: `execute_command`
-    *   Action: Ensure the target directory `[target_directory_template]` exists. Use `mkdir -p [target_directory_template]` (Check OS Rule 05). Handle errors.
+1.  **Determine Library Type (Coordinator Task):**
+    *   **Description:** Find the type classification for the current library.
+    *   **Tool:** `read_file`
+    *   **Action:**
+        *   Read the mapping file: `<read_file><path>[library_type_mapping_file]</path></read_file>`. Handle read/parse errors (log, maybe default to "generic", stop if critical).
+        *   Parse the JSON content into `library_type_map`.
+        *   Look up the type: `[library_type] = library_type_map[library_name] || "[fallback_task_set_file without .toml]";` (Default to 'generic').
+    *   **Output:** `[library_type]` string.
 
-2.  **Execute Synthesis Tasks (Coordinator Task - Looping through `synthesis_tasks`):**
-    *   For each `task` defined in the `synthesis_tasks` list above:
-        *   **Identify Input Files:** Use `list_files` to find all `.md` files within the relevant `[source_directory_template]/[category]/` directories specified in `task.input_categories`. Create a list of these input file paths `[Input File List]`. If no input files found for the required categories, log a warning and skip this task.
-        *   **Delegate Synthesis:**
+2.  **Load Synthesis Task Set (Coordinator Task):**
+    *   **Description:** Read the TOML file defining the synthesis tasks for the determined library type.
+    *   **Tool:** `read_file`
+    *   **Action:**
+        *   Construct the task set file path: `[task_set_file_path] = "[task_set_template_dir]/[library_type]-tasks.toml"`.
+        *   Check if this file exists using `<list_files>`.
+        *   If it does not exist, construct the fallback path: `[task_set_file_path] = "[task_set_template_dir]/[fallback_task_set_file]"`. Log a warning that fallback is being used. Check if *this* exists; stop if even the generic fallback is missing.
+        *   Read the selected task set file: `<read_file><path>[task_set_file_path]</path></read_file>`. Handle read errors (log, stop).
+        *   **Parse the TOML content:** Use a reliable TOML parser. Store the parsed data, specifically the `[[tasks]]` array, as `[synthesis_tasks_list]`. Handle TOML parsing errors (log, stop). Validate that `[[tasks]]` exists and is an array.
+    *   **Output:** `[synthesis_tasks_list]` array containing task definition objects.
+
+3.  **Prepare Target Directory (Coordinator Task):**
+    *   **Description:** Ensure the output directory for synthesized files exists.
+    *   **Tool:** `execute_command`
+    *   **Action:** Execute `mkdir -p "[target_directory_template]"` (Handle path quoting; Check OS Rule 05). Handle errors. Log action (Rule `08`).
+
+4.  **Execute Synthesis Tasks (Coordinator Task - Looping through `[synthesis_tasks_list]`):**
+    *   **Description:** Iterate through the dynamically loaded tasks and delegate each one to the synthesizer mode.
+    *   For each `task` object in `[synthesis_tasks_list]`:
+        *   **A. Identify Input Files:**
+            *   Tool: `list_files`
+            *   Action:
+                *   Initialize `[Input File List] = []`.
+                *   For each `category` string in `task.input_categories`:
+                    *   Construct path: `[Category Path]` = `[source_directory_template]/[category]/`.
+                    *   Use `<list_files><path>[Category Path]</path><recursive>false</recursive></list_files>` to get `.md` files. Handle errors gracefully (log warning, continue).
+                    *   Append full paths of found `.md` files to `[Input File List]`.
+                *   If `[Input File List]` is empty, log warning: "Skipping synthesis task '[task.task_id]' for [library_name] as no input files were found in categories: [task.input_categories.join(', ')]". **Continue to the next task in the loop.**
+        *   **B. Delegate Synthesis Task:**
             *   Tool: `new_task`
-            *   Mode: `[synthesizer_mode]`
-            *   Message:
-                ```
-                🧠 Synthesize KB Context:
-                Task: [task.description]
-                Library: [library_name]
-                Target Mode: [mode_slug]
-                Input File Paths: [List of input file paths]
-                Output File Path: [target_directory_template]/[task.output_file]
+            *   Mode: `[synthesizer_mode_slug]`
+            *   Message Construction:
+                *   `[Output File Path]` = `[target_directory_template]/[task.output_filename]`
+                *   Generate the delegation message using data from the current `task` object:
+                    ```xml
+                    <new_task>
+                      <mode>[synthesizer_mode_slug]</mode>
+                      <message>
+                      🧠 Synthesize KB Context:
+                      Task ID: [task.task_id]
+                      Task Description: [task.description]
+                      Library: [library_name]
+                      Target Mode: [mode_slug]
+                      Output File Path: [Output File Path]
+                      Input File Paths:
+                      [List each path from [Input File List] on a new line]
 
-                Instructions: Read the content of the input files. Generate a concise, well-structured Markdown document summarizing the requested information ([task.description]). Focus on providing high-level understanding, key takeaways, and connections between concepts relevant to the library. Include relevant keywords and concepts. Format the output as Markdown with a TOML frontmatter block containing 'title', 'summary' (1-2 sentences), and 'tags'. Write the final synthesized content to the specified output file path.
-                ```
-            *   Action: Delegate the task. Await completion (`attempt_completion`). Handle errors reported by the synthesizer (log, potentially retry or skip).
+                      Synthesis Instructions (Focus): [task.prompt_focus]
 
-**Completion:** All defined synthesis tasks have been attempted. Synthesized `.md` files should exist in `[target_directory_template]`. Proceed to Phase 3 (`03-kb-organization-indexing.md`).
+                      Please read the input files, generate the synthesized Markdown content with appropriate TOML frontmatter (title, summary, tags) according to the focus instructions, and write the result to the output file path. Report success or failure.
+                      </message>
+                    </new_task>
+                    ```
+            *   Action: Delegate the task. Log delegation (Rule `08`), including the `task.task_id`. Await completion (`attempt_completion`).
+            *   Error Handling: If `agent-context-synthesizer` reports failure for a specific task, log the error details (including `task.task_id`). Decide whether to continue with the next task or stop the entire phase (potentially configurable). If `new_task` itself fails, log and report error.
+
+**Completion:** All defined synthesis tasks from the selected TOML task set file have been attempted. Synthesized `.md` files should exist in `[target_directory_template]`. Proceed to Phase 3 (`03-kb-organization-indexing.md`).

@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-04-22"
+last_generated = "2025-04-25"
 +++
 
 # Available Modes Summary
@@ -36,6 +36,7 @@ This document provides a summary of available specialist modes for delegation.
 - **agent-context-discovery** (🕵️ Discovery Agent): Specialized assistant for exploring the project workspace, analyzing files, and retrieving context.
 - **agent-context-resolver** (📖 Context Resolver): Specialist in reading project documentation (task logs, decision records, planning files) to provide concise, accurate summaries of the current project state. Acts as the primary information retrieval and synthesis service for other modes.
 - **agent-file-repair** (🩹 File Repair Specialist): Attempts to fix corrupted or malformed text files (such as source code, JSON, YAML, configs) by addressing common issues like encoding errors, basic syntax problems, truncation, and invalid characters.
+- **agent-mcp-manager** (🛠️ MCP Manager Agent): Guides the user through installing, configuring, and potentially managing MCP servers interactively.
 - **agent-research** (🌐 Research & Context Builder): Researches topics using web sources, code repositories, and local files, evaluates sources, gathers data, and synthesizes findings into structured summaries with citations.
 - **agent-session-summarizer** (⏱️ Session Summarizer): Reads project state artifacts (task logs, plans) to generate a concise handover summary.
 
@@ -116,9 +117,9 @@ This document provides a summary of available specialist modes for delegation.
 - **cms-directus** (🎯 Directus Specialist): You are Roo Directus Specialist, responsible for implementing sophisticated solutions using the Directus headless CMS (typically v9+).
 - **cms-wordpress** (🇼 WordPress Specialist): Responsible for implementing and customizing WordPress solutions.
 - **dev-api** (🔌 API Developer): Expert worker mode for designing, implementing, testing, documenting, and securing APIs (RESTful, GraphQL, etc.).
+- **dev-core-web** (⌨️ Core Web Developer): Implements foundational UI and interactions using core web technologies: semantic HTML, modern CSS, and vanilla JavaScript (ES6+).
 - **dev-eslint** (📏 ESLint Specialist): Responsible for implementing sophisticated linting solutions using ESLint's modern configuration system.
 - **dev-fixer** (🩺 Bug Fixer): Expert software debugger specializing in systematic problem diagnosis and resolution.
-- **dev-general** (🖥️ Frontend Developer): Generalist for foundational UI development (HTML, CSS, Vanilla JS), basic interactivity, API integration, and coordinating/delegating to frontend specialists.
 - **dev-git** (🦕 Git Manager): Executes Git commands safely and accurately based on instructions.
 - **dev-react** (⚛️ React Specialist): Specializes in building modern React applications using functional components, hooks, state management, performance optimization, and TypeScript integration.
 - **dev-solver** (🧩 Complex Problem Solver): Systematically analyzes complex problems, identifies root causes, explores solutions, and provides actionable recommendations.

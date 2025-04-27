@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-04-24"
+last_generated = "2025-04-26"
 +++
 
 # Available Modes Summary
@@ -132,6 +132,7 @@ This document provides a summary of available specialist modes for delegation.
 - **dev-eslint** (📏 ESLint Specialist): \[No description provided\]
 - **dev-fixer** (🩺 Bug Fixer): \[No description provided\]
 - **dev-git** (🦕 Git Manager): \[No description provided\]
+- **dev-python** (🐍 Python Developer): \[No description provided\]
 - **dev-react** (⚛️ React Specialist): \[No description provided\]
 - **dev-solver** (🧩 Complex Problem Solver): \[No description provided\]
 
@@ -155,3 +156,9 @@ This document provides a summary of available specialist modes for delegation.
 - **prime-coordinator** (🚜 Prime Coordinator): \[No description provided\]
 - **prime-dev** (🐹 Prime Dev): \[No description provided\]
 - **prime-txt** (✒️ Prime Documenter): \[No description provided\]
+
+## ❓ Other Modes
+
+- **MODE-DEV-GOLANG** (🐿️ Golang Developer): \[No description provided\]
+- **MODE-SPEC-BUN** (🐇 Bun Specialist): \[No description provided\]
+- **MODE-SPEC-REPOMIX** (🧬 Repomix Specialist): \[No description provided\]
