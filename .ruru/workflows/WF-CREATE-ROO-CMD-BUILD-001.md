@@ -173,7 +173,18 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
     *   **Validation/QA:** Check for non-zero exit code or error messages (e.g., authentication failure, non-fast-forward).
     *   **Error Handling:** If errors occur, analyze output. Check network, authentication (`gh auth status` might be relevant if using HTTPS), and whether the local branch is behind the remote. Report failure.
 
-*   **Step 8: Execute Build Process (Coordinator delegates to Executor via `execute_command`)**
+*   **Step 8: Build Mode Collections Summary (Coordinator delegates to Executor via `execute_command`)**
+    *   **Description:** Run the script to build the mode collections summary file.
+    *   **Tool:** `execute_command` (using `node`)
+    *   **Inputs Provided by Coordinator:** None needed for the basic command.
+    *   **Command Example:** `node scripts/build_mode_summary.js`
+    *   **Instructions for Executor:** Execute the provided `node` command.
+    *   **Expected Output from Executor:** Terminal output indicating success or failure, exit code 0 for success.
+    *   **Coordinator Action (Post-Execution):** Review output and exit code.
+    *   **Validation/QA:** Check for success messages, non-zero exit code.
+    *   **Error Handling:** If errors occur, analyze script output. Check file paths, permissions, tool availability (`node`). Report failure or attempt troubleshooting.
+
+*   **Step 9: Execute Build Process (Coordinator delegates to Executor via `execute_command`)**
     *   **Description:** Run the automated script (`scripts/create_build.js`) to create the zip archive.
     *   **Tool:** `execute_command` (using `node`)
     *   **Inputs Provided by Coordinator:** `BUILD_VERSION`, `BUILD_CODENAME`, path to temp README (`.tmp/README.md`), path to temp CHANGELOG (`.tmp/CHANGELOG.md`).
@@ -184,12 +195,43 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
     *   **Validation/QA:** Check for success messages, non-zero exit code. Use `list_files` on `.builds/` to confirm the zip file exists with the correct name (e.g., `roo-commander-${BUILD_VERSION}-${BUILD_CODENAME}.zip`).
     *   **Error Handling:** If errors occur, analyze script output. Check file paths, permissions, tool availability (`node`, `zip`). Report failure or attempt troubleshooting.
 
-*   **Step 9: Create GitHub Release (Coordinator delegates to Executor via `execute_command`)**
+*   **Step 10: Execute Kilocode Build (Coordinator delegates to Executor via `execute_command`)**
+    *   **Description:** Run the script to create the Kilocode variant build.
+    *   **Tool:** `execute_command` (using `node`)
+    *   **Inputs Provided by Coordinator:** None needed for the basic command.
+    *   **Command Example:** `node scripts/create_kilocode_build.js`
+    *   **Instructions for Executor:** Execute the provided `node` command.
+    *   **Expected Output from Executor:** Terminal output indicating success or failure, exit code 0 for success.
+    *   **Coordinator Action (Post-Execution):** Review output and exit code.
+    *   **Validation/QA:** Check for success messages, non-zero exit code.
+    *   **Error Handling:** If errors occur, analyze script output. Check file paths, permissions, tool availability (`node`). Report failure or attempt troubleshooting.
+
+*   **Step 11: Build specialized mode collections (Coordinator delegates to Executor via `execute_command`)**
+    *   **Description:** Run the script to build specialized mode collections based on `scripts/build_collections.json`.
+    *   **Tool:** `execute_command` (using `node`)
+    *   **Inputs Provided by Coordinator:** None needed for the basic command.
+    *   **Command Example:** `node scripts/run_collection_builds.js`
+    *   **Instructions for Executor:** Execute the provided `node` command.
+    *   **Expected Output from Executor:** Terminal output indicating success or failure for each collection, exit code 0 for overall success.
+    *   **Coordinator Action (Post-Execution):** Review output and exit code.
+    *   **Validation/QA:** Check for success messages, non-zero exit code. Verify build artifacts exist.
+    *   **Error Handling:** If errors occur, analyze script output. Check file paths, permissions, tool availability (`node`). Report failure or attempt troubleshooting.
+*   **Step 13: Create GitHub Release (Coordinator delegates to Executor via `execute_command`)**
     *   **Description:** Create a new release on GitHub and upload the build artifact. **Important:** This step relies on the commit from Step 6 being pushed successfully in Step 7, as the tag `${BUILD_VERSION}` will be created based on the latest commit on the main branch.
     *   **Tool:** `execute_command` (using `gh` CLI)
     *   **Inputs Provided by Coordinator:**
         *   `BUILD_VERSION` (e.g., "v7.0.4")
         *   Target Repository (e.g., `jezweb/roo-commander`)
+*   **Step 11: Build specialized mode collections (Coordinator delegates to Executor via `execute_command`)**
+    *   **Description:** Run the script to build specialized mode collections based on `scripts/build_collections.json`.
+    *   **Tool:** `execute_command` (using `node`)
+    *   **Inputs Provided by Coordinator:** None needed for the basic command.
+    *   **Command Example:** `node scripts/run_collection_builds.js`
+    *   **Instructions for Executor:** Execute the provided `node` command.
+    *   **Expected Output from Executor:** Terminal output indicating success or failure for each collection, exit code 0 for overall success.
+    *   **Coordinator Action (Post-Execution):** Review output and exit code.
+    *   **Validation/QA:** Check for success messages, non-zero exit code. Verify build artifacts exist for each collection.
+    *   **Error Handling:** If errors occur, analyze script output. Check file paths, permissions, tool availability (`node`). Report failure or attempt troubleshooting.
         *   Release Title (e.g., `${BUILD_VERSION} (${BUILD_CODENAME})`)
         *   Path to temporary CHANGELOG file (e.g., `.tmp/CHANGELOG.md`)
         *   Path to the build artifact zip file (e.g., `.builds/roo-commander-${BUILD_VERSION}-${BUILD_CODENAME}.zip`)
