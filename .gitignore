@@ -32,3 +32,9 @@ mcp-servers/*/*
 repomix-output-*.md
 
 *llms.txt
+
+# Build artifacts
+build/
+
+# Archive directory
+.ruru/archive/

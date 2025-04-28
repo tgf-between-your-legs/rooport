@@ -1,6 +1,3 @@
-Okay, let's start by creating the top-level `README.md` for the new Roo Commander Knowledge Base. This file will serve as the main entry point and guide for navigating the documentation.
-
-```markdown
 +++
 # --- Basic Metadata ---
 id = "KB-RC-GUIDE-README"
@@ -73,7 +70,3 @@ Contributions and feedback to improve this Knowledge Base are welcome! Please re
 ## 7. Related Documentation 🔗
 
 *   [Main Project README](.ruru/docs/guides/README.md)
-
----
-
-This Knowledge Base aims to be the definitive resource for understanding and utilizing the Roo Commander framework effectively.
