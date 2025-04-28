@@ -17,7 +17,7 @@ tags = [
 owner = "Roo Commander"
 related_docs = [
     ".ruru/workflows/WF-MODE-KB-ENRICHMENT-002.md", # General enrichment workflow
-    "process_llms_json.js", # The script used
+    "scripts/process_llms_json.js", # The script used
     ".roo/rules/01-standard-toml-md-format.md",
     ".roo/rules/04-mdtm-workflow-initiation.md",
     ".roo/rules/08-logging-procedure-simplified.md",
@@ -25,13 +25,13 @@ related_docs = [
     ".ruru/processes/acqa-process.md",
     ".ruru/processes/afr-process.md",
     ".ruru/processes/pal-process.md",
-    ".ruru/planning/enhance_context7_source_info.md" # Added planning doc reference
+    ".ruru/docs/planning/enhance_context7_source_info.md" # Added planning doc reference
 ]
 related_templates = []
 
 # --- Workflow Specific Fields ---
-objective = "Define the step-by-step procedure for enriching an *existing* specialist mode's KB using AI-processed context derived *specifically* from a Context7 base URL via the `process_llms_json.js` script. This includes fetching source metadata, storing source information (URL, derived `llms.json` URL, and fetched metadata) in `source_info.json`, and generating a summary rule file." # Updated objective
-scope = "Covers the end-to-end process for enriching an *existing* mode's KB using a Context7 URL. It includes gathering the target mode slug and base URL, executing the `process_llms_json.js` script, fetching source metadata (via MCPs or manually), storing the source information and metadata in `kb/context7/source_info.json`, generating a Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring the KB usage strategy document exists, updating the mode definition file, performing QA, facilitating user review, and cleanup." # Updated scope
+objective = "Define the step-by-step procedure for enriching an *existing* specialist mode's KB using AI-processed context derived *specifically* from a Context7 base URL via the `scripts/process_llms_json.js` script. This includes fetching source metadata, storing source information (URL, derived `llms.json` URL, and fetched metadata) in `source_info.json`, and generating a summary rule file." # Updated objective
+scope = "Covers the end-to-end process for enriching an *existing* mode's KB using a Context7 URL. It includes gathering the target mode slug and base URL, executing the `scripts/process_llms_json.js` script, fetching source metadata (via MCPs or manually), storing the source information and metadata in `kb/context7/source_info.json`, generating a Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring the KB usage strategy document exists, updating the mode definition file, performing QA, facilitating user review, and cleanup." # Updated scope
 roles = [
     "User", "Coordinator (Roo Commander)",
     "Mode Structure Agent (e.g., mode-maintainer, technical-writer)",
@@ -54,7 +54,7 @@ success_criteria = [
 ]
 failure_criteria = [
     "Failure to get valid target mode or Context7 base URL.",
-    "Failure executing the `process_llms_json.js` script.",
+    "Failure executing the `scripts/process_llms_json.js` script.",
     "Failure fetching source metadata (Step 2).", # Renumbered criteria
     "Failure storing the source info and metadata in `source_info.json` (Step 4).", # Criteria & step number ok
     "Failure generating the Context7 summary rule (Step 5).", # Step number ok
@@ -77,11 +77,11 @@ context_type = "workflow_definition"
 
 ## 1. Objective 🎯
 
-To define the step-by-step procedure for enriching an **existing** specialist mode's KB using AI-processed context derived **specifically** from a Context7 base URL via the `process_llms_json.js` script. This includes fetching source metadata, storing source information (URL, derived `llms.json` URL, and fetched metadata) in `source_info.json`, and generating a summary rule file.
+To define the step-by-step procedure for enriching an **existing** specialist mode's KB using AI-processed context derived **specifically** from a Context7 base URL via the `scripts/process_llms_json.js` script. This includes fetching source metadata, storing source information (URL, derived `llms.json` URL, and fetched metadata) in `source_info.json`, and generating a summary rule file.
 
 ## 2. Scope ↔️
 
-This workflow covers the end-to-end process for enriching an **existing** mode's KB using a Context7 URL. It includes gathering the target mode slug and base URL, executing the `process_llms_json.js` script, fetching source metadata (via MCPs or manually), storing the source information and metadata in `kb/context7/source_info.json`, generating a Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring the KB usage strategy document exists, updating the mode definition file, performing QA, facilitating user review, and cleanup.
+This workflow covers the end-to-end process for enriching an **existing** mode's KB using a Context7 URL. It includes gathering the target mode slug and base URL, executing the `scripts/process_llms_json.js` script, fetching source metadata (via MCPs or manually), storing the source information and metadata in `kb/context7/source_info.json`, generating a Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring the KB usage strategy document exists, updating the mode definition file, performing QA, facilitating user review, and cleanup.
 
 ## 3. Roles & Responsibilities 👤
 
@@ -97,7 +97,7 @@ This workflow covers the end-to-end process for enriching an **existing** mode's
 
 *   The target specialist mode (`[mode_slug]`) exists.
 *   The user can provide a valid Context7 base URL.
-*   The `process_llms_json.js` script exists in the workspace root and is functional (using `process.argv` for args).
+*   The `scripts/process_llms_json.js` script exists in the workspace root and is functional (using `process.argv` for args).
 *   Network access is available for the script to fetch the `llms.json` file and for MCPs to fetch metadata.
 *   Required agents (`mode-maintainer`, `agent-context-condenser`, `prime-dev`, etc.) are operational.
 *   Relevant MCP servers (for file operations, Vertex AI, potentially scraping) are connected (preferred).
@@ -105,9 +105,9 @@ This workflow covers the end-to-end process for enriching an **existing** mode's
 
 ## 5. Reference Documents & Tools 📚🛠️
 
-*   Processing Script: `process_llms_json.js`
+*   Processing Script: `scripts/process_llms_json.js`
 *   General Enrichment Workflow: `.ruru/workflows/WF-MODE-KB-ENRICHMENT-002.md`
-*   Source Info Structure: `.ruru/planning/enhance_context7_source_info.md`
+*   Source Info Structure: `.ruru/docs/planning/enhance_context7_source_info.md`
 *   Relevant Rules: `.roo/rules/`, `.roo/rules-[mode_slug]/` (TOML format, Logging, MCP Usage, etc.)
 *   Relevant Processes: ACQA, AFR, PAL
 *   **MCP Tools (Preferred):**
@@ -153,7 +153,7 @@ This workflow covers the end-to-end process for enriching an **existing** mode's
 *   **Step 3: Execute Processing Script (Coordinator)** # Renumbered, Command Updated
     *   **3.1:** Define `[context7_output_dir] = .ruru/modes/[mode_slug]/kb/context7`.
     *   **3.2:** Construct the command string. Include `--tokens` argument. Use fetched value if available, otherwise use fallback.
-        *   `cmd = "node process_llms_json.js --baseUrl \"[context7_base_url]\" --outputDir \"[context7_output_dir]\""`
+        *   `cmd = "node scripts/process_llms_json.js --baseUrl \"[context7_base_url]\" --outputDir \"[context7_output_dir]\""`
         *   If `[fetched_tokens]` has a value: `cmd += " --tokens \"[fetched_tokens]\""`
         *   Else: `cmd += " --tokens \"10000000\""` # Fallback value
         *   *(Coordinator Note: Using fetched token count if available from Step 2, otherwise defaulting to 10,000,000 as determined in Step 2's fallback logic.)*
@@ -168,7 +168,7 @@ This workflow covers the end-to-end process for enriching an **existing** mode's
         *   Define `[source_info_path] = .ruru/modes/[mode_slug]/kb/context7/source_info.json`.
         *   Construct `[llms_json_url] = [context7_base_url]/llms.json`.
         *   Retrieve the fetched/provided metadata from Step 2 (e.g., `[fetched_original_url]`, `[fetched_tokens]`, `[fetched_snippets]`, `[fetched_last_updated]`). Handle cases where values might be null or empty if fetching/input failed.
-        *   Prepare JSON content according to the structure in `.ruru/planning/enhance_context7_source_info.md`:
+        *   Prepare JSON content according to the structure in `.ruru/docs/planning/enhance_context7_source_info.md`:
             ```json
             {
               "baseUrl": "[context7_base_url]",
@@ -314,4 +314,4 @@ This workflow covers the end-to-end process for enriching an **existing** mode's
 *   v1.3 (2025-04-27): Added Step 3 to store Context7 base URL in `kb/context7/source_info.json`. Removed URL mention from README update step (now Step 7). Renumbered subsequent steps and updated references. Added `source_info.json` to related context in summary rule (Step 4) and checks/postconditions.
 *   v1.2 (2025-04-27): Added Step 3 to generate a Context7 summary rule file (`.roo/rules-[mode_slug]/05-context7-summary.md`). Renumbered subsequent steps and updated references.
 *   v1.1 (2025-04-27): Removed outdated references to master `index.toml`. Workflow now relies solely on the script-generated `_index.json` within the `context7` directory and updates README accordingly. Renumbered steps after removing Step 3.
-*   v1.0 (2025-04-27): Initial version created by extracting Context7 logic from WF-MODE-KB-ENRICHMENT-002 (v2.2). Relies on `process_llms_json.js` script.
+*   v1.0 (2025-04-27): Initial version created by extracting Context7 logic from WF-MODE-KB-ENRICHMENT-002 (v2.2). Relies on `scripts/process_llms_json.js` script.

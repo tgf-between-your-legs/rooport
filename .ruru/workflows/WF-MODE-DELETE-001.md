@@ -8,7 +8,7 @@ created_date = "2025-04-27"
 last_updated = "2025-04-27"
 tags = ["workflow", "mode", "delete", "configuration", "prime"]
 actors = ["prime-coordinator", "prime-dev", "user"]
-related_context = [".ruru/modes/", ".roo/rules-*/", ".roomodes", "build_roomodes.js", ".ruru/config/build_collections.json"]
+related_context = [".ruru/modes/", ".roo/rules-*/", ".roomodes", "scripts/build_roomodes.js", ".ruru/config/build_collections.json"]
 +++
 
 # Workflow: Delete Custom Mode
@@ -50,7 +50,7 @@ related_context = [".ruru/modes/", ".roo/rules-*/", ".roomodes", "build_roomodes
     *   If found, `prime-coordinator` delegates the removal of the mode slug entry from the relevant collection(s) in `.ruru/config/build_collections.json` to `prime-dev` via `new_task`. Await completion.
 
 6.  **Run Build Script:**
-    *   `prime-coordinator` uses `<execute_command>` to run the build script to update `.roomodes` and the mode summary: `node build_roomodes.js`
+    *   `prime-coordinator` uses `<execute_command>` to run the build script to update `.roomodes` and the mode summary: `node scripts/build_roomodes.js`
 
 7.  **Report Completion:**
     *   `prime-coordinator` reports the successful deletion and configuration updates to the user via `<attempt_completion>`.

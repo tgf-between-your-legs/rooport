@@ -16,7 +16,7 @@ tags = [
 owner = "Roo Commander"
 related_docs = [
     ".ruru/workflows/WF-CONTEXT7-ENRICHMENT-001.md", # Source workflow
-    "process_llms_json.js", # The script used
+    "scripts/process_llms_json.js", # The script used
     ".roo/rules/01-standard-toml-md-format.md",
     ".roo/rules/04-mdtm-workflow-initiation.md",
     ".roo/rules/08-logging-procedure-simplified.md",
@@ -28,7 +28,7 @@ related_docs = [
 related_templates = []
 
 # --- Workflow Specific Fields ---
-objective = "Define the step-by-step procedure for *refreshing* an existing specialist mode's Context7 KB. This involves cleaning the existing directory, retrieving the source URL, optionally attempting to fetch source details (like token count, update date) via MCP/Crawling or user input, falling back to assumptions if needed, re-running the `process_llms_json.js` script, and updating related artifacts." # Updated objective
+objective = "Define the step-by-step procedure for *refreshing* an existing specialist mode's Context7 KB. This involves cleaning the existing directory, retrieving the source URL, optionally attempting to fetch source details (like token count, update date) via MCP/Crawling or user input, falling back to assumptions if needed, re-running the `scripts/process_llms_json.js` script, and updating related artifacts." # Updated objective
 scope = "Covers the end-to-end process for *refreshing* an existing mode's Context7 KB. Includes gathering target mode, retrieving and confirming the source URL, optionally fetching/validating source details (with fallback), cleaning the existing `kb/context7` directory, executing the processing script, generating/updating the Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring KB usage strategy exists, updating mode definition context, QA, user review, and cleanup." # Updated scope
 roles = [
     "User", "Coordinator (Roo Commander)",
@@ -50,7 +50,7 @@ success_criteria = [
 failure_criteria = [
     "Failure to get valid target mode or confirm Context7 base URL/detail status.", # Updated criteria
     "Failure cleaning the existing `kb/context7` directory (permission errors).",
-    "Failure executing the `process_llms_json.js` script.",
+    "Failure executing the `scripts/process_llms_json.js` script.",
     "Failure generating the Context7 summary rule.",
     "Failure during KB README or mode definition updates.",
     "Failure to ensure usage strategy document exists.",
@@ -71,11 +71,11 @@ context_type = "workflow_definition"
 
 ## 1. Objective 🎯
 
-To define the step-by-step procedure for **refreshing** an existing specialist mode's KB using AI-processed context derived **specifically** from a Context7 base URL. This involves cleaning the existing directory, retrieving and confirming the source URL, optionally attempting to fetch source details (like token count, update date) via MCP/Crawling or user input, falling back to assumptions if needed, re-running the `process_llms_json.js` script, and updating related artifacts including the summary rule file. # Updated objective
+To define the step-by-step procedure for **refreshing** an existing specialist mode's KB using AI-processed context derived **specifically** from a Context7 base URL. This involves cleaning the existing directory, retrieving and confirming the source URL, optionally attempting to fetch source details (like token count, update date) via MCP/Crawling or user input, falling back to assumptions if needed, re-running the `scripts/process_llms_json.js` script, and updating related artifacts including the summary rule file. # Updated objective
 
 ## 2. Scope ↔️
 
-This workflow covers the end-to-end process for **refreshing** an existing mode's Context7 KB. It includes gathering the target mode slug, retrieving and confirming the source URL, optionally attempting to fetch/validate source details (like token count, update date) using MCP/Crawling or user input (with fallback to assumptions), cleaning the existing `kb/context7` directory, executing the `process_llms_json.js` script, generating/updating the Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring the KB usage strategy document exists, updating the mode definition file, performing QA, facilitating user review, and cleanup. # Updated scope
+This workflow covers the end-to-end process for **refreshing** an existing mode's Context7 KB. It includes gathering the target mode slug, retrieving and confirming the source URL, optionally attempting to fetch/validate source details (like token count, update date) using MCP/Crawling or user input (with fallback to assumptions), cleaning the existing `kb/context7` directory, executing the `scripts/process_llms_json.js` script, generating/updating the Context7 summary rule, verifying the generated KB index (`kb/context7/_index.json`), updating the KB README, ensuring the KB usage strategy document exists, updating the mode definition file, performing QA, facilitating user review, and cleanup. # Updated scope
 
 ## 3. Roles & Responsibilities 👤
 
@@ -89,7 +89,7 @@ This workflow covers the end-to-end process for **refreshing** an existing mode'
 
 *   The target specialist mode (`[mode_slug]`) exists.
 *   The target mode's Context7 source info file (`.ruru/modes/[mode_slug]/kb/context7/source_info.json`) exists and contains the `"baseUrl"` key (or the user can provide it).
-*   The `process_llms_json.js` script exists in the workspace root and is functional (using `process.argv` for args).
+*   The `scripts/process_llms_json.js` script exists in the workspace root and is functional (using `process.argv` for args).
 *   Network access is available for the script and potentially for fetching/crawling tools. # Updated precondition
 *   Required agents (`mode-maintainer`, `agent-context-condenser`, potentially crawling specialists) are operational. # Updated precondition
 *   Relevant MCP servers (for file operations, potentially crawling/fetching like `vertex-ai-mcp-server`) are connected (preferred). # Updated precondition
@@ -97,7 +97,7 @@ This workflow covers the end-to-end process for **refreshing** an existing mode'
 
 ## 5. Reference Documents & Tools 📚🛠️
 
-*   Processing Script: `process_llms_json.js`
+*   Processing Script: `scripts/process_llms_json.js`
 *   Source Enrichment Workflow: `.ruru/workflows/WF-CONTEXT7-ENRICHMENT-001.md`
 *   Relevant Rules: `.roo/rules/`, `.roo/rules-[mode_slug]/` (TOML format, Logging, MCP Usage, OS Aware Commands, etc.)
 *   Relevant Processes: ACQA, AFR, PAL
@@ -136,7 +136,7 @@ This workflow covers the end-to-end process for **refreshing** an existing mode'
     *   **1.B.4:** Log the execution attempt. Note: This command might fail harmlessly if the directory doesn't exist; proceed unless there's a permission error. Handle permission errors (Log, **Stop**).
 
 *   **Step 2: Execute Processing Script (Coordinator)**
-    *   **2.1:** Use `execute_command` to run the script: `node process_llms_json.js --baseUrl "[context7_base_url]" --outputDir "[context7_output_dir]"`. Ensure OS-aware command generation (Rule `05`).
+    *   **2.1:** Use `execute_command` to run the script: `node scripts/process_llms_json.js --baseUrl "[context7_base_url]" --outputDir "[context7_output_dir]"`. Ensure OS-aware command generation (Rule `05`).
     *   **2.2:** Explain the command to the user. Note: The script will process the `llms.json` found at the `baseUrl`. If details like token count were not explicitly fetched/provided (`[detail_status] == "assumed"`), the script's behavior might rely on internal defaults or assumptions based on the fetched JSON structure. (Script modification might be needed separately if it requires explicit token counts).
     *   **2.3:** Check the command's exit code. If non-zero, log the error and output, inform the user, and **Stop** the workflow.
     *   **2.4:** Log successful execution of the script and generation of `kb/context7/_index.json`.

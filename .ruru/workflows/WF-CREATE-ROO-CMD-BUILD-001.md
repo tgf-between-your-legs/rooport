@@ -13,7 +13,7 @@ owner = "Roo Commander"
 related_docs = [
   ".builds/README.md",
   ".ruru/docs/standards/roo-commander-version-naming-convention.md",
-  "create_build.js" # Corrected reference to the JS script
+  "scripts/create_build.js" # Corrected reference to the JS script
 ]
 related_templates = []
 
@@ -82,14 +82,14 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
 *   The `.builds/` directory exists.
 *   The `.builds/README.md` file exists (or will be created on the first run).
 *   The `.ruru/docs/standards/roo-commander-version-naming-convention.md` document exists and is up-to-date.
-*   The `create_build.js` script exists and performs the archiving correctly.
+*   The `scripts/create_build.js` script exists and performs the archiving correctly.
 *   Necessary tools (`git`, `node`, `gh` CLI) are available and configured (including Git/GitHub authentication).
 *   The local Git repository is clean or has only the intended changes for the release staged.
 
 ## 5. Reference Documents & Tools 📚🛠️
 *   `.builds/README.md`: Log file for build history.
 *   `.ruru/docs/standards/roo-commander-version-naming-convention.md`: Defines version numbers and codenames.
-*   `create_build.js`: The script automating the build process.
+*   `scripts/create_build.js`: The script automating the build process.
 *   `.tmp/CHANGELOG.md`: Temporary file holding the changelog for the current build.
 *   `.tmp/README.md`: Temporary file holding the distribution README for the current build.
 *   `git` (Git CLI): Tool for staging, committing, and pushing changes.
@@ -174,10 +174,10 @@ validation_notes = "Workflow needs implementation and testing, potentially invol
     *   **Error Handling:** If errors occur, analyze output. Check network, authentication (`gh auth status` might be relevant if using HTTPS), and whether the local branch is behind the remote. Report failure.
 
 *   **Step 8: Execute Build Process (Coordinator delegates to Executor via `execute_command`)**
-    *   **Description:** Run the automated script (`create_build.js`) to create the zip archive.
+    *   **Description:** Run the automated script (`scripts/create_build.js`) to create the zip archive.
     *   **Tool:** `execute_command` (using `node`)
     *   **Inputs Provided by Coordinator:** `BUILD_VERSION`, `BUILD_CODENAME`, path to temp README (`.tmp/README.md`), path to temp CHANGELOG (`.tmp/CHANGELOG.md`).
-    *   **Command Example:** `node create_build.js ${BUILD_VERSION} ${BUILD_CODENAME} .tmp/README.md .tmp/CHANGELOG.md`
+    *   **Command Example:** `node scripts/create_build.js ${BUILD_VERSION} ${BUILD_CODENAME} .tmp/README.md .tmp/CHANGELOG.md`
     *   **Instructions for Executor:** Execute the provided `node` command.
     *   **Expected Output from Executor:** Terminal output indicating success (including archive path) or failure, exit code 0 for success.
     *   **Coordinator Action (Post-Execution):** Review output and exit code. Note the final archive path.

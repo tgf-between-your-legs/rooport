@@ -18,11 +18,11 @@ tags = ["workflow", "release-notes", "changelog", "git", "github", "mcp", "autom
 
 # --- Related Context ---
 related_context = [
-    ".ruru/planning/github-deeper-integration/PLAN-RELEASE-NOTES-WHITEPAPER.md",
-    ".ruru/planning/github-deeper-integration/PLAN-RELEASE-NOTES-MCP-WORKFLOW.md",
-    ".ruru/planning/github-deeper-integration/PLAN-RELEASE-NOTES-LOCAL-WORKFLOW.md",
-    ".ruru/planning/github-deeper-integration/PLAN-RELEASE-NOTES-SOURCE-OF-TRUTH.md",
-    ".ruru/planning/github-deeper-integration/PLAN-RELEASE-NOTES-TRIGGERS.md",
+    ".ruru/docs/planning/github-deeper-integration/PLAN-RELEASE-NOTES-WHITEPAPER.md",
+    ".ruru/docs/planning/github-deeper-integration/PLAN-RELEASE-NOTES-MCP-WORKFLOW.md",
+    ".ruru/docs/planning/github-deeper-integration/PLAN-RELEASE-NOTES-LOCAL-WORKFLOW.md",
+    ".ruru/docs/planning/github-deeper-integration/PLAN-RELEASE-NOTES-SOURCE-OF-TRUTH.md",
+    ".ruru/docs/planning/github-deeper-integration/PLAN-RELEASE-NOTES-TRIGGERS.md",
     ".roo/rules/07-git-commit-standard-simplified.md",
     ".ruru/templates/toml-md/NN_release_notes.md" # Assumes template exists
 ]
