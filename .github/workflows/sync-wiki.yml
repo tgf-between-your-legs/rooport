@@ -1,0 +1,52 @@
+# GitHub Actions Workflow: Sync Wiki Documentation
+# Automatically syncs documentation from .ruru/docs/guides/ to the GitHub wiki.
+
+name: Sync Wiki Documentation
+
+on:
+  push:
+    branches:
+      - main # Trigger only on pushes to the main branch
+    paths:
+      - '.ruru/docs/guides/**' # Trigger only if files in this path change
+
+jobs:
+  sync-wiki:
+    name: Sync Documentation to Wiki
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    permissions:
+      contents: read # Need read access to checkout the code
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use Node.js version 20 (compatible with recent Bun versions)
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        # Installs Bun globally, no need for 'bun install -g bun'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile # Install dependencies using the lockfile
+
+      - name: Configure Git Credentials
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global url."https://x-access-token:${{ secrets.WIKI_SYNC_TOKEN }}@github.com/".insteadOf "https://github.com/"
+        env:
+          # WIKI_SYNC_TOKEN needs to be created as a repository secret
+          WIKI_SYNC_TOKEN: ${{ secrets.WIKI_SYNC_TOKEN }}
+
+      - name: Run wiki sync script
+        run: bun run scripts/sync-wiki.ts
+        env:
+          # Pass the token to the script environment (though git config handles the push auth)
+          WIKI_SYNC_TOKEN: ${{ secrets.WIKI_SYNC_TOKEN }}
+          # Ensure the script knows the wiki repo URL if not hardcoded
+          # WIKI_REPO_URL: 'https://github.com/jezweb/roo-commander.wiki.git' # Example if needed by script

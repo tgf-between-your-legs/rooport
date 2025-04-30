@@ -11,7 +11,7 @@ related_docs = [".ruru/planning/kb-enrichment/00-kb-enrichment-plan.md", ".ruru/
 objective = "Define the process for creating and maintaining the library-to-type mapping file (`library-types.json`) required for the customizable synthesis workflow."
 scope = "Specifies the format, location, initial population strategy, and maintenance process for the mapping file."
 # --- Plan Specific Fields ---
-mapping_file_path = ".ruru/config/library-types.json"
+mapping_file_path = "scripts/library-types.json"
 initial_library_list_file = "library-list.txt" # Or path to the list used by batch processor
 defined_task_set_dir = ".ruru/templates/synthesis-task-sets/"
 default_type = "generic"
@@ -24,7 +24,7 @@ known_types = ["generic", "frontend-framework", "backend-framework", "ui-library
 Establish and maintain a mapping between library names (as used in the `kb/` directory structure) and standardized library type identifiers. This mapping is essential for selecting the correct Synthesis Task Set during KB enrichment.
 
 **2. File Specification:**
-*   **Path:** `[mapping_file_path]` (e.g., `.ruru/config/library-types.json`)
+*   **Path:** `[mapping_file_path]` (e.g., `scripts/library-types.json`)
 *   **Format:** JSON Object. Keys are the library names (e.g., `vuejs-docs`, `tailwindlabs-tailwindcss.com`), and values are the corresponding library type strings (e.g., `frontend-framework`, `css-utility`).
     ```json
     {

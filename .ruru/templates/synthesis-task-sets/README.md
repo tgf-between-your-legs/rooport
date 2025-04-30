@@ -50,7 +50,7 @@ library_type = "example-type" # e.g., "ui-library", "backend-framework", "generi
 
 **Fields Explained:**
 
-*   **`library_type` (String, Required):** Must match a type defined in `.ruru/config/library-types.json`.
+*   **`library_type` (String, Required):** Must match a type defined in `scripts/library-types.json`.
 *   **`[[tasks]]` (Array of Tables, Required):** Defines one or more synthesis tasks.
     *   **`task_id` (String, Required):** A unique machine-readable ID for the task (e.g., `api_overview`).
     *   **`description` (String, Required):** A brief explanation of what this task aims to achieve.
@@ -64,4 +64,4 @@ library_type = "example-type" # e.g., "ui-library", "backend-framework", "generi
 2.  Create a new file named `[type]-tasks.toml` (e.g., `database-orm-tasks.toml`) in this directory.
 3.  Define the `library_type` key at the top.
 4.  Add one or more `[[tasks]]` tables, carefully defining the `task_id`, `description`, appropriate `input_categories`, a clear `output_filename`, and a specific `prompt_focus` for each task relevant to that library type.
-5.  Ensure the new library type is added to the mapping in `.ruru/config/library-types.json`.
+5.  Ensure the new library type is added to the mapping in `scripts/library-types.json`.

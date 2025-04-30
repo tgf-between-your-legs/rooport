@@ -53,7 +53,7 @@ The strategy employs a multi-phase pipeline coordinated by `roo-commander`:
 This strategy relies on several interconnected components:
 
 *   **Structured Source Data:** Markdown files derived from original documentation, organized by category (e.g., `kb/[library_name]/guide/`).
-*   **Library Type Mapping:** A central JSON file (`.ruru/config/library-types.json`) mapping library names to standardized types (e.g., `frontend-framework`, `ai-sdk`).
+*   **Library Type Mapping:** A central JSON file (`scripts/library-types.json`) mapping library names to standardized types (e.g., `frontend-framework`, `ai-sdk`).
 *   **Synthesis Task Sets:** TOML files (`.ruru/templates/synthesis-task-sets/`) defining specific synthesis goals (description, inputs, output filename, prompt focus) for each library type.
 *   **Synthesizer Agent:** The `agent-context-synthesizer` mode, responsible for reading source files and executing synthesis tasks based on delegation instructions.
 *   **Synthesized Documents:** AI-generated Markdown files containing high-level summaries, concepts, or patterns, including TOML frontmatter (title, summary, tags). Stored in `.ruru/modes/[mode_slug]/kb/[library_name]/synthesized/`.
@@ -82,7 +82,7 @@ This strategy relies on several interconnected components:
 ## 6. Quality & Maintenance Considerations 🧐
 
 *   **Validation:** The quality of AI-synthesized content is critical. An explicit validation or review step (potentially involving `util-reviewer` or manual checks) should be incorporated after the AI Synthesis phase to ensure accuracy and relevance before integration.
-*   **Maintenance:** The Library Type Mapping file (`.ruru/config/library-types.json`) requires ongoing manual updates as new libraries are added to the system. Synthesis Task Sets may also need refinement based on feedback.
+*   **Maintenance:** The Library Type Mapping file (`scripts/library-types.json`) requires ongoing manual updates as new libraries are added to the system. Synthesis Task Sets may also need refinement based on feedback.
 *   **Feedback Loop:** Establishing a mechanism for modes or users to provide feedback on the usefulness of the enriched KBs is essential for iterative improvement.
 
 ## 7. Related Links 🔗

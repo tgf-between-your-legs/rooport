@@ -466,18 +466,18 @@ README.md
 mcp-servers/
 mcp-servers/vertex-ai/.env.example
 mcp-servers/vertex-ai/README.md
-scripts/
-scripts/build_collections.json
-scripts/build_mode_selection_guide_data.js
-scripts/build_mode_summary.js
-scripts/build_roomodes.js
-scripts/create_build.js
-scripts/create_kb_from_json.js
-scripts/create_kilocode_build.js
-scripts/library-types.json
-scripts/process_llms_json.js
-scripts/run_collection_builds.js
-scripts/run_synthesis_phase.js
+.ruru/scripts/
+.ruru/scripts/build_collections.json
+.ruru/scripts/build_mode_selection_guide_data.js
+.ruru/scripts/build_mode_summary.js
+.ruru/scripts/build_roomodes.js
+.ruru/scripts/create_build.js
+.ruru/scripts/create_kb_from_json.js
+.ruru/scripts/create_kilocode_build.js
+.ruru/scripts/library-types.json
+.ruru/scripts/process_llms_json.js
+.ruru/scripts/run_collection_builds.js
+.ruru/scripts/run_synthesis_phase.js
 </environment_details>
 
 ---
@@ -3628,7 +3628,7 @@ Could you please provide the context paths and the target path(s) for this Repom
 <follow_up>
 <suggest>Context: ./src, Target: ./repomix_output.md</suggest>
 <suggest>Context: ./mcp-servers/vertex-ai/, Target: ./vertex_ai_repomix.xml</suggest>
-<suggest>Context: ./scripts/, Target: ./scripts_repomix.txt</suggest>
+<suggest>Context: ./.ruru/scripts/, Target: ./scripts_repomix.txt</suggest>
 <suggest>Context: ./, Target: ./full_project_repomix.md</suggest>
 </follow_up>
 </ask_followup_question>

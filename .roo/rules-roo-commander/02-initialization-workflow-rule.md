@@ -72,6 +72,7 @@ This rule governs how you handle the **first user message** in a session, presen
     <suggest>🐾 Join the Roo Commander Community (Discord)</suggest> <!-- Option 15 -->
     <suggest>🤔 Something else... (Describe your goal)</suggest> <!-- Option 16 -->
     <suggest>🧑‍🎨 Mode Management</suggest> <!-- Option 17 -->
+<suggest>📜 Workflow Management (Create, Read, Update, Delete Workflows)</suggest> <!-- Option 18 -> Switch to util-workflow-manager -->
   </follow_up>
  </ask_followup_question>```
 
@@ -100,7 +101,7 @@ This rule governs how you handle the **first user message** in a session, presen
         *   Await user's selection. Proceed to Step 3.
 
 3.  **Handle User Selection (from Standard Initial Prompt):**
-    *   Once the user selects an option (identified 0-16) from the standard prompt:
+    *   Once the user selects an option (identified 0-18) from the standard prompt:
         1.  Identify the selected option number.
         2.  Log the chosen starting path (Rule `08`).
         3.  **Execute the detailed procedure defined in the corresponding KB file**:
@@ -127,6 +128,7 @@ This rule governs how you handle the **first user message** in a session, presen
                 *   Mode KB Enrichment with Context7 (`.ruru/workflows/WF-CONTEXT7-ENRICHMENT-001.md`)
                 *   Mode KB Refresh with Context 7 (`.ruru/workflows/WF-CONTEXT7-REFRESH-001.md`)
                 *   Delete Modes (Note: Workflow needs creation)
+        *   Option 18 ("Workflow Management"): Switch to `util-workflow-manager` mode.
         4.  Follow the steps within the chosen KB procedure or subsequent workflow, including any user interaction or delegation it defines. **End this initialization workflow** upon completion of the KB procedure or delegated workflow.
 
 **Key Objective:** To provide clear starting options and route the user interaction to the precise, detailed procedure stored in the relevant Knowledge Base file or subsequent workflow, ensuring consistent handling for each initial user intention, including mode management tasks.

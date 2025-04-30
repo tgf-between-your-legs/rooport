@@ -14,7 +14,7 @@ related_docs = [
     ".ruru/planning/kb-enrichment/02b-customizable-synthesis-plan.md", # Describes this system
     ".ruru/planning/kb-enrichment/02c-library-type-mapping-plan.md", # Describes mapping file
     ".ruru/modes/agent-context-synthesizer/agent-context-synthesizer.mode.md",
-    ".ruru/config/library-types.json", # Input mapping file
+    "scripts/library-types.json", # Input mapping file
     ".ruru/templates/synthesis-task-sets/" # Location of task definitions
 ]
 objective = "Define and orchestrate the tasks for `agent-context-synthesizer` to generate synthesized context documents based on prepared source markdown files, using **customizable task sets** defined in TOML files according to library type."
@@ -23,7 +23,7 @@ scope = "Defines input file selection logic, delegation message construction bas
 synthesizer_mode_slug = "agent-context-synthesizer"
 source_directory_template = "kb/{library_name}/" # Where initial structured MD files are
 target_directory_template = ".ruru/modes/{mode_slug}/kb/{library_name}/synthesized/" # Where synthesized MD files will be saved
-library_type_mapping_file = ".ruru/config/library-types.json"
+library_type_mapping_file = "scripts/library-types.json"
 task_set_template_dir = ".ruru/templates/synthesis-task-sets/"
 fallback_task_set_file = "generic-tasks.toml"
 +++

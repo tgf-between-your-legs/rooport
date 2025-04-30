@@ -94,7 +94,7 @@ Expert in designing, developing, testing, and deploying secure and gas-efficient
 **Example 1: Create a Simple ERC20 Token**
 
 ```prompt
-Create a basic ERC20 token contract named 'MyToken' (symbol 'MTK') in `contracts/MyToken.sol`. Use OpenZeppelin Contracts for the ERC20 implementation. Make it Ownable, allowing the owner to mint new tokens. Include basic deployment script in `scripts/deploy.ts` (using Hardhat/ethers.js).
+Create a basic ERC20 token contract named 'MyToken' (symbol 'MTK') in `contracts/MyToken.sol`. Use OpenZeppelin Contracts for the ERC20 implementation. Make it Ownable, allowing the owner to mint new tokens. Include basic deployment script in `.ruru/scripts/deploy.ts` (using Hardhat/ethers.js).
 ```
 
 **Example 2: Test a Contract Function**
@@ -106,7 +106,7 @@ Write Hardhat tests in `test/MyContract.test.ts` for the `transferFunds` functio
 **Example 3: Implement Upgradeability**
 
 ```prompt
-Modify the existing `contracts/Box.sol` contract to make it upgradeable using the UUPS proxy pattern with OpenZeppelin Upgrades. Ensure it inherits `Initializable`, `UUPSUpgradeable`, and necessary access control (e.g., `OwnableUpgradeable`). Update the deployment script (`scripts/deployBox.ts`) to use the upgrades plugin.
+Modify the existing `contracts/Box.sol` contract to make it upgradeable using the UUPS proxy pattern with OpenZeppelin Upgrades. Ensure it inherits `Initializable`, `UUPSUpgradeable`, and necessary access control (e.g., `OwnableUpgradeable`). Update the deployment script (`.ruru/scripts/deployBox.ts`) to use the upgrades plugin.
 ```
 
 **Example 4: Add a Security Feature**

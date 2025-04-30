@@ -17,7 +17,7 @@ objective = "Define a system where specific sets of AI synthesis tasks can be de
 scope = "Describes the components needed: task set definitions, library type mapping, and the updated orchestration logic."
 # --- Plan Specific Fields ---
 task_set_template_dir = ".ruru/templates/synthesis-task-sets/"
-library_type_mapping_file = ".ruru/config/library-types.json"
+library_type_mapping_file = "scripts/library-types.json"
 responsible_coordinator = "roo-commander"
 +++
 
@@ -35,7 +35,7 @@ To improve the relevance and quality of AI-synthesized knowledge base documents,
     *   Content: Defines the specific synthesis tasks (ID, description, input source categories, output filename, AI prompt focus) relevant for that library type.
     *   Standard: See `[task_set_template_dir]/README.md` for the detailed TOML structure standard.
 *   **Library Type Mapping File:**
-    *   Location: `[library_type_mapping_file]` (e.g., `.ruru/config/library-types.json`)
+    *   Location: `[library_type_mapping_file]` (e.g., `scripts/library-types.json`)
     *   Format: JSON object mapping library names (as used in the `kb/` directory structure, e.g., `vuejs-docs`) to a library type string (e.g., `"frontend-framework"`, `"ui-library"`, `"generic"`).
     *   Purpose: Allows the system to determine which Task Set Definition File to use for a given library.
     *   Maintenance: Requires initial population and ongoing updates as new libraries are processed. (See `02c-library-type-mapping-plan.md`).
