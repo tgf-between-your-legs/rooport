@@ -40,7 +40,7 @@ This Knowledge Base is intended for:
 *   **Navigate Sections:** Use the section overview below to find documentation relevant to your needs.
 *   **New Users:** Begin with the `01_Introduction/` and `03_Getting_Started/` sections.
 *   **Understanding Concepts:** Refer to `02_Core_Concepts/` for foundational explanations.
-*   **Specific Features:** Look under `04_Understanding_Modes/` or `05_Using_IntelliManage_Features/`.
+*   **Specific Features:** Look under `04_Understanding_Modes/` <!-- or `05_Using_IntelliManage_Features/` -->.
 *   **Customization:** Consult `06_Advanced_Usage_Customization/`.
 *   **AI Agents:** Utilize the structured content and linked documents for context retrieval and operational guidance. Follow specific KB lookup rules defined in `.roo/rules-*/`.
 
@@ -52,7 +52,7 @@ This Knowledge Base is organized into the following main sections:
 *   **`02_Core_Concepts/`**: Detailed explanations of fundamental building blocks like the file system structure, TOML+MD format, MDTM, Rules, KBs, IntelliManage artifacts, and multi-project support.
 *   **`03_Getting_Started/`**: Guides for installing Roo Commander, understanding the initial interaction flow, basic examples, and session management concepts.
 *   **`04_Understanding_Modes/`**: Information on the different mode roles/classifications, the mode hierarchy, the mode selection guide, and a reference list of all available modes.
-*   **`05_Using_IntelliManage_Features/`**: Practical guides on using IntelliManage commands (`!pm ...`) for creating/managing artifacts, working with different methodologies, linking items, reporting, and GitHub integration.
+<!-- *   **`05_Using_IntelliManage_Features/`**: Practical guides on using IntelliManage commands (`!pm ...`) for creating/managing artifacts, working with different methodologies, linking items, reporting, and GitHub integration. -->
 *   **`06_Advanced_Usage_Customization/`**: Documentation on creating custom modes, writing custom instructions/rules, configuring user preferences, and using the `prime-coordinator`.
 *   **`07_Best_Practices_Troubleshooting/`**: Tips for effective prompting, context management, troubleshooting common issues, and reviewing AI output.
 *   **`08_Community_Contributing/`**: Information on joining the community and contributing to the project.

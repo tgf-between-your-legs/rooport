@@ -20,6 +20,7 @@ estimated_time = "~15-20 minutes (excluding PAT creation)"
 prerequisites = ["IntelliManage initialized for the target project", "Project is a Git repository", "GitHub account access", "Ability to create GitHub Personal Access Tokens (PATs)"]
 learning_objectives = ["Enable GitHub integration for an IntelliManage project", "Configure repository details and authentication securely", "Understand how artifacts sync with GitHub Issues/Labels/Milestones", "Learn how to link commits/PRs to IntelliManage items", "Know how to check sync status and troubleshoot common issues"]
 +++
+> **🚧 Work in Progress:** The IntelliManage features described in this section are currently under development and not yet available for general use. This documentation reflects planned functionality.
 
 # Using IntelliManage: Setting Up & Using GitHub Integration
 

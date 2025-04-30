@@ -20,6 +20,7 @@ estimated_time = "~15-20 minutes"
 prerequisites = ["IntelliManage initialized", "Understanding of IntelliManage Artifacts"]
 learning_objectives = ["Learn the syntax for core !pm commands (create, list, show, update, delete, archive)", "Understand how to manage different artifact types", "Know how to specify required and optional fields", "Learn how to target specific projects"]
 +++
+> **🚧 Work in Progress:** The IntelliManage features described in this section are currently under development and not yet available for general use. This documentation reflects planned functionality.
 
 # Using IntelliManage: Creating & Managing Artifacts
 

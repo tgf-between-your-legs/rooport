@@ -20,6 +20,7 @@ difficulty = "beginner"
 estimated_time = "~10-15 minutes"
 prerequisites = ["IntelliManage initialized", "Basic understanding of !pm commands and artifact types"]
 learning_objectives = ["Understand the difference between hierarchical and sequential links", "Learn how to create and remove parent/child links using !pm link/unlink --parent", "Learn how to create and remove dependency links using !pm link/unlink --depends-on", "Understand how dependency links affect task suggestions"]
+> **🚧 Work in Progress:** The IntelliManage features described in this section are currently under development and not yet available for general use. This documentation reflects planned functionality.
 +++
 
 # Using IntelliManage: Linking Artifacts & Managing Dependencies

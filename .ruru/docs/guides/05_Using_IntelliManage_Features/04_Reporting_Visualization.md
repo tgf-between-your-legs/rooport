@@ -20,6 +20,7 @@ estimated_time = "~10-15 minutes"
 prerequisites = ["IntelliManage initialized", "Project artifacts (tasks, etc.) exist", "Understanding of project methodology (Scrum/Kanban) helpful"]
 learning_objectives = ["Learn how to generate various project reports using !pm report", "Understand the purpose of different report types (burndown, CFD, summary)", "Learn how to display a textual Kanban board using !pm board", "Understand how to filter and customize report/board output"]
 +++
+> **🚧 Work in Progress:** The IntelliManage features described in this section are currently under development and not yet available for general use. This documentation reflects planned functionality.
 
 # Using IntelliManage: Reporting & Visualization
 

@@ -20,6 +20,7 @@ difficulty = "intermediate" # Assumes basic artifact knowledge
 estimated_time = "~15 minutes"
 prerequisites = ["IntelliManage initialized", "Basic understanding of !pm commands", "Familiarity with Scrum/Kanban concepts (optional)"]
 learning_objectives = ["Understand how IntelliManage adapts to Scrum, Kanban, and Custom methodologies", "Learn how to manage sprints in Scrum projects", "Learn how to leverage Kanban features like board views and WIP limits", "Understand how to configure and use custom workflows"]
+> **🚧 Work in Progress:** The IntelliManage features described in this section are currently under development and not yet available for general use. This documentation reflects planned functionality.
 +++
 
 # Using IntelliManage: Working with Methodologies (Scrum, Kanban, Custom)
