@@ -86,7 +86,6 @@ This will add/overwrite the necessary hidden configuration folders (`.ruru/modes
 ## Release Notes
 
 *   [v7.1.5](./.ruru/docs/release-notes/v7.1.5.md)
-*   [v7.1.5](./.ruru/docs/release-notes/v7.1.5.md)
 
 ## Basic Usage
 
