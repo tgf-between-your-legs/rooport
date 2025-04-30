@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "archiver": "^7.0.1",
+    "isbinaryfile": "^5.0.4",
     "yargs": "^17.7.2"
   }
 }
