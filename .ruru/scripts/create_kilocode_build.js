@@ -17,9 +17,15 @@ const ZIP_FILEPATH = path.join(BUILD_DIR, ZIP_FILENAME); // Correct: Use BUILD_D
 // --- Configuration ---
 
 const ITEMS_TO_INCLUDE = [
-    '.ruru',
+    // '.ruru', // Replaced with specific subdirectories below
+    '.ruru/modes',
+    '.ruru/templates',
+    '.ruru/workflows',
+    '.ruru/processes',
+    '.ruru/kb',
+    '.ruru/docs/standards',
     '.roo',
-    'scripts',
+    'scripts', // Root scripts directory
     '.gitignore',
     '.roomodes',
     'fetch-mcp-readme.md',
@@ -43,7 +49,13 @@ const EXCLUSION_PATTERNS = [
     '*~',
     '*.tmp',
     'kilocode-commander-build.zip', // Avoid including previous builds
-    TEMP_DIR_NAME // Avoid recursion if script is run multiple times
+    TEMP_DIR_NAME, // Avoid recursion if script is run multiple times
+    '.ruru/temp', // Exclude temp directory within .ruru
+    '.ruru/.builds', // Exclude .builds directory within .ruru
+    '.roomodes', // Exclude the source .roomodes file
+    '.ruru/archive', // Exclude archive directory within .ruru
+    '.ruru/repomix', // Exclude repomix directory within .ruru
+    '.ruru/mcp-servers' // Exclude mcp-servers directory within .ruru
 ];
 
 const EXTENSIONS_TO_REPLACE_CONTENT = ['.js', '.md', '.json', '.yml', '.yaml', '.toml']; // Add other relevant text file extensions

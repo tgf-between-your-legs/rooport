@@ -26,7 +26,9 @@ const emptyDirsToCreate = [
   '.ruru/planning',
   '.ruru/reports',
   '.ruru/snippets',
-  '.ruru/tasks'
+  '.ruru/tasks',
+  '.ruru/repomix', // Add empty repomix dir
+  '.ruru/mcp-servers' // Add empty mcp-servers dir
 ];
 
 const outputDir = '.builds';
