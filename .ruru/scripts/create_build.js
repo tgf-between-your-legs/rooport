@@ -13,7 +13,8 @@ const includedFilesAndDirs = [
   '.ruru/workflows',
   '.ruru/docs', // Include the docs directory
   '.roomodes',
-  'scripts'
+  'scripts',
+  '.ruru/scripts'
 ];
 
 const emptyDirsToCreate = [
