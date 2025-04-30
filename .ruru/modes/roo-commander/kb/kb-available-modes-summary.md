@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-04-29"
+last_generated = "2025-04-30"
 +++
 
 # Available Modes Summary
@@ -151,7 +151,6 @@ This document provides a summary of available specialist modes for delegation.
 - **util-senior-dev** (🧑‍💻 Senior Developer): \[No description provided\]
 - **util-typescript** (🔷 TypeScript Specialist): \[No description provided\]
 - **util-vite** (⚡ Vite Specialist): \[No description provided\]
-- **util-workflow-manager** (📜 Workflow Manager): \[No description provided\]
 - **util-writer** (✍️ Technical Writer): \[No description provided\]
 
 ## 🚜 Prime Coordinator Modes
