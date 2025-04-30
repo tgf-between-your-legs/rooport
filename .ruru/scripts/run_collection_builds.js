@@ -70,8 +70,16 @@ function deleteRoomodes() {
  * @param {string[]} modeList - The list of modes for this collection (used for logging).
  */
 function runBuildForCollection(collectionName, modeList) {
-    const outputPath = path.join(BUILD_OUTPUT_DIR, `roo-commander-${collectionName}-build.zip`);
-    const command = `node "${BUILD_SCRIPT_PATH}" --collection "${collectionName}" --output "${outputPath}"`;
+    // Define placeholders for positional arguments required by create_build.js
+    const versionPlaceholder = `coll-${collectionName}`;
+    const codenamePlaceholder = 'CollectionBuild';
+    // Use path.resolve to ensure correct path construction relative to the project root
+    const distReadmePlaceholder = '.ruru/templates/build/README.dist.md'; // Use path relative to project root
+    const changelogPlaceholder = path.resolve(__dirname, '..', '.tmp', `CHANGELOG-${collectionName}.md`); // Placeholder path
+
+    // Construct the command with positional arguments
+    // Note: create_build.js calculates its own output path based on version/codename, so we don't pass the old 'outputPath'
+    const command = `node "${BUILD_SCRIPT_PATH}" "${versionPlaceholder}" "${codenamePlaceholder}" "${distReadmePlaceholder}" "${changelogPlaceholder}"`;
 
     console.log(`\n--- Starting build for collection: ${collectionName} ---`);
     console.log(`Modes: ${modeList.join(', ')}`);
@@ -86,7 +94,7 @@ function runBuildForCollection(collectionName, modeList) {
 
         const output = execSync(command, { encoding: 'utf8', stdio: 'inherit' }); // Inherit stdio to see build output
         console.log(`\n✅ Build successful for collection: ${collectionName}`);
-        console.log(`   Output: ${outputPath}`);
+        // console.log(`   Output: ${outputPath}`); // outputPath is not defined in this scope
         return true;
     } catch (error) {
         console.error(`\n❌ Build failed for collection: ${collectionName}`);

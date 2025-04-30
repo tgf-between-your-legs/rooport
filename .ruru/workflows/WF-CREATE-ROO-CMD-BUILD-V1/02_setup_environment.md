@@ -34,7 +34,7 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.md" # (
 ## Actions
 
 1.  **Receive Parameters:** Get the `validated_build_params` from the previous step.
-2.  **Checkout Source Code:** Check out the specific version/branch required for the build.
+2.  **Checkout Source Code:** Check out the `main` branch (or the specific branch intended for this release).
 3.  **Install Dependencies:** Run commands to install necessary build dependencies (e.g., `npm install`, `pip install`).
 4.  **Configure Tools:** Set up any required build tools or environment variables.
 5.  **Prepare Output:** Confirm environment readiness and provide the path to the build directory.

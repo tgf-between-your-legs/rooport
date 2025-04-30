@@ -2,12 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
 
-const ROOT_DIR = path.resolve(__dirname, '..');
+const ROOT_DIR = path.resolve(__dirname, '..', '..'); // Go up two levels to project root
 const TEMP_DIR_NAME = 'kilocode_temp';
-const BUILD_DIR = path.join(ROOT_DIR, 'build');
+const BUILD_DIR = path.join(ROOT_DIR, '.builds'); // Correct: Output to .builds/
 const TEMP_DIR = path.join(BUILD_DIR, TEMP_DIR_NAME);
-const ZIP_FILENAME = 'kilocode-commander-build.zip';
-const ZIP_FILEPATH = path.join(BUILD_DIR, ZIP_FILENAME);
+const version = process.argv[2]; // Get version from command line argument
+if (!version) {
+  console.error("Error: Build version must be provided as the first command line argument.");
+  process.exit(1);
+}
+const ZIP_FILENAME = `kilocode-${version}.zip`; // Correct: Use dynamic version in filename
+const ZIP_FILEPATH = path.join(BUILD_DIR, ZIP_FILENAME); // Correct: Use BUILD_DIR and dynamic filename
 
 // --- Configuration ---
 
@@ -19,10 +24,10 @@ const ITEMS_TO_INCLUDE = [
     '.roomodes',
     'fetch-mcp-readme.md',
     'LICENSE',
-    'llms.json',
+    // 'llms.json', // Removed: File does not exist at project root
     'package.json', // Note: package-lock.json is implicitly excluded by not being listed
     'README.md',
-    'roo-commander-core.repomix.json',
+    // 'roo-commander-core.repomix.json', // Removed: File does not exist at project root
     // Add other essential root files/dirs if needed
 ];
 
@@ -31,7 +36,7 @@ const EXCLUSION_PATTERNS = [
     '.git',
     'node_modules',
     '.staging',
-    'build', // Exclude the top-level build dir itself
+    // 'build', // Removed: This was preventing copying into the .builds/kilocode_temp dir
     '.DS_Store',
     '*.zip',
     '*.log',
@@ -189,45 +194,43 @@ async function createKilocodeBuild() {
             zlib: { level: 9 } // Sets the compression level.
         });
 
-        // Listen for all archive data to be written
-        // 'close' event is fired only when a file descriptor is involved
-        output.on('close', function() {
-            log(`Zip archive created: ${ZIP_FILENAME} (${archive.pointer()} total bytes)`);
-        });
+        // Wrap stream finalization in a Promise to ensure cleanup happens after file is closed
+        await new Promise(async (resolve, reject) => {
+            output.on('close', () => {
+                log(`Zip archive created: ${ZIP_FILENAME} (${archive.pointer()} total bytes)`);
+                resolve(); // Resolve the promise when the file stream is closed
+            });
 
-        // This event is fired when the data source is drained no matter what was the data source.
-        // It is not part of this library but rather from the NodeJS Stream API.
-        // @see: https://nodejs.org/api/stream.html#stream_event_end
-        output.on('end', function() {
-            log('Data has been drained');
-        });
+            output.on('end', () => {
+                log('Data has been drained');
+            });
 
-        // Good practice to catch warnings (ie stat failures and other non-blocking errors)
-        archive.on('warning', function(err) {
-            if (err.code === 'ENOENT') {
-                logError('Archive warning (ENOENT):', err);
-            } else {
-                // Throw error
-                throw err;
+            archive.on('warning', (err) => {
+                if (err.code === 'ENOENT') {
+                    logError('Archive warning (ENOENT):', err);
+                } else {
+                    reject(err); // Reject on other warnings
+                }
+            });
+
+            archive.on('error', (err) => {
+                reject(err); // Reject on error
+            });
+
+            // Pipe archive data to the file
+            archive.pipe(output);
+
+            // Append files from the temporary directory
+            archive.directory(TEMP_DIR, false);
+
+            // Finalize the archive
+            try {
+                await archive.finalize();
+                log('Zip archive finalization initiated.');
+            } catch (finalizeError) {
+                reject(finalizeError); // Reject if finalize fails
             }
-        });
-
-        // Good practice to catch this error explicitly
-        archive.on('error', function(err) {
-            throw err;
-        });
-
-        // Pipe archive data to the file
-        archive.pipe(output);
-
-        // Append files from the temporary directory, putting them at the root of the archive
-        archive.directory(TEMP_DIR, false); // false means don't include the TEMP_DIR folder itself
-
-        // Finalize the archive (ie we are done appending files but streams have to finish yet)
-        // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
-        await archive.finalize();
-        log('Zip archive finalization complete.');
-
+        }); // End of Promise wrapper
 
         log('Build process completed successfully!');
 
@@ -235,14 +238,13 @@ async function createKilocodeBuild() {
         logError('Build failed:', error);
         process.exitCode = 1; // Indicate failure
     } finally {
-        // 6. Cleanup the temporary directory
+        // 6. Cleanup the temporary directory (Now guaranteed to run after stream close/error)
         log('Cleaning up temporary directory...');
         try {
             await fs.promises.rm(TEMP_DIR, { recursive: true, force: true });
             log('Temporary directory cleaned up.');
         } catch (cleanupError) {
             logError('Failed to clean up temporary directory:', cleanupError);
-            // Don't exit here, the build might have partially succeeded
         }
     }
 }

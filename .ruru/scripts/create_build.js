@@ -61,7 +61,7 @@ async function createBuild() {
     // --- Copy Included Files/Dirs ---
     console.log('Copying included files and directories...');
     for (const item of includedFilesAndDirs) {
-      const sourcePath = path.resolve(__dirname, item); // Use absolute path for source
+      const sourcePath = path.resolve(__dirname, '..', '..', item); // Resolve from project root (go up two levels from .ruru/scripts)
       const destPath = path.join(stagingDir, item);
       try {
         const stats = await fsPromises.stat(sourcePath); // Use fsPromises
@@ -91,7 +91,7 @@ async function createBuild() {
     // --- Copy Dist README and CHANGELOG ---
     console.log('Copying distribution README and CHANGELOG...');
     try {
-      await fsPromises.copyFile(distReadmePath, path.join(stagingDir, 'README.md')); // Use fsPromises
+      await fsPromises.copyFile(path.resolve(__dirname, '..', '..', distReadmePath), path.join(stagingDir, 'README.md')); // Resolve from project root
       console.log(`  Copied ${distReadmePath} to README.md`);
     } catch (err) {
       console.error(`  Error copying distribution README from ${distReadmePath}: ${err.message}`);
@@ -101,8 +101,14 @@ async function createBuild() {
       await fsPromises.copyFile(changelogPath, path.join(stagingDir, 'CHANGELOG.md')); // Use fsPromises
       console.log(`  Copied ${changelogPath} to CHANGELOG.md`);
     } catch (err) {
-      console.error(`  Error copying CHANGELOG from ${changelogPath}: ${err.message}`);
-      throw err;
+      if (err.code === 'ENOENT') {
+        // Log a warning if the changelog file doesn't exist, as it might be generated later.
+        console.warn(`  Warning: CHANGELOG file not found at ${changelogPath}, skipping copy. This might be expected if generated later.`);
+      } else {
+        // For other errors, log and re-throw.
+        console.error(`  Error copying CHANGELOG from ${changelogPath}: ${err.message}`);
+        throw err;
+      }
     }
 
 

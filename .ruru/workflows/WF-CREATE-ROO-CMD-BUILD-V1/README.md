@@ -45,8 +45,10 @@ committing changes, tagging the release, and optionally creating a GitHub releas
 graph TD
     A[00_start] --> B(01_validate_params);
     B -- Success --> C(02_setup_environment);
-    C -- Success --> D(03_run_builds);
-    D -- Success --> E(04_verify_artifacts);
+    C -- Success --> D(03a_run_main_build);
+    D -- Success --> D2(03b_run_kilocode_build);
+    D2 -- Success --> D3(03c_run_collection_builds);
+    D3 -- Success --> E(04_verify_artifacts);
     E -- Success --> F(05_package_artifacts);
     F -- Success --> G(06_determine_prev_tag);
     G -- Success --> H(07_query_git_history);
@@ -63,6 +65,8 @@ graph TD
     B -- Error --> EE_Val(EE_handle_validation_error);
     C -- Error --> EE_Env(EE_handle_env_error);
     D -- Error --> EE_Build(EE_handle_build_error);
+    D2 -- Error --> EE_Build;
+    D3 -- Error --> EE_Build;
     E -- Error --> EE_Verify(EE_handle_verify_error);
     F -- Error --> EE_Pkg(EE_handle_packaging_error);
     G -- Error --> EE_GitTag(EE_handle_git_tag_error);
