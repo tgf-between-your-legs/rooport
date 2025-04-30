@@ -83,6 +83,10 @@ The recommended installation method uses the pre-built release:
 3.  **Reload VS Code:** Reload the VS Code window (`Ctrl+Shift+P` or `Cmd+Shift+P` -> `"Developer: Reload Window"`) to ensure Roo Code recognizes the new mode configurations.
 
 This will add/overwrite the necessary hidden configuration folders (`.ruru/modes`, `.roo`, `.ruru/templates`, etc.) and files (`.roomodes`).
+## Release Notes
+
+*   [v7.1.5](./.ruru/docs/release-notes/v7.1.5.md)
+*   [v7.1.5](./.ruru/docs/release-notes/v7.1.5.md)
 
 ## Basic Usage
 
