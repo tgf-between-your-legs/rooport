@@ -19,11 +19,11 @@ delegation_mode = "Mode Structure Agent (e.g., mode-maintainer, technical-writer
 # outputs = ["kb_rule_creation_status"] # List of expected output data/context (optional)
 error_handling = "If agent fails (reading context, copying template, writing rule), retry. Check MCP/fallback tool status. Persistent failure requires manual intervention or abandoning." # Specific error handling for this step (optional)
 related_docs = [
-    "`.ruru/templates/toml-md/16_ai_rule.md`"
+    ".ruru/templates/toml-md/16_ai_rule.md"
 ]
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`",
-    "`.ruru/templates/toml-md/16_ai_rule.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md",
+    ".ruru/templates/toml-md/16_ai_rule.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

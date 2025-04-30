@@ -20,7 +20,7 @@ delegation_mode = "Coordinator (Roo Commander), potentially delegates to agent-r
 error_handling = "If generation fails (MCP query, fallback synthesis, file insertion), log error, notify User. Ensure `.mode.md` reflects failure (placeholder remains). Proceed if possible." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

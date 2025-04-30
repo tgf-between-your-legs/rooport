@@ -15,12 +15,17 @@ tags = ["workflow-step", "save-context", "json", "temporary-file", "mode-creatio
 # --- Workflow Step Specific Fields ---
 description = "Saves the synthesized JSON context (from the previous step) to a temporary file for use in subsequent steps."
 delegation_mode = "Coordinator (Roo Commander)" # Primary mode responsible for this step
-# inputs = ["synthesized_context_json", "mode_slug"] # List of expected input data/context (optional)
-# outputs = ["temp_context_file_path"] # List of expected output data/context (optional)
+inputs = [
+    "synthesized_context_json", # String: JSON structure from Step 03
+    "mode_slug"                 # String: From Step 00, used for filename
+]
+outputs = [
+    "temp_context_file_path"    # String: Path to the saved temporary JSON file (e.g., ".ruru/temp/mode-creation-context-<slug>.json")
+]
 error_handling = "If writing the temporary JSON file fails (both MCP and fallback), log the error, notify the user, and likely abandon the workflow." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

@@ -15,12 +15,22 @@ tags = ["workflow-step", "context-gathering", "research", "delegation", "mode-cr
 # --- Workflow Step Specific Fields ---
 description = "Delegates context gathering to a specialized agent based on user requirements and preferences defined in the previous step."
 delegation_mode = "Context Gatherer (e.g., agent-research)" # Primary mode responsible for this step
-# inputs = ["mode_purpose", "mode_scope", "context_preference", "user_files", "kb_focus", "doc_priority", "research_level"] # List of expected input data/context (optional)
-# outputs = ["gathered_context_sources"] # List of expected output data/context (optional)
+inputs = [
+    "mode_purpose",             # String: General description from Step 00
+    "mode_scope",               # String: Scope derived from purpose (Needs clarification in Step 00?)
+    "context_preference_type",  # String: e.g., "Standard KB", "Deep Dive KB", "Specific" from Step 00
+    "user_files",               # List[String]: Optional list of file paths from Step 00
+    "kb_focus",                 # String: Optional focus areas for KB from Step 00
+    "doc_priority",             # String: Optional documentation priority from Step 00
+    "research_level"            # String: Optional research effort level from Step 00
+]
+outputs = [
+    "gathered_context_sources"  # List[String]: List of file paths/URLs gathered by the agent
+]
 error_handling = "If agent fails (including reading user files or applying preference), retry. Check MCP tool status. If persistent, notify the User and potentially proceed with minimal context or abandon." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

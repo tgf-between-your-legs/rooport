@@ -15,14 +15,24 @@ tags = ["workflow-step", "start", "initiation", "requirements", "user-interactio
 # --- Workflow Step Specific Fields ---
 description = "Initiates the mode creation process by gathering initial requirements, context preferences, slug, classification, and emoji from the user."
 delegation_mode = "Coordinator (Roo Commander)" # Primary mode responsible for this step
-# inputs = [] # List of expected input data/context (optional)
-# outputs = ["mode_purpose", "context_preference", "user_files", "kb_focus", "doc_priority", "research_level", "mode_slug", "mode_classification", "mode_emoji"] # List of expected output data/context (optional)
-# error_handling = "If agreement cannot be reached on slug/classification, escalate or abandon." # Specific error handling for this step (optional)
+inputs = [] # No explicit inputs required to start
+outputs = [
+    "mode_purpose",             # String: General description from user
+    "context_preference_type",  # String: e.g., "Standard KB", "Deep Dive KB", "Specific"
+    "user_files",               # List[String]: Optional list of file paths from user
+    "kb_focus",                 # String: Optional focus areas for KB
+    "doc_priority",             # String: Optional documentation priority ("Yes", "No", "Default")
+    "research_level",           # String: Optional research effort level ("Quick Scan", "Standard", "Deep Dive")
+    "mode_slug",                # String: Confirmed mode slug (lowercase kebab-case)
+    "mode_classification",      # String: Confirmed mode classification
+    "mode_emoji"                # String: Confirmed mode emoji
+]
+error_handling = "If agreement cannot be reached on slug/classification, escalate or abandon." # Specific error handling for this step (optional)
 related_docs = [
-    "`.ruru/modes/roo-commander/kb/available-modes-summary.md`" # Naming conventions
+    ".ruru/modes/roo-commander/kb/available-modes-summary.md" # Naming conventions
 ]
 related_templates = [
-    "`.ruru/templates/toml-md/24_workflow_step_start.md`"
+    ".ruru/templates/toml-md/24_workflow_step_start.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/24_workflow_step_start.README.md"
 +++

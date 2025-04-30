@@ -17,26 +17,26 @@ tags = [
 # --- Ownership & Context ---
 owner = "Roo Commander"
 related_docs = [
-    "`.ruru/modes/roo-commander/kb/available-modes-summary.md`",
-    "`.ruru/rules/00-standard-toml-md-format.md`",
-    "`.ruru/processes/acqa-process.md`",
-    "`.ruru/processes/afr-process.md`",
-    "`.ruru/processes/pal-process.md`",
-    "`.ruru/templates/synthesis-task-sets/README.md`"
+    ".ruru/modes/roo-commander/kb/available-modes-summary.md",
+    ".ruru/rules/00-standard-toml-md-format.md",
+    ".ruru/processes/acqa-process.md",
+    ".ruru/processes/afr-process.md",
+    ".ruru/processes/pal-process.md",
+    ".ruru/templates/synthesis-task-sets/README.md"
 ]
 related_templates = [
-    "`.ruru/templates/modes/00_standard_mode.md`", # Standard Mode Template (v1.1)
-    "`.ruru/templates/toml-md/16_ai_rule.md`", # For KB lookup rule
-    "`.ruru/templates/synthesis-task-sets/*.toml`", # Synthesis task templates
-    "`.ruru/templates/toml-md/23_workflow_readme.md`",
-    "`.ruru/templates/toml-md/24_workflow_step_start.md`",
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`",
-    "`.ruru/templates/toml-md/26_workflow_step_finish.md`"
+    ".ruru/templates/modes/00_standard_mode.md", # Standard Mode Template (v1.1)
+    ".ruru/templates/toml-md/16_ai_rule.md", # For KB lookup rule
+    ".ruru/templates/synthesis-task-sets/*.toml", # Synthesis task templates
+    ".ruru/templates/toml-md/23_workflow_readme.md",
+    ".ruru/templates/toml-md/24_workflow_step_start.md",
+    ".ruru/templates/toml-md/25_workflow_step_standard.md",
+    ".ruru/templates/toml-md/26_workflow_step_finish.md"
 ]
 
 # --- Workflow Specific Fields ---
-objective = "To guide the creation of a new Roo Commander mode from scratch, incorporating refined user requirements gathering (with improved UX for context preferences), using the `.ruru/modes/` structure, applying predefined naming conventions, generating a detailed 'Core Knowledge & Capabilities' section (with enhanced detail request), separating knowledge base (KB) content (with option to generate basic KB if missing), creating mode-specific rules, generating an enhanced KB README, running `scripts/build_roomodes.js` to update the mode registry, enforcing the standard mode template structure, maximizing delegation, managing context via a temporary JSON file, utilizing synthesis task templates, and preferring MCP tools where available."
-scope = "Applies when creating a *new* Roo Commander mode. Requires user interaction. Gathers detailed user input upfront (using simplified options for context preferences). Includes AI assessment of research depth. Creates structure in `.ruru/modes/` and `.roo/rules-<slug>/`. Uses naming conventions. Generates 'Core Knowledge' using Vertex AI MCP (if available) or fallback methods. Optionally populates KB files (potentially in subfolders) based on synthesized context (from JSON), applying requested detail level and AI assessment. Populates the standard mode template (from JSON). Generates KB README and KB lookup rule. Triggers mode registry update (`scripts/build_roomodes.js`). Cleans up temporary JSON context file. Prefers MCP tools."
+objective = "To guide the creation of a new Roo Commander mode from scratch, incorporating refined user requirements gathering (with improved UX for context preferences), using the `.ruru/modes/` structure, applying predefined naming conventions, generating a detailed 'Core Knowledge & Capabilities' section (with enhanced detail request), separating knowledge base (KB) content (with option to generate basic KB if missing), creating mode-specific rules, generating an enhanced KB README, running `.ruru/scripts/build_roomodes.js` to update the mode registry, enforcing the standard mode template structure, maximizing delegation, managing context via a temporary JSON file, utilizing synthesis task templates, and preferring MCP tools where available."
+scope = "Applies when creating a *new* Roo Commander mode. Requires user interaction. Gathers detailed user input upfront (using simplified options for context preferences). Includes AI assessment of research depth. Creates structure in `.ruru/modes/` and `.roo/rules-<slug>/`. Uses naming conventions. Generates 'Core Knowledge' using Vertex AI MCP (if available) or fallback methods. Optionally populates KB files (potentially in subfolders) based on synthesized context (from JSON), applying requested detail level and AI assessment. Populates the standard mode template (from JSON). Generates KB README and KB lookup rule. Triggers mode registry update (`.ruru/scripts/build_roomodes.js`). Cleans up temporary JSON context file. Prefers MCP tools."
 roles = ["User", "Coordinator (Roo Commander)", "Context Gatherer (e.g., agent-research)", "Context Synthesizer (e.g., agent-context-condenser)", "Mode Structure Agent (e.g., mode-maintainer, technical-writer, toml-specialist)", "QA Agent (e.g., code-reviewer)"]
 trigger = "User request to create a new mode, specifying its purpose and basic identification."
 success_criteria = [
@@ -46,7 +46,7 @@ success_criteria = [
     "KB README (`.ruru/modes/<new-slug>/kb/README.md`) exists and contains an overview, file list with summaries and line counts (or indicates pending/skipped population).",
     "Mode-specific rule directory exists at `.roo/rules-<slug>/`.",
     "KB lookup rule file exists at `.roo/rules-<slug>/01-kb-lookup-rule.md` using the standard rule template (`.ruru/templates/toml-md/16_ai_rule.md`) with enhanced instructions.",
-    "The mode registry is successfully updated after running `scripts/build_roomodes.js`.",
+    "The mode registry is successfully updated after running `.ruru/scripts/build_roomodes.js`.",
     "The temporary context file (`.ruru/temp/mode-creation-context-<new-slug>.json`) is deleted.",
     "The created structure passes Quality Assurance (QA) review against specifications (including template structure).",
     "User confirms the generated mode meets initial requirements and is accessible after window reload."
@@ -62,7 +62,7 @@ failure_criteria = [
     "Worker Agent fails to correctly populate the standard mode template (potentially due to failure reading/parsing temp JSON context file).",
     "Worker Agent fails critical file/directory operations (potentially due to MCP tool failure without fallback success).",
     "Worker Agent fails to generate enhanced KB README.",
-    "Failure during execution of `scripts/build_roomodes.js`.",
+    "Failure during execution of `.ruru/scripts/build_roomodes.js`.",
     "Failure to delete the temporary context JSON file.",
     "Generated structure repeatedly fails QA.",
     "User rejects the final mode structure or cannot access it after reload."
@@ -109,7 +109,7 @@ To guide the creation of a new Roo Commander mode from scratch. This involves:
 *   Separating knowledge base (KB) content into the `kb/` subdirectory, with an interactive option to generate basic KB if source material is missing or insufficient, **applying the requested level of detail and potentially using subfolders**.
 *   Creating mode-specific rules in the corresponding `.roo/rules-<slug>/` directory, **deferring standard rules**.
 *   Generating an enhanced KB `README.md` file summarizing the KB contents.
-*   Running the `scripts/build_roomodes.js` script to update the application's mode registry.
+*   Running the `.ruru/scripts/build_roomodes.js` script to update the application's mode registry.
 *   Enforcing the use and structure of the standard mode template (`.ruru/templates/modes/00_standard_mode.md`).
 *   Maximizing delegation of tasks to specialized agents where appropriate.
 *   Using a temporary JSON file (`.ruru/temp/mode-creation-context-<new-slug>.json`) to pass synthesized context between steps.
@@ -117,7 +117,7 @@ To guide the creation of a new Roo Commander mode from scratch. This involves:
 *   Preferring MCP tools (e.g., for file operations, research) with fallbacks to standard tools (`execute_command`, `write_to_file`, etc.).
 
 ## 2. Scope ↔️
-This workflow applies when creating a *new* Roo Commander mode. Requires user interaction. Gathers detailed user input upfront (using simplified options for context preferences). Includes AI assessment of research depth. Creates structure in `.ruru/modes/` and `.roo/rules-<slug>/`. Uses naming conventions. Generates 'Core Knowledge' using Vertex AI MCP (if available) or fallback methods. Optionally populates KB files (potentially in subfolders) based on synthesized context (from JSON), applying requested detail level and AI assessment. Populates the standard mode template (from JSON). Generates KB README and KB lookup rule. Triggers mode registry update (`scripts/build_roomodes.js`). Cleans up temporary JSON context file. Prefers MCP tools.
+This workflow applies when creating a *new* Roo Commander mode. Requires user interaction. Gathers detailed user input upfront (using simplified options for context preferences). Includes AI assessment of research depth. Creates structure in `.ruru/modes/` and `.roo/rules-<slug>/`. Uses naming conventions. Generates 'Core Knowledge' using Vertex AI MCP (if available) or fallback methods. Optionally populates KB files (potentially in subfolders) based on synthesized context (from JSON), applying requested detail level and AI assessment. Populates the standard mode template (from JSON). Generates KB README and KB lookup rule. Triggers mode registry update (`.ruru/scripts/build_roomodes.js`). Cleans up temporary JSON context file. Prefers MCP tools.
 
 ## 3. Roles & Responsibilities 👤
 *   **User:** Initiates the request, provides purpose/context, selects context preference option (or provides details), approves slug/classification/emoji, reviews KB options, potentially provides source files for Core Knowledge, and confirms final mode usability.
@@ -156,7 +156,7 @@ This workflow proceeds through the following steps, defined in separate files wi
 *   The User is available for interaction and providing necessary input/confirmations.
 *   Required templates (`.ruru/templates/modes/00_standard_mode.md`, `.ruru/templates/toml-md/16_ai_rule.md`, `.ruru/templates/synthesis-task-sets/*.toml`) exist and are accessible.
 *   Reference documents (naming convention, available modes summary, synthesis template README) are accessible.
-*   The `scripts/build_roomodes.js` script exists and is executable by the Coordinator.
+*   The `.ruru/scripts/build_roomodes.js` script exists and is executable by the Coordinator.
 *   The `.ruru/temp/` directory exists and is writable by the Coordinator.
 
 ## 6. Reference Documents & Tools 📚🛠️
@@ -169,7 +169,7 @@ This workflow proceeds through the following steps, defined in separate files wi
 *   QA Process: `.ruru/processes/acqa-process.md`
 *   Failure Resolution Process: `.ruru/processes/afr-process.md`
 *   Process Validation Lifecycle: `.ruru/processes/pal-process.md`
-*   Mode Registry Build Script: `scripts/build_roomodes.js` (Assumed location accessible to Coordinator)
+*   Mode Registry Build Script: `.ruru/scripts/build_roomodes.js` (Assumed location accessible to Coordinator)
 *   Temporary JSON Context File Structure: (See `.ruru/templates/synthesis-task-sets/README.md` for expected output structure based on synthesis templates)
 *   **MCP Tools (Preferred):**
     *   `vertex-ai-mcp-server`: `read_file_content`, `read_multiple_files_content`, `write_file_content`, `create_directory`, `move_file_or_directory`, `explain_topic_with_docs`, `get_doc_snippets`, `answer_query_websearch`, `answer_query_direct`
@@ -185,7 +185,7 @@ This workflow proceeds through the following steps, defined in separate files wi
 *   **KB Population Failure (Step 10):** If KB generation/population fails (including parsing JSON, creating subdirs, or file writing), notify the User, ensure the KB README reflects the failure, and proceed if possible (mode might function without KB initially). Check MCP/fallback tool status.
 *   **File/Directory Operations Failure:** If the Mode Structure Agent fails critical operations (Step 7, 8, 10, 11, 12), retry. Log errors. Check MCP tool status and fallback execution. Persistent failure requires manual intervention or abandoning the workflow. Check if failure is related to reading/parsing the temporary JSON context file.
 *   **QA Failures (Step 13):** Minor issues trigger corrections and re-QA. Repeated or significant failures (e.g., missing Core Knowledge) should trigger the Adaptive Failure Resolution (AFR) process (`.ruru/processes/afr-process.md`) to diagnose root causes.
-*   **`scripts/build_roomodes.js` Failure (Step 15):** If the script fails, log the error output. Attempt to diagnose (e.g., syntax error in a mode file). If resolvable, fix and retry Step 15. If not, escalate the script error; the mode will not be available until resolved. **Ensure Step 16 (cleanup) is skipped or handled carefully if this step fails.**
+*   **`.ruru/.ruru/scripts/build_roomodes.js` Failure (Step 15):** If the script fails, log the error output. Attempt to diagnose (e.g., syntax error in a mode file). If resolvable, fix and retry Step 15. If not, escalate the script error; the mode will not be available until resolved. **Ensure Step 16 (cleanup) is skipped or handled carefully if this step fails.**
 *   **Temporary File Deletion Failure (Step 16):** If deletion fails (MCP and fallback), log the error. This is generally non-critical but should be noted. Manual cleanup might be required later.
 *   **User Rejection (Step 14/18):** If the user rejects the final structure or cannot access the mode, gather detailed feedback. Attempt refinement loop (back to Step 14 or earlier). If fundamental issues persist, escalate or document the rejection and close.
 

@@ -15,12 +15,19 @@ tags = ["workflow-step", "ai-assessment", "context-analysis", "llm", "mode-creat
 # --- Workflow Step Specific Fields ---
 description = "Assesses the depth and breadth of the gathered context using an LLM to inform KB structuring options."
 delegation_mode = "Coordinator (Roo Commander)" # Can be delegated if needed
-# inputs = ["gathered_context_sources", "mode_purpose", "mode_topic"] # List of expected input data/context (optional)
-# outputs = ["ai_assessment_rating", "ai_assessment_topics"] # List of expected output data/context (optional)
+inputs = [
+    "gathered_context_sources", # List[String]: From Step 01
+    "mode_purpose"              # String: From Step 00 (Used to formulate query)
+    # "mode_topic"              # String: Potentially derived from mode_purpose if needed for query
+]
+outputs = [
+    "ai_assessment_rating",     # String: e.g., "Basic", "Standard", "Comprehensive"
+    "ai_assessment_topics"      # List[String]: Key topics identified by the LLM
+]
 error_handling = "If assessment fails, default to a 'Standard' rating, log the error, notify User, and proceed." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

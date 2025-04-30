@@ -20,7 +20,7 @@ delegation_mode = "Mode Structure Agent (e.g., mode-maintainer, technical-writer
 error_handling = "If agent fails critical operations, retry. Log errors. Check MCP tool status and fallback execution. Persistent failure requires manual intervention or abandoning." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

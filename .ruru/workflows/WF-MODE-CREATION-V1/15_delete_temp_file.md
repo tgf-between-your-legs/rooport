@@ -3,11 +3,13 @@
 id = "WF-MODE-CREATION-V1-15-DELETE-TEMP-FILE"
 title = "Delete Temporary Context File"
 step_number = 15
+workflow_id = "WF-MODE-CREATION-V1" # Added workflow ID
+workflow_id = "WF-MODE-CREATION-V1" # Added workflow ID
 next_step_id = "WF-MODE-CREATION-V1-16-RELOAD-PROMPT" # Points to the next step file
 prev_step_id = "WF-MODE-CREATION-V1-14-BUILD-REGISTRY" # Points to the previous step file
-status = "draft"
+status = "active" # Updated status
 created_date = "2025-04-29"
-updated_date = "2025-04-29"
+updated_date = "2025-04-30" # Update date
 version = "1.0"
 tags = ["workflow-step", "cleanup", "temporary-file", "json", "mode-creation", "mcp-preference"]
 
@@ -19,7 +21,7 @@ delegation_mode = "Coordinator (Roo Commander)" # Primary mode responsible for t
 error_handling = "If deletion fails (MCP and fallback), log error. Generally non-critical, but note for potential manual cleanup." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

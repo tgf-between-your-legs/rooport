@@ -21,11 +21,11 @@ version = "1.0"
 **Steps:**
 
 1.  **Generate `.roomodes`:**
-    *   **Action:** Execute the command `node scripts/build_roomodes.js`.
+    *   **Action:** Execute the command `node .ruru/scripts/build_roomodes.js`.
     *   **Purpose:** This script reads mode definitions and generates/updates the `.roomodes` file in the workspace root, which is used by the Roo Commander extension.
 
 2.  **Generate Mode Summary:**
-    *   **Action:** Execute the command `node scripts/build_mode_summary.js`.
+    *   **Action:** Execute the command `node .ruru/scripts/build_mode_summary.js`.
     *   **Purpose:** This script generates a Markdown summary of available modes (typically located at `.ruru/modes/roo-commander/kb/kb-available-modes-summary.md`). This keeps the documentation in sync with the actual modes.
     *   **Note:** Verify the exact output path if it differs from the typical location mentioned above.
 

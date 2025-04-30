@@ -15,12 +15,12 @@ tags = ["workflow-step", "kb-creation", "json-parsing", "delegation", "mode-crea
 # --- Workflow Step Specific Fields ---
 description = "Delegates the creation of KB files (or placeholders) based on the user's choice in Step 05, using the synthesized JSON context."
 delegation_mode = "Mode Structure Agent (e.g., mode-maintainer, technical-writer, toml-specialist)" # Primary mode responsible for this step
-# inputs = ["kb_population_preference", "kb_structure_preference", "temp_context_file_path", "mode_slug"] # List of expected input data/context (optional)
+# inputs = ["kb_population_preference", "kb_structure_preference", "temp_context_file_path", "mode_slug", "ai_assessment_topics"] # List of expected input data/context (optional) - Added topics for subfolder logic
 # outputs = ["kb_files_creation_status"] # List of expected output data/context (optional)
 error_handling = "If KB generation/population fails (parsing JSON, creating subdirs, writing files), notify User, ensure KB README reflects failure, proceed if possible. Check MCP/fallback tool status." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++
@@ -38,8 +38,14 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.
     *   Based on the User's decision:
         *   **If "Standard KB (Single Folder)" or "Comprehensive KB (Subfolders)":**
             1.  Instruct the Agent to **read and parse the JSON context** from `.ruru/temp/mode-creation-context-<new-slug>.json` (Prefer MCP `read_file_content`, fallback `read_file`).
-            2.  **If "Comprehensive KB (Subfolders)" was chosen:** Instruct the Agent to **first create any necessary subdirectories** within `.ruru/modes/<new-slug>/kb/` based on the paths specified in the JSON `filename` keys (e.g., `kb/setup/`, `kb/usage/`). (Prefer MCP `create_directory`, fallback `execute_command mkdir -p ...`).
-            3.  Then, instruct the Agent to **iterate through the JSON array**, creating/populating each KB file specified by `filename` within `.ruru/modes/<new-slug>/kb/` (including subfolders if applicable) using the corresponding `content`. Process iteratively for many files. (Prefer MCP `write_file_content`, fallback `write_to_file`).
+            2.  Instruct the Agent to **iterate through the JSON array**. For each item:
+                *   Determine the target path:
+                    *   **If "Standard KB (Single Folder)" was chosen:** The path is `.ruru/modes/<new-slug>/kb/{item.filename}`.
+                    *   **If "Comprehensive KB (Subfolders)" was chosen:**
+                        *   The Agent must **determine the appropriate subfolder** within `.ruru/modes/<new-slug>/kb/` based on the `item.filename` and potentially the AI-assessed topics (from Step 02). (e.g., map `installation.md` to `setup/`, `usage.md` to `usage/`). *[Agent logic required here]*
+                        *   The Agent must **create the subfolder** if it doesn't exist (Prefer MCP `create_directory`, fallback `execute_command mkdir -p ...`).
+                        *   The path is `.ruru/modes/<new-slug>/kb/{subfolder}/{item.filename}`.
+                *   Create/populate the KB file at the determined target path using the `item.content`. Process iteratively for many files. (Prefer MCP `write_file_content`, fallback `write_to_file`).
         *   **If "Basic KB Structure":**
             1.  Instruct the Agent to create placeholder files or a single file (e.g., `_placeholder.md` or `README.md` with a note) in `.ruru/modes/<new-slug>/kb/` indicating basic structure and the need for future population. (JSON context reading might not be strictly needed but can be passed for consistency). (Prefer MCP `write_file_content`, fallback `write_to_file`).
         *   **If "Skip KB":**

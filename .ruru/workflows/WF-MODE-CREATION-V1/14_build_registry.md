@@ -3,11 +3,13 @@
 id = "WF-MODE-CREATION-V1-14-BUILD-REGISTRY"
 title = "Build Mode Registry"
 step_number = 14
+workflow_id = "WF-MODE-CREATION-V1" # Added workflow ID
+workflow_id = "WF-MODE-CREATION-V1" # Added workflow ID
 next_step_id = "WF-MODE-CREATION-V1-15-DELETE-TEMP-FILE" # Points to the next step file
 prev_step_id = "WF-MODE-CREATION-V1-13-USER-REVIEW" # Points to the previous step file
-status = "draft"
+status = "active" # Updated status
 created_date = "2025-04-29"
-updated_date = "2025-04-29"
+updated_date = "2025-04-30" # Update date
 version = "1.0"
 tags = ["workflow-step", "mode-registry", "build-script", "finalization", "mode-creation"]
 
@@ -18,10 +20,10 @@ delegation_mode = "Coordinator (Roo Commander)" # Primary mode responsible for t
 # outputs = ["registry_build_status"] # List of expected output data/context (optional)
 error_handling = "If script fails, log error, attempt diagnosis. If resolvable, fix & retry. If not, escalate. Ensure Step 15 (cleanup) is skipped or handled carefully." # Specific error handling for this step (optional)
 related_docs = [
-    "`scripts/build_roomodes.js`"
+    ".ruru/scripts/build_roomodes.js"
 ]
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++
@@ -38,7 +40,7 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.
 2.  **Execute Build Script:**
     *   Coordinator uses the `execute_command` tool to run the mode registry build script:
         ```bash
-        node scripts/build_roomodes.js
+        node .ruru/scripts/build_roomodes.js
         ```
     *   *(Note: While MCP might offer command execution, standard `execute_command` is likely sufficient here unless specific MCP features are needed.)*
 
@@ -50,7 +52,7 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.
 4.  **Proceed:** Upon successful execution of the build script, proceed to the next step: **[15_delete_temp_file.md](./15_delete_temp_file.md)**.
 
 ## Error Handling
-*   If the `scripts/build_roomodes.js` script fails:
+*   If the `.ruru/scripts/build_roomodes.js` script fails:
     *   Log the error output from the command execution.
     *   Attempt to diagnose the cause (e.g., syntax error in a recently created `.mode.md` file).
     *   If the cause is identified and resolvable (e.g., requires fixing the `.mode.md` file), loop back to the relevant step (e.g., Step 07 or Step 08) to make corrections, then re-run QA (Step 12), User Review (Step 13), and retry this step (Step 14).

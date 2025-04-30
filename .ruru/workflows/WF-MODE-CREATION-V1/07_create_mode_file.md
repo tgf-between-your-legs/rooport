@@ -15,14 +15,22 @@ tags = ["workflow-step", "mode-file", "template", "json-parsing", "delegation", 
 # --- Workflow Step Specific Fields ---
 description = "Delegates the creation and initial population of the main mode definition file (`.mode.md`) using the standard template and synthesized context."
 delegation_mode = "Mode Structure Agent (e.g., mode-maintainer, technical-writer, toml-specialist)" # Primary mode responsible for this step
-# inputs = ["temp_context_file_path", "mode_slug", "mode_classification", "standard_mode_template_path"] # List of expected input data/context (optional)
-# outputs = ["mode_file_path", "mode_file_creation_status"] # List of expected output data/context (optional)
+inputs = [
+    "temp_context_file_path",   # String: Path to the temporary JSON file from Step 04
+    "mode_slug",                # String: From Step 00
+    "mode_classification"       # String: From Step 00
+    # "standard_mode_template_path" # String: Fixed path ".ruru/templates/modes/00_standard_mode.md" - treated as config
+]
+outputs = [
+    "mode_file_path",           # String: Path to the created .mode.md file
+    "mode_file_creation_status" # Boolean/String: Status of file creation
+]
 error_handling = "If agent fails (reading JSON, copying template, writing file), retry. Check MCP/fallback tool status. Check JSON file validity. Persistent failure requires manual intervention or abandoning." # Specific error handling for this step (optional)
 related_docs = [
-    "`.ruru/templates/modes/00_standard_mode.md`"
+    ".ruru/templates/modes/00_standard_mode.md"
 ]
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

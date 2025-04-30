@@ -13,7 +13,7 @@ owner = "Roo Commander"
 related_docs = [
     ".ruru/config/build_collections.json",
     ".ruru/workflows/WF-CREATE-ROO-CMD-BUILD-001.md", # Single build workflow
-    "scripts/create_build.js" # Assumed build script
+    ".ruru/.ruru/scripts/create_build.js" # Assumed build script
     ]
 related_templates = []
 
@@ -29,7 +29,7 @@ success_criteria = [
     ]
 failure_criteria = [
     "Cannot read or parse `build_collections.json`.",
-    "Build script (`scripts/create_build.js`) fails for one or more collections.",
+    "Build script (`.ruru/.ruru/scripts/create_build.js`) fails for one or more collections.",
     "`.roomodes` file cannot be written for a collection."
     ]
 
@@ -48,20 +48,20 @@ validation_notes = ""
 *   Automate the generation of multiple, predefined Roo Commander builds, each containing a specific subset of modes defined in `.ruru/config/build_collections.json`.
 
 ## 2. Scope ↔️
-*   This workflow reads collection definitions from `.ruru/config/build_collections.json`, iterates through them, generates the necessary `.roomodes` file for each collection, executes the `scripts/create_build.js` script (passing collection-specific arguments if needed), and reports the overall status.
+*   This workflow reads collection definitions from `.ruru/config/build_collections.json`, iterates through them, generates the necessary `.roomodes` file for each collection, executes the `.ruru/.ruru/scripts/create_build.js` script (passing collection-specific arguments if needed), and reports the overall status.
 
 ## 3. Roles & Responsibilities 👤
 *   **Roo Commander:** Orchestrates the entire batch process, reads configuration, manages the loop, generates `.roomodes` files, executes the build script via `execute_command` for each collection, monitors results, and reports the final outcome.
-*   **Build Script (`scripts/create_build.js`):** Performs the actual filtering and packaging for a single build based on the `.roomodes` file and potentially other arguments (like output directory/name).
+*   **Build Script (`.ruru/.ruru/scripts/create_build.js`):** Performs the actual filtering and packaging for a single build based on the `.roomodes` file and potentially other arguments (like output directory/name).
 
 ## 4. Preconditions🚦
 *   The configuration file `.ruru/config/build_collections.json` exists and contains valid JSON defining the collections.
-*   The build script `scripts/create_build.js` exists, is functional, and can handle being run multiple times (potentially with arguments to differentiate outputs).
+*   The build script `.ruru/.ruru/scripts/create_build.js` exists, is functional, and can handle being run multiple times (potentially with arguments to differentiate outputs).
 *   The full set of modes is available for filtering.
 
 ## 5. Reference Documents & Tools 📚🛠️
 *   Config: `.ruru/config/build_collections.json`
-*   Scripts: `scripts/create_build.js`
+*   Scripts: `.ruru/.ruru/scripts/create_build.js`
 *   Tools: `read_file`, `write_to_file`, `execute_command`, `ask_followup_question` (for error handling).
 
 ## 6. Workflow Steps 🪜
@@ -103,11 +103,11 @@ validation_notes = ""
     *   **Error Handling:** If `write_to_file` fails, log the error for this collection, report it, and potentially ask the user whether to continue with other collections.
 
 *   **Step 6: Execute Build Script for Collection (Roo Commander delegates to `execute_command`)**
-    *   **Description:** Run the `scripts/create_build.js` script for the current collection.
+    *   **Description:** Run the `.ruru/.ruru/scripts/create_build.js` script for the current collection.
     *   **Tool:** `execute_command`
-    *   **Inputs Provided by Coordinator:** Command to run the script. **Crucially, the script might need arguments** to specify the collection name and/or a unique output directory/filename for this collection's build artifact (e.g., `node scripts/create_build.js --collection core --output ./builds/core`). This needs clarification based on `scripts/create_build.js` capabilities.
+    *   **Inputs Provided by Coordinator:** Command to run the script. **Crucially, the script might need arguments** to specify the collection name and/or a unique output directory/filename for this collection's build artifact (e.g., `node .ruru/.ruru/scripts/create_build.js --collection core --output ./builds/core`). This needs clarification based on `.ruru/.ruru/scripts/create_build.js` capabilities.
     *   **Instructions for Delegate (`execute_command`):**
-        *   Command: `node scripts/create_build.js [ARGUMENTS]` (e.g., `node scripts/create_build.js --collection <collection_name> --output ./builds/<collection_name>`).
+        *   Command: `node .ruru/.ruru/scripts/create_build.js [ARGUMENTS]` (e.g., `node .ruru/.ruru/scripts/create_build.js --collection <collection_name> --output ./builds/<collection_name>`).
         *   Explain: "This command executes the build script for the '<collection_name>' collection, creating a filtered build artifact."
     *   **Expected Output from Delegate:** Terminal output indicating success or failure. Exit code 0 for success.
     *   **Coordinator Action (Post-Delegation):**

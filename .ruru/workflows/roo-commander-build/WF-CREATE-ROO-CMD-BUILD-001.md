@@ -11,9 +11,9 @@ tags = ["workflow", "build", "release", "distribution", "archive", "zip", "roo-c
 # --- Ownership & Context ---
 owner = "Roo Commander"
 related_docs = [
-  "scripts/create_build.js",
-  "scripts/create_kilocode_build.js",
-  "scripts/run_collection_builds.js",
+  ".ruru/scripts/create_build.js",
+  ".ruru/scripts/create_kilocode_build.js",
+  ".ruru/scripts/run_collection_builds.js",
   ".ruru/workflows/roo-commander-build/WF-RELEASE-NOTES-HYBRID-001.md",
   ".roo/rules/07-git-commit-standard-simplified.md",
   # Add links to GitHub API docs or gh CLI docs if used
@@ -115,14 +115,14 @@ validation_notes = "Workflow needs testing with build scripts, Git interactions,
 
 ## 4. Preconditions🚦
 *   Necessary tools (`node`, `git`, standard shell commands, potentially `gh` CLI) are available.
-*   Build scripts (`scripts/create_build.js`, etc.) exist, are functional, and support outputting to `{{build_output_dir}}`.
+*   Build scripts (`.ruru/scripts/create_build.js`, etc.) exist, are functional, and support outputting to `{{build_output_dir}}`.
 *   The Git repository is in a clean state (no uncommitted changes conflicting with `README.md` or `CHANGELOG.md`), ready for tagging.
 *   Conventional Commit standards are followed in the commit history.
 *   If `create_github_release` is true, necessary credentials/authentication for GitHub (MCP or `gh` CLI) are configured.
 *   `README.md` exists at the repository root.
 
 ## 5. Reference Documents & Tools 📚🛠️
-*   `scripts/create_build.js`, `scripts/create_kilocode_build.js`, `scripts/run_collection_builds.js`
+*   `.ruru/scripts/create_build.js`, `.ruru/scripts/create_kilocode_build.js`, `.ruru/scripts/run_collection_builds.js`
 *   `.ruru/workflows/roo-commander-build/WF-RELEASE-NOTES-HYBRID-001.md` (Source for notes logic)
 *   `.roo/rules/07-git-commit-standard-simplified.md`
 *   `execute_command`: Tool to run shell commands, Node.js scripts, `gh` CLI.
@@ -145,21 +145,21 @@ validation_notes = "Workflow needs testing with build scripts, Git interactions,
 *   **Step 2: Execute Complete Build (Coordinator delegates to Executor via `execute_command`)**
     *   **Description:** Run the script to create the complete build in the release directory.
     *   **Tool:** `execute_command`
-    *   **Command Example:** `node scripts/create_build.js --output {{build_output_dir}}`
+    *   **Command Example:** `node .ruru/scripts/create_build.js --output {{build_output_dir}}`
     *   **Validation:** Check for exit code 0 and success messages.
     *   **Error Handling:** ❗ If the script fails, analyze output. Report failure.
 
 *   **Step 3: Execute Kilocode Build (Coordinator delegates to Executor via `execute_command`)**
     *   **Description:** Run the script to create the Kilocode build in the release directory.
     *   **Tool:** `execute_command`
-    *   **Command Example:** `node scripts/create_kilocode_build.js --output {{build_output_dir}}`
+    *   **Command Example:** `node .ruru/scripts/create_kilocode_build.js --output {{build_output_dir}}`
     *   **Validation:** Check for exit code 0 and success messages.
     *   **Error Handling:** ❗ If the script fails, analyze output. Report failure.
 
 *   **Step 4: Execute Collection Builds (Coordinator delegates to Executor via `execute_command`)**
     *   **Description:** Run the script to create the collection builds in the release directory.
     *   **Tool:** `execute_command`
-    *   **Command Example:** `node scripts/run_collection_builds.js --output {{build_output_dir}}`
+    *   **Command Example:** `node .ruru/scripts/run_collection_builds.js --output {{build_output_dir}}`
     *   **Validation:** Check for exit code 0 and success messages.
     *   **Error Handling:** ❗ If the script fails, analyze output. Report failure.
 

@@ -3,11 +3,12 @@
 id = "WF-MODE-CREATION-V1-10-UPDATE-KB-README"
 title = "Delegate Enhanced KB README Update"
 step_number = 10
+workflow_id = "WF-MODE-CREATION-V1" # Added workflow ID
 next_step_id = "WF-MODE-CREATION-V1-11-CREATE-KB-RULE" # Points to the next step file
 prev_step_id = "WF-MODE-CREATION-V1-09-CREATE-KB-CONTENT" # Points to the previous step file
-status = "draft"
+status = "active" # Updated status
 created_date = "2025-04-29"
-updated_date = "2025-04-29"
+updated_date = "2025-04-30" # Update date
 version = "1.0"
 tags = ["workflow-step", "kb-readme", "documentation", "delegation", "mode-creation", "mcp-preference"]
 
@@ -19,7 +20,7 @@ delegation_mode = "Mode Structure Agent (e.g., mode-maintainer, technical-writer
 error_handling = "If agent fails (reading context, listing files, writing README), retry. Check MCP/fallback tool status. Persistent failure requires manual intervention or abandoning." # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++

@@ -20,7 +20,7 @@ delegation_mode = "Coordinator (Roo Commander)" # Primary mode responsible for t
 # error_handling = "" # Specific error handling for this step (optional)
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/26_workflow_step_finish.md`"
+    ".ruru/templates/toml-md/26_workflow_step_finish.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/26_workflow_step_finish.README.md"
 +++

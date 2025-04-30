@@ -15,12 +15,19 @@ tags = ["workflow-step", "kb-prompt", "user-interaction", "ai-assessment", "mode
 # --- Workflow Step Specific Fields ---
 description = "Presents AI context assessment to the user and prompts for KB structure/population preference."
 delegation_mode = "Coordinator (Roo Commander)" # Primary mode responsible for this step
-# inputs = ["temp_context_file_path", "ai_assessment_rating", "ai_assessment_topics"] # List of expected input data/context (optional)
-# outputs = ["kb_population_preference", "kb_structure_preference"] # List of expected output data/context (optional)
-# error_handling = "" # Specific error handling for this step (optional)
+inputs = [
+    "temp_context_file_path",   # String: Path to the temporary JSON file from Step 04
+    "ai_assessment_rating",     # String: Rating from Step 02
+    "ai_assessment_topics"      # List[String]: Key topics from Step 02
+]
+outputs = [
+    "kb_population_preference", # String: User's choice ("Populate", "Basic", "Skip")
+    "kb_structure_preference"   # String: User's choice ("Single Folder", "Subfolders")
+]
+# error_handling = "" # Defined in Markdown body
 related_docs = []
 related_templates = [
-    "`.ruru/templates/toml-md/25_workflow_step_standard.md`"
+    ".ruru/templates/toml-md/25_workflow_step_standard.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.README.md"
 +++
