@@ -1,49 +1,34 @@
 +++
 # --- Basic Metadata ---
-id = "KB-REPOMIX-GITHUB-V1"
-title = "Repomix Specialist: Handling GitHub Repository Sources"
+id = "KB-REPOMIX-GITHUB-V2" # Updated ID
+title = "Repomix Specialist: Handling GitHub Repository Sources (Reference)" # Updated title
 context_type = "knowledge_base"
-scope = "Procedure for handling GitHub URL inputs"
+scope = "Guidance on handling GitHub URL inputs by referencing the standard SOP" # Updated scope
 target_audience = ["spec-repomix"]
 status = "active"
-last_updated = "2025-05-01"
-tags = ["repomix", "kb", "github", "configuration", "procedure"]
-related_context = [".roo/rules-spec-repomix/02-repomix-decision-tree.md", ".ruru/modes/spec-repomix/kb/03-repomix-local-source-handling.md"]
+last_updated = "2025-05-03" # Updated date
+tags = ["repomix", "kb", "github", "sop-reference", "procedure"] # Updated tags
+related_context = [
+    ".roo/rules-spec-repomix/02-repomix-decision-tree.md",
+    ".ruru/processes/SOP-REPOMIX-GITHUB-V1.md" # Link to the SOP
+    ]
 template_schema_doc = ".ruru/templates/toml-md/14_kb_article.README.md" # Points to schema documentation
-# version = "1.0" # Optional: Add version if needed
+# version = "2.0" # Optional: Add version if needed
 # relevance = "High" # Optional: Add relevance if needed
-# author = "Prime Documenter" # Optional: Add author if needed
+# author = "Prime Coordinator" # Optional: Add author if needed
 +++
 
 # Handling GitHub Repository Sources
 
-When the input source provided for Repomix is identified as a GitHub URL (e.g., starts with `https://github.com/`):
+When the input source provided for Repomix is identified as a GitHub URL (e.g., starts with `https://github.com/`), the `spec-repomix` mode **MUST** follow the detailed procedure outlined in the Standard Operating Procedure (SOP):
 
-1.  **Identify URL:** Confirm the input string is a valid-looking GitHub repository URL.
-2.  **Prepare Configuration:** Generate a temporary JSON configuration file.
-3.  **Populate `sources`:** In the configuration file, the `sources` array MUST contain an object specifically formatted for GitHub:
-    ```json
-    {
-      "type": "github",
-      "url": "[THE_GITHUB_URL]"
-    }
-    ```
-    Replace `[THE_GITHUB_URL]` with the actual URL provided in the input.
-4.  **Populate `output`:** Define the `output` object, specifying the `path`, `format`, and `style`.
-    *   `path`: The desired output file path (e.g., `.ruru/temp/repomix_output/[REPO_NAME]_[TIMESTAMP].md`).
-    *   `format`: The output format (e.g., `"markdown"`).
-    *   `style`: The output style. **Valid values for the configuration file are `"xml"`, `"markdown"`, or `"plain"`.**
-        *   **Note:** While `"tree"` might be used elsewhere (e.g., as a command-line argument), it is **not** a valid value for `style` within the configuration file JSON. Using `"tree"` here will cause an error.
-    *   Example:
-        ```json
-        {
-          "output": {
-            "path": ".ruru/temp/repomix_output/my_repo_20250502061500.md",
-            "format": "markdown",
-            "style": "markdown"
-          }
-        }
-        ```
-5.  **Execute Command:** Use the `execute_command` tool with the command `repomix --config [PATH_TO_TEMP_CONFIG_JSON]`.
-6.  **Verification:** After execution, verify the output directory was created and contains the expected files.
-7.  **Cleanup:** Remember to handle cleanup of the temporary config file if required by the workflow.
+*   **SOP:** `.ruru/processes/SOP-REPOMIX-GITHUB-V1.md`
+
+This SOP covers all necessary steps, including:
+*   Parsing the GitHub URL to identify the base repository and any specific subfolder paths.
+*   Cloning the repository to a temporary location.
+*   Generating the correct `repomix.config.json` content, including appropriate `sources` and `include` filters based on whether a full repo or subfolder(s) were requested.
+*   Executing `repomix` using the `--config` flag.
+*   Handling errors and performing cleanup.
+
+**Do not implement the logic directly; strictly adhere to the referenced SOP.**
