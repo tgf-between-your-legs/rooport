@@ -1,6 +1,6 @@
 +++
 # --- Core Identification (Required) ---
-id = "MODE-SPEC-BUN"
+id = "spec-bun"
 name = "🐇 Bun Specialist"
 slug = "spec-bun"
 version = "1.0.0" # Initial version

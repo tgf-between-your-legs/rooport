@@ -62,7 +62,7 @@ context_files = [ # << OPTIONAL >> Relative paths to key context files within th
   ".ruru/templates/toml-md/24_workflow_step_start.md",
   ".ruru/templates/toml-md/25_workflow_step_standard.md",
   ".ruru/templates/toml-md/26_workflow_step_finish.md",
-  ".roo/rules/10-vertex-mcp-usage-guideline.md" # << ADDED >>
+  ".roo/rules/10-vertex-mcp-usage-guideline.md", # << ADDED >>
   ".ruru/workflows/WF-WORKFLOW-CREATION-V1/README.md",
   ".ruru/workflows/WF-AUDIT-IMPROVE-V1/README.md"
 ]

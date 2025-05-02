@@ -1,6 +1,6 @@
 +++
 # --- Core Identification (Required) ---
-id = "MODE-dev-kotlin" # << REQUIRED >> Example: "util-text-analyzer"
+id = "dev-kotlin" # << REQUIRED >> Example: "util-text-analyzer"
 name = "🟣 Kotlin Developer" # << REQUIRED >> Example: "📊 Text Analyzer"
 version = "0.1.0" # << REQUIRED >> Initial version
 status = "draft" # << ADDED as per instruction >>

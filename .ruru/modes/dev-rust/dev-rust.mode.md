@@ -1,6 +1,6 @@
 +++
 # --- Core Identification (Required) ---
-id = "MODE-DEV-RUST" # << REQUIRED >> Example: "util-text-analyzer"
+id = "dev-rust" # << REQUIRED >> Example: "util-text-analyzer"
 name = "🦀 Rust Developer" # << REQUIRED >> Example: "📊 Text Analyzer"
 version = "0.1" # << REQUIRED >> Initial version
 

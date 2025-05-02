@@ -12,15 +12,15 @@ tags = ["workflow", "repomix", "generation", "analysis", "documentation", "sop",
 owner = "prime-coordinator" # Or relevant Lead Agent
 related_docs = [
     ".ruru/modes/mode-spec-repomix/kb/01-repomix-procedures.md",
-    ".roo/rules-MODE-SPEC-REPOMIX/01-repomix-workflow.md"
+    ".roo/rules-spec-repomix/01-repomix-workflow.md"
     ]     # << Paths/URLs to essential specs, guides, PAL doc >>
 related_templates = [".ruru/templates/workflows/00_workflow_boilerplate.md"] # << Paths to data templates used/produced >>
 
 # --- Workflow Specific Fields ---
 objective = "Standard workflow for performing a comprehensive Repomix analysis on specified sources, including cloning, configuration confirmation, execution, optional artifact archiving, and cleanup." # << REQUIRED: Goal of this workflow >>
-scope = "Applies when the Repomix Specialist (MODE-SPEC-REPOMIX) needs to generate comprehensive, chunked documentation from local or remote sources, involving user confirmation for chunking strategy."     # << REQUIRED: Applicability and boundaries >>
-roles = ["MODE-SPEC-REPOMIX", "prime-coordinator", "user"]     # << REQUIRED: List agent roles involved >>
-trigger = "Delegation from prime-coordinator (or other lead) to MODE-SPEC-REPOMIX, requesting comprehensive Repomix generation."   # << How is this workflow typically initiated? >>
+scope = "Applies when the Repomix Specialist (spec-repomix) needs to generate comprehensive, chunked documentation from local or remote sources, involving user confirmation for chunking strategy."     # << REQUIRED: Applicability and boundaries >>
+roles = ["spec-repomix", "prime-coordinator", "user"]     # << REQUIRED: List agent roles involved >>
+trigger = "Delegation from prime-coordinator (or other lead) to spec-repomix, requesting comprehensive Repomix generation."   # << How is this workflow typically initiated? >>
 success_criteria = [
     "User provides source paths/URLs.", # Added
     "User confirms task name.", # Added
@@ -59,16 +59,16 @@ validation_notes = "" # Link to PAL validation records/notes
 *   To provide a standard, repeatable procedure for generating comprehensive, chunked documentation context from specified source code repositories or local paths using the `repomix` tool. This includes gathering inputs interactively, handling remote repositories via cloning, confirming the chunking strategy with the user, configuring the tool, executing it, generating a summary README, optionally archiving artifacts, and cleaning up temporary files.
 
 ## 2. Scope ↔️
-*   This workflow applies when the Repomix Specialist (`MODE-SPEC-REPOMIX`) is tasked with performing a "Comprehensive Generation" as defined in its rules.
+*   This workflow applies when the Repomix Specialist (`spec-repomix`) is tasked with performing a "Comprehensive Generation" as defined in its rules.
 *   It covers tasks involving both local workspace paths and remote Git repositories as sources.
 *   It mandates the creation of both single combined outputs (MD, XML) and chunked outputs (MD, XML), along with code compression.
 *   It includes interactive steps for gathering sources, confirming the task name, confirming the chunking strategy, and optional artifact archiving.
 
 ## 3. Roles & Responsibilities 👤
 *   **`prime-coordinator` (or other initiating Lead/Manager):**
-    *   Initiates the workflow by delegating the task to `MODE-SPEC-REPOMIX`.
+    *   Initiates the workflow by delegating the task to `spec-repomix`.
     *   Receives the final completion report and path to the results.
-*   **`MODE-SPEC-REPOMIX` (Repomix Specialist):**
+*   **`spec-repomix` (Repomix Specialist):**
     *   Executes the core steps of the workflow.
     *   Interacts with the user to gather source paths.
     *   Analyzes sources and suggests task names.
@@ -90,14 +90,14 @@ validation_notes = "" # Link to PAL validation records/notes
     *   Decides whether to archive generated artifacts when prompted.
 
 ## 4. Preconditions🚦
-*   The initiating agent (`prime-coordinator`) has delegated the task to `MODE-SPEC-REPOMIX`.
-*   The `MODE-SPEC-REPOMIX` agent has access to the necessary tools: `execute_command` (with `git`, `mkdir`, `rm`, `cp`), `write_to_file`, `ask_followup_question`, and `attempt_completion`.
+*   The initiating agent (`prime-coordinator`) has delegated the task to `spec-repomix`.
+*   The `spec-repomix` agent has access to the necessary tools: `execute_command` (with `git`, `mkdir`, `rm`, `cp`), `write_to_file`, `ask_followup_question`, and `attempt_completion`.
 *   The `repomix` command-line tool is installed and accessible in the execution environment.
 *   The user is available to respond to prompts regarding source paths, task name, chunking strategy, and artifact archiving.
 
 ## 5. Reference Documents & Tools 📚🛠️
 *   **Source Procedure:** `.ruru/modes/mode-spec-repomix/kb/01-repomix-procedures.md` (Section 1)
-*   **Governing Rule:** `.roo/rules-MODE-SPEC-REPOMIX/01-repomix-workflow.md`
+*   **Governing Rule:** `.roo/rules-spec-repomix/01-repomix-workflow.md`
 *   **Workflow Template:** `.ruru/templates/workflows/00_workflow_boilerplate.md`
 *   **OS Command Rules:** `.roo/rules/05-os-aware-commands.md`
 *   **Logging Rules:** `.roo/rules/08-logging-procedure-simplified.md`
@@ -109,9 +109,9 @@ validation_notes = "" # Link to PAL validation records/notes
 
 ## 6. Workflow Steps 🪜
 
-*Note: The following steps are primarily executed by the `MODE-SPEC-REPOMIX` agent upon receiving the task delegation, with user interaction where noted.*
+*Note: The following steps are primarily executed by the `spec-repomix` agent upon receiving the task delegation, with user interaction where noted.*
 
-*   **Step 1: Gather Sources (MODE-SPEC-REPOMIX, User)**
+*   **Step 1: Gather Sources (spec-repomix, User)**
     *   **Description:** Obtain the list of source paths or Git URLs from the user.
     *   **Inputs:** User request/delegation message.
     *   **Procedure:**
@@ -126,7 +126,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** `[source_list]` (list of strings).
     *   **Error Handling:** If user interaction fails, report blockage to coordinator.
 
-*   **Step 2: Determine & Confirm Task Name (MODE-SPEC-REPOMIX, User)**
+*   **Step 2: Determine & Confirm Task Name (spec-repomix, User)**
     *   **Description:** Generate task name suggestions based on sources and confirm with the user.
     *   **Inputs:** `[source_list]` (from Step 1).
     *   **Procedure:**
@@ -143,7 +143,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** User-confirmed `[task_name]` string.
     *   **Error Handling:** If user interaction fails, report blockage to coordinator.
 
-*   **Step 3: Prepare Task Directory (MODE-SPEC-REPOMIX)**
+*   **Step 3: Prepare Task Directory (spec-repomix)**
     *   **Description:** Create the main directory for this task's outputs and temporary files, incorporating the confirmed task name and a timestamp.
     *   **Inputs:** `[task_name]` (from Step 2).
     *   **Procedure:**
@@ -154,7 +154,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** Created `[task_directory]`. Defined `[temp_clone_path]`. `[timestamp]` string.
     *   **Error Handling:** Report failure to create directory back to coordinator.
 
-*   **Step 4: Clone Remote Sources (If Applicable) (MODE-SPEC-REPOMIX)**
+*   **Step 4: Clone Remote Sources (If Applicable) (spec-repomix)**
     *   **Description:** Download source code from remote Git repositories if specified in the gathered sources.
     *   **Inputs:** `[source_list]` (from Step 1). `[temp_clone_path]` (from Step 3).
     *   **Procedure:**
@@ -169,7 +169,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** Cloned repository content within `[temp_clone_path]` (if applicable). `[final_source_paths]` list for the next step.
     *   **Error Handling:** Report Git clone failures back to coordinator.
 
-*   **Step 5: Determine & Confirm Chunking Strategy (MODE-SPEC-REPOMIX, User)**
+*   **Step 5: Determine & Confirm Chunking Strategy (spec-repomix, User)**
     *   **Description:** Analyze source structure and confirm the chunking approach with the user.
     *   **Inputs:** `[final_source_paths]` (from Step 4).
     *   **Procedure:**
@@ -182,7 +182,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** User-confirmed `[chunking_strategy]` string.
     *   **Error Handling:** If user interaction fails or provides an invalid choice, default to `"directory"` and log a warning, or report blockage to coordinator.
 
-*   **Step 6: Prepare `config.repomix.json` (MODE-SPEC-REPOMIX)**
+*   **Step 6: Prepare `config.repomix.json` (spec-repomix)**
     *   **Description:** Generate the JSON configuration file for the `repomix` tool using the confirmed chunking strategy.
     *   **Inputs:** `[final_source_paths]` (from Step 4), `[task_directory]` (from Step 3), `[task_name]` (from Step 2), `[chunking_strategy]` (from Step 5).
     *   **Procedure:**
@@ -195,7 +195,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** `config.repomix.json` file within `[task_directory]`.
     *   **Error Handling:** Report failure to generate or write the config file back to coordinator.
 
-*   **Step 7: Execute Repomix (MODE-SPEC-REPOMIX)**
+*   **Step 7: Execute Repomix (spec-repomix)**
     *   **Description:** Run the `repomix` tool using the generated configuration.
     *   **Inputs:** Path to `config.repomix.json` (`[task_directory]/config.repomix.json`).
     *   **Procedure:**
@@ -204,7 +204,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** Repomix output files (single, chunked) within `[task_directory]`.
     *   **Error Handling:** Report `repomix` command execution errors back to coordinator.
 
-*   **Step 8: Generate `README.md` (MODE-SPEC-REPOMIX)**
+*   **Step 8: Generate `README.md` (spec-repomix)**
     *   **Description:** Create a summary file describing the Repomix run.
     *   **Inputs:** `[source_list]` (from Step 1), `[task_directory]` (from Step 3), `[chunking_strategy]` (from Step 5). Information on whether cloning occurred (Step 4).
     *   **Procedure:**
@@ -217,7 +217,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** `README.md` file within `[task_directory]`.
     *   **Error Handling:** Report failure to generate or write the README back to coordinator.
 
-*   **Step 9: Cleanup Temporary Clone (If Applicable) (MODE-SPEC-REPOMIX)**
+*   **Step 9: Cleanup Temporary Clone (If Applicable) (spec-repomix)**
     *   **Description:** Remove the temporary directory used for cloning remote repositories.
     *   **Inputs:** `[temp_clone_path]` (from Step 3). Information on whether cloning occurred (Step 4).
     *   **Procedure:**
@@ -226,7 +226,7 @@ validation_notes = "" # Link to PAL validation records/notes
     *   **Outputs:** Temporary clone directory removed.
     *   **Error Handling:** Log cleanup errors, but potentially proceed to reporting unless the error is critical. Report cleanup issues to coordinator.
 
-*   **Step 10: Report Completion (MODE-SPEC-REPOMIX)**
+*   **Step 10: Report Completion (spec-repomix)**
     *   **Description:** Notify the initiating agent of the core workflow outcome (prior to optional archiving).
     *   **Inputs:** Success/failure status of core generation, path to `[task_directory]/README.md`.
     *   **Procedure:**
@@ -234,7 +234,7 @@ validation_notes = "" # Link to PAL validation records/notes
         2.  If any step 1-9 failed critically, use `<attempt_completion>` reporting the failure and the specific step/error encountered.
     *   **Outputs:** Completion or error report sent to the coordinator.
 
-*   **Step 11: Offer Artifact Archiving (MODE-SPEC-REPOMIX / Coordinator, User)**
+*   **Step 11: Offer Artifact Archiving (spec-repomix / Coordinator, User)**
     *   **Description:** Ask the user if they want to copy key generated artifacts to the central context directory. This step runs only if Step 10 reported success.
     *   **Inputs:** `[task_directory]` (from Step 3), `[task_name]` (from Step 2).
     *   **Procedure:**
@@ -266,7 +266,7 @@ validation_notes = "" # Link to PAL validation records/notes
 ## 8. Error Handling & Escalation (Overall) ⚠️
 *   Failures in critical steps (user interaction for inputs, directory creation, cloning, config generation, repomix execution) should be reported immediately to the `prime-coordinator` via `<attempt_completion>`, halting the workflow.
 *   Failures in non-critical steps (README generation, cleanup, artifact copying) should be logged and reported, but the workflow might still be considered partially successful if the core Repomix outputs were generated.
-*   The `MODE-SPEC-REPOMIX` agent should provide specific error messages encountered during `execute_command` calls when reporting failures.
+*   The `spec-repomix` agent should provide specific error messages encountered during `execute_command` calls when reporting failures.
 *   Refer to the Adaptive Failure Resolution process (`.ruru/processes/afr-process.md`) if standard error handling fails.
 
 ## 9. PAL Validation Record 🧪

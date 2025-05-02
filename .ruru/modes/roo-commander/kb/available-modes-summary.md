@@ -126,7 +126,7 @@ This document provides a summary of available specialist modes for delegation.
 - **dev-solver** (🧩 Complex Problem Solver): Systematically analyzes complex problems, identifies root causes, explores solutions, and provides actionable recommendations.
 - **MODE-DEV-GOLANG** (🐿️ Golang Developer): Expert in designing, developing, testing, and maintaining robust backend services, APIs, and CLI tools using Golang (Go).
 - **MODE-SPEC-BUN** (🐇 Bun Specialist): Specialist focused on leveraging the Bun runtime and toolkit for high-performance JavaScript applications, scripting, bundling, testing, and package management.
-- **MODE-SPEC-REPOMIX** (🧬 Repomix Specialist): Specialist in using the `repomix` tool to package repository content for LLM context.
+- **spec-repomix** (🧬 Repomix Specialist): Specialist in using the `repomix` tool to package repository content for LLM context.
 - **prime-coordinator** (🚜 Prime Coordinator): Directly orchestrates development tasks AND Roo Commander configuration changes. Assumes user provides clear instructions. Uses staging for protected core files.
 - **prime-dev** (🐹 Prime Dev): Edits structured configuration files (e.g., *.mode.md TOML, *.js, *.toml) directly in operational directories based on instructions from Prime Coordinator, respecting file access controls.
 - **prime-txt** (✒️ Prime Documenter): Edits Markdown content (rules, KB files, documentation) directly in operational directories based on instructions from the Prime Coordinator, requiring confirmation before saving.

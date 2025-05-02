@@ -1,9 +1,34 @@
-# Rule: Consult Knowledge Base
++++
+id = "KB-LOOKUP-DEV-GIT"
+title = "KB Lookup Rule: dev-git"
+context_type = "rules"
+scope = "Mode-specific knowledge base access"
+target_audience = ["dev-git"]
+granularity = "rule"
+status = "active"
+last_updated = "2025-05-02" # Using today's date
+# version = ""
+# related_context = []
+tags = ["kb-lookup", "knowledge-base", "rule", "dev-git"] # Added dev-git
+# relevance = ""
+kb_directory = ".ruru/modes/dev-git/kb/"
++++
 
-Before proceeding with the task, review the KB README (`.ruru/modes/dev-git/kb/README.md`) which summarizes available documents and their size (line count).
-Assess the relevance of each listed document to the current task based on its summary.
-Estimate the potential benefit vs. the context cost (line count) of reading relevant documents.
-**Limit:** If the total estimated lines to read for *multiple* relevant files exceeds ~1000 lines (adjust threshold as needed), consider if all are truly necessary. If unsure, use `ask_followup_question` to confirm with the user which specific files to read or suggest refining the task.
-If you are confident a document is highly relevant and the cost is acceptable (or confirmed by user), read it using `read_file`.
-Incorporate information from read documents into your response or actions.
-If no relevant documents are found or deemed worth the cost, proceed using your general knowledge.
+# Knowledge Base (KB) Lookup Rule
+
+**Applies To:** `dev-git` mode
+
+**Rule:**
+
+Before attempting a task, **ALWAYS** consult the dedicated Knowledge Base (KB) directory for this mode located at:
+
+`.ruru/modes/dev-git/kb/`
+
+**Procedure:**
+
+1.  **Identify Keywords:** Determine the key concepts, tools, or procedures relevant to the current task.
+2.  **Scan KB:** Review the filenames and content within the `.ruru/modes/dev-git/kb/` for relevant documents (e.g., principles, workflows, examples, best practices, common issues). Pay special attention to `README.md` if it exists.
+3.  **Apply Knowledge:** Integrate relevant information from the KB into your task execution plan and response.
+4.  **If KB is Empty/Insufficient:** If the KB doesn't contain relevant information, proceed using your core capabilities and general knowledge, but note the potential knowledge gap.
+
+**Rationale:** This ensures the mode leverages specialized, curated knowledge for consistent and effective operation, even if the KB is currently sparse or empty. Adhering to this rule promotes maintainability and allows for future knowledge expansion.

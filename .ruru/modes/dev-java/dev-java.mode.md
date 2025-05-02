@@ -1,6 +1,6 @@
 +++
 # --- Core Identification (Required) ---
-id = "MODE-DEV-JAVA" # << REQUIRED >> Example: "util-text-analyzer"
+id = "dev-java" # << REQUIRED >> Example: "util-text-analyzer"
 name = "☕️ Java Developer" # << REQUIRED >> Example: "📊 Text Analyzer"
 version = "1.0.0" # << REQUIRED >> Initial version
 

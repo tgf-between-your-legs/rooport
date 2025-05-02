@@ -58,6 +58,7 @@ Templates are organized into subdirectories within `.ruru/templates/`:
     *   **`17_feature_proposal.md`**: For defining and tracking feature planning proposals. Typically stored in `.ruru/planning/`. See `17_feature_proposal.README.md` for schema and usage details.
 *   **`18_release_notes.md`**: Standard Release Notes/Changelog File. See `18_release_notes.README.md` for schema and usage details.
 *   **`18_release_notes.md`**: Standard Release Notes/Changelog File. See `18_release_notes.README.md` for schema and usage details.
+*   **`18_kb_lookup_rule.md`**: Standard template for mode-specific KB lookup rules.
 
 ### Workflow Templates (`.ruru/templates/workflows/`)
 

@@ -8,6 +8,8 @@ Roo Commander is an advanced configuration layer and opinionated workflow system
 
 **🐾 Join the Community:** [Roo Commander Discord](https://discord.gg/ESaJBnw7As)
 
+**💫 Support Roo Commander:**  [Donate with Buy me a Coffee](https://buymeacoffee.com/jezweb)
+
 ---
 
 ## What is Roo Commander?

@@ -1,6 +1,6 @@
 +++
 # --- Core Identification (Required) ---
-id = "MODE-DEV-GOLANG" # << REQUIRED >> Example: "util-text-analyzer"
+id = "dev-golang" # << REQUIRED >> Example: "util-text-analyzer"
 name = "🐿️ Golang Developer" # << REQUIRED >> Example: "📊 Text Analyzer"
 version = "0.1.0" # << REQUIRED >> Initial version
 
