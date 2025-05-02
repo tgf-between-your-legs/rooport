@@ -12,7 +12,7 @@ next_step = "03_review_code.md" # (String, Optional) Filename of the next step o
 error_step = "EE_handle_error.md" # (String, Optional) Filename to jump to if this step fails.
 
 # --- Execution ---
-delegate_to = "MODE-SPEC-REPOMIX" # (String, Optional) Mode responsible for executing the core logic of this step.
+delegate_to = "spec-repomix" # (String, Optional) Mode responsible for executing the core logic of this step.
 
 # --- Interface ---
 inputs = [ # (Array of Strings, Optional) Data/artifacts needed. Can reference outputs from 'depends_on' steps.

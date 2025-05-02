@@ -13,7 +13,7 @@ next_step = "99_finish.md" # (String, Required) Points to the new final finish s
 error_step = "" # (String, Optional) Usually empty.
 
 # --- Execution ---
-delegate_to = "MODE-SPEC-REPOMIX" # (String, Optional) Specialist mode to handle cleanup.
+delegate_to = "spec-repomix" # (String, Optional) Specialist mode to handle cleanup.
 
 # --- Interface ---
 inputs = [ # (Array of Strings, Optional) Data/artifacts needed from previous steps.

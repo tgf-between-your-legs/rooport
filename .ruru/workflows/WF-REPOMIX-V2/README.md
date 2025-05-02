@@ -3,14 +3,14 @@
 id = "WF-REPOMIX-V2" # (String, Required) Unique identifier (e.g., "WF-REPOMIX-COMPREHENSIVE-V2")
 title = "Workflow: Repomix Standard Workflow V2" # (String, Required)
 description = """
-Standard workflow for using the Repomix Specialist mode (MODE-SPEC-REPOMIX)
+Standard workflow for using the Repomix Specialist mode (spec-repomix)
 to generate or update code based on repository context. This workflow guides
 the process from defining the scope and context to generating, reviewing,
 and applying the code changes.
 """
 version = "1.0.0" # (String, Required) Semantic version for the workflow definition.
 status = "Draft" # (String, Required) Current status: "Draft", "Active", "Deprecated", "Experimental".
-tags = ["workflow", "repomix", "code-generation", "context-aware", "MODE-SPEC-REPOMIX"] # (Array of Strings, Optional) Keywords for search/categorization.
+tags = ["workflow", "repomix", "code-generation", "context-aware", "spec-repomix"] # (Array of Strings, Optional) Keywords for search/categorization.
 
 # --- Execution Control ---
 entry_point = "00_start.md" # (String, Required) Filename of the first step to execute.
@@ -32,7 +32,7 @@ outputs = [ # (Array of Strings, Optional) Describe the expected final artifacts
 last_updated = "2025-04-29" # (String, Required) Date of last modification. Use placeholder.
 template_schema_doc = ".ruru/templates/toml-md/23_workflow_readme.md" # (String, Required) Link to this template definition.
 related_docs = [
-    ".roo/rules-MODE-SPEC-REPOMIX/01-repomix-workflow.md",
+    ".roo/rules-spec-repomix/01-repomix-workflow.md",
     ".ruru/modes/mode-spec-repomix/kb/01-repomix-procedures.md"
 ] # (Array of Strings, Optional) Links to related rules, KBs, ADRs.
 +++
@@ -41,7 +41,7 @@ related_docs = [
 
 ## Overview
 
-Standard workflow for using the Repomix Specialist mode (MODE-SPEC-REPOMIX)
+Standard workflow for using the Repomix Specialist mode (spec-repomix)
 to generate or update code based on repository context. This workflow guides
 the process from defining the scope and context to generating, reviewing,
 and applying the code changes.

@@ -13,7 +13,7 @@ next_step = "04_generate_readme.md" # (String, Optional) Filename of the next st
 error_step = "EE_handle_error.md" # (String, Optional) Filename to jump to if this step fails.
 
 # --- Execution ---
-delegate_to = "MODE-SPEC-REPOMIX" # (String, Optional) Mode responsible for executing the core logic of this step.
+delegate_to = "spec-repomix" # (String, Optional) Mode responsible for executing the core logic of this step.
 
 # --- Interface ---
 inputs = [ # (Array of Strings, Optional) Data/artifacts needed. Can reference outputs from 'depends_on' steps.
@@ -35,22 +35,22 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.md" # (
 ## Actions
 
 1.  **Clarify Output Preferences:** Use `ask_followup_question` to ask the coordinator/user about their preferred output format (`--format` option for `repomix`) and chunking strategy (if applicable/supported by `repomix`). Provide sensible defaults as suggestions (e.g., `--format diff`, no chunking).
-2.  **Prepare Delegation:** Formulate the task message for the `MODE-SPEC-REPOMIX` delegate. Include:
+2.  **Prepare Delegation:** Formulate the task message for the `spec-repomix` delegate. Include:
     *   The user's goal.
     *   The target path(s).
     *   Confirmation that context is ready (from step 01).
     *   Any specific instructions.
     *   The confirmed output preferences (format, chunking).
     *   Reference this workflow step ID.
-3.  **Delegate to Repomix:** Use `new_task` to delegate the generation task to `MODE-SPEC-REPOMIX`.
+3.  **Delegate to Repomix:** Use `new_task` to delegate the generation task to `spec-repomix`.
 4.  **Await Completion:** Wait for `attempt_completion` from the delegate.
 
 ## Acceptance Criteria
 
-*   `MODE-SPEC-REPOMIX` successfully completes the code generation/modification task.
+*   `spec-repomix` successfully completes the code generation/modification task.
 *   The paths to the generated/modified files (`generated_code_artifact_paths`) are received.
 *   A summary of the generation (`generation_summary`) is received.
 
 ## Error Handling
 
-*   If `MODE-SPEC-REPOMIX` reports failure or a blocker, proceed to `{{error_step}}` (if defined) or report failure to the coordinator.
+*   If `spec-repomix` reports failure or a blocker, proceed to `{{error_step}}` (if defined) or report failure to the coordinator.
