@@ -54,6 +54,20 @@
       ],
       "disabled": false,
       "timeout": 3600
+    },
+    "crawl4ai": {
+      "name": "crawl4ai",
+      "command": "docker run -d -p 11235:11235 --name crawl4ai --shm-size=1g unclecode/crawl4ai:latest",
+      "cwd": null,
+      "enabled": true,
+      "environment": {},
+      "alwaysAllow": [
+        "crawl_url",
+        "scrape_content",
+        "extract_data"
+      ],
+      "notes": "Installed via agent-mcp-manager using docker method.",
+      "timeout": 3600
     }
   }
 }
