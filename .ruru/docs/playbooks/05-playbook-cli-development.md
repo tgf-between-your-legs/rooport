@@ -10,7 +10,7 @@ tags = ["playbook", "documentation", "project-management", "cli", "command-line"
 related_docs = [
     ".ruru/docs/standards/project-management-strategy-v1.md",
     ".ruru/planning/project-structure/00-epic-feature-task-plan.md",
-    ".ruru/planning/cli-build/00-cli-build-plan.md" # Reference the specific plan if building roocommander-cli
+    ".ruru/docs/whitepapers/cli-build-npm/00-cli-build-plan.md" # Reference the specific plan if building roocommander-cli
 ]
 objective = "Provide a structured approach for planning, developing, testing, and preparing a Command-Line Interface (CLI) tool for distribution (e.g., via npm) using the Roo Commander Epic-Feature-Task hierarchy."
 scope = "Covers phases from project setup and core command implementation to build processes, documentation, and release preparation."
@@ -35,7 +35,7 @@ This playbook outlines a recommended approach for managing the development of a 
 2.  **Initialize Project Structure (Feature & Tasks):**
     *   **Goal:** Set up the basic Node.js project files and directories.
     *   **Action:** Define this as the first Feature (e.g., `.ruru/features/FEAT-050-cli-project-initialization.md`), linked to the Epic.
-    *   **Tasks (Delegate to `roo-commander` initially, referencing `.ruru/planning/cli-build/01-cli-project-setup.md`):**
+    *   **Tasks (Delegate to `roo-commander` initially, referencing `.ruru/docs/whitepapers/cli-build-npm/01-cli-project-setup.md`):**
         *   Create root directory (e.g., `cli/`).
         *   Create subdirectories (`src`, `bin`, `dist`, `templates` if needed).
         *   Generate initial `package.json` (define `name`, `version`, basic `scripts`, importantly the `bin` field mapping the CLI command name to the executable script path like `"roo": "./dist/bin/roo-cli.js"`).
@@ -46,7 +46,7 @@ This playbook outlines a recommended approach for managing the development of a 
 3.  **Implement Core CLI Framework (Feature & Tasks):**
     *   **Goal:** Set up the main executable script and argument parsing foundation.
     *   **Action:** Define as a second Feature (e.g., `.ruru/features/FEAT-051-cli-core-framework-setup.md`), linked to the Epic.
-    *   **Tasks (Delegate to `util-typescript` / `util-senior-dev`, referencing `.ruru/planning/cli-build/02-cli-core-structure.md`):**
+    *   **Tasks (Delegate to `util-typescript` / `util-senior-dev`, referencing `.ruru/docs/whitepapers/cli-build-npm/02-cli-core-structure.md`):**
         *   Install core dependencies (`commander`, `chalk`, `inquirer`, `fs-extra` via `npm install`).
         *   Install dev dependencies (`typescript`, `@types/node`, etc. via `npm install --save-dev`).
         *   Create the main entry point script (`cli/src/bin/roo-cli.ts` or similar).

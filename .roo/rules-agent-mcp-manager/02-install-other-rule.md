@@ -31,6 +31,7 @@ This rule defines the `ask_followup_question` to present when the user selects t
     <follow_up>
     <suggest>🧩 Install Atlassian MCP Server</suggest>
     <suggest>🦁 Install Brave Search MCP Server</suggest>
+    <suggest>🕷️ Install Crawl4AI MCP Server</suggest>
     <suggest>☁️ Install Cloudflare MCP Server</suggest>
     <suggest>👾 Install Discord Slim MCP Server</suggest>
     <suggest>🦆 Install DuckDuckGo MCP Server</suggest>
@@ -46,6 +47,7 @@ This rule defines the `ask_followup_question` to present when the user selects t
     <suggest>📝 Install Notion MCP Server</suggest>
     <suggest>ობს Install Obsidian MCP Server</suggest>
     <suggest>❓ Install Perplexity MCP Server</suggest>
+    <suggest>🧬 Install Repomix MCP Server</suggest>
     <suggest>🚨 Install Sentry MCP Server</suggest>
     <suggest>🤔 Install Sequential Thinking MCP Server</suggest>
     <suggest>💬 Install Slack MCP Server</suggest>
