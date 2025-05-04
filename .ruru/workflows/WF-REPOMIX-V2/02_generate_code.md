@@ -34,7 +34,7 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.md" # (
 
 ## Actions
 
-1.  **Clarify Output Preferences:** Use `ask_followup_question` to ask the coordinator/user about their preferred output format (`--format` option for `repomix`) and chunking strategy (if applicable/supported by `repomix`). Provide sensible defaults as suggestions (e.g., `--format diff`, no chunking).
+1.  **Clarify Output Preferences:** Use `ask_followup_question` to ask the coordinator/user about their preferred output style (`--style` option for `repomix` - e.g., `xml`, `markdown`) and chunking strategy (if applicable/supported by `repomix`). Provide sensible defaults as suggestions (e.g., `--style xml`, no chunking).
 2.  **Prepare Delegation:** Formulate the task message for the `spec-repomix` delegate. Include:
     *   The user's goal.
     *   The target path(s).

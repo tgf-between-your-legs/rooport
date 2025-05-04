@@ -83,7 +83,7 @@ roles = ["spec-repomix"]
         }
         ```
         *(Ensure paths are correctly formatted for the OS if absolute paths are used, though relative paths from the workspace root are generally preferred).*
-    *   **`output` Object:** Define `path`, `format`, and `style` as requested (generating paths for both XML and Markdown, e.g., `.ruru/repomix/[source_dir_name]/output.md`, `.ruru/repomix/[source_dir_name]/output.xml`). Ensure `style` is `"markdown"` or `"xml"`.
+    *   **`output` Object:** Define `path` and `format` as requested (generating paths for both XML and Markdown, e.g., `.ruru/repomix/[source_dir_name]/output.md`, `.ruru/repomix/[source_dir_name]/output.xml`). Ensure `format` is `"markdown"` or `"xml"` or `"plain"`.
     *   **Other Fields:** Add `include`, `exclude`, `filters`, etc., as requested by the user.
 6.  **Decision:** N/A.
 

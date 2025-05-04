@@ -1,92 +1,88 @@
 +++
 # --- Basic Metadata ---
-id = "KB-REPOMIX-CAPABILITIES-V1"
-title = "Repomix Specialist: Capabilities and Command-Line Options"
+id = "KB-REPOMIX-CAPABILITIES-V2" # Updated version
+title = "Repomix Specialist: Comprehensive CLI Options Reference" # Updated title
 context_type = "knowledge_base"
-scope = "Reference guide for repomix CLI options"
-target_audience = ["spec-repomix"]
+scope = "Reference guide for repomix CLI options based on fetched documentation" # Updated scope
+target_audience = ["spec-repomix", "roo-commander", "prime-coordinator"] # Expanded audience
 status = "active"
-last_updated = "2025-05-01"
-tags = ["repomix", "kb", "cli", "options", "reference", "capabilities"]
-related_context = [".roo/rules-spec-repomix/02-repomix-decision-tree.md", ".ruru/modes/spec-repomix/kb/02-repomix-github-source-handling.md", ".ruru/modes/spec-repomix/kb/03-repomix-local-source-handling.md"]
-template_schema_doc = ".ruru/templates/toml-md/14_kb_article.README.md" # Points to schema documentation
+last_updated = "2025-05-03" # Updated date
+tags = ["repomix", "kb", "cli", "options", "reference", "capabilities", "filters", "output"] # Added tags
+related_context = [
+    ".roo/rules-spec-repomix/02-repomix-decision-tree.md",
+    ".ruru/modes/spec-repomix/kb/02-repomix-github-source-handling.md",
+    ".ruru/modes/spec-repomix/kb/03-repomix-local-source-handling.md",
+    ".ruru/modes/spec-repomix/kb/configuration-methods.md" # Added related config KB
+    ]
+template_schema_doc = ".ruru/templates/toml-md/14_kb_article.README.md"
 # --- KB Specific ---
-# version = "1.0" # Optional: Semantic version for the KB article itself
-# relevance = "High" # Optional: Qualitative relevance score
-# confidence = "High" # Optional: Confidence in the accuracy of the information
-# source_type = "Derived" # Optional: e.g., "Derived", "Empirical", "External", "Speculative"
-# source_ref = "repomix --help" # Optional: Specific source (URL, command, document)
+source_ref = "Fetched documentation provided in task SESSION-20250503-172525" # Updated source
 +++
 
-# Repomix Capabilities and Command-Line Options
+# Repomix Comprehensive CLI Options Reference
 
-This document summarizes the command-line arguments and options available for the `repomix` tool, based on its `--help` output.
+This document provides a comprehensive reference for the `repomix` command-line options, structured according to the fetched documentation provided for audit task `SESSION-20250503-172525`.
 
-## Usage
+**Note:** The `spec-repomix` mode primarily uses the `--config <path>` option, generating temporary JSON configuration files based on templates. However, understanding the underlying CLI options is crucial for generating correct configurations.
 
-```
-repomix [options] [directories...]
-```
+## Basic Options
 
-## Arguments
+*   `-v, --version`: Show tool version.
 
--   `directories`: List of local directories to process. Defaults to the current directory (`.`) if no other source (remote or config) is specified.
+## Output Options
 
-## Options
+*   `-o, --output <file>`: Output file name (default: `repomix-output.txt`).
+*   `--style <type>`: Output style (`plain`, `xml`, `markdown`) (default: `xml`).
+*   `--parsable-style`: Enable parsable output based on the chosen style schema (default: `false`). Ensures proper escaping for formats like XML.
+*   `--compress`: Perform intelligent code extraction, focusing on essential function and class signatures while removing implementation details. See official `repomix` documentation for details. (default: `false`).
+*   `--output-show-line-numbers`: Add line numbers (default: `false`).
+*   `--copy`: Copy to clipboard (default: `false`).
+*   `--no-file-summary`: Disable file summary section (default: `true`). *Note: Default is `true`, meaning the summary is disabled unless explicitly enabled via config.*
+*   `--no-directory-structure`: Disable directory structure section (default: `true`). *Note: Default is `true`, meaning the structure is disabled unless explicitly enabled via config.*
+*   `--no-files`: Disable files content output (metadata-only mode) (default: `true`). *Note: Default is `true`, meaning content is disabled unless explicitly enabled via config.*
+*   `--remove-comments`: Remove comments (default: `false`).
+*   `--remove-empty-lines`: Remove empty lines (default: `false`).
+*   `--header-text <text>`: Custom text to include in the file header.
+*   `--instruction-file-path <path>`: Path to a file containing detailed custom instructions to include in the header.
+*   `--include-empty-directories`: Include empty directories in the output structure (default: `false`).
 
-### Input/Source Specification
+## Filter Options
 
--   `--remote <url>`: Process a remote Git repository URL instead of local directories.
--   `--remote-branch <name>`: Specify a branch, tag, or commit hash for the remote repository. Defaults to the repository's default branch.
--   `-c, --config <path>`: Use a JSON configuration file to specify sources, output, and other options. **(Preferred method for complex or multiple sources)**.
--   `directories...` (Argument): Specify one or more local directories directly.
+These options control which files are included when processing the source path (local directory or temporary clone).
 
-### Output Configuration
+*   `--include <patterns>`: Comma-separated list of glob patterns. Only files matching these patterns will be included.
+*   `-i, --ignore <patterns>`: Comma-separated list of additional glob patterns to ignore files/directories.
+*   `--no-gitignore`: Disable the use of `.gitignore` files for filtering (default: `false`, meaning `.gitignore` is used by default).
+*   `--no-default-patterns`: Disable Repomix's built-in default ignore patterns (like `node_modules`, `.git`, etc.) (default: `false`, meaning defaults are used by default).
 
--   `-o, --output <file>`: Specify the output file name.
--   `--style <type>`: Set the output format. Options: `xml`, `markdown`, `plain`.
--   `--parsable-style`: Ensure output is valid and parsable for the chosen style (e.g., proper XML escaping).
--   `--header-text <text>`: Add custom text to the beginning of the output file.
--   `--instruction-file-path <path>`: Include content from a specified file as instructions within the output header.
+## Remote Repository Options
 
-### Content Filtering and Formatting
+**Note:** The `spec-repomix` mode handles remote repositories via a `git clone` workflow. These flags are primarily for understanding the tool's native capability, which this mode bypasses.
 
--   `--compress`: Apply code compression techniques (potentially lossy) to reduce token count.
--   `--output-show-line-numbers`: Prepend line numbers to each line of code in the output.
--   `--no-file-summary`: Disable the summary section listing processed files.
--   `--no-directory-structure`: Disable the section showing the directory tree.
--   `--remove-comments`: Strip comments from the code.
--   `--remove-empty-lines`: Remove blank lines from the code.
--   `--include-empty-directories`: Include directories that contain no files in the structure output.
+*   `--remote <url>`: Process remote repository URL directly (this mode uses `git clone` instead).
+*   `--remote-branch <name>`: Specify the remote branch name, tag, or commit hash (this mode uses this info for `git clone`).
 
-### File Inclusion/Exclusion (Ignoring)
+## Configuration Options
 
--   `--include <patterns>`: Comma-separated list of glob patterns. Only files matching these patterns will be included.
--   `-i, --ignore <patterns>`: Comma-separated list of additional glob patterns to ignore files/directories.
--   `--no-gitignore`: Do not respect rules found in `.gitignore` files.
--   `--no-default-patterns`: Do not use Repomix's built-in default ignore patterns (like `node_modules`, `.git`, etc.).
+*   `-c, --config <path>`: Custom config file path. **This is the primary method used by `spec-repomix` mode.**
+*   `--init`: Create a default `repomix.config.json` file.
+*   `--global`: Use with `--init` to create/use the global config file.
 
-### Git Integration
+## Security Options
 
--   `--no-git-sort-by-changes`: Disable the default behavior of sorting files based on Git commit frequency.
+*   `--no-security-check`: Disable security check for sensitive patterns (default: `true`). *Note: Default is `true`, meaning security checks are disabled unless explicitly enabled via config.*
 
-### Tool Behavior & Meta
+## Token Count Options
 
--   `-v, --version`: Show the installed `repomix` version.
--   `--init`: Create a default `repomix.config.json` file in the current directory.
--   `--global`: Use with `--init` to create the config file in the global user configuration location instead of the current directory.
--   `--no-security-check`: Disable the check for potentially sensitive file patterns.
--   `--token-count-encoding <encoding>`: Specify the encoding used for token counting (e.g., `o200k_base`, `cl100k_base`). Affects the reported token count.
--   `--mcp`: Run `repomix` as an MCP (Model Context Protocol) server (Advanced usage).
--   `--top-files-len <number>`: Control how many files are listed in the "Top N files by token count" summary.
--   `--verbose`: Show more detailed logging during execution.
--   `--quiet`: Suppress all informational output to standard out (errors may still go to standard error).
--   `-h, --help`: Display this help message.
+*   `--token-count-encoding <encoding>`: Specify token count encoding (e.g., `o200k_base`, `cl100k_base`) (default: `o200k_base`).
 
-### Utility
+## Other Options
 
--   `--copy`: Copy the final generated output directly to the system clipboard.
+*   `--top-files-len <number>`: Number of top files to show in the token count summary (default: `5`).
+*   `--verbose`: Enable verbose logging during execution.
+*   `--quiet`: Disable all informational output to stdout (errors may still go to stderr).
+*   `-h, --help`: Display help message (Standard CLI practice).
 
 ---
 
-*This summary is based on `repomix --help` output.*
+*This reference is based on fetched documentation provided for audit task `SESSION-20250503-172525`.*

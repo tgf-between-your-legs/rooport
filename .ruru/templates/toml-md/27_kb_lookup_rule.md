@@ -52,11 +52,38 @@ Before attempting a task, assess its complexity and novelty.
 
 **4. Information Gathering (If KB Insufficient for Complex/Uncertain Task):**
     *   **Identify Information Need:** Clearly state what specific information or clarification is missing to proceed reliably.
-    *   **Propose Next Steps:** Use `<ask_followup_question>` to propose information-gathering actions to the coordinator/user. Suggestions **MUST** include context-appropriate options like:
+    *   **Propose Next Steps:** Use the ask_followup_question tool to propose information-gathering actions to the coordinator/user. Suggestions **MUST** include context-appropriate options like:
         *   "Search external documentation/web using [Specific MCP Tool, e.g., `vertex-ai-mcp-server/answer_query_websearch`] for [topic/error]." (Mention specific tool and query).
         *   "Read a specific file if you can provide the path."
         *   "Ask for clarification on [specific aspect of the task]."
         *   "Attempt the task using general knowledge (state potential risks/uncertainties)."
     *   **Await Guidance:** Do not proceed with the original task until guidance is received on how to gather the missing information.
+
+## Knowledge Base Index
+
+*This section provides an overview and index of the knowledge base documents available for the `{{mode_slug}}` mode. Use this index to quickly locate relevant information for the task at hand.*
+
+### Core Concepts & Workflow
+*   **`01-core-principles.md`**
+    *   Summary: *(Brief description of the file's content, e.g., "Fundamental operating principles and primary workflow.")*
+*   ... *(other core files)* ...
+
+### Specific Procedures & Techniques
+*   **`10-procedure-example.md`**
+    *   Summary: *(Brief description, e.g., "Step-by-step guide for handling X.")*
+*   ... *(other procedure files)* ...
+
+### Reference & Data
+*   **`ref-common-errors.md`**
+    *   Summary: *(Brief description, e.g., "List of common errors and troubleshooting steps.")*
+*   ... *(other reference files)* ...
+
+### Subdirectories
+*   **`subdirectory_name/README.md`**
+    *   Summary: *(Brief description, e.g., "Index for KB documents related to [topic].")*
+*   ... *(other subdirectories)* ...
+
+*(Maintainers: Keep this index up-to-date as KB files are added, removed, or reorganized. Provide a concise, informative summary for each entry to aid AI navigation.)*
+
 
 **Rationale:** This rule balances efficiency for simple tasks with robust handling of complex/uncertain tasks. It mandates KB consultation when needed and provides a structured way to seek further information (internally or externally via MCP/user) when the KB is insufficient, reducing errors and improving task success rates.
