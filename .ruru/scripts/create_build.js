@@ -6,29 +6,23 @@ const os = require('os');
 
 // --- Configuration ---
 const includedFilesAndDirs = [
+  '.roo',
+  '.ruru/docs/guides',
+  '.ruru/docs/standards',
   '.ruru/modes',
   '.ruru/processes',
-  '.roo',
   '.ruru/templates',
   '.ruru/workflows',
-  '.ruru/docs', // Include the docs directory
-  '.roomodes',
-  'scripts',
-  '.ruru/scripts'
 ];
 
 const emptyDirsToCreate = [
   '.ruru/archive',
   '.ruru/context',
   '.ruru/decisions',
-  '.ruru/ideas',
   '.ruru/logs',
   '.ruru/planning',
   '.ruru/reports',
   '.ruru/snippets',
-  '.ruru/tasks',
-  '.ruru/repomix', // Add empty repomix dir
-  '.ruru/mcp-servers' // Add empty mcp-servers dir
 ];
 
 const outputDir = '.builds';
