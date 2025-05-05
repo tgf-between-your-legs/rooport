@@ -1,88 +1,78 @@
 +++
 # --- Basic Metadata ---
-id = "KB-REPOMIX-CAPABILITIES-V2" # Updated version
-title = "Repomix Specialist: Comprehensive CLI Options Reference" # Updated title
+id = "KB-REPOMIX-CAPABILITIES-V3" # Updated version
+title = "Repomix Specialist: MCP Tool Parameters Reference" # New title
 context_type = "knowledge_base"
-scope = "Reference guide for repomix CLI options based on fetched documentation" # Updated scope
-target_audience = ["spec-repomix", "roo-commander", "prime-coordinator"] # Expanded audience
+scope = "Reference guide for parameters used with the repomix MCP server tools" # New scope
+target_audience = ["spec-repomix"] # Focus on the specialist mode
 status = "active"
-last_updated = "2025-05-03" # Updated date
-tags = ["repomix", "kb", "cli", "options", "reference", "capabilities", "filters", "output"] # Added tags
+last_updated = "2025-05-05" # Use current date
+tags = ["repomix", "kb", "mcp", "parameters", "reference", "capabilities", "pack_codebase", "pack_remote_repository", "read_repomix_output"] # Updated tags
 related_context = [
-    ".roo/rules-spec-repomix/02-repomix-decision-tree.md",
-    ".ruru/modes/spec-repomix/kb/02-repomix-github-source-handling.md",
-    ".ruru/modes/spec-repomix/kb/03-repomix-local-source-handling.md",
-    ".ruru/modes/spec-repomix/kb/configuration-methods.md" # Added related config KB
+    ".roo/rules-spec-repomix/01-repomix-workflow.md",
+    ".ruru/modes/spec-repomix/kb/01-decision-tree.md",
+    ".ruru/modes/spec-repomix/kb/common-use-cases-examples.md" # Link to examples
     ]
 template_schema_doc = ".ruru/templates/toml-md/14_kb_article.README.md"
 # --- KB Specific ---
-source_ref = "Fetched documentation provided in task SESSION-20250503-172525" # Updated source
+source_ref = "Repomix MCP Server Tool Schemas" # Updated source
 +++
 
-# Repomix Comprehensive CLI Options Reference
+# Repomix MCP Tool Parameters Reference
 
-This document provides a comprehensive reference for the `repomix` command-line options, structured according to the fetched documentation provided for audit task `SESSION-20250503-172525`.
+This document provides a reference for the parameters available when using the `repomix` MCP server tools via the `use_mcp_tool` function. The `spec-repomix` mode interacts with Repomix exclusively through these tools.
 
-**Note:** The `spec-repomix` mode primarily uses the `--config <path>` option, generating temporary JSON configuration files based on templates. However, understanding the underlying CLI options is crucial for generating correct configurations.
+## 1. `pack_codebase` Tool
 
-## Basic Options
+Packages a local code directory into a consolidated file for AI analysis.
 
-*   `-v, --version`: Show tool version.
+**Parameters:**
 
-## Output Options
+*   `directory` (string, **required**):
+    *   The absolute path to the local directory to pack.
+    *   *Corresponds conceptually to the source argument in the CLI.*
+*   `compress` (boolean, optional, default: `true`):
+    *   Utilize Tree-sitter to intelligently extract essential code signatures and structure while removing implementation details, significantly reducing token usage.
+    *   *Corresponds to the `--compress` CLI flag.*
+*   `includePatterns` (string, optional):
+    *   Specify which files to include using fast-glob compatible patterns (e.g., `"**/*.js,src/**"`). Only files matching these patterns will be processed.
+    *   *Corresponds to the `--include` CLI flag.*
+*   `ignorePatterns` (string, optional):
+    *   Specify additional files to exclude using fast-glob compatible patterns (e.g., `"test/**,*.spec.js"`). These patterns complement `.gitignore` and default ignores.
+    *   *Corresponds to the `-i` or `--ignore` CLI flag.*
+*   `topFilesLength` (number, optional, default: `10`):
+    *   Number of top files (by token count) to display in the metrics section of the output.
+    *   *Corresponds to the `--top-files-len` CLI flag.*
 
-*   `-o, --output <file>`: Output file name (default: `repomix-output.txt`).
-*   `--style <type>`: Output style (`plain`, `xml`, `markdown`) (default: `xml`).
-*   `--parsable-style`: Enable parsable output based on the chosen style schema (default: `false`). Ensures proper escaping for formats like XML.
-*   `--compress`: Perform intelligent code extraction, focusing on essential function and class signatures while removing implementation details. See official `repomix` documentation for details. (default: `false`).
-*   `--output-show-line-numbers`: Add line numbers (default: `false`).
-*   `--copy`: Copy to clipboard (default: `false`).
-*   `--no-file-summary`: Disable file summary section (default: `true`). *Note: Default is `true`, meaning the summary is disabled unless explicitly enabled via config.*
-*   `--no-directory-structure`: Disable directory structure section (default: `true`). *Note: Default is `true`, meaning the structure is disabled unless explicitly enabled via config.*
-*   `--no-files`: Disable files content output (metadata-only mode) (default: `true`). *Note: Default is `true`, meaning content is disabled unless explicitly enabled via config.*
-*   `--remove-comments`: Remove comments (default: `false`).
-*   `--remove-empty-lines`: Remove empty lines (default: `false`).
-*   `--header-text <text>`: Custom text to include in the file header.
-*   `--instruction-file-path <path>`: Path to a file containing detailed custom instructions to include in the header.
-*   `--include-empty-directories`: Include empty directories in the output structure (default: `false`).
+## 2. `pack_remote_repository` Tool
 
-## Filter Options
+Fetches, clones, and packages a GitHub repository into a consolidated file for AI analysis.
 
-These options control which files are included when processing the source path (local directory or temporary clone).
+**Parameters:**
 
-*   `--include <patterns>`: Comma-separated list of glob patterns. Only files matching these patterns will be included.
-*   `-i, --ignore <patterns>`: Comma-separated list of additional glob patterns to ignore files/directories.
-*   `--no-gitignore`: Disable the use of `.gitignore` files for filtering (default: `false`, meaning `.gitignore` is used by default).
-*   `--no-default-patterns`: Disable Repomix's built-in default ignore patterns (like `node_modules`, `.git`, etc.) (default: `false`, meaning defaults are used by default).
+*   `remote` (string, **required**):
+    *   GitHub repository URL or shorthand `user/repo` (e.g., `yamadashy/repomix`).
+    *   *Corresponds conceptually to the `--remote` CLI flag, but handled internally by the MCP tool's cloning process.*
+*   `compress` (boolean, optional, default: `true`):
+    *   Same as `pack_codebase.compress`.
+*   `includePatterns` (string, optional):
+    *   Same as `pack_codebase.includePatterns`.
+*   `ignorePatterns` (string, optional):
+    *   Same as `pack_codebase.ignorePatterns`.
+*   `topFilesLength` (number, optional, default: `10`):
+    *   Same as `pack_codebase.topFilesLength`.
 
-## Remote Repository Options
+**Note:** Branch/tag/commit specification is handled implicitly by the MCP tool based on the provided `remote` URL format or potentially future parameters, not separate flags like `--remote-branch`.
 
-**Note:** The `spec-repomix` mode handles remote repositories via a `git clone` workflow. These flags are primarily for understanding the tool's native capability, which this mode bypasses.
+## 3. `read_repomix_output` Tool
 
-*   `--remote <url>`: Process remote repository URL directly (this mode uses `git clone` instead).
-*   `--remote-branch <name>`: Specify the remote branch name, tag, or commit hash (this mode uses this info for `git clone`).
+Reads the contents of a Repomix output file generated by a previous `pack_*` call, intended for environments where direct file access is not possible.
 
-## Configuration Options
+**Parameters:**
 
-*   `-c, --config <path>`: Custom config file path. **This is the primary method used by `spec-repomix` mode.**
-*   `--init`: Create a default `repomix.config.json` file.
-*   `--global`: Use with `--init` to create/use the global config file.
-
-## Security Options
-
-*   `--no-security-check`: Disable security check for sensitive patterns (default: `true`). *Note: Default is `true`, meaning security checks are disabled unless explicitly enabled via config.*
-
-## Token Count Options
-
-*   `--token-count-encoding <encoding>`: Specify token count encoding (e.g., `o200k_base`, `cl100k_base`) (default: `o200k_base`).
-
-## Other Options
-
-*   `--top-files-len <number>`: Number of top files to show in the token count summary (default: `5`).
-*   `--verbose`: Enable verbose logging during execution.
-*   `--quiet`: Disable all informational output to stdout (errors may still go to stderr).
-*   `-h, --help`: Display help message (Standard CLI practice).
+*   `outputId` (string, **required**):
+    *   The unique ID of the Repomix output file to read (returned by the `pack_*` tools).
 
 ---
 
-*This reference is based on fetched documentation provided for audit task `SESSION-20250503-172525`.*
+*This reference is based on the schemas provided by the `repomix` MCP server.*
