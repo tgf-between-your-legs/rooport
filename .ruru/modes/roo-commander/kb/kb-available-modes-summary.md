@@ -4,7 +4,7 @@ title = "Available Modes Summary"
 context_type = "summary"
 target_audience = ["roo-commander"]
 status = "generated"
-last_generated = "2025-05-03"
+last_generated = "2025-05-05"
 +++
 
 # Available Modes Summary
@@ -42,6 +42,7 @@ This document provides a summary of available specialist modes for delegation.
 - **agent-context-resolver** (📖 Context Resolver): \[No description provided\]
 - **agent-file-repair** (🩹 File Repair Specialist): \[No description provided\]
 - **agent-mcp-manager** (🛠️ MCP Manager Agent): \[No description provided\]
+- **agent-mode-manager** (🤖 Mode Manager Agent): \[No description provided\]
 - **agent-research** (🌐 Research & Context Builder): \[No description provided\]
 - **agent-session-summarizer** (⏱️ Session Summarizer): \[No description provided\]
 
@@ -64,6 +65,7 @@ This document provides a summary of available specialist modes for delegation.
 - **framework-frappe** (🛠️ Frappe Specialist): \[No description provided\]
 - **framework-laravel** (🐘 PHP/Laravel Developer): \[No description provided\]
 - **framework-nextjs** (🚀 Next.js Developer): \[No description provided\]
+- **framework-rails** (🛤️ Ruby on Rails Developer): \[No description provided\]
 - **framework-remix** (💿 Remix Developer): \[No description provided\]
 - **framework-spring** (🍃 Java Spring Developer): \[No description provided\]
 - **framework-sveltekit** (🔥 SvelteKit Developer): \[No description provided\]
@@ -140,6 +142,7 @@ This document provides a summary of available specialist modes for delegation.
 - **dev-kotlin** (🟣 Kotlin Developer): \[No description provided\]
 - **dev-python** (🐍 Python Developer): \[No description provided\]
 - **dev-react** (⚛️ React Specialist): \[No description provided\]
+- **dev-ruby** (💎 Ruby Developer): \[No description provided\]
 - **dev-rust** (🦀 Rust Developer): \[No description provided\]
 - **dev-solidity** (🧱 Solidity Developer): \[No description provided\]
 - **dev-solver** (🧩 Complex Problem Solver): \[No description provided\]
@@ -165,3 +168,7 @@ This document provides a summary of available specialist modes for delegation.
 - **prime-coordinator** (🚜 Prime Coordinator): \[No description provided\]
 - **prime-dev** (🐹 Prime Dev): \[No description provided\]
 - **prime-txt** (✒️ Prime Documenter): \[No description provided\]
+
+## ❓ Other Modes
+
+- **MODE-spec-npm** (📦 NPM Specialist): \[No description provided\]
