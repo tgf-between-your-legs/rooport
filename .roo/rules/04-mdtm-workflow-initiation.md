@@ -55,7 +55,7 @@ This rule defines the standard procedure for creating Markdown-Driven Task Manag
 6.  **Log Creation:** Log the creation of the task file (including its path) according to standard logging procedures (Rule `12`).
 7.  **Delegate via `new_task`:**
     *   Target the specialist mode specified in the `assigned_to` field.
-    *   The `<message>` **MUST** clearly state: "Process MDTM task file: [Full path to the created .md file]". Include the Coordinator's Task ID for reference.
+    *   The `message` **MUST** clearly state: "Process MDTM task file: [Full path to the created .md file]". Include the Coordinator's Task ID for reference.
     *   Provide any *essential* immediate context if needed, but the primary instructions reside within the task file.
 8.  **Update Initiator State:** Note that delegation has occurred. Await `attempt_completion` from the specialist. **Do not assume the task is being worked on in the background.**
 

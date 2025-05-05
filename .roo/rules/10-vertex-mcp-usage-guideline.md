@@ -34,7 +34,7 @@ relevance = "High: Ensures consistent handling of MCP outputs"
 *   **Default to `save_*`:** When using Vertex AI MCP tools that have a corresponding `save_*` variant (e.g., `save_generate_project_guidelines`, `save_doc_snippet`, `save_topic_explanation`, `save_answer_query_direct`, `save_answer_query_websearch`), **prefer using the `save_*` variant** for potentially long or complex outputs.
     *   **Rationale:** This prevents large outputs from cluttering the chat history, archives the result for later reference, and helps manage context window size.
 *   **Use Direct Tools Sparingly:** Use the direct output tools (e.g., `answer_query_websearch`, `explain_topic_with_docs`, `get_doc_snippets`) only when the expected output is known to be concise (e.g., a single code snippet, a short definition, a simple yes/no answer) or when specifically requested by the user/coordinator for an inline response.
-*   **Reporting Saved Files:** When using a `save_*` tool, the mode **MUST** report the full path to the saved file back to the coordinator/user via `<attempt_completion>`. (See Section 2.1 for handling persistent context outputs.)
+*   **Reporting Saved Files:** When using a `save_*` tool, the mode **MUST** report the full path to the saved file back to the coordinator/user via `attempt_completion`. (See Section 2.1 for handling persistent context outputs.)
 
 **2.1. Handling Persistent Context Outputs:**
 

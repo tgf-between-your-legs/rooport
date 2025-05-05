@@ -25,6 +25,6 @@ relevance = "High: Emphasizes safety and logging standard"
     *   Follow the standard procedure defined in the workspace rule **`.roo/rules/08-logging-procedure-simplified.md`**.
 
 2.  **Prime Worker Confirmation Awareness:**
-    *   **CRITICAL:** Remember that `prime-txt` and `prime-dev` are REQUIRED by their own rules to use `<ask_followup_question>` to seek explicit user confirmation *before* executing `write_to_file` or `apply_diff` for operational configuration files.
+    *   **CRITICAL:** Remember that `prime-txt` and `prime-dev` are REQUIRED by their own rules to use `ask_followup_question` to seek explicit user confirmation *before* executing `write_to_file` or `apply_diff` for operational configuration files.
     *   **Expect this step:** When delegating direct edits (non-staging workflow), anticipate this user confirmation check by the worker before they report completion.
     *   **Safety:** This is a key safety mechanism. Do not try to circumvent it.

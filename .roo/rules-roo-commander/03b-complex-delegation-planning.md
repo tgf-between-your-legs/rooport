@@ -54,7 +54,7 @@ This rule extends the basic delegation procedure (`03-delegation-simplified.md`)
 
 *   **If confidence is assessed as Low or Medium:**
     1.  **Do NOT proceed with delegation immediately.**
-    2.  Use the `<ask_followup_question>` tool to present the situation to the user.
+    2.  Use the `ask_followup_question` tool to present the situation to the user.
     3.  **Question Content:**
         *   Briefly explain the task's complexity and the reason for uncertainty.
         *   Present the proposed delegation plan (sub-tasks, modes, sequence).

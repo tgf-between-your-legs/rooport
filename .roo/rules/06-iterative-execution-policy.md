@@ -45,7 +45,7 @@ related_context = ["00-user-preferences.md", "01-standard-toml-md-format.md", "0
     *   **Finalize Current Unit:** Ensure the immediate work unit is complete and syntactically correct (e.g., finish the function, close code blocks).
     *   **Summarize Progress:** Briefly state what was completed in the current turn.
     *   **Identify Next Step:** Clearly state the *next logical step* required to continue the overall task (e.g., "Next step is to implement the `handleUpdate` function", "Next step is to process MDTM item #3").
-    *   **Report Status:** Use `<attempt_completion>` to report back to the delegator. Include:
+    *   **Report Status:** Use `attempt_completion` to report back to the delegator. Include:
         *   Confirmation of completed unit/step.
         *   Current context percentage.
         *   The identified *next step*.

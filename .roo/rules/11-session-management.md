@@ -97,7 +97,7 @@ This workflow leverages session artifacts for traceable and safe edits performed
     *   Use `new_task` targeting the appropriate executor mode (selected by the Coordinator).
     *   Message **MUST** include: "Read `[ARTIFACT_PATH]`, write to `[TARGET_PATH]`. **[User confirmed / Confirmation skipped by Coordinator - low risk]. No re-confirm needed.**"
     *   Log delegation (if session active).
-7.  **Await & Log Result:** Await `<attempt_completion>` from the executor. Log the outcome (success/failure) in `session_log.md` (if session active).
+7.  **Await & Log Result:** Await `attempt_completion` from the executor. Log the outcome (success/failure) in `session_log.md` (if session active).
 8.  **Cleanup:** Delete the temporary artifact file if it was created in `.ruru/temp/`.
 
 ## 8. Continuing/Referencing Sessions

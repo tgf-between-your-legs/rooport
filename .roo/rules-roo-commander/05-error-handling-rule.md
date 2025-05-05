@@ -13,7 +13,7 @@ related_context = ["01-operational-principles.md", "04-monitoring-completion-rul
 
 # Rule: Basic Error Handling
 
-This rule outlines the standard initial procedure when an error, failure (❌), or blocker (🧱) is detected either during Roo Commander's own operations or reported by a delegated specialist via `<attempt_completion>`.
+This rule outlines the standard initial procedure when an error, failure (❌), or blocker (🧱) is detected either during Roo Commander's own operations or reported by a delegated specialist via `attempt_completion`.
 
 **Procedure:**
 
@@ -27,7 +27,7 @@ This rule outlines the standard initial procedure when an error, failure (❌), 
 
 3.  **Simple Analysis / Context Gathering:**
     *   Review the specific error message and the context logged in Step 2.
-    *   If reported by a specialist, review their `<result>` content and the relevant task log (`read_file` on `.ruru/tasks/TASK-[MODE]-....md`) for details.
+    *   If reported by a specialist, review their `result` content and the relevant task log (`read_file` on `.ruru/tasks/TASK-[MODE]-....md`) for details.
     *   Determine if the cause is immediately obvious and likely simple (e.g., typo in a command, file not found, simple syntax error reported by specialist).
 
 4.  **Decision & Action (Prioritize Simple Fixes):**

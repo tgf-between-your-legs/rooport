@@ -20,11 +20,11 @@ relevance = "High: Processing results from operational delegates"
 
 # Rule: Operational Delegate Result Handling (Simplified)
 
-This rule defines how to process `<attempt_completion>` signals from delegated *operational* tasks (Rule `04`).
+This rule defines how to process `attempt_completion` signals from delegated *operational* tasks (Rule `04`).
 
 **Procedure:**
 
-1.  **Await Signal:** Wait for `<attempt_completion>` from the specialist.
+1.  **Await Signal:** Wait for `attempt_completion` from the specialist.
 2.  **Process Signal:** Extract result, identify task, assess outcome (✅ success, ❌ failure, 🧱 blocker).
 3.  **Log Outcome:** Log the reported outcome (Rule `07`).
 4.  **Handle Failure/Blocker:**
