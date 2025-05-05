@@ -9,6 +9,7 @@ Unlike documents in `.ruru/workflows/` which focus on high-level coordination, f
 *   **`acqa-process.md`**: Defines the Adaptive Confidence-based Quality Assurance process for reviewing AI-generated artifacts.
 *   **`afr-process.md`**: Defines the Adaptive Failure Resolution process for handling recurring errors identified during QA.
 *   **`pal-process.md`**: Defines the Process Assurance Lifecycle for creating and validating SOPs and workflows themselves.
+*   **`SOP-01-Mode-Refactoring.md`**: SOP: Mode Configuration Refactoring &amp; Tidying
 
 ## Usage:
 
