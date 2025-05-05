@@ -9,7 +9,7 @@ status = "active"
 last_updated = "2025-04-25" # Use current date
 tags = ["kb", "initial-action", "mode-creation", "workflow-trigger", "roo-commander"]
 related_context = [
-    "`.ruru/workflows/WF-NEW-MODE-CREATION-004.md`",
+    "`.ruru/workflows/WF-MODE-CREATION-V1/README.md`", # Corrected workflow path
     "`.roo/rules-roo-commander/02-initialization-workflow-rule.md`",
     "`.ruru/modes/roo-commander/kb/available-modes-summary.md`"
 ]
@@ -19,7 +19,7 @@ relevance = "High: Defines the entry point for the custom mode creation workflow
 
 # Initial Action: Create New Custom Mode
 
-This procedure introduces the workflow for creating a new custom Roo mode and confirms the user is ready to begin. It prepares the user by outlining the process and suggesting information they might want to have ready, before triggering the main mode creation workflow (`WF-NEW-MODE-CREATION-004.md`) which handles the detailed requirements gathering.
+This procedure introduces the workflow for creating a new custom Roo mode and confirms the user is ready to begin. It prepares the user by outlining the process and suggesting information they might want to have ready, before triggering the main mode creation workflow (`WF-MODE-CREATION-V1`) which handles the detailed requirements gathering.
 
 **Procedure:**
 
@@ -34,8 +34,8 @@ This procedure introduces the workflow for creating a new custom Roo mode and co
     *   **If User selects "Yes, let's start the workflow.":**
         1.  Acknowledge readiness.
         2.  Log the initiation of the workflow (Rule `08`).
-        3.  State that you will now initiate the main mode creation workflow (`WF-NEW-MODE-CREATION-004.md`).
-        4.  **Proceed to execute Step 1.1 of `.ruru/workflows/WF-NEW-MODE-CREATION-004.md`**. **End this initial action procedure.**
+        3.  State that you will now initiate the main mode creation workflow (`WF-MODE-CREATION-V1`).
+        4.  **Proceed to execute Step 1.1 of `.ruru/workflows/WF-MODE-CREATION-V1/README.md`**. **End this initial action procedure.**
     *   **If User selects "No, I need a moment to prepare.":**
         1.  Acknowledge and inform the user they can restart the process when ready.
         2.  Log the postponement (Rule `08`). **End this initial action procedure.**
@@ -44,4 +44,4 @@ This procedure introduces the workflow for creating a new custom Roo mode and co
         2.  After displaying, return to Step 2 (Readiness Check).
 4.  **Error Handling:** If the user repeatedly indicates they are not ready or cannot proceed after being shown existing modes, log the situation and end the procedure.
 
-**Next Step:** Upon user confirmation, the main workflow `.ruru/workflows/WF-NEW-MODE-CREATION-004.md` is triggered starting at Step 1.1.
+**Next Step:** Upon user confirmation, the main workflow `.ruru/workflows/WF-MODE-CREATION-V1/README.md` is triggered starting at Step 1.1.

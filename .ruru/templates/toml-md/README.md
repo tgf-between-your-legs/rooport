@@ -54,11 +54,22 @@ Templates are organized into subdirectories within `.ruru/templates/`:
 *   **`14_standard_guideline.md`**: For defining coding standards, style guides, or operational guidelines. Typically stored in `.ruru/docs/standards/`. See `14_standard_guideline.README.md` for schema and usage details.
 *   **`15_sop.md`**: For defining *simple* Standard Operating Procedures. Typically stored in `.ruru/processes/` or `.ruru/docs/standards/`. See `15_sop.README.md` for schema and usage details. (For complex workflows, use the template in `.ruru/templates/workflows/`).
 *   **`16_ai_rule.md`**: A minimalist template for defining rules intended for AI context injection (e.g., in `.roo/rules/`). See `16_ai_rule.README.md` for schema and usage details.
-
-    *   **`17_feature_proposal.md`**: For defining and tracking feature planning proposals. Typically stored in `.ruru/planning/`. See `17_feature_proposal.README.md` for schema and usage details.
-*   **`18_release_notes.md`**: Standard Release Notes/Changelog File. See `18_release_notes.README.md` for schema and usage details.
+*   **`17_feature_proposal.md`**: For defining and tracking feature planning proposals. Typically stored in `.ruru/planning/`. See `17_feature_proposal.README.md` for schema and usage details.
 *   **`18_release_notes.md`**: Standard Release Notes/Changelog File. See `18_release_notes.README.md` for schema and usage details.
 *   **`18_kb_lookup_rule.md`**: Standard template for mode-specific KB lookup rules.
+*   **`19_mdtm_session.md`**: For creating Session Log files (V6 standard). Typically stored in `.ruru/sessions/[SessionID]/session_log.md`. See `19_mdtm_session.README.md` (or rule `11-session-management.md`) for schema.
+*   **`31_session_note.md`**: For general notes captured during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/notes/`.
+*   **`32_session_learning.md`**: For documenting problems, solutions, and recommendations identified during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/learnings/`.
+*   **`33_session_environment.md`**: For recording details about specific components, tools, or systems relevant to the session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/environment/`.
+*   **`34_session_doc_snippet.md`**: For capturing snippets of documentation relevant to the session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/docs/`.
+*   **`35_session_research.md`**: For documenting research queries, sources checked, and key findings during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/research/`.
+*   **`36_session_blocker.md`**: For tracking issues that are blocking progress during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/blockers/`.
+*   **`37_session_qna.md`**: For recording questions asked and answers provided during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/qna/`.
+*   **`38_session_snippet.md`**: For capturing code snippets relevant to the session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/snippets/`.
+*   **`39_session_feedback.md`**: For recording feedback received or observations made during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/feedback/`.
+*   **`40_session_feature_note.md`**: For notes specifically related to an aspect of a feature being discussed or worked on. Typically stored in `.ruru/sessions/[SessionID]/artifacts/features/`.
+*   **`41_session_context_ref.md`**: For referencing external files or resources relevant to the session context. Typically stored in `.ruru/sessions/[SessionID]/artifacts/references/`.
+*   **`42_session_deferred.md`**: For capturing tasks, ideas, or other items deferred for later action. Typically stored in `.ruru/sessions/[SessionID]/artifacts/deferred/`.
 
 ### Workflow Templates (`.ruru/templates/workflows/`)
 
@@ -68,7 +79,7 @@ Templates are organized into subdirectories within `.ruru/templates/`:
 
 If none of the existing templates fit your needs, you can create a new one:
 
-1.  **Start with Boilerplate:** Copy `00_boilerplate.md` to a new file in this directory, using a descriptive name (e.g., `15_new_template_type.md`).
+1.  **Start with Boilerplate:** Copy `00_boilerplate.md` to a new file in this directory, using a descriptive name (e.g., `43_new_template_type.md`).
 2.  **Define Purpose:** Clearly understand the specific type of document this new template will represent.
 3.  **Customize TOML:**
     *   Review the common fields in the boilerplate. Keep those that are relevant.
@@ -79,7 +90,7 @@ If none of the existing templates fit your needs, you can create a new one:
     *   Define standard Markdown headings (`## Section Title`) for the key information required in this document type.
     *   Add placeholder text or instructions under each heading to guide the user.
     *   Include examples (e.g., code blocks, checklists) where appropriate.
-5.  **Create Schema README:** Create a corresponding `[TemplateName].README.md` file (e.g., `15_new_template_type.README.md`) in the same directory. Document the purpose, TOML schema (fields, types, required/optional, descriptions), and Markdown structure of your new template. Link to it from the `template_schema_doc` field in the template's TOML.
+5.  **Create Schema README:** Create a corresponding `[TemplateName].README.md` file (e.g., `43_new_template_type.README.md`) in the same directory. Document the purpose, TOML schema (fields, types, required/optional, descriptions), and Markdown structure of your new template. Link to it from the `template_schema_doc` field in the template's TOML.
 6.  **Update Index README:** **Crucially**, update *this* README file (`.ruru/templates/toml-md/README.md`) to include your new template in the "Available Templates" list with a brief description and a link to its schema README.
 7.  **Formal Schema (Optional but Recommended):** Consider formally documenting the schema using a dedicated schema language (e.g., JSON Schema, Cue) and storing it elsewhere (e.g., in `.ruru/docs/schemas/`).
 
@@ -137,13 +148,13 @@ tags = []             # << LIST_RELEVANT_KEYWORDS >>
 
 ## Diagrams / Visuals 📊 (Optional)
 
-\`\`\`mermaid
+```mermaid
 graph TD
     A[Start] --> B(Process);
     B --> C{Decision};
     C -->|Yes| D[End];
     C -->|No| B;
-\`\`\`
+```
 
 ## Key Learnings / Summary 💡 (Optional)
 

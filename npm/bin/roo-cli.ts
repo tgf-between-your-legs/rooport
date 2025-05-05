@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import { Command } from 'commander';
 // Import chalk and inquirer if needed later
 // import chalk from 'chalk';

@@ -1,6 +1,6 @@
 {
   "name": "roocommander",
-  "version": "0.1.4",
+  "version": "0.1.17",
   "description": "CLI tool for managing Roo Commander workspace configurations and tasks.",
   "type": "module",
   "bin": {
@@ -8,12 +8,12 @@
   },
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "esbuild ./bin/roo-cli.ts --bundle --outfile=dist/bin/roo-cli.js --platform=node --format=esm --external:./package.json",
     "start": "node ./dist/bin/roo-cli.js",
     "dev": "tsc --watch",
-    "prepare:publish": "node ./scripts/prepare-publish.js",
-    "cleanup:publish": "node ./scripts/cleanup-publish.js",
-    "prepublishOnly": "npm run prepare:publish && npm run build",
+    "prepare:publish": "node ./scripts/prepare-publish.mjs",
+    "cleanup:publish": "node ./scripts/cleanup-publish.mjs",
+    "prepublishOnly": "rm -rf ./dist && npm run prepare:publish && npm run build",
     "postpublish": "npm run cleanup:publish",
     "test": "jest"
   },
@@ -37,9 +37,7 @@
     "templates"
   ],
   "dependencies": {
-    "chalk": "^5.4.1",
     "commander": "^13.1.0",
-    "fs-extra": "^11.3.0",
     "inquirer": "^12.6.0"
   },
   "devDependencies": {
@@ -49,6 +47,9 @@
     "@types/node": "^22.15.3",
     "jest": "^29.7.0",
     "ts-jest": "^29.3.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "chalk": "^5.4.1",
+    "fs-extra": "^11.3.0",
+    "esbuild": "^0.23.0"
   }
 }

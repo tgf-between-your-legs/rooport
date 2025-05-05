@@ -7,9 +7,9 @@ scope = "User-specific settings and profile information"
 target_audience = ["all"]
 granularity = "detailed"
 status = "active"
-last_updated = "2025-04-17"
+last_updated = "2025-05-05" # << UPDATED >>
 # version = "1.0"
-tags = ["user", "preferences", "configuration", "profile"]
+tags = ["user", "preferences", "configuration", "profile", "mcp"] # << UPDATED >>
 # relevance = "High relevance for personalization and context awareness"
 template_schema_doc = ".ruru/templates/toml-md/17_user_preferences.README.md" # Points to schema documentation
 
@@ -26,9 +26,10 @@ preferred_modes = [
 ]
 verbosity_level = "normal" # << OPTIONAL. Options: "concise", "normal", "verbose" >>
 auto_execute_commands = false # << OPTIONAL >>
-+preferred_language = "en" # << OPTIONAL. Fallback if specific input/output prefs not set. Default 'en' >>
-+preferred_input_language = "en" # << OPTIONAL. Language user primarily uses for prompts >>
-+preferred_output_language = "en" # << OPTIONAL. Preferred language for conversational output, comments, etc. >>
+preferred_language = "en" # << OPTIONAL. Fallback if specific input/output prefs not set. Default 'en' >>
+preferred_input_language = "en" # << OPTIONAL. Language user primarily uses for prompts >>
+preferred_output_language = "en" # << OPTIONAL. Preferred language for conversational output, comments, etc. >>
+mcp_github_install_declined = false # << NEW - Boolean. Set to true if user explicitly declines GitHub MCP install suggestion >>
 +++
 
 # User Preferences Data (Defined in TOML)
