@@ -6,11 +6,12 @@ scope = "Instructions for setting up the Vertex AI MCP server"
 target_audience = ["prime-coordinator", "developer"]
 granularity = "procedure"
 status = "active"
-last_updated = "2025-04-27" # Use current date
+last_updated = "2025-05-05" # Updated date
 tags = ["kb", "mcp", "vertex-ai", "installation", "configuration", "npm", "mcp.json"]
 related_context = [
     ".roo/mcp.json",
-    ".roo/rules/10-vertex-mcp-usage-guideline.md"
+    ".roo/rules/10-vertex-mcp-usage-guideline.md",
+    ".ruru/modes/agent-mcp-manager/kb/data/01-vertex-ai-mcp-json-example.md" # Added reference to example
     ]
 template_schema_doc = ".ruru/templates/toml-md/15_kb_article.README.md"
 relevance = "High: Core setup for Vertex AI integration"
@@ -34,75 +35,10 @@ This command downloads and installs the necessary package into your `node_module
 
 All configuration for the `vertex-ai-mcp-server` is now managed centrally within the main Roo Commander MCP configuration file: `.roo/mcp.json`.
 
-Locate or add the `vertex-ai-mcp-server` entry within the `servers` object in `.roo/mcp.json`. Configure it as follows, ensuring you replace placeholder values with your actual Google Cloud Platform (GCP) project details and credentials path.
+Locate or add the `vertex-ai-mcp-server` entry within the `servers` object in `.roo/mcp.json`. Configure it according to the example structure provided in the KB article:
+**`.ruru/modes/agent-mcp-manager/kb/data/01-vertex-ai-mcp-json-example.md`**
 
-```json
-// Example within .roo/mcp.json
-{
-  "servers": {
-    "vertex-ai-mcp-server": {
-      "command": "node",
-      "args": [
-        // Ensure this path correctly points to the executable within the installed package
-        "node_modules/vertex-ai-mcp-server/build/index.js" 
-      ],
-      "env": {
-        // --- Required GCP/Vertex Config ---
-        // Replace with your actual GCP Project ID
-        "GOOGLE_CLOUD_PROJECT": "YOUR_PROJECT_ID", 
-        // Replace with the GCP region for your Vertex AI resources (e.g., "us-central1")
-        "GOOGLE_CLOUD_LOCATION": "YOUR_GCP_REGION", 
-        // Replace with the absolute or relative path to your GCP service account key file
-        "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/gcp_credentials.json",
-        
-        // --- Vertex AI Model Config ---
-        // Specify the desired Vertex AI model ID 
-        "VERTEX_AI_MODEL_ID": "gemini-2.5-pro-exp-03-25", // Or your preferred model like gemini-1.5-pro-preview-0409 etc.
-        // Controls randomness (0.0 = deterministic)
-        "VERTEX_AI_TEMPERATURE": "0.0", 
-        // Enable/disable streaming responses
-        "VERTEX_AI_USE_STREAMING": "true", 
-        // Maximum tokens for the model's response
-        "VERTEX_AI_MAX_OUTPUT_TOKENS": "65535", // Adjust based on model limits/needs
-        
-        // --- Optional Retry Config ---
-        // Number of times to retry failed API calls
-        "VERTEX_AI_MAX_RETRIES": "3",
-        // Initial delay between retries in milliseconds
-        "VERTEX_AI_RETRY_DELAY_MS": "1000" 
-      },
-      // Set to true to temporarily disable this server without removing the config
-      "disabled": false, 
-      // List tools allowed to run without explicit user approval per call (use with caution)
-      "alwaysAllow": [ 
-        "answer_query_websearch",
-        "answer_query_direct",
-        "explain_topic_with_docs",
-        "get_doc_snippets",
-        "generate_project_guidelines",
-        "read_file_content",
-        "read_multiple_files_content",
-        "write_file_content",
-        "edit_file_content",
-        "create_directory",
-        "list_directory_contents",
-        "get_directory_tree",
-        "move_file_or_directory",
-        "search_filesystem",
-        "get_filesystem_info",
-        "save_generate_project_guidelines",
-        "save_doc_snippet",
-        "save_topic_explanation",
-        "save_answer_query_direct",
-        "save_answer_query_websearch"
-       ], 
-      // Maximum time in seconds to wait for the server to respond to a tool request
-      "timeout": 3600 
-    }
-    // ... other server configurations ...
-  }
-}
-```
+Ensure you replace placeholder values in the example with your actual Google Cloud Platform (GCP) project details and credentials path.
 
 **Key Configuration Points:**
 

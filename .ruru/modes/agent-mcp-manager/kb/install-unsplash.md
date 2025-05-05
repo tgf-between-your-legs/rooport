@@ -1,16 +1,18 @@
 +++
-id = "KB-MCP-MANAGER-UNSPLASH-V1.2" # Updated ID and Version
+id = "KB-MCP-MANAGER-UNSPLASH-V1.3" # Updated ID and Version
 title = "KB: Install Unsplash MCP Server (using bun and direct env config)"
 status = "active"
 created_date = "2025-04-24"
-updated_date = "2025-04-24" # Update date
-version = "1.2" # Increment version
-tags = ["kb", "agent-mcp-manager", "workflow", "mcp", "install", "unsplash", "configuration", "setup", "interactive", "api-key"] # Added api-key tag
+updated_date = "2025-05-05" # Update date
+version = "1.3" # Increment version
+tags = ["kb", "agent-mcp-manager", "workflow", "mcp", "install", "unsplash", "configuration", "setup", "interactive", "api-key"]
 owner = "agent-mcp-manager"
 related_docs = [
     ".roo/rules-agent-mcp-manager/01-initialization-rule.md",
     ".roo/mcp.json",
-    "https://github.com/shariqriazz/upsplash-mcp-server" # Added repo URL
+    "https://github.com/shariqriazz/upsplash-mcp-server",
+    ".ruru/modes/agent-mcp-manager/kb/data/02-unsplash-mcp-json-example.md", # Added JSON example ref
+    ".ruru/modes/agent-mcp-manager/kb/prompts/02-unsplash-api-key-prompt.md" # Added prompt ref
     ]
 objective = "To install and configure the Unsplash MCP server interactively."
 scope = "Executed when the user selects the 'Install Unsplash Image Server' option."
@@ -31,7 +33,8 @@ failure_criteria = [
     "Build process fails.",
     "Agent fails to read/write/parse `.roo/mcp.json`."
     ]
-target_audience = ["agent-mcp-manager"] # Added target audience
+target_audience = ["agent-mcp-manager"]
+template_schema_doc = ".ruru/templates/toml-md/15_kb_article.README.md" # Assuming a generic KB template schema
 +++
 
 # KB Procedure: Install Unsplash MCP Server
@@ -51,60 +54,48 @@ Install the `upsplash-mcp-server` from its GitHub repository, configure it with 
     *   `clone_dir`: ".ruru/mcp-servers"
     *   `target_dir`: ".ruru/mcp-servers/upsplash-mcp-server"
     *   `mcp_config_path`: ".roo/mcp.json"
-    *   `env_file_path`: ".ruru/mcp-servers/upsplash-mcp-server/.env"
+    *   `api_key_prompt_kb`: ".ruru/modes/agent-mcp-manager/kb/prompts/02-unsplash-api-key-prompt.md"
+    *   `json_example_kb`: ".ruru/modes/agent-mcp-manager/kb/data/02-unsplash-mcp-json-example.md"
 
 2.  **Clone Repository:**
     *   Inform the user: "Cloning the Unsplash MCP server repository..."
-    *   Use `execute_command`: `git clone {{repo_url}} {{target_dir}}`
+    *   Use the `execute_command` tool to run `git clone {{repo_url}} {{target_dir}}`.
     *   Verify success (exit code 0). If fails, report error and stop.
 
 3.  **Install Dependencies:**
     *   Inform the user: "Installing dependencies using bun..."
-    *   Use `execute_command` with `cwd={{target_dir}}`: `bun install`
+    *   Use the `execute_command` tool with `cwd={{target_dir}}` to run `bun install`.
     *   Verify success (exit code 0). If fails, report error and stop.
 
 4.  **Get API Key:**
-    *   Use `ask_followup_question`:
-        *   `question`: "Please provide your Unsplash Access Key. You can get one from the Unsplash Developer portal (https://unsplash.com/developers). It's required for the server to function."
-        *   `follow_up`: `<suggest>Enter API Key here</suggest>` (Provide a placeholder suggestion, the user needs to paste their actual key).
+    *   Load the prompt content from `{{api_key_prompt_kb}}`.
+    *   Use the `ask_followup_question` tool with the loaded question and suggestion.
     *   Store the user's response (the API key) securely in a temporary variable (e.g., `api_key`). Handle potential cancellation/refusal gracefully. If refused, inform the user the server won't work without it and stop.
 
 5.  **Build Server:**
     *   Inform the user: "Building the server using bun..."
-    *   Use `execute_command` with `cwd={{target_dir}}`: `bun run build`
+    *   Use the `execute_command` tool with `cwd={{target_dir}}` to run `bun run build`.
     *   Verify success (exit code 0). If fails, report error and stop.
 
 6.  **Update MCP Configuration (`.roo/mcp.json`):**
     *   Inform the user: "Updating the central MCP configuration..."
-    *   Use `read_file` to get the current content of `{{mcp_config_path}}`.
+    *   Use the `read_file` tool to get the current content of `{{mcp_config_path}}`.
     *   Parse the JSON content. Handle potential parsing errors.
     *   **Check if server already exists:** If an entry with `name: "upsplash-mcp-server"` already exists, inform the user and ask if they want to overwrite/update it or cancel. Proceed based on user choice.
-    *   **Add/Update Server Entry:** Create/update the JSON object for the server:
-        ```json
-        {
-          "name": "upsplash-mcp-server",
-          "description": "Provides access to Unsplash images.",
-          "command": "bun", // Use bun to run
-          "args": [".ruru/mcp-servers/upsplash-mcp-server/build/index.js"], // Verified from package.json
-          "env": { // Add API key directly to env object
-            "UNSPLASH_ACCESS_KEY": "{{api_key}}" // Use the key obtained in Step 4
-          },
-          "alwaysAllow": { // Define default permissions - adjust as needed
-            "tools": ["search_photos", "download_photo"], // Verified tool names
-            "resources": []
-          }
-        }
-        ```
-        *   **Note:** The tool names were verified by inspecting the server code. The API key is directly included in the `env` object.
-    *   Add the new/updated server object to the `servers` array in the parsed JSON.
-    *   Use `write_to_file` to save the updated JSON back to `{{mcp_config_path}}`. Ensure proper JSON formatting.
+    *   **Add/Update Server Entry:**
+        *   Load the example JSON structure from `{{json_example_kb}}`.
+        *   Replace the `{{api_key}}` placeholder in the loaded example with the actual key obtained in Step 4.
+        *   Add this constructed server object to the `servers` array in the parsed JSON data from `mcp.json`.
+    *   Use the `write_to_file` tool to save the updated JSON data back to `{{mcp_config_path}}`. Ensure proper JSON formatting.
     *   Verify success. If fails, report error and stop.
 
 7.  **Report Completion:**
-    *   Use `attempt_completion`: "Successfully installed and configured the Unsplash MCP server (`upsplash-mcp-server`). It has been added to `.roo/mcp.json`. You may need to reload extensions and/or VS Code for the changes to take full effect."
+    *   Use the `attempt_completion` tool with the message: "Successfully installed and configured the Unsplash MCP server (`upsplash-mcp-server`). It has been added to `.roo/mcp.json`. You may need to reload extensions and/or VS Code for the changes to take full effect."
 
 ## 4. Rationale / Notes 🤔
-*   This procedure uses `bun` for installation, build, and execution, as requested.
-*   It interactively prompts for the essential `UNSPLASH_ACCESS_KEY` and adds it directly to the `env` object in `.roo/mcp.json`.
+*   This procedure uses `bun` for installation, build, and execution.
+*   It interactively prompts for the essential `UNSPLASH_ACCESS_KEY` by referencing an external prompt KB.
+*   It adds the API key directly to the `env` object in `.roo/mcp.json` based on an external JSON example KB.
 *   The run command path (`build/index.js`) and tool names (`search_photos`, `download_photo`) have been verified.
 *   Error handling is included at each critical step.
+*   Tool usage is described using natural language and backticks, not literal XML.
