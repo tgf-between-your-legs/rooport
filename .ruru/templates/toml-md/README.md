@@ -66,10 +66,11 @@ Templates are organized into subdirectories within `.ruru/templates/`:
 *   **`36_session_blocker.md`**: For tracking issues that are blocking progress during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/blockers/`.
 *   **`37_session_qna.md`**: For recording questions asked and answers provided during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/qna/`.
 *   **`38_session_snippet.md`**: For capturing code snippets relevant to the session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/snippets/`.
-*   **`39_session_feedback.md`**: For recording feedback received or observations made during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/feedback/`.
+*   **`39_session_feedback_item.md`**: For recording feedback received or observations made during a session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/feedback/`. (Formerly `39_session_feedback.md`)
 *   **`40_session_feature_note.md`**: For notes specifically related to an aspect of a feature being discussed or worked on. Typically stored in `.ruru/sessions/[SessionID]/artifacts/features/`.
-*   **`41_session_context_ref.md`**: For referencing external files or resources relevant to the session context. Typically stored in `.ruru/sessions/[SessionID]/artifacts/references/`.
+*   **`41_session_context_item.md`**: For capturing general context items, which can be actual content, data, or references to external files/URLs relevant to the session. Typically stored in `.ruru/sessions/[SessionID]/artifacts/context/`.
 *   **`42_session_deferred.md`**: For capturing tasks, ideas, or other items deferred for later action. Typically stored in `.ruru/sessions/[SessionID]/artifacts/deferred/`.
+*   **`50_session_summary.md`**: For generating structured summaries of user interaction sessions. Typically stored in `.ruru/sessions/[SessionID]/summaries/`. See `50_session_summary.README.md` for schema.
 
 ### Workflow Templates (`.ruru/templates/workflows/`)
 
