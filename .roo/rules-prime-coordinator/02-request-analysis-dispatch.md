@@ -7,8 +7,13 @@ target_audience = ["prime"]
 granularity = "procedure"
 status = "active"
 last_updated = "2025-04-21"
-tags = ["rules", "workflow", "dispatch", "analysis", "intent", "prime"]
-related_context = ["03-meta-dev-workflow-rule.md", "04-operational-delegation-rule.md", "05-research-procedure-rule.md"]
+tags = ["rules", "workflow", "dispatch", "analysis", "intent", "prime", "delegation"] # Added delegation tag
+related_context = [
+    "03-meta-dev-workflow-simplified.md", # Updated ref
+    "04-operational-delegation-simplified.md", # Updated ref
+    "05-research-procedure-rule.md",
+    "14-repomix-delegation-guideline.md" # Added mode-specific Repomix delegation guideline
+    ]
 +++
 
 # Rule: Request Analysis & Dispatch

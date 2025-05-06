@@ -100,7 +100,9 @@ documentation_urls = [
   "https://github.com/RooVetGit/Roo-Code-Docs/blob/main/README.md",
   "https://github.com/RooVetGit/Roo-Code-Docs/blob/main/docs/features/custom-modes.md"
 ] # << OPTIONAL >> Links to relevant external documentation (From source)
-context_files = [] # << OPTIONAL >> Relative paths to key context files within the workspace (KB files handled by custom_instructions_dir)
+context_files = [
+  ".roo/rules-roo-commander/09-repomix-delegation-guideline.md" # Added Repomix delegation guideline
+] # << OPTIONAL >> Relative paths to key context files within the workspace (KB files handled by custom_instructions_dir)
 context_urls = [] # << OPTIONAL >> URLs for context gathering (less common now with KB)
 
 # --- Custom Instructions Pointer (Optional) ---
