@@ -56,3 +56,6 @@ template_schema_doc = ".ruru/templates/toml-md/03_mdtm_chore.README.md" # Link t
 ## Key Learnings 💡 (Optional - Fill upon completion)
 
 *   (Summarize challenges or improvements)
+## Log Entries 🪵
+
+*   (Logs will be appended here when no active session log is specified)

@@ -1,20 +1,22 @@
 +++
 # --- Basic Metadata ---
-id = "RULE-MDTM-WORKFLOW-INIT-V1"
+id = "RULE-MDTM-WORKFLOW-INIT-V2" # Incremented version
 title = "Standard MDTM Task Creation & Delegation Workflow"
 context_type = "rules"
 scope = "Creating and delegating tasks via the TOML-based MDTM system"
 target_audience = ["roo-commander", "prime-coordinator", "lead-*", "manager-project", "all"] # Target coordinators, leads, and specialists (for the update part)
 granularity = "procedure"
 status = "active"
-last_updated = "2025-04-22" # Use current date
-tags = ["mdtm", "toml", "workflow", "delegation", "task-creation", "coordination", "rules"]
+last_updated = "2025-06-05" # Use current date
+tags = ["mdtm", "toml", "workflow", "delegation", "task-creation", "coordination", "rules", "session-logging"] # Added tag
 related_context = [
     ".roo/rules/01-standard-toml-md-format.md",
-    ".roo/rules/12-logging-procedure-rule.md",
+    ".roo/rules/08-logging-procedure-simplified.md", # Updated logging rule ref
+    ".roo/rules/11-session-management.md", # Added session management rule
     ".ruru/tasks/",
     ".ruru/templates/toml-md/",
-    ".ruru/docs/standards/mdtm_standard.md" # General MDTM standard (might need updating for TOML emphasis)
+    ".ruru/docs/standards/mdtm_standard.md", # General MDTM standard (might need updating for TOML emphasis)
+    ".ruru/modes/roo-commander/kb/12-logging-procedures.md" # Detailed logging KB
     ]
 template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"
 relevance = "High: Defines core task delegation process"
@@ -52,10 +54,10 @@ This rule defines the standard procedure for creating Markdown-Driven Task Manag
         *   `tags`: Relevant keywords.
     *   **Markdown Body:** Fill in the Markdown sections (Description, Acceptance Criteria, Checklist). Define clear, actionable checklist items (`- [ ] Step description`).
 5.  **Create Task File:** Use the `write_to_file` tool to create the MDTM task file at the determined path with the prepared TOML and Markdown content.
-6.  **Log Creation:** Log the creation of the task file (including its path) according to standard logging procedures (Rule `12`).
+6.  **Log Creation:** Log the creation of the task file (including its path) according to standard logging procedures (Rule `08-logging-procedure-simplified.md`).
 7.  **Delegate via `new_task`:**
     *   Target the specialist mode specified in the `assigned_to` field.
-    *   The `message` **MUST** clearly state: "Process MDTM task file: [Full path to the created .md file]". Include the Coordinator's Task ID for reference.
+    *   The `message` **MUST** clearly state: "Process MDTM task file: [Full path to the created .md file]". Include the Coordinator's Task ID and the active `RooComSessionID` (if applicable) for reference.
     *   Provide any *essential* immediate context if needed, but the primary instructions reside within the task file.
 8.  **Update Initiator State:** Note that delegation has occurred. Await `attempt_completion` from the specialist. **Do not assume the task is being worked on in the background.**
 
@@ -64,7 +66,7 @@ This rule defines the standard procedure for creating Markdown-Driven Task Manag
 *   When receiving a `new_task` instruction referencing an MDTM task file:
     1.  **MUST** use `read_file` to load the content of the specified task file path.
     2.  **MUST** perform the work described in the Markdown body, following the checklist items.
-    3.  **MUST** update the Markdown checklist (`- [ ]` -> `- [✅]`) as steps are completed using `apply_diff` or `search_and_replace`. Add brief notes/logs to the Markdown body as needed.
+    3.  **MUST** update the Markdown checklist (`- [ ]` -> `- [✅]`) as steps are completed using `apply_diff` or `search_and_replace`. **MUST** add brief notes/logs to the **active session log** (`.ruru/sessions/SESSION-.../session_log.md`) if a `RooComSessionID` was provided in the delegation message, otherwise append logs to the Markdown body of this task file. Use appropriate logging tools (e.g., `insert_content`) as per KB `12-logging-procedures.md`.
     4.  **MUST** update the `status` field in the **TOML block** of the task file upon completion (`"🟢 Done"`) or if blocked (`"⚪ Blocked"`), along with the `updated_date`, using `apply_diff`.
     5.  **MUST** report the final outcome back to the Coordinator using `attempt_completion`, referencing the MDTM task file path.
 

@@ -66,3 +66,6 @@ sequenceDiagram
 ## Key Learnings 💡 (Optional - Fill upon completion)
 
 *   (Summarize discoveries)
+## Log Entries 🪵
+
+*   (Logs will be appended here when no active session log is specified)

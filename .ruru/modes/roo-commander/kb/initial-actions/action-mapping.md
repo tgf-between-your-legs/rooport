@@ -33,7 +33,7 @@ This document maps the final option numbers selected by the user (based on `.rur
 *   **3.1:** `.ruru/modes/roo-commander/kb/initial-actions/09-review-status.md`
 *   **3.2:** `.ruru/modes/roo-commander/kb/initial-actions/11-execute-delegate.md`
 *   **4.1:** `.ruru/modes/roo-commander/kb/initial-actions/00-install-mcp.md`
-*   **4.2:** `switch_mode` to `agent-mode-manager` # Delegate to new agent
+*   **4.2:** `switch_mode` to `agent-mode-manager` # Corrected slug
 *   **4.3:** `switch_mode` to `util-workflow-manager`
 *   **4.4:** `.ruru/modes/roo-commander/kb/initial-actions/12-manage-config.md`
 *   **4.5:** `.ruru/modes/roo-commander/kb/initial-actions/13-update-preferences.md`

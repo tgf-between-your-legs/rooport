@@ -1,31 +1,31 @@
 +++
 # --- Basic Metadata ---
-id = "RULE-SESSION-MGMT-STANDARD-V6"
-title = "Standard: Session Management Workflow V6"
+id = "RULE-SESSION-MGMT-STANDARD-V7" # Incremented version
+title = "Standard: Session Management Workflow V7" # Incremented version
 context_type = "rules"
 scope = "Workspace-wide standard for session initiation, logging, and artifact management"
 target_audience = ["all"] # Coordinators, Specialists, Leads
 granularity = "procedure"
 status = "active"
 last_updated = "2025-06-05" # Use current date
-tags = ["session", "logging", "standard", "workflow", "artifacts", "traceability", "context", "v6"]
+tags = ["session", "logging", "standard", "workflow", "artifacts", "traceability", "context", "v7"] # Updated tag
 related_context = [
-    ".ruru/docs/concepts/session_management_v6_whitepaper.md",
-    ".ruru/docs/standards/session_artifact_guidelines_v1.md", # New KB
-    ".ruru/templates/toml-md/19_mdtm_session.md",
+    ".ruru/docs/concepts/session_management_v6_whitepaper.md", # Concept doc (still relevant)
+    ".ruru/docs/standards/session_artifact_guidelines_v1.md", # Artifact guidelines
+    ".ruru/templates/toml-md/19_mdtm_session.md", # Session log template
+    ".ruru/templates/plain-md/session_artifact_subdir_readme.md", # New README template
     ".roo/rules/08-logging-procedure-simplified.md",
     ".ruru/modes/roo-commander/kb/12-logging-procedures.md"
-    # Removed V5 impl rules
 ]
 template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"
 relevance = "Critical: Defines the standard session workflow for all modes"
 +++
 
-# Standard: Session Management Workflow V6
+# Standard: Session Management Workflow V7
 
 ## 1. Introduction & Goal
 
-This document defines the standard "Session Management V6" workflow applicable to all modes within the Roo Commander workspace, particularly coordinators like `roo-commander` and `prime-coordinator`.
+This document defines the standard "Session Management V7" workflow applicable to all modes within the Roo Commander workspace, particularly coordinators like `roo-commander` and `prime-coordinator`.
 
 **Goal:** To enhance traceability, context management, and continuity across user interactions by providing a structured, persistent record of a user's interaction focused on achieving a particular objective, complementing MDTM tasks.
 
@@ -37,7 +37,13 @@ The central concept is the optional, structured **Session Log** (`session_log.md
 
 *   **Responsibility:** Session initiation (detecting the need for a new session, prompting the user, and creating the initial log file and directory structure) is the responsibility of designated **Coordinator modes** (e.g., `roo-commander`, `prime-coordinator`).
 *   **Procedure:** Coordinators handle session initiation according to their specific implementation rules. These rules define state detection, user prompting logic, default behaviors, and the creation procedure. Specialist modes do not initiate sessions but **MUST** be aware of how to log events (Section 5) and handle artifacts (Section 6) within an active session.
-*   **Outcome:** If a session is initiated, the Coordinator creates the session directory (e.g., `.ruru/sessions/SESSION-[SanitizedGoal]-[YYMMDDHHMM]/`), the `artifacts/` subdirectory within it, and the `session_log.md` file, populating initial metadata and retaining the active `RooComSessionID`.
+*   **Outcome:** If a session is initiated, the Coordinator **MUST**:
+    1.  Create the main session directory (e.g., `.ruru/sessions/SESSION-[SanitizedGoal]-[YYMMDDHHMM]/`).
+    2.  Create the `artifacts/` subdirectory within it.
+    3.  Create the standard artifact subdirectories (e.g., `notes/`, `learnings/`, `code/`, etc.) within `artifacts/` as defined in `.ruru/docs/standards/session_artifact_guidelines_v1.md`.
+    4.  Place a copy of the standard README template (`.ruru/templates/plain-md/session_artifact_subdir_readme.md`) into *each* created standard subdirectory, renaming it to `README.md`. The Coordinator should replace the placeholder `[This Subdirectory Type]` in the README content with the actual subdirectory name (e.g., "Notes", "Learnings").
+    5.  Create the `session_log.md` file using the template `.ruru/templates/toml-md/19_mdtm_session.md`, populating initial metadata.
+    6.  Retain the active `RooComSessionID`.
 
 ## 4. Session Log File (`session_log.md`)
 

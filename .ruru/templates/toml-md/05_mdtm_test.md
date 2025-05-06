@@ -50,3 +50,6 @@ template_schema_doc = ".ruru/templates/toml-md/05_mdtm_test.README.md" # Link to
 ## Review Notes 👀 (For Reviewer)
 
 *   (Space for feedback)
+## Log Entries 🪵
+
+*   (Logs will be appended here when no active session log is specified)

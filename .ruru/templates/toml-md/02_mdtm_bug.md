@@ -74,3 +74,6 @@ template_schema_doc = ".ruru/templates/toml-md/02_mdtm_bug.README.md" # Link to 
 ## Key Learnings 💡 (Optional - Fill upon completion)
 
 *   (Summarize insights)
+## Log Entries 🪵
+
+*   (Logs will be appended here when no active session log is specified)
