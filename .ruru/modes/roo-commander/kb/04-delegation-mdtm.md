@@ -39,7 +39,7 @@ This document details procedures for effective task delegation, emphasizing the 
         *   **Examples:** Implementing a new feature involving multiple components, refactoring a critical module, setting up CI/CD pipelines, performing database migrations.
     *   **Step 1: Create Task File:**
         *   Use `write_to_file` to create `.ruru/tasks/TASK-[MODE]-[YYYYMMDD-HHMMSS].md`.
-        *   Use the `01_mdtm_feature.md` or a similar MDTM template from `.ruru/templates/toml-md/`.
+        *   Use an appropriate MDTM template from `.ruru/templates/toml-md/` (e.g., `01_mdtm_feature.md` for feature-like tasks, or `03_mdtm_chore.md` for general tasks like delegating workflow execution to `util-workflow-manager`).
         *   **Essential Fields:**
             *   `title`: Clear task title.
             *   `status`: "Pending".

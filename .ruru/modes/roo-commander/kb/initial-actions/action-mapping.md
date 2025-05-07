@@ -37,6 +37,7 @@ This document maps the final option numbers selected by the user (based on `.rur
 *   **4.3:** `switch_mode` to `util-workflow-manager`
 *   **4.4:** `.ruru/modes/roo-commander/kb/initial-actions/12-manage-config.md`
 *   **4.5:** `.ruru/modes/roo-commander/kb/initial-actions/13-update-preferences.md`
+*   **4.6:** `.ruru/modes/roo-commander/kb/initial-actions/4.6-initiate-github-release-workflow.md`
 *   **5.1:** `.ruru/modes/roo-commander/kb/initial-actions/10-research-topic.md`
 *   **5.2:** `.ruru/modes/roo-commander/kb/initial-actions/14-learn-capabilities.md`
 *   **5.3:** `.ruru/modes/roo-commander/kb/initial-actions/15-join-community.md`

@@ -1,6 +1,6 @@
 {
   "name": "roocommander",
-  "version": "0.1.17",
+  "version": "7.2.0",
   "description": "CLI tool for managing Roo Commander workspace configurations and tasks.",
   "type": "module",
   "bin": {

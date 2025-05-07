@@ -72,6 +72,11 @@ To get the most out of Roo Commander, it helps to understand these key ideas:
 *   **🛠️ Specialist Modes:** A wide range of modes covering various frameworks (React, Vue, Angular, Next.js, Laravel, Django, FastAPI, etc.), cloud platforms (AWS, Azure, GCP), databases (SQL, NoSQL), design tools (Tailwind, MUI, Bootstrap), testing, DevOps, security, and utilities.
 *   **📝 Decision Logging (ADRs):** Formal process for recording significant Architectural Decision Records in `.ruru/decisions/`.
 *   **🧩 Standardized Workflows & Processes:** Reusable definitions in `.ruru/workflows/` and `.ruru/processes/`.
+*   **⏱️ Session Management (New in V7):** Enhances traceability and context by introducing optional, structured **Session Logs**.
+    *   **Goal:** To provide a persistent record of a user's interaction focused on a specific objective, complementing MDTM tasks.
+    *   **Session Log (`session_log.md`):** A TOML+Markdown file created in a dedicated directory (e.g., `.ruru/sessions/SESSION-[Goal]-[Timestamp]/`). It includes metadata (ID, title, status, related tasks, artifacts) and a chronological log of significant events.
+    *   **Artifacts:** An `artifacts/` subdirectory within the session folder stores contextual notes (e.g., decisions, learnings, research) in organized subfolders like `notes/`, `learnings/`, etc.
+    *   **How it works:** Coordinator modes can initiate a session, creating the log and artifact structure. All modes then contribute to the active session log when performing tasks, linking their work back to the overall session goal.
 
 ## Getting Started (Installation)
 

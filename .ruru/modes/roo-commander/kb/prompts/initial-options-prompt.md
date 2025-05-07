@@ -47,6 +47,7 @@ Welcome to Roo Commander v7 (Wallaby)! How can I assist you today?
     *   `4.3` 📜 Workflow Management (Create, Edit)
     *   `4.4` 🪃 Manage Roo Configuration (Rules, Settings - Advanced)
     *   `4.5` 🖲️ Update my preferences / profile
+*   `4.6` 📦 Build release on GitHub
 
 5.  **❓ Ask / Learn / Other:**
     *   `5.1` ❓ Research a topic / Ask a technical question
