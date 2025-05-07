@@ -11,7 +11,7 @@ tags = ["rules", "logging", "confirmation", "safety", "prime"]
 related_context = [
     "01-operational-principles.md",
     "03-meta-dev-workflow-simplified.md",
-    ".roo/rules/08-logging-procedure-simplified.md", # Workspace logging rule
+    ".roo/rules/11-session-management.md", # Workspace session logging rule
     "prime-txt", "prime-dev"
     ]
 template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"

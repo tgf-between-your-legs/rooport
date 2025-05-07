@@ -1,9 +1,9 @@
 +++
 # --- Basic Metadata ---
 id = "RULE-SESSION-MGMT-STANDARD-V7" # Incremented version
-title = "Standard: Session Management Workflow V7" # Incremented version
+title = "Standard: Session Management & Active Session Logging Workflow V7" # Incremented version
 context_type = "rules"
-scope = "Workspace-wide standard for session initiation, logging, and artifact management"
+scope = "Workspace-wide standard for session initiation, active session logging, and artifact management. This is the primary rule for logging when a session is active."
 target_audience = ["all"] # Coordinators, Specialists, Leads
 granularity = "procedure"
 status = "active"
@@ -14,7 +14,7 @@ related_context = [
     ".ruru/docs/standards/session_artifact_guidelines_v1.md", # Artifact guidelines
     ".ruru/templates/toml-md/19_mdtm_session.md", # Session log template
     ".ruru/templates/plain-md/session_artifact_subdir_readme.md", # New README template
-    ".roo/rules/08-logging-procedure-simplified.md",
+    # ".roo/rules/08-logging-procedure-simplified.md", # DEPRECATED - Functionality merged here
     ".ruru/modes/roo-commander/kb/12-logging-procedures.md"
 ]
 template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"
@@ -37,13 +37,14 @@ The central concept is the optional, structured **Session Log** (`session_log.md
 
 *   **Responsibility:** Session initiation (detecting the need for a new session, prompting the user, and creating the initial log file and directory structure) is the responsibility of designated **Coordinator modes** (e.g., `roo-commander`, `prime-coordinator`).
 *   **Procedure:** Coordinators handle session initiation according to their specific implementation rules. These rules define state detection, user prompting logic, default behaviors, and the creation procedure. Specialist modes do not initiate sessions but **MUST** be aware of how to log events (Section 5) and handle artifacts (Section 6) within an active session.
-*   **Outcome:** If a session is initiated, the Coordinator **MUST**:
+*   **Outcome:** If a session is initiated, the Coordinator **MUST** ensure the following directory structure and initial files are created. To conserve Coordinator context and improve efficiency, these steps **SHOULD** be delegated to a suitable specialist mode (e.g., `prime-txt` or a dedicated session setup agent if available) or handled via efficient scripting.
     1.  Create the main session directory (e.g., `.ruru/sessions/SESSION-[SanitizedGoal]-[YYMMDDHHMM]/`).
     2.  Create the `artifacts/` subdirectory within it.
-    3.  Create the standard artifact subdirectories (e.g., `notes/`, `learnings/`, `code/`, etc.) within `artifacts/` as defined in `.ruru/docs/standards/session_artifact_guidelines_v1.md`.
-    4.  Place a copy of the standard README template (`.ruru/templates/plain-md/session_artifact_subdir_readme.md`) into *each* created standard subdirectory, renaming it to `README.md`. The Coordinator should replace the placeholder `[This Subdirectory Type]` in the README content with the actual subdirectory name (e.g., "Notes", "Learnings").
-    5.  Create the `session_log.md` file using the template `.ruru/templates/toml-md/19_mdtm_session.md`, populating initial metadata.
-    6.  Retain the active `RooComSessionID`.
+    3.  Create the standard artifact subdirectory structure (e.g., `notes/`, `learnings/`, etc.) within `artifacts/` as defined in `.ruru/docs/standards/session_artifact_guidelines_v1.md`. This process includes populating each standard subdirectory with a `README.md`. This **MUST** be done efficiently.
+        *   **Preferred Method (Scaffold Copy):** If a pre-configured template directory exists (e.g., at `.ruru/templates/session_artifact_scaffold/` containing the full set of standard subdirectories and their pre-filled `README.md` files), copy this entire scaffold structure into the new session's `artifacts/` directory (e.g., using a command like `cp -r .ruru/templates/session_artifact_scaffold/. .ruru/sessions/SESSION-[ID]/artifacts/` where `SESSION-[ID]` is the specific session directory). This is the recommended method, especially for delegation, as it's a single, efficient operation.
+        *   **Fallback Method (Manual Creation):** If the scaffold directory does not exist, create all required subdirectories (e.g., using a single `mkdir -p .ruru/sessions/SESSION-[ID]/artifacts/{notes,learnings,environment,docs,research,blockers,questions,snippets,feedback,features,context,deferred}`). Then, for each created subdirectory, copy the template `.ruru/templates/plain-md/session_artifact_subdir_readme.md`, rename it to `README.md`, and replace the placeholder `[This Subdirectory Type]` with the specific subdirectory name. This part can be scripted or delegated.
+    4.  Create the `session_log.md` file using the template `.ruru/templates/toml-md/19_mdtm_session.md`, populating initial metadata.
+    5.  Retain the active `RooComSessionID`.
 
 ## 4. Session Log File (`session_log.md`)
 
@@ -65,7 +66,7 @@ This file uses the TOML+Markdown format.
 
 ## 5. Logging Events
 
-If a session is active (`RooComSessionID` is set), modes **MUST** log significant events concisely to the `session_log.md` (typically using `insert_content` line 0 for chronological order). Key events include:
+If a session is active (`RooComSessionID` is set), this section provides the primary guidance for logging. Modes **MUST** log significant events concisely to the `session_log.md` (typically using `insert_content` line 0 for chronological order). Key events include:
 
 *   Session start/end/pause.
 *   User prompts and significant decisions/responses.

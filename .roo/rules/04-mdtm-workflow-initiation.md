@@ -11,8 +11,7 @@ last_updated = "2025-06-05" # Use current date
 tags = ["mdtm", "toml", "workflow", "delegation", "task-creation", "coordination", "rules", "session-logging"] # Added tag
 related_context = [
     ".roo/rules/01-standard-toml-md-format.md",
-    ".roo/rules/08-logging-procedure-simplified.md", # Updated logging rule ref
-    ".roo/rules/11-session-management.md", # Added session management rule
+    ".roo/rules/11-session-management.md", # Logging guidance via Session Management, also general session management rule
     ".ruru/tasks/",
     ".ruru/templates/toml-md/",
     ".ruru/docs/standards/mdtm_standard.md", # General MDTM standard (might need updating for TOML emphasis)
@@ -35,6 +34,7 @@ This rule defines the standard procedure for creating Markdown-Driven Task Manag
     *   Requires detailed progress tracking or auditing.
     *   High-risk changes (core logic, infrastructure, security).
     *   Requires clear handoffs between specialists.
+    *   For `roo-commander` specifically: Tasks involving complex logic, multiple file reads/writes, or significant data processing **SHOULD** be delegated via MDTM to ensure specialist modes handle the intensive work. The goal is to keep the context window usage to a minimum so that the user can have a long session in one task.
 *   Refer to specific mode documentation (e.g., `roo-commander` KB `04-delegation-mdtm.md`) for detailed criteria if available. If unsure, **err on the side of using MDTM** for better tracking.
 
 **2. Procedure for Initiator (Coordinator/Lead/Manager):**

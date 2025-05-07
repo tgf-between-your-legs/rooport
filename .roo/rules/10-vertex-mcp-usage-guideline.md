@@ -11,7 +11,7 @@ last_updated = "2025-04-26" # Use current date
 tags = ["rules", "mcp", "vertex-ai", "guideline", "output-handling", "file-organization", "research", "validation"]
 related_context = [
     ".roo/rules/01-standard-toml-md-format.md",
-    ".roo/rules/08-logging-procedure-simplified.md",
+    ".roo/rules/11-session-management.md", # Logging guidance via Session Management
     "repomix-output-shariqriazz-vertex-ai-mcp-server.md" # Reference to the MCP definition
     ]
 template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"

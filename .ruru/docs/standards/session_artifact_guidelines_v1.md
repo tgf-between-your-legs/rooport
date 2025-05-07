@@ -39,9 +39,9 @@ The following standard subdirectories **SHOULD** be used to organize artifacts b
 *   `artifacts/blockers/` - Specific obstacles encountered and potential solutions.
 *   `artifacts/questions/` - Questions raised during the session (for users, other modes, or future investigation).
 *   `artifacts/snippets/` - Useful code snippets generated or referenced.
-*   `artifacts/user_feedback/` - Direct feedback from the user captured during the session.
+*   `artifacts/feedback/` - Direct feedback from the user or observations about user reactions/sentiment captured during the session.
 *   `artifacts/features/` - Specific feature ideas or refinements discussed.
-*   `artifacts/context_refs/` - References or links to external context (URLs, file paths outside the session).
+*   `artifacts/context/` - Relevant contextual information, including actual context files (e.g., text, data, configuration snippets) or references/links to external resources.
 *   `artifacts/deferred/` - Ideas or tasks noted but deferred for later action.
 
 Modes **MAY** create other subdirectories if a clear need arises, but should prefer these standard categories.
@@ -52,7 +52,7 @@ Artifact filenames **MUST** follow the convention:
 
 `[TYPE]-[description]-[YYMMDDHHMM].md`
 
-*   **`[TYPE]`:** An uppercase identifier corresponding to the subdirectory (e.g., `NOTE`, `LEARNING`, `ENV`, `DOC`, `RESEARCH`, `BLOCKER`, `QUESTION`, `SNIPPET`, `FEEDBACK`, `FEATURE`, `REF`, `DEFERRED`).
+*   **`[TYPE]`:** An uppercase identifier corresponding to the subdirectory (e.g., `NOTE`, `LEARNING`, `ENV`, `DOC`, `RESEARCH`, `BLOCKER`, `QUESTION`, `SNIPPET`, `FDBK`, `FEATURE`, `CONTEXT`, `DEFERRED`).
 *   **`[description]`:** A brief, filesystem-safe description of the artifact's content (e.g., `initial_plan`, `api_rate_limit_details`, `db_schema_v2`, `python_requests_example`). Use underscores (`_`) instead of spaces. Keep it concise.
 *   **`[YYMMDDHHMM]`:** Timestamp indicating when the artifact was created.
 *   **`.md`:** Artifacts should generally be Markdown files, using TOML+MD format if structured metadata is beneficial for the specific artifact type.
@@ -63,6 +63,8 @@ Artifact filenames **MUST** follow the convention:
 *   `artifacts/learnings/LEARNING-auth_flow_complexity-2506050130.md`
 *   `artifacts/snippets/SNIPPET-fetch_data_hook-2506050200.md`
 *   `artifacts/research/RESEARCH-react_server_components_comparison-2506050215.md`
+*   `artifacts/context/CONTEXT-api_schema_v1-2506050230.json`
+*   `artifacts/feedback/FDBK-ui_element_xyz-2506050245.md`
 
 ## 4. Artifact Type Guidance (Intended Content)
 
@@ -74,9 +76,9 @@ Artifact filenames **MUST** follow the convention:
 *   **BLOCKER:** Description of an impediment, steps taken, potential workarounds. Use template `.ruru/templates/toml-md/36_session_blocker.md`.
 *   **QUESTION:** Specific questions needing answers. Use template `.ruru/templates/toml-md/37_session_qna.md`.
 *   **SNIPPET:** Code examples, configuration blocks, useful commands. Use template `.ruru/templates/toml-md/38_session_snippet.md`.
-*   **FEEDBACK:** Direct quotes or summaries of user input. Use template `.ruru/templates/toml-md/39_session_feedback.md`.
+*   **FDBK (Feedback):** Direct quotes or summaries of user input/reactions. Use template `.ruru/templates/toml-md/39_session_feedback_item.md`. Stored in `artifacts/feedback/`.
 *   **FEATURE:** Ideas for new features or enhancements sparked during the session. Use template `.ruru/templates/toml-md/40_session_feature_note.md`.
-*   **REF:** Pointers to external resources (URLs, other project files). Use template `.ruru/templates/toml-md/41_session_context_ref.md`.
+*   **CONTEXT:** Actual context files (text, data, config) or links to external resources. Use template `.ruru/templates/toml-md/41_session_context_item.md` if a structured note is needed, otherwise store raw files directly.
 *   **DEFERRED:** Items explicitly postponed for later consideration. Use template `.ruru/templates/toml-md/42_session_deferred.md`.
 
 ## 5. Creation Guidance
