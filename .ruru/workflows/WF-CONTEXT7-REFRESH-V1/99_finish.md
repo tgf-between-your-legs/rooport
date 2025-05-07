@@ -43,7 +43,7 @@ template_schema_doc = ".ruru/templates/toml-md/26_workflow_step_finish.md" # (St
 2.  **Log Completion:** Log the successful completion of the Context7 refresh for mode `{{mode_slug}}` using URL `{{context7_base_url}}`. Include the detail status (`{{detail_status}}`) in the log message. (Follow Rule `08-logging-procedure-simplified.md`).
 3.  **Prepare Final Report:** Construct the `workflow_result` output message confirming success.
     *   Example: "Successfully refreshed Context7 KB for mode `{{mode_slug}}` from source `{{context7_base_url}}`. Source details status: `{{detail_status}}`."
-4.  **Report Outcome:** Use `<attempt_completion>` to report the `workflow_result` back to the User or initiating process.
+4.  **Report Outcome:** Use `attempt_completion` to report the `workflow_result` back to the User or initiating process.
 
 ## Acceptance Criteria
 

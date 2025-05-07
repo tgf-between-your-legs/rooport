@@ -39,7 +39,7 @@ When you interact with a Roo Commander mode, the information sent to the underly
 1.  **Mode's System Prompt:** The core instructions from the `.mode.md` file.
 2.  **Loaded Rules:** Content from applicable workspace-wide (`.roo/rules/`) and mode-specific (`.roo/rules-[mode_slug]/`) rule files.
 3.  **Chat History:** Recent messages exchanged between you and the AI mode(s) in the current chat session.
-4.  **Tool Calls:** The XML-like representation of actions taken by the AI (e.g., `<new_task>`, `<read_file>`, `<execute_command>`).
+4.  **Tool Calls:** The XML-like representation of actions taken by the AI (e.g., `new_task`, `<read_file>`, `<execute_command>`).
 5.  **Tool Results:** The output returned from those tool calls (e.g., `<result>File content here...</result>`).
 6.  **File Content (Sometimes):** Content explicitly read using `read_file` or provided in prompts.
 

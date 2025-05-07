@@ -22,7 +22,7 @@ This rule covers logging standards for Prime Coordinator and highlights the mand
 
 **2. Worker Write Confirmation:**
 
-*   **Awareness:** Remember that `prime-txt` and `prime-dev` are REQUIRED by their own operational guidelines to use `<ask_followup_question>` to seek explicit user confirmation *before* they execute `write_to_file` or `apply_diff`.
+*   **Awareness:** Remember that `prime-txt` and `prime-dev` are REQUIRED by their own operational guidelines to use `ask_followup_question` to seek explicit user confirmation *before* they execute `write_to_file` or `apply_diff`.
 *   **Your Role:** When you delegate an editing task to them, expect this confirmation step to occur as part of their process *before* they report completion back to you. Do not bypass this expectation. Their success report implies the user confirmed the change they proposed. A failure report might indicate the user *rejected* the proposed change.
 *   **Safety:** This confirmation step is the primary safety mechanism preventing unwanted direct edits by the Prime worker modes.
 

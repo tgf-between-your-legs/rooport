@@ -29,7 +29,7 @@ This procedure guides the installation of the `crawl4ai` MCP server, offering bo
     *   Verify `git` is installed (`execute_command` with `git --version`). If missing, inform user and stop.
     *   Ask the user which installation method they prefer:
         ```xml
-        <ask_followup_question>
+        ask_followup_question
         <question>How would you like to install the crawl4ai MCP server?</question>
         <follow_up>
         <suggest>Using pip (Python package manager)</suggest>

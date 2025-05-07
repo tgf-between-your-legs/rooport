@@ -64,7 +64,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Great! Let's start planning/designing. Please briefly describe the project or feature you have in mind. What is its main purpose or goal?</question>
               <follow_up>
                 <suggest>Cancel planning</suggest>
@@ -85,7 +85,7 @@ granularity = "detailed"
         3.  **If** focus is clearly product/feature definition -> Set `[Target Delegate]` = `manager-product`. Proceed to Step 3.
         4.  **Else (Ambiguous):** Present clarification prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Thanks! To make sure we start correctly, is your primary focus right now on the **technical architecture** (how it's built, technology choices) or the **product/feature definition** (what it does, user needs, market goals)?</question>
               <follow_up>
                 <suggest>Focus on Technical Architecture (`core-architect`)</suggest>

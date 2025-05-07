@@ -41,7 +41,7 @@ This playbook outlines the steps to initialize a new frontend project using Vite
     *   **Tool:** `ask_followup_question`
     *   **Procedure:**
         ```xml
-        <ask_followup_question>
+        ask_followup_question
          <question>Let's set up your Vite + React + TS + TanStack Query project.
          1. What do you want to name the project directory? (e.g., my-react-app)
          2. Which package manager do you prefer? (npm, yarn, pnpm)

@@ -28,7 +28,7 @@ template_schema_doc = ".ruru/templates/toml-md/16_ai_rule.README.md"
 
 1.  **Identify Error:** Recognize when a tool use fails, a command returns a non-zero exit code, generated output is invalid, or an unexpected situation prevents progress.
 2.  **Log Error:** Record the error details (e.g., tool name, parameters used, error message, exit code, relevant context) in the designated logging location (e.g., MDTM task file, coordination log) as per Rule `08-logging-procedure-simplified.md`.
-3.  **Report Error Clearly:** Inform the coordinator/user about the error using `<attempt_completion>` (if stopping) or `<ask_followup_question>` (if seeking immediate guidance).
+3.  **Report Error Clearly:** Inform the coordinator/user about the error using `attempt_completion` (if stopping) or `ask_followup_question` (if seeking immediate guidance).
     *   State clearly that an error occurred.
     *   Provide the specific error message received, if any.
     *   Mention the step or tool that failed.

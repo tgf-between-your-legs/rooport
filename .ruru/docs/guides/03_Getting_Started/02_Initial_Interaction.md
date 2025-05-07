@@ -31,7 +31,7 @@ This guide explains the purpose of this initial interaction and what happens whe
 You'll typically see a prompt similar to this:
 
 ```xml
- <ask_followup_question>
+ ask_followup_question
   <question>Welcome to Roo Commander v7 (Wallaby)! How can I assist you today?</question>
   <follow_up>
     <suggest>🔌 Install/Manage MCP Servers</suggest> <!-- Option 0 -->

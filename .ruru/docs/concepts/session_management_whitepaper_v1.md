@@ -81,7 +81,7 @@ This workflow leverages the session artifacts directory for safer and more trace
 1.  **Coordinator Proposes:** The Coordinator (e.g., Prime Coordinator) determines a file change is needed.
 2.  **Write to Artifact:** Instead of directly asking `prime-txt`/`dev` to write, the Coordinator first writes the *entire proposed file content* or a *diff* to a temporary file within the current session's `artifacts/` directory (e.g., `.ruru/sessions/[RooComSessionID]/artifacts/proposed_edit_[target_filename]_[timestamp].md`).
 3.  **Log Artifact:** The Coordinator logs the creation of this artifact file in the `session_log.md` and updates the `related_artifacts` list in the TOML block.
-4.  **Ask User Confirmation:** The Coordinator uses `<ask_followup_question>` to ask the user: "I propose the following changes to `[target_filepath]`. Please review the proposed content/diff here: `.ruru/sessions/[RooComSessionID]/artifacts/[artifact_filename]`. Do you approve?"
+4.  **Ask User Confirmation:** The Coordinator uses `ask_followup_question` to ask the user: "I propose the following changes to `[target_filepath]`. Please review the proposed content/diff here: `.ruru/sessions/[RooComSessionID]/artifacts/[artifact_filename]`. Do you approve?"
 5.  **User Response:** The user reviews the artifact file and responds (Yes/No).
 6.  **Coordinator Instructs Executor:**
     *   **If Yes:** The Coordinator instructs the appropriate Prime Editor (`prime-txt` or `prime-dev`) to apply the changes *using the content from the confirmed artifact file*. Crucially, this instruction includes `[BYPASS_CONFIRMATION]` because the user has already confirmed via the Coordinator. The executor reads the artifact and applies the change using `write_to_file` or `apply_diff`.

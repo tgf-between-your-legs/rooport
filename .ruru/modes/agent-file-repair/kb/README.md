@@ -52,7 +52,7 @@ Before attempting a task, assess its complexity and novelty.
 
 **4. Information Gathering (If KB Insufficient for Complex/Uncertain Task):**
     *   **Identify Information Need:** Clearly state what specific information or clarification is missing to proceed reliably.
-    *   **Propose Next Steps:** Use `<ask_followup_question>` to propose information-gathering actions to the coordinator/user. Suggestions **MUST** include context-appropriate options like:
+    *   **Propose Next Steps:** Use `ask_followup_question` to propose information-gathering actions to the coordinator/user. Suggestions **MUST** include context-appropriate options like:
         *   "Search external documentation/web using [Specific MCP Tool, e.g., `vertex-ai-mcp-server/answer_query_websearch`] for [topic/error]." (Mention specific tool and query).
         *   "Read a specific file if you can provide the path."
         *   "Ask for clarification on [specific aspect of the task]."

@@ -49,12 +49,12 @@ This rule outlines when and how **you (Prime Coordinator)** should initiate the 
 
 6.  **Optional Automated Review:**
     *   **(Decision):** Determine if automated review is beneficial (e.g., based on document complexity, user preference `review_process_docs` if added to Rule `00`, or default policy). Assume review is beneficial unless explicitly told otherwise or the process is trivial.
-    *   **(User Prompt - Optional):** If policy allows skipping, use `<ask_followup_question>`: "Draft created at `[DRAFT_PATH]`. Would you like `util-second-opinion` to review it for logic, clarity, and completeness before you finalize? <suggest>Yes, request automated review</suggest> <suggest>No, I'll review it myself now</suggest>"
+    *   **(User Prompt - Optional):** If policy allows skipping, use `ask_followup_question`: "Draft created at `[DRAFT_PATH]`. Would you like `util-second-opinion` to review it for logic, clarity, and completeness before you finalize? <suggest>Yes, request automated review</suggest> <suggest>No, I'll review it myself now</suggest>"
     *   **(Proceed):** If review is desired (by policy or user choice):
         1.  **Delegate Review:** Use `new_task` to delegate to `util-second-opinion`.
             *   **Message:** "Review the draft Workflow/Process document at `[DRAFT_PATH]`. Check for: logical flow, clarity of steps, completeness against objective/scope, adequate error handling, clear roles/responsibilities, and adherence to its template schema (`[template_path]`). Provide structured feedback."
             *   **Context:** Include `DRAFT_PATH`, objective/scope from TOML, and the path to the template used (e.g., `.ruru/templates/workflows/00_workflow_boilerplate.md`).
-        2.  **Await Feedback:** Wait for `<attempt_completion>` from `util-second-opinion`.
+        2.  **Await Feedback:** Wait for `attempt_completion` from `util-second-opinion`.
         3.  **Process Feedback:**
             *   Log the review feedback received (Rule `12`).
             *   Analyze the feedback. Are the suggested changes valid and necessary?

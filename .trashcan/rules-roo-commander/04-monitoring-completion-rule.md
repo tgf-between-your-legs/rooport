@@ -17,9 +17,9 @@ This rule defines the procedure for monitoring delegated tasks (both simple and 
 
 **Procedure:**
 
-1.  **Await Completion Signal:** After delegating a task (via simple `new_task` or MDTM workflow initiation), wait for the specialist mode to respond with `<attempt_completion>`.
+1.  **Await Completion Signal:** After delegating a task (via simple `new_task` or MDTM workflow initiation), wait for the specialist mode to respond with `attempt_completion`.
 
-2.  **Process Completion Signal:** Upon receiving `<attempt_completion>`:
+2.  **Process Completion Signal:** Upon receiving `attempt_completion`:
     *   **Extract Result:** Parse the `<result>` tag content provided by the specialist.
     *   **Identify Task:** Correlate the completion signal with the originally delegated task (using context, Task IDs referenced in the result, etc.).
     *   **Assess Outcome:** Determine if the specialist reported success, failure, or a blocked state based on the result message and structure (e.g., presence of success markers ✅ or error indicators ❌/🧱).

@@ -67,7 +67,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Please provide the HTTPS or SSH URL of the Git repository you want to clone and onboard.</question>
               <follow_up>
                 <suggest>Cancel cloning</suggest>
@@ -86,7 +86,7 @@ granularity = "detailed"
         1.  Infer the default directory name from the URL (e.g., `https://github.com/jezweb/roo-commander.git` -> `roo-commander`). Let this be `[Default Dir Name]`.
         2.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>The repository will be cloned into a directory named '`[Default Dir Name]`' inside your current workspace (`{Current Working Directory}`). Is this okay, or do you want to specify a different directory name?</question>
               <follow_up>
                 <suggest>Yes, clone into '`[Default Dir Name]`'</suggest>

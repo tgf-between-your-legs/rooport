@@ -42,7 +42,7 @@ This playbook outlines the steps to initialize a new frontend project using Vite
     *   **Tool:** `ask_followup_question`
     *   **Procedure:** (Same prompt as previous playbooks)
         ```xml
-        <ask_followup_question>
+        ask_followup_question
          <question>Let's set up your Vite + React + TS + Tailwind project.
          1. What do you want to name the project directory? (e.g., my-tailwind-app)
          2. Which package manager do you prefer? (npm, yarn, pnpm)

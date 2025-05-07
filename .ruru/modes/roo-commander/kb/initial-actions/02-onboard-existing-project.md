@@ -63,7 +63,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present a confirmation prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's analyze and set up the project currently open in your workspace (`{Current Working Directory}`). We'll detect the tech stack and gather some context. Proceed?</question>
               <follow_up>
                 <suggest>Yes, analyze and onboard this project.</suggest>

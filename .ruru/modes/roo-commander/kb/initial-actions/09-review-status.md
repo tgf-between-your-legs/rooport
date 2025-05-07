@@ -66,7 +66,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's look at the project status or manage some tasks. What specific area are you interested in?
               (e.g., 'Overall project status', 'Status of the Authentication feature', 'Details for task TASK-FEAT-123', 'Tasks assigned to dev-react')
               </question>

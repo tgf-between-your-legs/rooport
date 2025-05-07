@@ -36,7 +36,7 @@ template_schema_doc = ".ruru/templates/toml-md/26_workflow_step_finish.README.md
 
 2.  **Mark Workflow Complete:**
     *   Coordinator logs the successful completion of the workflow.
-    *   Coordinator uses `<attempt_completion>` to report the final success to the user/delegator.
+    *   Coordinator uses `attempt_completion` to report the final success to the user/delegator.
         *   *Example Result:* "✅ The Interactive New Mode Creation workflow (WF-MODE-CREATION-V1) completed successfully. The new mode '[Mode Title]' (`<new-slug>`) has been created, the registry updated, and temporary files cleaned up. The mode should be available for use."
 
 ## Postconditions

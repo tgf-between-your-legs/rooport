@@ -58,13 +58,13 @@ This step automates the suggestion of the next release version based on existing
     *   *Logic:* Implemented by the delegate (`dev-git`).
 
 4.  **Ask for User Confirmation:**
-    *   Use the `<ask_followup_question>` tool.
+    *   Use the `ask_followup_question` tool.
     *   *Question:* "The suggested next version is `[suggested_version]`. Please confirm or provide a different version."
     *   *Suggestions:*
         *   `Confirm [suggested_version]`
         *   `Enter different version` (This will require another interaction step or logic within the delegate to handle the input)
         *   `Cancel workflow` (This should trigger an appropriate termination or error path)
-    *   *Tool:* `<ask_followup_question>`
+    *   *Tool:* `ask_followup_question`
 
 5.  **Store Confirmed Version:**
     *   Based on the user's response to the follow-up question:

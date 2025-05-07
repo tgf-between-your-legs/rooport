@@ -64,7 +64,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's work on some documentation! To help me delegate this effectively, please provide some details:
               1.  **What topic** should be documented? (e.g., a specific feature, API endpoint, setup process, concept)
               2.  **Who is the target audience?** (e.g., New Developers, End Users, API Consumers)

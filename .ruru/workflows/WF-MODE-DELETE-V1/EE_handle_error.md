@@ -40,13 +40,13 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.md" # (
 2.  **Prepare Failure/Cancellation Report:** Construct the `workflow_result` output message.
     *   If an error occurred: "Workflow WF-MODE-DELETE-V1 failed at step `{{failed_step_id}}` while processing mode `{{mode_slug}}`. Error: {{error_details}}."
     *   If user cancelled: "Workflow WF-MODE-DELETE-V1 was cancelled by the user at step `{{failed_step_id}}` while processing mode `{{mode_slug}}`."
-3.  **Report Outcome:** Use `<attempt_completion>` to report the `workflow_result` (failure/cancellation) back to the User or initiating process.
+3.  **Report Outcome:** Use `attempt_completion` to report the `workflow_result` (failure/cancellation) back to the User or initiating process.
 
 ## Acceptance Criteria
 
 *   The error or cancellation details are logged.
 *   A failure or cancellation message (`workflow_result`) is generated.
-*   Workflow failure/cancellation is reported via `<attempt_completion>`.
+*   Workflow failure/cancellation is reported via `attempt_completion`.
 
 ## Error Handling
 

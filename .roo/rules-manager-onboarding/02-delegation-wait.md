@@ -18,6 +18,6 @@ relevance = "High: Critical for correct workflow execution"
 
 # Mandatory Rule: Wait for Delegated Task Completion
 
-1.  **Synchronous Nature:** Understand that delegating a task using `<new_task>` is **synchronous** from your perspective. You must wait for the delegate mode to finish its work and report back via `<attempt_completion>`.
-2.  **Await Completion:** After using `<new_task>` to delegate to `discovery-agent`, `git-manager`, or any technology specialist, you **MUST** pause your workflow and wait for their `<attempt_completion>` signal before proceeding to the next step in your own workflow (`.ruru/modes/manager-onboarding/kb/02-workflow-adaptive.md`).
-3.  **Handle Results:** Process the `result` from the `<attempt_completion>` signal. Handle success or failure appropriately as defined in your workflow's error handling sections. Log the outcome.
+1.  **Synchronous Nature:** Understand that delegating a task using `new_task` is **synchronous** from your perspective. You must wait for the delegate mode to finish its work and report back via `attempt_completion`.
+2.  **Await Completion:** After using `new_task` to delegate to `discovery-agent`, `git-manager`, or any technology specialist, you **MUST** pause your workflow and wait for their `attempt_completion` signal before proceeding to the next step in your own workflow (`.ruru/modes/manager-onboarding/kb/02-workflow-adaptive.md`).
+3.  **Handle Results:** Process the `result` from the `attempt_completion` signal. Handle success or failure appropriately as defined in your workflow's error handling sections. Log the outcome.

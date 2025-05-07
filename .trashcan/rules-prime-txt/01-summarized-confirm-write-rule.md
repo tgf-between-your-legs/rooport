@@ -32,11 +32,11 @@ related_context = [".modes/prime-txt/prime-txt.mode.md", ".modes/prime-dev/prime
     *   Based on the prepared change (diff or full content), create a **concise bullet-point summary** (1-3 points ideally) describing the *essence* of the modification (e.g., "- Updated TOML version field", "- Added section on error handling", "- Refactored function X for clarity").
     *   **If** the change is very small (e.g., fixing a typo, changing a single value) or a summary is difficult/risky to generate accurately, you MAY present the short diff/snippet directly instead of a summary.
 6.  **Generate Confirmation Prompt (If Needed):**
-    *   You **MUST** use `<ask_followup_question>` to present the summary (or short snippet/diff from Step 5) and the target file path.
+    *   You **MUST** use `ask_followup_question` to present the summary (or short snippet/diff from Step 5) and the target file path.
     *   Include a brief reason if confirmation was triggered by *your* assessment (Step 3). If triggered by the flag (Step 2), state "Confirmation requested by Coordinator."
     *   Include clear "Yes, apply summarized change" and "No, cancel" suggestions. Add an option to "Show full diff first".
         ```xml
-        <ask_followup_question>
+        ask_followup_question
         <question>
         Proposed change to file: `[TARGET_FILE_PATH]`
         Reason for Confirmation: [State reason]
@@ -56,7 +56,7 @@ related_context = [".modes/prime-txt/prime-txt.mode.md", ".modes/prime-dev/prime
         </ask_followup_question>
         ```
     *   **Await User Response:** Do not proceed until the user responds.
-    *   **If User selects "Show full diff first":** Generate another `<ask_followup_question>` prompt, this time including the *full diff* or content snippet as in the previous rule version, asking again for confirmation (Yes/No). Await response. If *this* is confirmed, proceed to Step 7. If cancelled, abort and report cancellation.
+    *   **If User selects "Show full diff first":** Generate another `ask_followup_question` prompt, this time including the *full diff* or content snippet as in the previous rule version, asking again for confirmation (Yes/No). Await response. If *this* is confirmed, proceed to Step 7. If cancelled, abort and report cancellation.
     *   **If User selects "Yes, apply summarized change":** Proceed to Step 7.
     *   **If User selects "No, cancel":** Abort the operation and report the cancellation to Prime Coordinator via `attempt_completion`.
 7.  **Propose Edit via Tool:**

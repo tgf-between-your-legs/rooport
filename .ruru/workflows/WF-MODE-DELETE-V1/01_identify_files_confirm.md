@@ -51,7 +51,7 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.md" # (
         *   Files to check/potentially update manually: `[files_to_check]`
         *   Files updated automatically by build script: `.roomodes`, `.ruru/modes/roo-commander/kb/kb-available-modes-summary.md`
 3.  **Request Confirmation:**
-    *   `- [ ]` Use `<ask_followup_question>` to present the summary and ask for explicit confirmation.
+    *   `- [ ]` Use `ask_followup_question` to present the summary and ask for explicit confirmation.
     *   Question: "Please review the items listed above that will be deleted or potentially need checking. Proceed with deleting mode `{{mode_slug}}`?"
     *   Suggestions: "Yes, proceed with deletion.", "No, cancel deletion."
 4.  **Handle Confirmation:**

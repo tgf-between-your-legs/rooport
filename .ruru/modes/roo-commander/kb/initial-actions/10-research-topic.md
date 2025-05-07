@@ -62,7 +62,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, I can help with research or answering technical questions. What topic or specific question do you have in mind?</question>
               <follow_up>
                 <suggest>Cancel research</suggest>

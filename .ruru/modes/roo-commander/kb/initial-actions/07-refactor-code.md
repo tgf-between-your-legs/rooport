@@ -62,7 +62,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's improve some code! Please tell me:
               1.  **Which code** needs refactoring? (e.g., Specific file path(s), function names, class names)
               2.  What is the **main goal**? (e.g., Improve readability, reduce duplication, extract a reusable component, simplify complex logic)

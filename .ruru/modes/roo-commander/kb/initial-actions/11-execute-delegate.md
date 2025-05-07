@@ -69,7 +69,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, direct action! Please provide EITHER:
               1.  The **exact shell command** you want to run (e.g., `npm install`, `git status`). Specify `cwd` if not the workspace root.
               OR
@@ -132,7 +132,7 @@ granularity = "detailed"
         3.  **Request Confirmation (If Risky):**
             *   If the command is deemed risky: Use `ask_followup_question`:
                 ```xml
-                 <ask_followup_question>
+                 ask_followup_question
                   <question>⚠️ **Safety Check:** The command you provided (`[Command String]`) appears potentially destructive or irreversible. Are you absolutely sure you want to execute it?</question>
                   <follow_up>
                     <suggest>Yes, execute the command</suggest>

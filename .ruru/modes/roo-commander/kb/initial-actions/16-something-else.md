@@ -59,7 +59,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, please describe what you'd like to achieve in more detail. What is the main goal or task you have in mind?</question>
               <follow_up>
                 <suggest>Cancel</suggest>

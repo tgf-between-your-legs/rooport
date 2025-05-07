@@ -65,10 +65,10 @@ This playbook outlines the steps to initialize a new frontend project using Vite
             </execute_command>
             ```
         3.  **Monitor Output:** Observe the `stdout` from `execute_command`. The Shadcn CLI will ask interactive questions (e.g., "Which style?", "Which base color?", "Where is your global CSS file?", "Use CSS variables?", "Where is your tailwind.config.js?", "Configure imports alias?", "Where is your `tsconfig.json`?", "Are you using React Server Components?").
-        4.  **Relay Questions to User:** For *each question* detected in the `stdout`, use `<ask_followup_question>` to present the exact question and its options (if any) to the user. Provide sensible defaults as suggestions based on the Vite+React+TS setup (e.g., Suggest `./src/index.css` for global CSS, `tailwind.config.js` for Tailwind config, `@/*` for alias, `tsconfig.json`, CSS variables: Yes, Style: Default, Base Color: Slate, Server Components: No).
+        4.  **Relay Questions to User:** For *each question* detected in the `stdout`, use `ask_followup_question` to present the exact question and its options (if any) to the user. Provide sensible defaults as suggestions based on the Vite+React+TS setup (e.g., Suggest `./src/index.css` for global CSS, `tailwind.config.js` for Tailwind config, `@/*` for alias, `tsconfig.json`, CSS variables: Yes, Style: Default, Base Color: Slate, Server Components: No).
             ```xml
             <!-- Example Relay Prompt -->
-            <ask_followup_question>
+            ask_followup_question
              <question>Shadcn/UI setup asks: "[Question text from CLI output]"</question>
              <follow_up>
                <!-- Parse options from CLI output or provide common ones -->
@@ -84,7 +84,7 @@ This playbook outlines the steps to initialize a new frontend project using Vite
             *   **Workaround 3 (Future Tool):** Requires a Roo Code tool enhancement for interactive terminal sessions.
             *   **Chosen Path (for this playbook - assuming Workaround 1):** Instruct the user to run the command manually.
                 ```xml
-                 <ask_followup_question>
+                 ask_followup_question
                   <question>To configure Shadcn/UI interactively, please run the following command **in your own terminal** inside the `[projectName]` directory and answer the setup questions:
 
                   ```bash

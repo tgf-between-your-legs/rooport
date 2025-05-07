@@ -119,7 +119,7 @@ validation_notes = ""
     *   **Description:** Inform the user about the overall result of the batch build process.
     *   **Inputs:** Success/failure status recorded for each collection in Step 6.
     *   **Procedure:** Summarize which collections were built successfully and which failed, providing error details for failures.
-    *   **Outputs:** User notification via `<attempt_completion>`.
+    *   **Outputs:** User notification via `attempt_completion`.
 
 ## 7. Postconditions ✅
 *   Build artifacts exist for all successfully processed collections (likely in distinct output locations).

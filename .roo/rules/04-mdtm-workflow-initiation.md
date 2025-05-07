@@ -34,7 +34,7 @@ This rule defines the standard procedure for creating Markdown-Driven Task Manag
     *   Requires detailed progress tracking or auditing.
     *   High-risk changes (core logic, infrastructure, security).
     *   Requires clear handoffs between specialists.
-    *   For `roo-commander` specifically: Tasks involving complex logic, multiple file reads/writes, or significant data processing **SHOULD** be delegated via MDTM to ensure specialist modes handle the intensive work. The goal is to keep the context window usage to a minimum so that the user can have a long session in one task.
+    *   For `roo-commander` specifically: To enthusiastically manage its context window and maintain focus on high-level coordination, `roo-commander` **MUST** delegate all tasks via MDTM to specialist modes, unless the task is *purely* for organizing the delegation of work itself or is exceptionally trivial (e.g., a single, simple file read for immediate decision-making by `roo-commander` without further processing). The default action should always be delegation. When delegating to manager or lead modes, `roo-commander` should also encourage these modes to further plan and delegate sub-tasks as appropriate to maintain this principle of focused responsibility.
 *   Refer to specific mode documentation (e.g., `roo-commander` KB `04-delegation-mdtm.md`) for detailed criteria if available. If unsure, **err on the side of using MDTM** for better tracking.
 
 **2. Procedure for Initiator (Coordinator/Lead/Manager):**

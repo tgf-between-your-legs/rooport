@@ -36,7 +36,7 @@ template_schema_doc = ".ruru/templates/toml-md/24_workflow_step_start.md" # (Str
 (Instructions for the delegate: `{{delegate_to}}`)
 
 1.  **Prompt for Slug:**
-    *   `- [ ]` Use `<ask_followup_question>` to ask the user for the exact `slug` of the mode they wish to delete. Provide context about where to find slugs if necessary.
+    *   `- [ ]` Use `ask_followup_question` to ask the user for the exact `slug` of the mode they wish to delete. Provide context about where to find slugs if necessary.
     *   Store the user's input as `[mode_slug]`. Handle cancellation (**-> Error Step**).
 2.  **Verify Directory:**
     *   `- [ ]` Define `[mode_dir_path]` = `.ruru/modes/[mode_slug]/`.

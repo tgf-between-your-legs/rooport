@@ -89,7 +89,7 @@ roles = ["prime-txt", "prime-dev", "util-mode-maintainer", "util-second-opinion"
     *   **Output:** Refactored files adhering to the Abstraction Principle.
 
 5.  **Ensure Tool Representation (Executor):**
-    *   **Action:** Scan procedural descriptions (rules, KBs describing workflows) for literal tool execution XML syntax (`<tool_name>...</tool_name>`). Replace these instances with descriptive natural language using backticks (e.g., "use the `tool_name` tool") as per `RULE-TOOL-REPRESENTATION-V1`.
+    *   **Action:** Scan procedural descriptions (rules, KBs describing workflows) for literal tool execution XML syntax. Replace these instances with descriptive natural language using backticks (e.g., "use the `tool_name` tool") as per `RULE-TOOL-REPRESENTATION-V1`.
     *   **Input:** File content from Step 3 (or after Step 4).
     *   **Tools:** `apply_diff` or `search_and_replace`. **Caution:** If modifying a file that *previously* contained literal XML, consider using `write_to_file` for the entire file to avoid potential corruption if `apply_diff` fails subtly.
     *   **Output:** Files adhering to the Tool Representation standard.

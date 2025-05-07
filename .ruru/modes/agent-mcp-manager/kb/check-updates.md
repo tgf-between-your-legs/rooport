@@ -35,7 +35,7 @@ Check installed MCP servers (defined in `.roo/mcp.json` and likely residing in `
     *   Use `execute_command` with the `cwd` parameter set to the server's directory to run `git fetch origin`.
     *   Use `execute_command` (again with `cwd`) to run `git status -uno` or `git log HEAD..origin/main` (or similar, depending on branch conventions) to see if the local branch is behind the remote.
     *   Record the update status for the server.
-4.  **Report Findings:** Present a summary of servers checked and their update status to the user using `<attempt_completion>`. Suggest next steps if updates are found (e.g., "Updates found for 'vertex-ai'. Would you like to attempt an update?").
+4.  **Report Findings:** Present a summary of servers checked and their update status to the user using `attempt_completion`. Suggest next steps if updates are found (e.g., "Updates found for 'vertex-ai'. Would you like to attempt an update?").
 
 ## 3. Rationale / Notes 🤔
 *   This procedure assumes servers installed via Git are the primary candidates for updates managed this way.

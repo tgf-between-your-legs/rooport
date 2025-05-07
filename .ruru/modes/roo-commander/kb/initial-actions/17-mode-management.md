@@ -29,7 +29,7 @@ This procedure is executed when the user selects Option 17 ("🧑‍🎨 Mode Ma
 1.  **Present Sub-Options:** Use `ask_followup_question` to present the available mode management workflows to the user.
 
     ```xml
-     <ask_followup_question>
+     ask_followup_question
       <question>Which mode management task would you like to perform?</question>
       <follow_up>
         <suggest>Create a New Mode</suggest>

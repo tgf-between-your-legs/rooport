@@ -39,13 +39,13 @@ template_schema_doc = ".ruru/templates/toml-md/25_workflow_step_standard.md" # (
 1.  **Log Error:** Log the details of the error received in the `error_details` input, including the `failed_step_id`. (Follow Rule `08-logging-procedure-simplified.md`).
 2.  **Prepare Failure Report:** Construct the `workflow_result` output message indicating failure.
     *   Example: "Workflow WF-CONTEXT7-REFRESH-V1 failed at step `{{failed_step_id}}` for mode `{{mode_slug}}`. Error: {{error_details}}."
-3.  **Report Failure:** Use `<attempt_completion>` to report the `workflow_result` (failure) back to the User or initiating process.
+3.  **Report Failure:** Use `attempt_completion` to report the `workflow_result` (failure) back to the User or initiating process.
 
 ## Acceptance Criteria
 
 *   The error details are logged.
 *   A failure message (`workflow_result`) is generated.
-*   Workflow failure is reported via `<attempt_completion>`.
+*   Workflow failure is reported via `attempt_completion`.
 
 ## Error Handling
 

@@ -43,7 +43,7 @@ template_schema_doc = ".ruru/templates/toml-md/26_workflow_step_finish.md" # (St
 2.  **Log Completion:** Log the successful deletion of mode `{{mode_slug}}` and the status of associated updates (`{{deletion_status}}`, `{{build_collections_update_status}}`). (Follow Rule `08-logging-procedure-simplified.md`).
 3.  **Prepare Final Report:** Construct the `workflow_result` output message confirming success.
     *   Example: "Successfully deleted mode `{{mode_slug}}`. Mode and rules directories removed. Build collections status: `{{build_collections_update_status}}`. Build script executed successfully to update configurations."
-4.  **Report Outcome:** Use `<attempt_completion>` to report the `workflow_result` back to the User or initiating process.
+4.  **Report Outcome:** Use `attempt_completion` to report the `workflow_result` back to the User or initiating process.
 
 ## Acceptance Criteria
 

@@ -64,7 +64,7 @@ granularity = "detailed"
         1.  *(Optional)* Use `read_file` to get the current content of `.roo/rules/00-user-preferences.md` to potentially show the user their existing settings.
         2.  Present the prompt (potentially including current settings read in step 1):
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's update your preferences stored in `.roo/rules/00-user-preferences.md`.
               <!-- Optional: Include current settings here if read -->
               <!-- Example: Current name: '{{current_name}}', Verbosity: '{{current_verbosity}}' -->

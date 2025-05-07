@@ -25,7 +25,7 @@
           <message>🎯 Project Onboarding Discovery: Intent='[project_intent]'. Analyze based on Initial Request: '[initial_request]'. Goal: Produce Stack Profile (`.ruru/context/stack_profile.json`) and Requirements Doc (`.ruru/docs/requirements.md`). Init log `.ruru/tasks/[Discovery Task ID].md`. Your Task ID: [Discovery Task ID]. Coordinator Task ID: [Your Task ID].</message>
         </new_task>
         ```
-    *   **WAIT** for `<attempt_completion>` from `discovery-agent` (Rule `02`).
+    *   **WAIT** for `attempt_completion` from `discovery-agent` (Rule `02`).
     *   **Process Result:** Store paths `[stack_profile_path]` and `[requirements_doc_path]`. Log success or handle failure (Error Handling).
 
 5.  **Branch based on `[project_intent]`:**

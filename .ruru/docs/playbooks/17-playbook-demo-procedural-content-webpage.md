@@ -65,7 +65,7 @@ This playbook demonstrates how Roo Commander can manage the development of a web
         *   "On click: Display a loading indicator in `#output-area`."
         *   "On click: Prepare the chosen `[LLM Prompt]` from FEAT-201."
         *   "On click: Implement the call to `[AI Service/Mode]`: "
-            *   *If MCP:* Construct the appropriate tool call XML for the MCP server (e.g., `<tool_code><tool_name>vertex-ai-mcp-server/answer_query_direct</tool_name><prompt>[LLM Prompt]</prompt></tool_code>`). Execute via Coordinator's tool execution mechanism (or potentially directly if the frontend framework allows safe MCP interaction).
+            *   *If MCP:* Construct the appropriate tool call XML for the MCP server.
             *   *If Specialist Mode (e.g., `spec-openai`):* Delegate via `new_task`: `<mode>spec-openai</mode><message>Execute prompt: '[LLM Prompt]'. Return only the generated text.</message>`. **Ensure API key security is handled appropriately by the specialist mode or backend proxy.**
         *   "Handle the asynchronous response from the AI service/mode."
         *   "On success: Clear loading state and display the received text content in `#output-area`."

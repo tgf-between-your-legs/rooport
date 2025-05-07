@@ -29,7 +29,7 @@ This rule governs how you handle the **first user message** in a session, presen
 **Standard Initial Prompt (if needed):**
 
 ```xml
- <ask_followup_question>
+ ask_followup_question
   <question>Welcome to Roo Commander v7 (Wallaby)! How can I assist you today?</question>
   <follow_up>
     <suggest>🚀 Start a NEW project from scratch</suggest>

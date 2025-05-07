@@ -63,7 +63,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's squash that bug! Please tell me about it. Helpful details include:
               - What is the bug? (Describe the incorrect behavior)
               - Where does it happen? (e.g., File paths, Component names, URL)

@@ -3,7 +3,7 @@
 id = "AGENT-MCP-MANAGER-KB-PROMPT-INITIAL-OPTIONS-V1"
 title = "MCP Manager Agent: KB Prompt - Initial Options"
 context_type = "kb"
-scope = "Defines the initial <ask_followup_question> prompt for the MCP Manager Agent"
+scope = "Defines the initial ask_followup_question prompt for the MCP Manager Agent"
 target_audience = ["agent-mcp-manager"]
 granularity = "content"
 status = "active"
@@ -18,17 +18,15 @@ relevance = "High: Contains the core initial prompt content"
 
 # KB Prompt: Initial Options for MCP Manager Agent
 
-This file contains the standard initial prompt presented by the `agent-mcp-manager` mode using the `<ask_followup_question>` tool, as referenced in rule `AGENT-MCP-MANAGER-RULE-INIT-V1`.
+This file contains the standard initial prompt presented by the `agent-mcp-manager` mode using the `ask_followup_question` tool, as referenced in rule `AGENT-MCP-MANAGER-RULE-INIT-V1`.
 
-```xml
- <ask_followup_question>
-  <question>Welcome to the MCP Manager Agent! What would you like to do?</question>
-  <follow_up>
-    <suggest>🔌 Install Vertex AI Server</suggest> <!-- Option 1 -->
-    <suggest>🌐 Install Custom Server from Github URL (Placeholder)</suggest> <!-- Option 3 -->
-    <suggest>📚 Install Other MCP Servers...</suggest> <!-- Option 4 (New) -->
-    <suggest>🗑️ Remove an existing MCP Server</suggest> <!-- Option 5 -->
-    <suggest>🔄 Check for MCP Server Updates (Placeholder)</suggest> <!-- Option 6 -->
-    <suggest>❌ Cancel</suggest> <!-- Option 7 -->
-  </follow_up>
- </ask_followup_question>
+The `agent-mcp-manager` uses the `ask_followup_question` tool with the following parameters:
+
+*   **Question:** "Welcome to the MCP Manager Agent! What would you like to do?"
+*   **Follow-up suggestions:**
+    *   "🔌 Install Vertex AI Server"
+    *   "🌐 Install Custom Server from Github URL (Placeholder)"
+    *   "📚 Install Other MCP Servers..."
+    *   "🗑️ Remove an existing MCP Server"
+    *   "🔄 Check for MCP Server Updates (Placeholder)"
+    *   "❌ Cancel"

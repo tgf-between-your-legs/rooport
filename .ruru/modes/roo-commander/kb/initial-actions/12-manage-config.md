@@ -62,7 +62,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, we can manage Roo's configuration. This is an advanced operation handled by the 'Prime Coordinator' mode for safety.
               Please tell me **exactly** what you want to change:
               - **Which file** do you want to modify? (e.g., `.ruru/modes/dev-react/kb/01-core-concepts.md`, `.roo/rules/05-os-aware-commands.md`)

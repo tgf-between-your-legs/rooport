@@ -96,7 +96,7 @@ This will add/overwrite the necessary hidden configuration folders (`.ruru/modes
 3.  **Interact:** Follow Commander's lead. It will likely:
     *   Ask clarifying questions.
     *   Propose a plan or workflow.
-    *   Delegate tasks to specialist modes (using `<new_task>`).
+    *   Delegate tasks to specialist modes (using `new_task`).
     *   Ask for your approval or feedback on steps or results.
 4.  **Review:** Check the files created/modified by the modes, especially in the `.ruru/tasks/` directory, to understand the progress and details.
 

@@ -25,13 +25,6 @@ This rule details how `prime-coordinator` implements the standard Session Manage
 
 1.  **Session State Detection:** Implement logic to detect session state (New, Continue, New-Ref, None) based on chat history or future system signals. Maintain the active `RooComSessionID` if applicable.
 
-## 1.1. Coordinator Context Monitoring
-
-*   **Guideline:** Coordinator modes (e.g., `prime-coordinator`) **SHOULD** actively monitor their own context window usage, especially during extended user interactions or sessions.
-*   **Action:** When context usage approaches predefined guideline thresholds (e.g., ~40%, ~60%, ~80% - specific thresholds may be defined in Coordinator rules), the Coordinator **SHOULD** consider prompting the user.
-*   **Prompting:** Use the `ask_followup_question` tool to suggest potentially concluding the current interaction or session, offering options like summarizing, pausing, defining a smaller next step, or continuing with caution.
-*   **Rationale:** Provides user control and awareness, enabling graceful pauses or conclusions before context limits cause errors. Aligns with Session Management (Rule `11-session-management.md`).
-
 2.  **Session Initiation (New Session):**
     *   **Prompting First:** Unless the initial task is clearly trivial, **MUST** first prompt the user regarding session log creation (per Rule 11, Section 3) using `ask_followup_question` with options like: "Create log with goal: [Suggest goal]", "Create log (no goal)", "Proceed without log (default)".
     *   **Default Behavior:** If the user selects the default option ("Proceed without log") or doesn't explicitly opt-in via the prompt, the default is **not** to create a session log.

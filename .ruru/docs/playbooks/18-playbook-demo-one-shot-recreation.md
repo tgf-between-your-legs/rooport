@@ -43,7 +43,7 @@ This playbook demonstrates how Roo Commander can use the specialized `design-one
     *   **Procedure:**
         1.  Present prompt:
             ```xml
-            <ask_followup_question>
+            ask_followup_question
              <question>Okay, let's try the 'One-Shot' recreation! Please provide EITHER:
              1. The **URL** of the static website you want to visually replicate.
              OR
@@ -120,7 +120,7 @@ This playbook demonstrates how Roo Commander can use the specialized `design-one
     *   **Procedure:**
         1.  Ask:
             ```xml
-            <ask_followup_question>
+            ask_followup_question
              <question>How does the 'one-shot' recreation look? Is it a useful starting point? Is there any single, major visual correction you'd like to attempt (understanding it might deviate from the 'one-shot' goal)?</question>
              <follow_up>
                <suggest>It's good enough for a demo!</suggest>

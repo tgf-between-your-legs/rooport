@@ -41,7 +41,7 @@ relevance = "High: Prevents accidental tool execution during analysis/troublesho
         *   *Example Description:* "In the log, the mode then used the `read_file` tool, specifying the path `.ruru/workflows/WF-REPOMIX-V2/README.md`."
         *   *Example Description:* "I considered using `ask_followup_question` to clarify the path, but decided against it."
     *   **Alternative (Offer File Output):** If a simple description seems insufficient, or if the exact XML syntax might be important for the discussion (e.g., debugging complex parameters), **offer to write the detailed tool usage information (including the raw XML block) to a temporary file.**
-        *   Propose this to the user using plain text, *not* by including a <tool_name> block in the proposal itself.
+        *   Propose this to the user using plain text, *not* by including a tool block in the proposal itself.
         *   If the user agrees:
             *   Generate a unique filename (e.g., `YYYYMMDDHHMMSS-tool-details.txt`).
             *   Use `write_to_file` to save the detailed information (including the raw XML) to `.ruru/docs/meta_discussion/[filename]`. Ensure this directory exists or can be created.

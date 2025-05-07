@@ -63,7 +63,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present a confirmation prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's start a new project! We'll set up the basic structure and gather some initial requirements. Are you ready to begin?</question>
               <follow_up>
                 <suggest>Yes, start the new project onboarding!</suggest>

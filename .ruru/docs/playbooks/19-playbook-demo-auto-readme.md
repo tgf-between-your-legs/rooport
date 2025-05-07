@@ -43,7 +43,7 @@ This playbook demonstrates how Roo Commander can analyze an existing codebase an
     *   **Procedure:**
         1.  Use `<list_files><path>[target_directory_placeholder]</path></list_files>` to confirm the directory exists. Handle errors if not found.
         2.  Check if `README.md` (case-insensitive) exists within the listed files.
-        3.  **If README exists:** Use `<ask_followup_question>`: "A `README.md` already exists in `[target_directory_placeholder]`. Do you want to overwrite it with a newly generated draft, or cancel?" Options: "Overwrite existing README", "Cancel generation". Handle cancellation.
+        3.  **If README exists:** Use `ask_followup_question`: "A `README.md` already exists in `[target_directory_placeholder]`. Do you want to overwrite it with a newly generated draft, or cancel?" Options: "Overwrite existing README", "Cancel generation". Handle cancellation.
         4.  **If README doesn't exist or user confirms overwrite:** Proceed to Phase 2.
     *   **Outputs:** Confirmation to proceed.
 

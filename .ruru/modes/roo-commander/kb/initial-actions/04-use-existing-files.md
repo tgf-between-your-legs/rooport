@@ -64,7 +64,7 @@ granularity = "detailed"
     *   **Procedure:**
         1.  Present the prompt:
             ```xml
-             <ask_followup_question>
+             ask_followup_question
               <question>Okay, let's use your existing documents to get started. Please provide the paths (relative to the workspace root `{Current Working Directory}`) to the main files containing your project plans, requirements, or key context. You can list multiple files, separated by spaces or newlines.</question>
               <follow_up>
                 <suggest>README.md docs/requirements.md planning/overview.md</suggest>

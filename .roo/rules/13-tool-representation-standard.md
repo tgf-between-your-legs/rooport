@@ -35,7 +35,7 @@ relevance = "High: Ensures consistent and safe representation of tool usage acro
         *   "Analysis showed the `search_files` tool was used with pattern 'xyz'."
 
 2.  **Execution Syntax Reservation:**
-    *   The full XML syntax (e.g., `<tool_name><param>value</param></tool_name>`) **MUST** be reserved *exclusively* for the single instance where the mode intends for the tool to be executed by the system in the immediate next step.
+    *   The full XML syntax is for the single instance where the mode intends for the tool to be executed by the system in the immediate next step.
 
 3.  **Rationale:**
     *   **Clarity:** Descriptive text makes the intent clear – discussing or documenting the *idea* of using a tool, rather than triggering its execution.

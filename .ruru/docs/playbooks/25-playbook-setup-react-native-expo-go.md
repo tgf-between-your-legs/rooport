@@ -40,7 +40,7 @@ This playbook outlines the steps to initialize a new React Native project using 
     *   **Tool:** `ask_followup_question`
     *   **Procedure:**
         ```xml
-        <ask_followup_question>
+        ask_followup_question
          <question>Let's set up your React Native project using Expo Go.
          1. What do you want to name the project directory? (e.g., my-expo-app)
          2. Which package manager do you prefer? (npm, yarn, pnpm)

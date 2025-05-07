@@ -27,7 +27,7 @@ related_context = ["00-user-preferences.md", "05-confirmation-policy.md", "08-gi
     *   A concise `subject` summarizing the change.
     *   **(Optional but encouraged for substantial changes):** A short `body` explaining the key changes or rationale.
 4.  **Identify Potential Task ID:** Check if the recent work clearly maps to a specific MDTM Task ID available in the current context (e.g., the task the mode was assigned).
-5.  **Prompt User for Confirmation:** Use `<ask_followup_question>` to present the proposal and request necessary information:
+5.  **Prompt User for Confirmation:** Use `ask_followup_question` to present the proposal and request necessary information:
     *   **Display Proposed Message:** "Based on the recent changes (e.g., [brief summary like 'implemented login component']), I propose the following commit message:\n```\n[Generated Conventional Commit Message]\n```"
     *   **Ask about Message:** "Is this message accurate and acceptable?"
     *   **Ask about Task ID:** "Please provide the relevant MDTM Task ID(s) (e.g., `TASK-FEAT-123`) for the commit footer."
@@ -42,7 +42,7 @@ related_context = ["00-user-preferences.md", "05-confirmation-policy.md", "08-gi
 7.  **Execute Commit (If Approved):**
     *   If the user approves the commit (providing any necessary message/ID edits):
         1.  Finalize the commit message string according to Rule `08`, including the Task ID footer (`Refs: TASK-ID` or `Refs: General`).
-        2.  Delegate the commit sequence (`git add .` then `git commit -m "..."`) to `dev-git` via `<new_task>`.
+        2.  Delegate the commit sequence (`git add .` then `git commit -m "..."`) to `dev-git` via `new_task`.
         3.  Log the delegation and outcome (Rule `12`).
     *   If the user cancels: Log the cancellation (Rule `12`) and proceed with the next planned action.
 
