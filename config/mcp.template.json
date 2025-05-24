@@ -1,0 +1,161 @@
+{
+  "mcpServers": {
+    "vertex-ai-mcp-server": {
+      "type": "stdio",
+      "command": "bun",
+      "args": [
+        "${VERTEX_AI_SERVER_PATH}"
+      ],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "${GOOGLE_CLOUD_PROJECT}",
+        "GOOGLE_CLOUD_LOCATION": "${GOOGLE_CLOUD_LOCATION}",
+        "VERTEX_MODEL_ID": "gemini-2.5-pro-preview-05-06",
+        "VERTEX_AI_TEMPERATURE": "0.0",
+        "VERTEX_AI_USE_STREAMING": "true",
+        "VERTEX_AI_MAX_OUTPUT_TOKENS": "65535",
+        "VERTEX_AI_MAX_RETRIES": "3",
+        "VERTEX_AI_RETRY_DELAY_MS": "1000"
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "save_generate_project_guidelines",
+        "save_doc_snippet",
+        "answer_query_direct",
+        "create_directory",
+        "answer_query_websearch",
+        "explain_topic_with_docs",
+        "get_doc_snippets",
+        "generate_project_guidelines",
+        "read_file_content",
+        "read_multiple_files_content",
+        "write_file_content",
+        "edit_file_content",
+        "list_directory_contents",
+        "get_directory_tree",
+        "move_file_or_directory",
+        "search_filesystem",
+        "get_filesystem_info",
+        "save_topic_explanation",
+        "save_answer_query_direct",
+        "save_answer_query_websearch"
+      ],
+      "timeout": 3600
+    },
+    "brave-search": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "alwaysAllow": [
+        "brave_web_search"
+      ]
+    },
+    "supabase": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--access-token",
+        "${SUPABASE_ACCESS_TOKEN}"
+      ],
+      "alwaysAllow": [
+        "list_organizations",
+        "list_projects",
+        "list_tables",
+        "apply_migration",
+        "execute_sql",
+        "get_project",
+        "get_cost",
+        "confirm_cost",
+        "create_project",
+        "pause_project",
+        "restore_project",
+        "get_organization",
+        "list_extensions",
+        "list_migrations",
+        "get_logs",
+        "get_project_url",
+        "get_anon_key",
+        "generate_typescript_types",
+        "create_branch",
+        "list_branches",
+        "delete_branch",
+        "merge_branch",
+        "reset_branch",
+        "rebase_branch"
+      ]
+    },
+    "mcp-perplexity": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "set PERPLEXITY_API_KEY=${PERPLEXITY_API_KEY} && set PERPLEXITY_MODEL=sonar-pro && set DB_PATH=chats.db && uvx mcp-perplexity"
+      ],
+      "env": {
+        "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}",
+        "PERPLEXITY_MODEL": "sonar-pro",
+        "DB_PATH": "chats.db"
+      },
+      "alwaysAllow": [
+        "read_chat_perplexity",
+        "list_chats_perplexity",
+        "chat_perplexity",
+        "ask_perplexity"
+      ],
+      "disabled": false
+    },
+    "conport": {
+      "command": "${CONPORT_PYTHON_PATH}",
+      "args": [
+        "${CONPORT_MAIN_PATH}",
+        "--mode",
+        "stdio",
+        "--workspace_id",
+        "${workspaceFolder}",
+        "--log-file",
+        "/logs/conport.log",
+        "--log-level",
+        "INFO"
+      ],
+      "alwaysAllow": [
+        "get_product_context",
+        "update_product_context",
+        "get_active_context",
+        "update_active_context",
+        "log_decision",
+        "get_decisions",
+        "search_decisions_fts",
+        "log_progress",
+        "get_progress",
+        "update_progress",
+        "delete_progress_by_id",
+        "log_system_pattern",
+        "get_system_patterns",
+        "log_custom_data",
+        "get_custom_data",
+        "delete_custom_data",
+        "search_project_glossary_fts",
+        "export_conport_to_markdown",
+        "import_markdown_to_conport",
+        "link_conport_items",
+        "get_linked_items",
+        "search_custom_data_value_fts",
+        "batch_log_items",
+        "get_item_history",
+        "delete_decision_by_id",
+        "delete_system_pattern_by_id",
+        "get_conport_schema",
+        "get_recent_activity_summary",
+        "list_files"
+      ]
+    }
+  }
+}
