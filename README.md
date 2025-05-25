@@ -7,37 +7,42 @@
 **ROOPORT** transforms your development workflow with advanced AI capabilities, building upon the RooCode ecosystem to create the most intelligent coding assistant ever built.
 
 ## 🎯 What Makes ROOPORT Special
-
+ 
+### 🧠 **CONVEX Orchestration (Dual-Brain Intelligence)**
+- **Intelligent Query Routing**: Dynamically routes queries to the best information source – ConPort for deep project-specific context or Vertex AI for broad external knowledge.
+- **Unified Decision Making**: Leverages the "dual-brain" approach, combining ConPort's persistent project memory with Vertex AI's research capabilities.
+- **Contextual Understanding**: CONVEX (the Ultimate Agentic Orchestrator) analyzes query intent to determine the optimal processing path.
+ 
 ### 🧠 **Agentic RAG Engine**
 - **Iterative Query Refinement**: Automatically improves search queries based on initial results
-- **Multi-Strategy Retrieval**: Combines keyword search, semantic search, and graph traversal
-- **Context Synthesis**: Intelligently combines information from multiple sources
+- **Multi-Strategy Retrieval**: Combines keyword search, semantic search, and graph traversal (primarily via ConPort)
+- **Context Synthesis**: Intelligently combines information from multiple sources (ConPort, Vertex AI)
 - **Confidence Scoring**: Provides transparency about information reliability
-
+ 
 ### 🎯 **Proactive Orchestration Engine**
-- **Intelligent Project Analysis**: Continuously analyzes your codebase and development patterns
+- **Intelligent Project Analysis**: Continuously analyzes your codebase and development patterns (leveraging ConPort)
 - **Opportunity Identification**: Suggests optimizations, refactoring, and improvements
 - **Workflow Enhancement**: Recommends process improvements based on your working style
 - **Predictive Assistance**: Anticipates your needs before you ask
-
+ 
 ### 📈 **Continuous Learning System**
-- **Feedback Integration**: Learns from your preferences and corrections
+- **Feedback Integration**: Learns from your preferences and corrections (feedback stored in ConPort)
 - **Performance Optimization**: Self-improves based on usage patterns
 - **Personalized Responses**: Adapts communication style to your preferences
 - **Quality Metrics**: Tracks and improves response accuracy over time
-
+ 
 ### 🤖 **Configurable Autonomous Operation**
 - **User-Controlled Automation**: Choose your comfort level (OFF/MINIMAL/STANDARD/FULL)
 - **Intelligent Decision Making**: High-confidence actions execute automatically
 - **Safety Mechanisms**: Built-in protections for destructive operations
 - **Transparent Operation**: Clear indication of autonomous vs. manual actions
-
-### 🔗 **Dynamic Knowledge Graph Building**
-- **Relationship Discovery**: Automatically identifies connections between project elements
-- **Context Preservation**: Maintains project memory across sessions
-- **Decision Tracking**: Records and links architectural decisions
-- **Pattern Recognition**: Learns project-specific patterns and conventions
-
+ 
+### 🔗 **Dynamic Knowledge Graph Building (via ConPort)**
+- **Relationship Discovery**: Automatically identifies connections between project elements within ConPort.
+- **Context Preservation**: Maintains project memory across sessions in ConPort.
+- **Decision Tracking**: Records and links architectural decisions in ConPort.
+- **Pattern Recognition**: Learns project-specific patterns and conventions stored in ConPort.
+ 
 ## 🚀 Quick Start
 
 ```bash
@@ -80,10 +85,14 @@ rooport --query "Analyze my project and suggest improvements"
 
 ## 🏗️ Architecture Overview
 
+ROOPORT's architecture is centered around **CONVEX (the Ultimate Agentic Orchestrator - UO)**, which intelligently manages a "dual-brain" system. It routes queries and tasks to:
+- **ConPort (CP)**: For deep, persistent project-specific knowledge, history, and context.
+- **AI Providers (Vertex AI, etc.)**: For general knowledge, research, and advanced generative capabilities.
+
 ```mermaid
 graph TB
     User[👤 User] --> RC[🎭 RooCommander]
-    RC --> UO[🧠 Ultimate Orchestrator]
+    RC --> UO[🧠 CONVEX Orchestrator]
     
     UO --> RAG[🔍 Agentic RAG Engine]
     UO --> POE[🎯 Proactive Engine]

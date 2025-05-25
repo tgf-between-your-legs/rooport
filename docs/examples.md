@@ -18,12 +18,12 @@ User: Implement a new feature: User Profile Picture Upload.
 **Expected Autonomous Agentic Behavior (Simplified):**
 
 1.  **Task Decomposition & Planning (Internal):**
-    *   Roo Commander (using the Ultimate Agentic Orchestrator) understands the request.
-    *   It might create an MDTM task for this feature.
-    *   The Agentic RAG Engine searches ConPort for existing profile components, image handling utilities, security guidelines for file uploads, or relevant ADRs.
-    *   The POE might identify risks (e.g., "No existing image validation library found") or opportunities (e.g., "Can reuse existing S3 storage integration").
-
-2.  **Initial Implementation Steps (Autonomous):**
+    *   Roo Commander, powered by **CONVEX (the Ultimate Agentic Orchestrator)**, understands the request.
+    *   CONVEX might create an MDTM task for this feature.
+    *   The Agentic RAG Engine, directed by CONVEX, searches ConPort for existing profile components, image handling utilities, security guidelines, or relevant ADRs. CONVEX might also consult Vertex AI for general best practices on secure file uploads if ConPort lacks specific guidance.
+    *   The POE, informed by ConPort data, might identify risks (e.g., "No existing image validation library found") or opportunities (e.g., "Can reuse existing S3 storage integration pattern documented in ConPort").
+ 
+ 2.  **Initial Implementation Steps (Autonomous):**
     *   Roo Commander might delegate to a frontend specialist mode to create UI components (file input, image preview).
     *   It might delegate to a backend specialist mode to create API endpoints for upload and image URL retrieval.
     *   Code for image validation (file type, size) and secure storage (e.g., uploading to a private S3 bucket, generating a signed URL for display) would be generated.
@@ -57,19 +57,20 @@ User: The main dashboard page is loading very slowly, sometimes taking over 5 se
 
 **Expected Autonomous Agentic Behavior (Simplified):**
 
-1.  **Information Gathering (Agentic RAG):**
-    *   Roo Commander uses the RAG engine to query ConPort for:
+1.  **Information Gathering (CONVEX & Agentic RAG):**
+    *   Roo Commander, through CONVEX, uses the Agentic RAG engine.
+    *   CONVEX directs the RAG engine to query ConPort for:
         *   Dashboard component code.
-        *   Related API endpoints and their performance metrics (if logged).
+        *   Related API endpoints and their performance metrics (if logged in ConPort).
         *   Recent changes to dashboard or related services.
         *   Known performance bottlenecks from past CLS reports.
         *   Relevant system patterns for performance optimization.
 
 2.  **Analysis & Hypothesis Generation (POE & Orchestrator):**
-    *   The POE might analyze the retrieved information.
-    *   The Orchestrator might form hypotheses: "Is it a frontend rendering issue? A slow API call? Large data transfer?"
-
-3.  **Diagnostic Actions (Autonomous, if safe):**
+    *   The POE might analyze the ConPort-retrieved information.
+    *   CONVEX (the Orchestrator) might form hypotheses: "Is it a frontend rendering issue? A slow API call? Large data transfer?" If ConPort data is insufficient, CONVEX might query Vertex AI for common causes of slow dashboard performance with the given tech stack.
+ 
+ 3.  **Diagnostic Actions (Autonomous, if safe):**
     *   If monitoring tools are integrated and accessible, it might query them for real-time metrics.
     *   It might analyze code complexity of dashboard components or backend API logic.
     *   *(Caution: Direct execution of performance profiling tools on production might be gated by safety rules, but it could analyze existing profiling data.)*
@@ -102,9 +103,9 @@ User: Can you explain how user authentication is implemented in this project?
 
 **Expected Autonomous Agentic Behavior (Simplified):**
 
-1.  **Targeted RAG Retrieval:**
-    *   Roo Commander uses the Agentic RAG Engine.
-    *   The RAG engine queries ConPort specifically for:
+1.  **Targeted RAG Retrieval (CONVEX-led):**
+    *   Roo Commander, via CONVEX, uses the Agentic RAG Engine.
+    *   CONVEX directs the RAG engine to query ConPort specifically for:
         *   ADRs related to "authentication" or "security".
         *   System patterns tagged with "auth".
         *   Custom data in categories like "SecurityGuidelines" or "ServiceIntegrations" (if an external auth provider is used).

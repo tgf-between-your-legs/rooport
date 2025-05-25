@@ -8,10 +8,10 @@ The Ultimate Agentic Coding Tool's core engines (POE, CLS, Agentic RAG, Orchestr
 
 However, understanding their Python module interfaces can be useful for advanced users or developers extending the system.
 
-### 1.1. Ultimate Agentic Orchestrator
-*   **Module:** [`ultimate-agentic-orchestrator.py`](../../modes/roo-commander/ultimate-agentic-orchestrator.py)
+### 1.1. Ultimate Agentic Orchestrator (CONVEX)
+*   **Module:** [`ultimate-agentic-orchestrator.py`](../../modes/roo-commander/ultimate-agentic-orchestrator.py) (Internally known as CONVEX - Contextual Orchestration for Vertex and External/Internal knowledge)
 *   **Main Function:** `async def integrate_ultimate_agentic_system(workspace_id: str, user_query: str, conport_client, vertex_ai_client=None) -> UltimateAgenticResponse:`
-    *   **Purpose:** Main entry point to process a user query using the full suite of agentic capabilities.
+    *   **Purpose:** Main entry point to process a user query using the full suite of agentic capabilities. CONVEX analyzes the query and intelligently routes it to the appropriate information sources (ConPort for project-specific context, Vertex AI for general knowledge/research) or internal engines (POE, CLS, RAG).
     *   **Arguments:**
         *   `workspace_id (str)`: Absolute path to the current ROOPORT workspace.
         *   `user_query (str)`: The user's request or query.

@@ -72,14 +72,21 @@ This engine provides Roo Commander with powerful information retrieval and under
     *   "Analyze the performance implications of this code change."
     ...the Agentic RAG engine is working to provide you with accurate, context-rich answers.
 
-### 2.4. Ultimate Agentic Orchestrator
-
-This is the central "brain" that integrates the POE, CLS, and Agentic RAG Engine.
-
-*   **Unified Coordination:** It ensures all components work together. For example, a RAG query might trigger a POE suggestion if the retrieved context reveals a risk. CLS feedback might refine how the RAG engine selects retrieval strategies.
-*   **Response Synthesis:** It takes outputs from all engines to formulate the comprehensive responses you receive from Roo Commander.
+### 2.4. Ultimate Agentic Orchestrator (CONVEX)
+ 
+This is the central "brain", known as **CONVEX (Contextual Orchestration for Vertex and External/Internal knowledge)**, that integrates the POE, CLS, and Agentic RAG Engine. It embodies the "dual-brain" architecture of ROOPORT.
+ 
+*   **Unified Coordination & Dual-Brain Management:** CONVEX intelligently routes your queries and internal system needs. It decides whether to consult:
+    *   **ConPort:** For deep, persistent project-specific knowledge, history, and patterns.
+    *   **Vertex AI (or other configured AI Providers):** For broad external knowledge, research, and advanced generative tasks.
+    *   Or a combination of both, synthesizing information for optimal responses.
+*   **Intelligent Routing:** When you interact with Roo Commander, CONVEX analyzes your query's intent. For example:
+    *   A question about past project decisions will primarily leverage ConPort.
+    *   A request for general programming best practices might use Vertex AI.
+    *   A complex task requiring both project context and external research will see CONVEX orchestrate both sources.
+*   **Response Synthesis:** It takes outputs from all engines and sources to formulate the comprehensive, context-aware responses you receive from Roo Commander.
 *   **Performance Monitoring & Optimization:** It oversees overall system performance and can trigger optimization cycles.
-
+ 
 ## 3. Common Workflows and Usage Patterns
 
 ### 3.1. Starting a New Task or Feature
