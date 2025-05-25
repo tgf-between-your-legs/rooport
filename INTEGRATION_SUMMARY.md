@@ -53,7 +53,7 @@ This document summarizes the complete AI Enrichment integration that transforms 
 ## 🎯 Installation
 
 ```bash
-git clone https://github.com/roocode-ai/rooport.git
+git clone https://github.com/tgf-between-your-legs/rooport.git
 cd rooport
 ./setup.sh  # or setup.bat on Windows
 cp config/example.env .env  # Edit with your API keys
