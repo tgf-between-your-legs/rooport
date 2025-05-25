@@ -45,24 +45,36 @@
  
 ## 🚀 Quick Start
 
+### One-Line Installation (Recommended)
+
+**Linux/macOS:**
 ```bash
-# 1. Clone and install ROOPORT
+curl -sSL https://raw.githubusercontent.com/tgf-between-your-legs/rooport/master/install.sh | bash
+```
+
+**Windows:**
+```powershell
+iwr https://raw.githubusercontent.com/tgf-between-your-legs/rooport/master/install.bat -o install.bat; .\install.bat
+```
+
+### Simple Pip Installation
+```bash
+pip install git+https://github.com/tgf-between-your-legs/rooport.git
+```
+
+### Development Installation
+```bash
 git clone https://github.com/tgf-between-your-legs/rooport.git
 cd rooport
 pip install -e .
+```
 
-# 2. Set up environment variables
-cp .env.template .env
-# Edit .env with your API keys
-
-# 3. Configure MCP servers
-cp config/mcp.template.json .roo/mcp.json
-# Edit with your actual paths
-
-# 4. Test installation
+### Verify Installation
+```bash
 python -c "import rooport; print('ROOPORT ready to go! 🚀')"
+rooport --version
 
-# 5. Run your first query
+# Launch with CONVEX capabilities
 rooport --query "Analyze my project and suggest improvements"
 ```
 

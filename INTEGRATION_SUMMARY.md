@@ -52,12 +52,27 @@ This document summarizes the complete AI Enrichment integration that transforms 
 
 ## 🎯 Installation
 
+### Quick Install (Recommended)
+```bash
+# One-line install
+pip install git+https://github.com/tgf-between-your-legs/rooport.git
+
+# Launch CONVEX
+rooport --convex
+```
+
+### Alternative: Manual Setup
 ```bash
 git clone https://github.com/tgf-between-your-legs/rooport.git
 cd rooport
-./setup.sh  # or setup.bat on Windows
+pip install -e .
 cp config/example.env .env  # Edit with your API keys
-rooport --convex  # Launch with CONVEX capabilities
+rooport --convex
 ```
+
+### Prerequisites
+- Python 3.9+
+- VS Code with Roo-Cline extension
+- Git
 
 **Created**: May 25, 2025 | **Status**: Production Ready | **License**: MIT
