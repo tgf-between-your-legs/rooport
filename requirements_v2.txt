@@ -1,0 +1,35 @@
+# RooPort CONVEX v2.0 Dependencies
+# Enhanced AI and ML capabilities for predictive intelligence
+
+# Core dependencies (from v1.0)
+rooport>=1.0.0
+
+# Vector database and semantic search
+chromadb>=0.4.15
+sentence-transformers>=2.2.2
+
+# Machine learning and AI
+transformers>=4.35.0
+torch>=2.1.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.1.0
+
+# Async and performance
+asyncio-mqtt>=0.13.0
+aioredis>=2.0.1
+uvloop>=0.19.0  # For better async performance
+
+# Data processing and analysis
+nltk>=3.8.1  # For natural language processing
+spacy>=3.7.0  # For advanced NLP features
+
+# Monitoring and observability
+prometheus-client>=0.19.0
+structlog>=23.2.0
+
+# Development and testing
+pytest-asyncio>=0.21.0
+pytest-mock>=3.12.0
+black>=23.9.0
+mypy>=1.6.0
