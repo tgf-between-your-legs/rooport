@@ -33,7 +33,7 @@ if errorlevel 1 (
     echo ✅ RooPort CONVEX installed successfully!
     echo.
     echo 🎯 Quick Start:
-    echo    rooport --convex    # Launch with CONVEX capabilities
+    echo    rooport --autonomous standard    # Launch with CONVEX capabilities
     echo    rooport --help      # Show all options
     echo.
     echo 📚 Documentation: https://github.com/tgf-between-your-legs/rooport

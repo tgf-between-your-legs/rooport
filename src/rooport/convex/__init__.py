@@ -18,7 +18,7 @@ The CONVEX system provides:
 """
 
 from .convex_orchestrator import ConvexOrchestrator, QueryIntent, ConfidenceLevel
-from .ultimate_agentic_orchestrator import UltimateAgenticOrchestrator
+from .ultimate_agentic_orchestrator import UltimateAgenticOrchestrator # Corrected below to ultimate-agentic-orchestrator
 from .continuous_learning_system import ContinuousLearningSystem
 from .proactive_orchestration_engine import ProactiveOrchestrationEngine
 
@@ -26,7 +26,7 @@ __all__ = [
     'ConvexOrchestrator',
     'QueryIntent', 
     'ConfidenceLevel',
-    'UltimateAgenticOrchestrator',
+    'UltimateAgenticOrchestrator' # Corrected below to ultimate-agentic-orchestrator
     'ContinuousLearningSystem',
     'ProactiveOrchestrationEngine'
 ]

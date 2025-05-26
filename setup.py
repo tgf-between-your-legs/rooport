@@ -14,7 +14,7 @@ setup(
     description="The Ultimate Agentic Coding Tool - AI-enhanced development assistant",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/rooport",
+    url="https://github.com/tgf-between-your-legs/rooport",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     classifiers=[
@@ -57,8 +57,8 @@ setup(
     },
     keywords="ai, coding, assistant, autonomous, rag, machine-learning, development-tools",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/rooport/issues",
-        "Source": "https://github.com/yourusername/rooport",
-        "Documentation": "https://github.com/yourusername/rooport/tree/main/docs",
+        "Bug Reports": "https://github.com/tgf-between-your-legs/rooport/issues",
+        "Source": "https://github.com/tgf-between-your-legs/rooport",
+        "Documentation": "https://github.com/tgf-between-your-legs/rooport/tree/main/docs",
     },
 )
