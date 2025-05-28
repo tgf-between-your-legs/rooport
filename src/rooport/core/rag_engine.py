@@ -189,6 +189,10 @@ class QueryAnalyzer:
                 ready = [min(remaining)]
             
             next_query = ready[0]
+            order.append(next_query)
+            remaining.remove(next_query)
+        return order
+
 class StrategicRetriever:
     """Implements multiple retrieval strategies with dynamic selection"""
     
@@ -388,6 +392,19 @@ class StrategicRetriever:
         """Calculate relevance scores for retrieved items"""
         scores = []
         query_keywords = set(self._extract_keywords(query))
+        for item in items:
+            item_text = str(item.get("summary", "")) + " " + str(item.get("description", ""))
+            item_keywords = set(self._extract_keywords(item_text))
+
+            if not query_keywords:
+                score = 0.5
+            else:
+                overlap = len(query_keywords.intersection(item_keywords))
+                score = overlap / len(query_keywords)
+
+            scores.append(min(score, 1.0))
+
+        return scores
         
 class InformationSynthesizer:
     """Synthesizes retrieved information into coherent responses"""
@@ -698,19 +715,6 @@ async def integrate_agentic_rag(workspace_id: str, query: str, conport_client) -
     rag_engine = AgenticRAGEngine(conport_client)
     response = await rag_engine.process_query(query, workspace_id)
     return response
-        for item in items:
-            item_text = str(item.get('summary', '')) + ' ' + str(item.get('description', ''))
-            item_keywords = set(self._extract_keywords(item_text))
-            
-            if not query_keywords:
-                score = 0.5
-            else:
-                overlap = len(query_keywords.intersection(item_keywords))
-                score = overlap / len(query_keywords)
-            
-            scores.append(min(score, 1.0))
-        
-        return scores
     
     def _assess_confidence(self, items: List[Dict], relevance_scores: List[float]) -> ConfidenceLevel:
         """Assess confidence in retrieval results"""
@@ -756,10 +760,6 @@ async def integrate_agentic_rag(workspace_id: str, query: str, conport_client) -
             metadata={},
             timestamp=datetime.now()
         )
-            order.append(next_query)
-            remaining.remove(next_query)
-        
-        return order
     
     def _infer_answer_type(self, query: str) -> str:
         """Infer expected answer type from query"""

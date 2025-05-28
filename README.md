@@ -44,6 +44,9 @@
 # 1. Clone and install ROOPORT
 git clone https://github.com/tgf-between-your-legs/rooport.git
 cd rooport
+# For Codex environments run the setup script
+./codex_setup.sh
+
 pip install -e .
 
 # 2. Set up environment variables
